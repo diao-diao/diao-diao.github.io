@@ -248,6 +248,179 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/19/%E5%88%86%E6%B2%BB%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/19/%E5%88%86%E6%B2%BB%E6%B3%95/" itemprop="url">分治法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-19T17:41:24+08:00">
+                2019-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index">
+                    <span itemprop="name">算法设计</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="分治法"><a href="#分治法" class="headerlink" title="分治法"></a>分治法</h1><h2 id="一、分治思想"><a href="#一、分治思想" class="headerlink" title="一、分治思想"></a>一、分治思想</h2><pre><code>大问题分解为很多个子问题，最后合并</code></pre><h2 id="二、步骤："><a href="#二、步骤：" class="headerlink" title="二、步骤："></a>二、步骤：</h2><pre><code>1.划分子问题
+2.求解子问题
+3.合并子问题</code></pre><h2 id="三、归并："><a href="#三、归并：" class="headerlink" title="三、归并："></a>三、归并：</h2><pre><code>例子：
+3 5 2 7 9 0 1 4
+这里我们开辟出一个新的存放空间K,用两个指针i,j分别指向两个子问题的最开始元素；然后进行比较。最后变为：
+2 3 5 7 | 0 1 4 9
+再将这两个有序的子问题用相同的方法进行合并即可。 这就是归并的思想</code></pre><h2 id="四、伪码："><a href="#四、伪码：" class="headerlink" title="四、伪码："></a>四、伪码：</h2><pre><code>void MergeSort(int r[],int r1[],int L,int R){
+if(L==R) r1[L]=r[L]; //只有一个元素，直接赋值
+       else{
+        m=(L+R)/2;
+      Mergesort(r,r1,L,m);    //归并排序前半个子序列
+      Mergesort(r,r1,m+1,R); //归并排序后半个子序列
+           Merge(r1,r,L,m,R); //合并两个已排序的子序列
+      }
+}
+
+void Merge(int r[],int r1[],int L,int m,int R){
+    i=L;j=m+1;k=L;
+    while(j&lt;=m&amp;&amp;j&lt;=t){
+        if(r[i]&lt;=r[j]) r1[k++]=r[i++];
+        else r1[k++]=r[j++];
+    }
+    if(i&lt;=m) while(i&lt;=m)
+        r1[k++]=r[i++];
+    else while(j&lt;=R)
+        r1[k++]=r[j++];
+}</code></pre><h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="@时间复杂度"></a>@时间复杂度</h3><pre><code>T（N）&gt;=O(n*logn)</code></pre><h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="@空间复杂度"></a>@空间复杂度</h3><pre><code>O(n)</code></pre><h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><h2 id="一、概念"><a href="#一、概念" class="headerlink" title="一、概念"></a>一、概念</h2><pre><code>快排其实就是冒泡的改进；主要思路就是划分元素——主元。
+例如：3 5 2 7 9 0 1 4
+    ___________________
+
+    1 0 2| 3 |9 7 5 4
+    左子序-|主元|-右子序
+    1 0 2| 3 |9 7 5 4</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -426,7 +599,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -437,7 +610,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -448,7 +621,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

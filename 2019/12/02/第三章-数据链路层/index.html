@@ -79,24 +79,21 @@
 
 
 
-<meta name="description" content="第一章-绪论主要知识熟悉的网络有三大类：电信网络，有线电视网络和计算机网络  计算机网络的主要功能是：资源共享和数据通信（具有连通信和共享性）  计算机网络的组成：由若干结点和连接它们的链路组成  ARPANET是互联网的雏形  internet(互连网)是一个通用名词，泛指多个计算机网络互相连接的计算机网阔  Internet(互联网）是一个专有名词，指全球目前最大的，开放的互连网  ISP:互">
+<meta name="description" content="第三章-数据链路层主要知识数据链路层使用的两种主要信道是： 1.点对点信道 2.广播信道  数据链路层的三个基本问题：封装成帧，透明传输和差错检测     封装成帧：在一段数据前后分别添加首部和尾部，构成一个帧，目的是让计算机知道何为开始，何为结束     透明传输：表示无论什么样的比特组合的数据，都能够按照原样没有差错地通过这个数据链路层     差错检测：只能检测出比特差错，广泛使用循环冗余检">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一章-绪论">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;18&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;index.html">
+<meta property="og:title" content="第三章-数据链路层">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="第一章-绪论主要知识熟悉的网络有三大类：电信网络，有线电视网络和计算机网络  计算机网络的主要功能是：资源共享和数据通信（具有连通信和共享性）  计算机网络的组成：由若干结点和连接它们的链路组成  ARPANET是互联网的雏形  internet(互连网)是一个通用名词，泛指多个计算机网络互相连接的计算机网阔  Internet(互联网）是一个专有名词，指全球目前最大的，开放的互连网  ISP:互">
+<meta property="og:description" content="第三章-数据链路层主要知识数据链路层使用的两种主要信道是： 1.点对点信道 2.广播信道  数据链路层的三个基本问题：封装成帧，透明传输和差错检测     封装成帧：在一段数据前后分别添加首部和尾部，构成一个帧，目的是让计算机知道何为开始，何为结束     透明传输：表示无论什么样的比特组合的数据，都能够按照原样没有差错地通过这个数据链路层     差错检测：只能检测出比特差错，广泛使用循环冗余检">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;ISP%E6%A6%82%E5%BF%B5%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;%E6%A0%B8%E5%BF%83%E8%BE%B9%E7%BC%98%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;CS%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;%E5%AF%B9%E7%AD%89%E8%BF%9E%E6%8E%A5%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;%E7%BB%AA%E8%AE%BA.png">
-<meta property="og:updated_time" content="2019-11-23T05:30:03.491Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;CRC.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;%E5%B8%A7%E7%9A%84%E6%A0%BC%E5%BC%8F.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;%E8%87%AA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82.png">
+<meta property="og:updated_time" content="2019-12-02T10:45:32.082Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;ISP%E6%A6%82%E5%BF%B5%E7%A4%BA%E6%84%8F%E5%9B%BE.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;CRC.png">
 
 
 
@@ -126,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/11/18/计算机网络/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/12/02/第三章-数据链路层/"/>
 
 
 
 
 
-  <title>第一章-绪论 | diao-diao-UPUP</title>
+  <title>第三章-数据链路层 | diao-diao-UPUP</title>
   
 
 
@@ -259,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/02/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="diao-diao">
@@ -276,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第一章-绪论</h1>
+          <h1 class="post-title" itemprop="name headline">第三章-数据链路层</h1>
         
 
         <div class="post-meta">
@@ -288,8 +285,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-18T20:14:15+08:00">
-                2019-11-18
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-02T17:45:28+08:00">
+                2019-12-02
               </time>
             
 
@@ -348,69 +345,109 @@
       
 
       
-        <h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章-绪论"></a>第一章-绪论</h1><h2 id="主要知识"><a href="#主要知识" class="headerlink" title="主要知识"></a>主要知识</h2><pre><code>熟悉的网络有三大类：电信网络，有线电视网络和计算机网络
+        <h1 id="第三章-数据链路层"><a href="#第三章-数据链路层" class="headerlink" title="第三章-数据链路层"></a>第三章-数据链路层</h1><h2 id="主要知识"><a href="#主要知识" class="headerlink" title="主要知识"></a>主要知识</h2><pre><code>数据链路层使用的两种主要信道是：
+1.点对点信道
+2.广播信道
 
-计算机网络的主要功能是：资源共享和数据通信（具有连通信和共享性）
+数据链路层的三个基本问题：封装成帧，透明传输和差错检测
+    封装成帧：在一段数据前后分别添加首部和尾部，构成一个帧，目的是让计算机知道何为开始，何为结束
+    透明传输：表示无论什么样的比特组合的数据，都能够按照原样没有差错地通过这个数据链路层
+    差错检测：只能检测出比特差错，广泛使用循环冗余检验CRC
 
-计算机网络的组成：由若干结点和连接它们的链路组成
+数据链路层传输数据的基本单位是：帧
 
-ARPANET是互联网的雏形
+链路：就是从一个结点到相邻结点的一段物理线路（有线或无线），而中间没有任何其他的交换结点
 
-internet(互连网)是一个通用名词，泛指多个计算机网络互相连接的计算机网阔
+*CRC：
+    第一种情况，是发送端向接收方发送数据
+    例：P（x）=x^3+1=&gt;1001（4位）
+    想要发送的数据：1011 1100
+    实际发送的数据：1011 1100 0000 （4-1）位
+    FCS：（4-1）位</code></pre><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/CRC.png" alt="avatar"></p>
+<pre><code>余数作为FCS
 
-Internet(互联网）是一个专有名词，指全球目前最大的，开放的互连网
+    第二种情况，是接收方接收到的数据
+    例：P（x）=x^3+1=&gt;1001(4位)
+    接收到的数据1011 1100 0000
+    这里由于是接收方发来的数据，所以不用再添加零
 
-ISP:互联网服务提供商（移动，电信，联通）</code></pre><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/ISP%E6%A6%82%E5%BF%B5%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="avatar"></p>
-<pre><code>*互联网的拓扑结构虽然非常复杂，但是按照工作方式分，可以分为：
-边缘部分和核心部分
+    现在使用1001除于1011 1100 0000查看余数是否为0，若不为零，则发送数据出现了差错；反之
 
-边缘部分：由所有连接在互联网上的主机组成，用户可以直接使用（资源共享和数据通信）
-核心部分：由网络和连接这些网络的路由器组成，为边缘部分提供服务</code></pre><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%A0%B8%E5%BF%83%E8%BE%B9%E7%BC%98%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="avatar"></p>
-<pre><code>网络边缘的通信方式通常可以划分为两大类：客户-服务器方式（C/S）和对等方式（C/S）
+ CRC只能检测出比特差错而不能纠正这种差错，所以数据链路层向网络层的是“不可靠传输”的服务
 
-关于两者的区别：
-前者强调服务者与被服务者的关系，后者没有，后者其实就是前者的双向应用</code></pre><p>   <img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/CS%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="avatar"><br>   <img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%AF%B9%E7%AD%89%E8%BF%9E%E6%8E%A5%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="avatar"></p>
-<pre><code>   核心部分起特殊作用的是：路由器；作用是存储转发
+除了比特差错还有：帧丢失，帧重复，帧失序；这一类差错属于传输差错
 
-边缘部分和核心部分的工作方式是什么？
+点对点协议PPP：
+    特点：1.简单 2.封装成帧 3.透明性 4.多种网络层协议 5.多种类型链路 6.差错检测 7.检测连接状态 8.最大传输单元 9.网络层地址协商 10.数据压缩协商
 
-边缘部分由连接在互联网上的主机组成，用户可以直接使用资源共享，数据通信
-核心部分由网络和连接网络的路由器组成，核心部分的工作方式其实就是路由器的工作方式，即存储转发
+   组成：
+   1.一个将IP数据报封装到串行链路的方法
+   2.一个用来建立，配置和测试连接的链路控制协议LCP
+   3.一套网络控制协议NCP
 
-交换技术分别有哪几种？它们的区别是什么？
+   帧的格式：</code></pre><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%B8%A7%E7%9A%84%E6%A0%BC%E5%BC%8F.png" alt="avatar"></p>
+<pre><code> 字节填充：当使用异步传输时，转义符定义为0x7D
+方法：每出现一个0x7E就变为0x7D,0x5E
+      每出现一个0x7D就变为0x7D,0x5D
 
-交换技术主要有电路交换，报文交换，分组交换；
-电路交换将报文的比特流连续从源点直达重点，像在管道中传送
-报文交换是整个报文先到相邻节点，全部存储下来之后再查找转发表，进行转发
-分组交换其实就是将报文交换中的报文拆分为多个分组，存储转发</code></pre><p> <img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="avatar"></p>
-<pre><code> 计算机网络按范围分：
-广域网（WAN），城域网（MAN）,局域网(LAN)，个人区域网(PAN)
+零比特填充：发送端：发送连续的5个1，就在后面添加一个0
+          接收端：接受连续的5个1，就把后面的一个0删除
 
-按用户分：
-专用网和公用网
+局域网的主要优点：
+1.具有广播功能
+2.灵活多变
+3.提高了系统的可靠性，可用性和生存性
 
-计算机网络性能指标：
-速率，带宽，时延，时延带宽积，吞吐量，往返时间RTT，利用率
+局域网按拓扑结构可以分为：星型，环型和总线型
 
-速率：数据传输的速率
-带宽：表示某通道传输数据的能力
-时延：分为发送时延，传播时延，处理时延和排队时延
-时延带宽积：时延*带宽
-吞吐量：单位时间内，通过某网络的实际数据量
-往返时间RTT：从发送开始计时直到发送方收到接收方的确认
-利用率：信道的利用率
+共享媒体资源的方法：
+    1.静态划分信道（频分复用，时分复用等复用技术）
+    2.动态媒体接入控制：随机接入，受控接入
 
-计算机网络体系结构，最有名的是两种：OSI参考模型和TCP/IP的四层协议</code></pre><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84.png" alt="avatar"></p>
-<h2 id="部分习题："><a href="#部分习题：" class="headerlink" title="部分习题："></a>部分习题：</h2><pre><code>C/S和P2P的主要区别是什么？有什么相同的地方？
-前者强调服务者与被服务者的关系，后者没有，后者其实就是前者的双向应用
+以太网：以太网就是局域网，局域网&gt;以太网
+    标准：DIX Ethernet V2 和 IEEE 802.3
 
-计算机网络有哪些常用的性能指标？
-速率，带宽，吞吐量，时延，时延带宽积，往返时间RTT,利用率
+网络适配器：俗称就是网卡
+    功能：
+    1.进行数据串行传输和并行传输转换
+    2.对数据进行缓存
+    3.在计算机的操作系统中安装驱动程序
+    4.实现以太网协议
 
-网络协议的三要素是什么？有什么含义？
-语法：即数据与控制信息的结构或格式
-语义：即需要发出何种控制信息，完成何种动作
-同步：即事件发生的顺序</code></pre><h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%BB%AA%E8%AE%BA.png" alt="avatar"></p>
+ 以太网使用的是：CSMA/CD协议
+     为了通信的简便，采用灵活的无连接工作方式，不进行编号，也不要求对方发回请求；所以是不可靠传输
+
+  CSMA/CD的要点：
+      多点接入：许多计算机以多点接入连接到一根总线上
+      载波监听：每个站不停地检测信道
+      碰撞检测：边发送边监听
+
+  CSMA/CS采用的是半双工通信
+
+  MAC层的硬件地址：
+   MAC地址就是硬件地址
+   在网络适配器上
+   有48位（唯一性）
+   工作在数据链路层
+
+ 以太网交换机：实际上就是多个接口的网桥
+     每个通信的主机都是独占传输媒体，无碰撞地传输数据
+     对收到的帧采用存储转发的方式
+
+   交换表采用的是自学习算法：</code></pre><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%87%AA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95.png" alt="avatar"></p>
+<pre><code>100BASE-T:在双绞线上传输100Mbit/s基带信号
+T：双绞线
+BASE：基带信号
+100：100Mbit/s</code></pre><h2 id="部分习题"><a href="#部分习题" class="headerlink" title="部分习题"></a>部分习题</h2><pre><code>*网络适配器的作用？工作在哪一层？
+    1.进行数据串行传输和并行传输转换 
+    2.对数据进行缓存
+    3.在计算机的操作系统中安装驱动程序
+    4.实现以太网协议；工作在数据链路层
+    工作在数据链路层
+*数据链路层的三个基本问题为什么都必须加以解决？
+    ⑴封装成帧就是在一段数据前后分别添加首部和尾部。接收端以便从收到的比特流中识别帧的开始与结束，帧定界是分组交换的必然要求；
+    ⑵ 透明传输避免消息符号与帧定界符号相混淆；
+    ⑶差错检测防止差错的无效数据帧，浪费网络资源。</code></pre><h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82.png" alt="avatar">    </p>
 
       
     </div>
@@ -441,15 +478,15 @@ ISP:互联网服务提供商（移动，电信，联通）</code></pre><p><img s
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/12/01/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%89%A9%E7%90%86%E5%B1%82/" rel="next" title="第二章-物理层">
+                <i class="fa fa-chevron-left"></i> 第二章-物理层
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/19/%E5%88%86%E6%B2%BB%E6%B3%95/" rel="prev" title="分治法">
-                分治法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -601,7 +638,7 @@ ISP:互联网服务提供商（移动，电信，联通）</code></pre><p><img s
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一章-绪论"><span class="nav-number">1.</span> <span class="nav-text">第一章-绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主要知识"><span class="nav-number">1.1.</span> <span class="nav-text">主要知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部分习题："><span class="nav-number">1.2.</span> <span class="nav-text">部分习题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思维导图"><span class="nav-number">1.3.</span> <span class="nav-text">思维导图</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-数据链路层"><span class="nav-number">1.</span> <span class="nav-text">第三章-数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主要知识"><span class="nav-number">1.1.</span> <span class="nav-text">主要知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部分习题"><span class="nav-number">1.2.</span> <span class="nav-text">部分习题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思维导图"><span class="nav-number">1.3.</span> <span class="nav-text">思维导图</span></a></li></ol></li></ol></div>
             
 
           </div>

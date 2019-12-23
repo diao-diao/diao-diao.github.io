@@ -248,6 +248,327 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/23/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/23/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" itemprop="url">JAVA基础知识</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-23T19:35:19+08:00">
+                2019-12-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="逻辑运算符："><a href="#逻辑运算符：" class="headerlink" title="逻辑运算符："></a>逻辑运算符：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i=<span class="number">3</span></span><br><span class="line">System.out.println(<span class="string">"b&amp;&amp;(++i&gt;3)="</span>+(b&amp;&amp;(++i&gt;<span class="number">3</span>)));<span class="comment">//b为flase，++i&gt;3被短路</span></span><br><span class="line">System.out.println(<span class="string">"b&amp; (++i&gt;3)="</span>+(b&amp; (++i&gt;<span class="number">3</span>)));<span class="comment">//b为flase，++i&gt;3要被计算</span></span><br></pre></td></tr></table></figure>
+<p>短路与（&amp;&amp;）前者能决定整个表达式的结构时，后者不需要执行 <br><br>非短路与（&amp;）前者决定整个表达式的结构时，后者仍然需要执行 <br><br>或操作同理</p>
+<h3 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制:"></a>流程控制:</h3><p>使用break语句实现求200-300之间的素数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BreakTest</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">    	<span class="keyword">boolean</span> b;</span><br><span class="line">        <span class="keyword">int</span> col=<span class="number">0</span>;</span><br><span class="line">        System.out.println(<span class="string">"200-300之间的素数为:"</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">201</span>;i&lt;<span class="number">300</span>;i+=<span class="number">2</span>)&#123;</span><br><span class="line">        	b=<span class="keyword">true</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>;j&lt;i;j++)&#123;</span><br><span class="line">            	<span class="keyword">if</span>(i%j==<span class="number">0</span>)&#123;</span><br><span class="line">                	b=<span class="keyword">false</span>;</span><br><span class="line">                	<span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">         <span class="keyword">if</span>(b)&#123;</span><br><span class="line">         	System.out.println();</span><br><span class="line">         <span class="keyword">else</span></span><br><span class="line">         	System.out.println(<span class="string">"\t"</span>);</span><br><span class="line">         &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>break语句的用法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BreakLabelTest</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">    	outer:<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">        	innner:<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;<span class="number">3</span>;j++)&#123;</span><br><span class="line">            	<span class="keyword">if</span>(j&gt;<span class="number">1</span>) <span class="keyword">break</span> outer;</span><br><span class="line">                System.out.println(j+<span class="string">"and"</span>+i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//运行结果为：</span></span><br><span class="line"><span class="number">0</span> and <span class="number">0</span></span><br><span class="line"><span class="number">1</span> and <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>使用continue语句求200-300之间的素数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ContinueLabelTest</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">    	<span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">        System.out.println(<span class="string">"200-300之间的素数为："</span>);</span><br><span class="line">        outer:<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">201</span>;i&lt;<span class="number">300</span>;i+=<span class="number">2</span>)&#123;</span><br><span class="line">        	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">2</span>;j&lt;i;j++)&#123;</span><br><span class="line">            	<span class="keyword">if</span>(i%j==<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">continue</span> outer;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(i);</span><br><span class="line">            num++;</span><br><span class="line">            <span class="keyword">if</span>(num%<span class="number">10</span>==<span class="number">0</span>)</span><br><span class="line">            	System.out.println();</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            	System.out.println(<span class="string">"\t"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="习题："><a href="#习题：" class="headerlink" title="习题："></a>习题：</h3><pre><code>1.public int method(){
+    return 3.14;
+}//定义是错误的
+
+2.this和2tolodds标识符是不合法的
+
+3.22，0x22,022这三种关于整数常量的表示方法是正确的
+
+4.char的取值范围是0~2^16-1
+
+5.double和then是Java的关键词
+
+6.char c=&apos;\&apos;&apos; 这个赋值语句是正确的，\转义了&apos;
+
+7.&gt;&gt;为带符号右移，&gt;&gt;&gt;为不带符号右移；左移类似
+
+8.long l=698.65，float f=55.8的赋值是错误的。long是长整型；55.8超出了float的取值范围
+
+课后习题：1,4 (P50)</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/23/JAVA%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/23/JAVA%E6%A6%82%E8%BF%B0/" itemprop="url">JAVA概述</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-23T19:20:13+08:00">
+                2019-12-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="运行机制："><a href="#运行机制：" class="headerlink" title="*运行机制："></a>*运行机制：<br></h3><p>半编译半解释</p>
+<h3 id="子目录及其主要功能："><a href="#子目录及其主要功能：" class="headerlink" title="子目录及其主要功能："></a>子目录及其主要功能：<br></h3><p>*目录bin：用于存放开发Java程序所需要的工具<br><br>目录db:java数据库<br><br>目录demo：用来存放带有源代码的Java平台编程示例<br><br>目录include:用来存放编译本地方法的C++头文件<br><br>目录jre：Java运行时的环境<br><br>*目录lib：用来存放开发工具包的类库文件</p>
+<h3 id="环境变量设置：主要分为path和classpath"><a href="#环境变量设置：主要分为path和classpath" class="headerlink" title="环境变量设置：主要分为path和classpath"></a>环境变量设置：<br>主要分为path和classpath</h3><h3 id="Java程序结构："><a href="#Java程序结构：" class="headerlink" title="Java程序结构："></a>Java程序结构：<br></h3><p>package<br><br>import<br><br>public class<br><br>class <br><br>interface</p>
+<h3 id="主要的开发工具："><a href="#主要的开发工具：" class="headerlink" title="主要的开发工具："></a>主要的开发工具：<br></h3><p>Java编译器javac<br><br>Java解释器java</p>
+<h3 id="习题"><a href="#习题" class="headerlink" title="习题:"></a>习题:<br></h3><pre><code>1.下列可用作Java集成环境开发环境开放源代码的软件是 NetBeans IDE
+
+2.字节码类型的代码被JVM解释成本地代码
+
+3.一个JAVA类包括数据和方法
+
+4.在JAVA类的定义中，public static void main(String args[]){}是正确的
+
+5.HelloWorld.class文件包含名为HelloWorld的类的字节码</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/02/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1259,7 +1580,7 @@ ISP:互联网服务提供商（移动，电信，联通）</code></pre><p><img s
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1270,7 +1591,7 @@ ISP:互联网服务提供商（移动，电信，联通）</code></pre><p><img s
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -1281,7 +1602,7 @@ ISP:互联网服务提供商（移动，电信，联通）</code></pre><p><img s
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

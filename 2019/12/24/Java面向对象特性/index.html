@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="diao-diao-UPUP">
 <meta property="og:description" content="基本组成单位：类 常见的关键字及其解释：访问权限：publicprivateprotecteddefault 类与接口:类的继承使用extends关键词，Java为单继承接口的使用使用implements关键词，在接口中可以实现多继承 继承相关:super:调用父类的构造方法this:指向当前对象 所有类的顶级父类是Object 习题:1.如果试图编译下列名为Example.java的源代码，则会">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-24T01:43:24.070Z">
+<meta property="og:updated_time" content="2019-12-24T01:48:02.735Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -341,9 +341,9 @@
 
       
         <h3 id="基本组成单位："><a href="#基本组成单位：" class="headerlink" title="基本组成单位："></a>基本组成单位：<br></h3><p>类</p>
-<h3 id="常见的关键字及其解释："><a href="#常见的关键字及其解释：" class="headerlink" title="常见的关键字及其解释："></a>常见的关键字及其解释：<br></h3><p>访问权限：<br><br>public<br><br>private<br><br>protected<br><br>default</p>
-<p>类与接口:<br><br>类的继承使用extends关键词，Java为单继承<br><br>接口的使用使用implements关键词，在接口中可以实现多继承</p>
-<p>继承相关:<br><br>super:调用父类的构造方法<br>this:指向当前对象</p>
+<h3 id="常见的关键字及其解释："><a href="#常见的关键字及其解释：" class="headerlink" title="常见的关键字及其解释："></a>常见的关键字及其解释：<br></h3><p>访问权限：<br>public<br>private<br>protected<br>default</p>
+<p>类与接口:<br>类的继承使用extends关键词，Java为单继承<br>接口的使用使用implements关键词，在接口中可以实现多继承</p>
+<p>继承相关:<br>super:调用父类的构造方法<br>this:指向当前对象</p>
 <p>所有类的顶级父类是Object</p>
 <h3 id="习题"><a href="#习题" class="headerlink" title="习题:"></a>习题:<br></h3><p>1.如果试图编译下列名为Example.java的源代码，则会产生错误的是哪一行</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">BaseClass</span></span>&#123;&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BaseClass</span></span>&#123;</span><br><span class="line">	String str;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BaseClass</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	System.out.println(<span class="string">"ok"</span>);&#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BaseClass</span><span class="params">(String s)</span></span>&#123;str=s;&#125;&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Example</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	SubClass s=<span class="keyword">new</span> SubClass(<span class="string">"hello"</span>); <span class="comment">//该行会出现错误</span></span><br><span class="line">        BaseClass b=<span class="keyword">new</span> BaseClass(<span class="string">"world"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="CTF," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,21 +79,17 @@
 
 
 
-<meta name="description" content="第三章-数据链路层主要知识数据链路层使用的两种主要信道是： 1.点对点信道 2.广播信道  数据链路层的三个基本问题：封装成帧，透明传输和差错检测     封装成帧：在一段数据前后分别添加首部和尾部，构成一个帧，目的是让计算机知道何为开始，何为结束     透明传输：表示无论什么样的比特组合的数据，都能够按照原样没有差错地通过这个数据链路层     差错检测：只能检测出比特差错，广泛使用循环冗余检">
-<meta name="keywords" content="CTF">
+<meta name="description" content="admin打开环境，再根据题目，可以猜测大概是伪造admin登录就OK了没有什么思路 先随便注册一个吧登录之后，点change password  查看一下源码得到hint 又又又又是flask  我要吐了 复制连接 下载一下 随后打开index.php 查看代码 flask之前比赛时遇到过，CNSS也遇到过，一个轻量级的python框架，这题有两种解法，一种是session  写脚本就可以直接得">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第三章-数据链路层">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;12&#x2F;02&#x2F;%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82&#x2F;index.html">
+<meta property="og:title" content="BUUCTF-admin">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;18&#x2F;BUUCTF-admin&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="第三章-数据链路层主要知识数据链路层使用的两种主要信道是： 1.点对点信道 2.广播信道  数据链路层的三个基本问题：封装成帧，透明传输和差错检测     封装成帧：在一段数据前后分别添加首部和尾部，构成一个帧，目的是让计算机知道何为开始，何为结束     透明传输：表示无论什么样的比特组合的数据，都能够按照原样没有差错地通过这个数据链路层     差错检测：只能检测出比特差错，广泛使用循环冗余检">
+<meta property="og:description" content="admin打开环境，再根据题目，可以猜测大概是伪造admin登录就OK了没有什么思路 先随便注册一个吧登录之后，点change password  查看一下源码得到hint 又又又又是flask  我要吐了 复制连接 下载一下 随后打开index.php 查看代码 flask之前比赛时遇到过，CNSS也遇到过，一个轻量级的python框架，这题有两种解法，一种是session  写脚本就可以直接得">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;CRC.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;%E5%B8%A7%E7%9A%84%E6%A0%BC%E5%BC%8F.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;%E8%87%AA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82.png">
-<meta property="og:updated_time" content="2019-12-02T10:45:34.000Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;admin&#x2F;0.png">
+<meta property="og:updated_time" content="2020-01-18T02:05:51.805Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;CRC.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;admin&#x2F;0.png">
 
 
 
@@ -123,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/12/02/第三章-数据链路层/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/01/18/BUUCTF-admin/"/>
 
 
 
 
 
-  <title>第三章-数据链路层 | diao-diao-UPUP</title>
+  <title>BUUCTF-admin | diao-diao-UPUP</title>
   
 
 
@@ -256,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/02/%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/18/BUUCTF-admin/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="diao-diao">
@@ -273,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">第三章-数据链路层</h1>
+          <h1 class="post-title" itemprop="name headline">BUUCTF-admin</h1>
         
 
         <div class="post-meta">
@@ -285,8 +281,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-02T17:45:28+08:00">
-                2019-12-02
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-18T09:42:22+08:00">
+                2020-01-18
               </time>
             
 
@@ -295,28 +291,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -345,109 +319,17 @@
       
 
       
-        <h1 id="第三章-数据链路层"><a href="#第三章-数据链路层" class="headerlink" title="第三章-数据链路层"></a>第三章-数据链路层</h1><h2 id="主要知识"><a href="#主要知识" class="headerlink" title="主要知识"></a>主要知识</h2><pre><code>数据链路层使用的两种主要信道是：
-1.点对点信道
-2.广播信道
-
-数据链路层的三个基本问题：封装成帧，透明传输和差错检测
-    封装成帧：在一段数据前后分别添加首部和尾部，构成一个帧，目的是让计算机知道何为开始，何为结束
-    透明传输：表示无论什么样的比特组合的数据，都能够按照原样没有差错地通过这个数据链路层
-    差错检测：只能检测出比特差错，广泛使用循环冗余检验CRC
-
-数据链路层传输数据的基本单位是：帧
-
-链路：就是从一个结点到相邻结点的一段物理线路（有线或无线），而中间没有任何其他的交换结点
-
-*CRC：
-    第一种情况，是发送端向接收方发送数据
-    例：P（x）=x^3+1=&gt;1001（4位）
-    想要发送的数据：1011 1100
-    实际发送的数据：1011 1100 0000 （4-1）位
-    FCS：（4-1）位</code></pre><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/CRC.png" alt="avatar"></p>
-<pre><code>余数作为FCS
-
-    第二种情况，是接收方接收到的数据
-    例：P（x）=x^3+1=&gt;1001(4位)
-    接收到的数据1011 1100 0000
-    这里由于是接收方发来的数据，所以不用再添加零
-
-    现在使用1001除于1011 1100 0000查看余数是否为0，若不为零，则发送数据出现了差错；反之
-
- CRC只能检测出比特差错而不能纠正这种差错，所以数据链路层向网络层的是“不可靠传输”的服务
-
-除了比特差错还有：帧丢失，帧重复，帧失序；这一类差错属于传输差错
-
-点对点协议PPP：
-    特点：1.简单 2.封装成帧 3.透明性 4.多种网络层协议 5.多种类型链路 6.差错检测 7.检测连接状态 8.最大传输单元 9.网络层地址协商 10.数据压缩协商
-
-   组成：
-   1.一个将IP数据报封装到串行链路的方法
-   2.一个用来建立，配置和测试连接的链路控制协议LCP
-   3.一套网络控制协议NCP
-
-   帧的格式：</code></pre><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%B8%A7%E7%9A%84%E6%A0%BC%E5%BC%8F.png" alt="avatar"></p>
-<pre><code> 字节填充：当使用异步传输时，转义符定义为0x7D
-方法：每出现一个0x7E就变为0x7D,0x5E
-      每出现一个0x7D就变为0x7D,0x5D
-
-零比特填充：发送端：发送连续的5个1，就在后面添加一个0
-          接收端：接受连续的5个1，就把后面的一个0删除
-
-局域网的主要优点：
-1.具有广播功能
-2.灵活多变
-3.提高了系统的可靠性，可用性和生存性
-
-局域网按拓扑结构可以分为：星型，环型和总线型
-
-共享媒体资源的方法：
-    1.静态划分信道（频分复用，时分复用等复用技术）
-    2.动态媒体接入控制：随机接入，受控接入
-
-以太网：以太网就是局域网，局域网&gt;以太网
-    标准：DIX Ethernet V2 和 IEEE 802.3
-
-网络适配器：俗称就是网卡
-    功能：
-    1.进行数据串行传输和并行传输转换
-    2.对数据进行缓存
-    3.在计算机的操作系统中安装驱动程序
-    4.实现以太网协议
-
- 以太网使用的是：CSMA/CD协议
-     为了通信的简便，采用灵活的无连接工作方式，不进行编号，也不要求对方发回请求；所以是不可靠传输
-
-  CSMA/CD的要点：
-      多点接入：许多计算机以多点接入连接到一根总线上
-      载波监听：每个站不停地检测信道
-      碰撞检测：边发送边监听
-
-  CSMA/CS采用的是半双工通信
-
-  MAC层的硬件地址：
-   MAC地址就是硬件地址
-   在网络适配器上
-   有48位（唯一性）
-   工作在数据链路层
-
- 以太网交换机：实际上就是多个接口的网桥
-     每个通信的主机都是独占传输媒体，无碰撞地传输数据
-     对收到的帧采用存储转发的方式
-
-   交换表采用的是自学习算法：</code></pre><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%87%AA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95.png" alt="avatar"></p>
-<pre><code>100BASE-T:在双绞线上传输100Mbit/s基带信号
-T：双绞线
-BASE：基带信号
-100：100Mbit/s</code></pre><h2 id="部分习题"><a href="#部分习题" class="headerlink" title="部分习题"></a>部分习题</h2><pre><code>*网络适配器的作用？工作在哪一层？
-    1.进行数据串行传输和并行传输转换 
-    2.对数据进行缓存
-    3.在计算机的操作系统中安装驱动程序
-    4.实现以太网协议；工作在数据链路层
-    工作在数据链路层
-*数据链路层的三个基本问题为什么都必须加以解决？
-    ⑴封装成帧就是在一段数据前后分别添加首部和尾部。接收端以便从收到的比特流中识别帧的开始与结束，帧定界是分组交换的必然要求；
-    ⑵ 透明传输避免消息符号与帧定界符号相混淆；
-    ⑶差错检测防止差错的无效数据帧，浪费网络资源。</code></pre><h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82.png" alt="avatar">    </p>
+        <h1 id="admin"><a href="#admin" class="headerlink" title="admin"></a>admin</h1><p>打开环境，再根据题目，可以猜测大概是伪造admin登录就OK了<br>没有什么思路 先随便注册一个吧<br>登录之后，点change password  查看一下源码<br>得到hint<br><img src="/images/BUUCTF/admin/0.png" alt="avatar"></p>
+<p>又又又又是flask  我要吐了</p>
+<p>复制连接 下载一下</p>
+<p>随后打开index.php 查看代码</p>
+<p>flask之前比赛时遇到过，CNSS也遇到过，一个轻量级的python框架，这题有两种解法，一种是session  写脚本就可以直接得到 但是奈何不会写</p>
+<p>所以只好使用strlower  转小写函数去尝试注册ADMIN<br>哦豁，发现GG了，那再看看strlower的定义中有nodeprep.prepare()这个函数<br>我们先使用unicode编码的字符 ᴬ<br>用这个用户名注册</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ᴬdmin</span><br></pre></td></tr></table></figure>
+<p>这个时候nodeprep.prepare()函数会将用户名变为Admin，随便修改一下密码，就会再次调用该函数变为admin</p>
+<p>这个时候其实已经覆写了admin的密码 直接登录</p>
+<p>得到flag</p>
+<p>这里是利用了unicode的编码问题<br>可以参考一下：<br><a href="https://unicode-table.com/en/blocks/phonetic-extensions/" target="_blank" rel="noopener">https://unicode-table.com/en/blocks/phonetic-extensions/</a></p>
 
       
     </div>
@@ -463,12 +345,6 @@ BASE：基带信号
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/CTF/" rel="tag"># CTF</a>
-          
-        </div>
-      
 
       
       
@@ -478,8 +354,8 @@ BASE：基带信号
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/01/%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%89%A9%E7%90%86%E5%B1%82/" rel="next" title="第二章-物理层">
-                <i class="fa fa-chevron-left"></i> 第二章-物理层
+              <a href="/2020/01/18/BUUCTF-EasySQL-1/" rel="next" title="BUUCTF-EasySQL 1">
+                <i class="fa fa-chevron-left"></i> BUUCTF-EasySQL 1
               </a>
             
           </div>
@@ -487,10 +363,6 @@ BASE：基带信号
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/01/18/BUUCTF-WarmUP/" rel="prev" title="BUUCTF-WarmUP">
-                BUUCTF-WarmUP <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -642,7 +514,7 @@ BASE：基带信号
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第三章-数据链路层"><span class="nav-number">1.</span> <span class="nav-text">第三章-数据链路层</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#主要知识"><span class="nav-number">1.1.</span> <span class="nav-text">主要知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部分习题"><span class="nav-number">1.2.</span> <span class="nav-text">部分习题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思维导图"><span class="nav-number">1.3.</span> <span class="nav-text">思维导图</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#admin"><span class="nav-number">1.</span> <span class="nav-text">admin</span></a></li></ol></div>
             
 
           </div>

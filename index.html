@@ -379,14 +379,14 @@
 <p>还没做过这种题  看了一下WP</p>
 <p>知识点：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">WEB-INF/web.xml泄露</span><br><span class="line"></span><br><span class="line">WEB-INF主要包含一下文件或目录:</span><br><span class="line">/WEB-INF/web.xml：Web应用程序配置文件，描述了 servlet 和其他的应用组件配置及命名规则。</span><br><span class="line"></span><br><span class="line">/WEB-INF/classes/：含了站点所有用的 class 文件，包括 servlet class 和非servlet class，他们不能包含在 .jar文件中</span><br><span class="line"></span><br><span class="line">/WEB-INF/lib/：存放web应用需要的各种JAR文件，放置仅在这个应用中要求使用的jar文件,如数据库驱动jar文件</span><br><span class="line"></span><br><span class="line">/WEB-INF/src/：源码目录，按照包名结构放置各个java文件。</span><br><span class="line"></span><br><span class="line">/WEB-INF/database.properties：数据库配置文件</span><br><span class="line"></span><br><span class="line">漏洞检测以及利用方法：通过找到web.xml文件，推断class文件的路径，最后直接class文件，在通过反编译class文件，得到网站源码</span><br></pre></td></tr></table></figure>
-<p>用BP抓包  改为POST请求  得到报错<br>![avatar](/images/BUUCTF/Easy Java/0.png)</p>
+<p>用BP抓包  改为POST请求  得到报错<br><img src="/images/BUUCTF/EasyJava/0.png" alt="avatar"></p>
 <p>payload:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?filename=WEB-INF/web.xml</span><br></pre></td></tr></table></figure>
-<p>![avatar](/images/BUUCTF/Easy Java/1.png)</p>
+<p><img src="/images/BUUCTF/EasyJava/1.png" alt="avatar"></p>
 <p>读取FlagController.class</p>
 <p>payload:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?filename=WEB-INF/classes/com/wm/ctf/FlagController.class</span><br></pre></td></tr></table></figure>
-<p>![avatar](/images/BUUCTF/Easy Java/2.png)</p>
+<p><img src="/images/BUUCTF/EasyJava/2.png" alt="avatar"></p>
 <p>得到base64  解码得到flag</p>
 
           

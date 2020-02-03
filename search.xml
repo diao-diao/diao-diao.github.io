@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>BUUCTF-RoarCTF2019 Easy Java</title>
+    <url>/2020/02/03/BUUCTF-RoarCTF2019-Easy-Java/</url>
+    <content><![CDATA[<h1 id="RoarCTF2019-Easy-Java"><a href="#RoarCTF2019-Easy-Java" class="headerlink" title="RoarCTF2019 Easy Java"></a>RoarCTF2019 Easy Java</h1><p>打开环境  根据题目提示是JAVA 点击help<br>得到java.io.FileNotFoundException:{help.docx}</p>
+<p>还没做过这种题  看了一下WP</p>
+<p>知识点：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WEB-INF/web.xml泄露</span><br><span class="line"></span><br><span class="line">WEB-INF主要包含一下文件或目录:</span><br><span class="line">/WEB-INF/web.xml：Web应用程序配置文件，描述了 servlet 和其他的应用组件配置及命名规则。</span><br><span class="line"></span><br><span class="line">/WEB-INF/classes/：含了站点所有用的 class 文件，包括 servlet class 和非servlet class，他们不能包含在 .jar文件中</span><br><span class="line"></span><br><span class="line">/WEB-INF/lib/：存放web应用需要的各种JAR文件，放置仅在这个应用中要求使用的jar文件,如数据库驱动jar文件</span><br><span class="line"></span><br><span class="line">/WEB-INF/src/：源码目录，按照包名结构放置各个java文件。</span><br><span class="line"></span><br><span class="line">/WEB-INF/database.properties：数据库配置文件</span><br><span class="line"></span><br><span class="line">漏洞检测以及利用方法：通过找到web.xml文件，推断class文件的路径，最后直接class文件，在通过反编译class文件，得到网站源码</span><br></pre></td></tr></table></figure>
+<p>用BP抓包  改为POST请求  得到报错<br>![avatar](/images/BUUCTF/Easy Java/0.png)</p>
+<p>payload:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?filename=WEB-INF/web.xml</span><br></pre></td></tr></table></figure>
+<p>![avatar](/images/BUUCTF/Easy Java/1.png)</p>
+<p>读取FlagController.class</p>
+<p>payload:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?filename=WEB-INF/classes/com/wm/ctf/FlagController.class</span><br></pre></td></tr></table></figure>
+<p>![avatar](/images/BUUCTF/Easy Java/2.png)</p>
+<p>得到base64  解码得到flag</p>
+]]></content>
+      <categories>
+        <category>WP</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>BUUCTF-极客大挑战 2019EasySQL 1</title>
-    <url>/2020/02/01/BUU-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-EasySQL-1/</url>
+    <url>/2020/02/01/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-EasySQL-1/</url>
     <content><![CDATA[<h1 id="极客大挑战-2019-EasySQL"><a href="#极客大挑战-2019-EasySQL" class="headerlink" title="极客大挑战 2019 EasySQL"></a>极客大挑战 2019 EasySQL</h1><p>打开题目之后 发现就是一个索然无味的登陆界面</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入   密码随意</span><br><span class="line">1  回显</span><br><span class="line">1&apos; 出现报错信息 得知是用单引号保护变量</span><br><span class="line">由于后面还接着password  所以不能使用#等注释符  不然就不会成立</span><br></pre></td></tr></table></figure>
 

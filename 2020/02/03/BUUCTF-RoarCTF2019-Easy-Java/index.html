@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="极客大挑战 2019 EasySQL打开题目之后 发现就是一个索然无味的登陆界面 1234输入   密码随意1  回显1&amp;apos; 出现报错信息 得知是用单引号保护变量由于后面还接着password  所以不能使用#等注释符  不然就不会成立  所以直接使用万能密码: 1admin&amp;apos;or&amp;apos;1&amp;apos;=&amp;apos;1&amp;amp;password=admin&amp;apos;or&amp;a">
+<meta name="description" content="RoarCTF2019 Easy Java打开环境  根据题目提示是JAVA 点击help得到java.io.FileNotFoundException:{help.docx} 还没做过这种题  看了一下WP 知识点： 1234567891011121314WEB-INF&#x2F;web.xml泄露WEB-INF主要包含一下文件或目录:&#x2F;WEB-INF&#x2F;web.xml：Web应用程序配置文件，描述了 se">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="BUUCTF-极客大挑战 2019EasySQL 1">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;01&#x2F;BUU-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-EasySQL-1&#x2F;index.html">
+<meta property="og:title" content="BUUCTF-RoarCTF2019 Easy Java">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;03&#x2F;BUUCTF-RoarCTF2019-Easy-Java&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="极客大挑战 2019 EasySQL打开题目之后 发现就是一个索然无味的登陆界面 1234输入   密码随意1  回显1&amp;apos; 出现报错信息 得知是用单引号保护变量由于后面还接着password  所以不能使用#等注释符  不然就不会成立  所以直接使用万能密码: 1admin&amp;apos;or&amp;apos;1&amp;apos;=&amp;apos;1&amp;amp;password=admin&amp;apos;or&amp;a">
+<meta property="og:description" content="RoarCTF2019 Easy Java打开环境  根据题目提示是JAVA 点击help得到java.io.FileNotFoundException:{help.docx} 还没做过这种题  看了一下WP 知识点： 1234567891011121314WEB-INF&#x2F;web.xml泄露WEB-INF主要包含一下文件或目录:&#x2F;WEB-INF&#x2F;web.xml：Web应用程序配置文件，描述了 se">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-01T03:19:01.026Z">
+<meta property="og:updated_time" content="2020-02-03T09:29:49.156Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -118,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/02/01/BUU-极客大挑战-2019-EasySQL-1/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/02/03/BUUCTF-RoarCTF2019-Easy-Java/"/>
 
 
 
 
 
-  <title>BUUCTF-极客大挑战 2019EasySQL 1 | diao-diao-UPUP</title>
+  <title>BUUCTF-RoarCTF2019 Easy Java | diao-diao-UPUP</title>
   
 
 
@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/01/BUU-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-EasySQL-1/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/03/BUUCTF-RoarCTF2019-Easy-Java/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="diao-diao">
@@ -302,7 +302,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">BUUCTF-极客大挑战 2019EasySQL 1</h1>
+          <h1 class="post-title" itemprop="name headline">BUUCTF-RoarCTF2019 Easy Java</h1>
         
 
         <div class="post-meta">
@@ -314,8 +314,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-01T11:13:27+08:00">
-                2020-02-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-03T17:19:35+08:00">
+                2020-02-03
               </time>
             
 
@@ -374,14 +374,19 @@
       
 
       
-        <h1 id="极客大挑战-2019-EasySQL"><a href="#极客大挑战-2019-EasySQL" class="headerlink" title="极客大挑战 2019 EasySQL"></a>极客大挑战 2019 EasySQL</h1><p>打开题目之后 发现就是一个索然无味的登陆界面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入   密码随意</span><br><span class="line">1  回显</span><br><span class="line">1&apos; 出现报错信息 得知是用单引号保护变量</span><br><span class="line">由于后面还接着password  所以不能使用#等注释符  不然就不会成立</span><br></pre></td></tr></table></figure>
-
-<p>所以直接使用万能密码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">admin&apos;or&apos;1&apos;=&apos;1&amp;password=admin&apos;or&apos;1&apos;=&apos;1</span><br></pre></td></tr></table></figure>
-
-<p>得到flag</p>
-<p>很基础的题  极客大挑战虽然没参加  但是感觉难度应该不是很高  强网杯自闭</p>
+        <h1 id="RoarCTF2019-Easy-Java"><a href="#RoarCTF2019-Easy-Java" class="headerlink" title="RoarCTF2019 Easy Java"></a>RoarCTF2019 Easy Java</h1><p>打开环境  根据题目提示是JAVA 点击help<br>得到java.io.FileNotFoundException:{help.docx}</p>
+<p>还没做过这种题  看了一下WP</p>
+<p>知识点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">WEB-INF/web.xml泄露</span><br><span class="line"></span><br><span class="line">WEB-INF主要包含一下文件或目录:</span><br><span class="line">/WEB-INF/web.xml：Web应用程序配置文件，描述了 servlet 和其他的应用组件配置及命名规则。</span><br><span class="line"></span><br><span class="line">/WEB-INF/classes/：含了站点所有用的 class 文件，包括 servlet class 和非servlet class，他们不能包含在 .jar文件中</span><br><span class="line"></span><br><span class="line">/WEB-INF/lib/：存放web应用需要的各种JAR文件，放置仅在这个应用中要求使用的jar文件,如数据库驱动jar文件</span><br><span class="line"></span><br><span class="line">/WEB-INF/src/：源码目录，按照包名结构放置各个java文件。</span><br><span class="line"></span><br><span class="line">/WEB-INF/database.properties：数据库配置文件</span><br><span class="line"></span><br><span class="line">漏洞检测以及利用方法：通过找到web.xml文件，推断class文件的路径，最后直接class文件，在通过反编译class文件，得到网站源码</span><br></pre></td></tr></table></figure>
+<p>用BP抓包  改为POST请求  得到报错<br>![avatar](/images/BUUCTF/Easy Java/0.png)</p>
+<p>payload:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?filename=WEB-INF/web.xml</span><br></pre></td></tr></table></figure>
+<p>![avatar](/images/BUUCTF/Easy Java/1.png)</p>
+<p>读取FlagController.class</p>
+<p>payload:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?filename=WEB-INF/classes/com/wm/ctf/FlagController.class</span><br></pre></td></tr></table></figure>
+<p>![avatar](/images/BUUCTF/Easy Java/2.png)</p>
+<p>得到base64  解码得到flag</p>
 
       
     </div>
@@ -412,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/02/01/BUUCTF-Havefun/" rel="next" title="BUUCTF-Havefun">
-                <i class="fa fa-chevron-left"></i> BUUCTF-Havefun
+              <a href="/2020/02/01/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-EasySQL-1/" rel="next" title="BUUCTF-极客大挑战 2019EasySQL 1">
+                <i class="fa fa-chevron-left"></i> BUUCTF-极客大挑战 2019EasySQL 1
               </a>
             
           </div>
@@ -501,7 +506,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -572,7 +577,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#极客大挑战-2019-EasySQL"><span class="nav-number">1.</span> <span class="nav-text">极客大挑战 2019 EasySQL</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RoarCTF2019-Easy-Java"><span class="nav-number">1.</span> <span class="nav-text">RoarCTF2019 Easy Java</span></a></li></ol></div>
             
 
           </div>

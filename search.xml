@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>BUUCTF-极客大挑战 2019 Knife</title>
+    <url>/2020/02/04/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-Knife/</url>
+    <content><![CDATA[<h1 id="极客大挑战-2019-Knife"><a href="#极客大挑战-2019-Knife" class="headerlink" title="极客大挑战 2019 Knife"></a>极客大挑战 2019 Knife</h1><p>根据提示<br>我家菜刀丢了，你能帮我找一下么</p>
+<p>eval($_POST[“Syc”]);</p>
+<p>真·白给题目<br>url:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http://6f72969b-3f14-4fb0-bcaa-a5ce479c4a73.node3.buuoj.cn/?Knife.php</span><br></pre></td></tr></table></figure>
+<p>密码：Syc</p>
+<p>菜刀连接 根目录下有flag文件 </p>
+<p>访问得到flag</p>
+]]></content>
+      <categories>
+        <category>WP</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>BUUCTF-极客大挑战2019 PHP</title>
     <url>/2020/02/04/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-PHP/</url>
     <content><![CDATA[<h1 id="极客大挑战-2019-PHP"><a href="#极客大挑战-2019-PHP" class="headerlink" title="极客大挑战 2019 PHP"></a>极客大挑战 2019 PHP</h1><p>打开题目 得到提示备份了网站<br>所以考虑</p>

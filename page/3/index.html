@@ -282,6 +282,473 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/18/BUUCTF-admin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/18/BUUCTF-admin/" itemprop="url">BUUCTF-admin</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-18T09:42:22+08:00">
+                2020-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WP/" itemprop="url" rel="index">
+                    <span itemprop="name">WP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="admin"><a href="#admin" class="headerlink" title="admin"></a>admin</h1><p>打开环境，再根据题目，可以猜测大概是伪造admin登录就OK了<br>没有什么思路 先随便注册一个吧<br>登录之后，点change password  查看一下源码<br>得到hint<br><img src="/images/BUUCTF/admin/0.png" alt="avatar"></p>
+<p>又又又又是flask  我要吐了</p>
+<p>复制连接 下载一下</p>
+<p>随后打开index.php 查看代码</p>
+<p>flask之前比赛时遇到过，CNSS也遇到过，一个轻量级的python框架，这题有两种解法，一种是session  写脚本就可以直接得到 但是奈何不会写</p>
+<p>所以只好使用strlower  转小写函数去尝试注册ADMIN<br>哦豁，发现GG了，那再看看strlower的定义中有nodeprep.prepare()这个函数<br>我们先使用unicode编码的字符 ᴬ<br>用这个用户名注册</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ᴬdmin</span><br></pre></td></tr></table></figure>
+<p>这个时候nodeprep.prepare()函数会将用户名变为Admin，随便修改一下密码，就会再次调用该函数变为admin</p>
+<p>这个时候其实已经覆写了admin的密码 直接登录</p>
+<p>得到flag</p>
+<p>这里是利用了unicode的编码问题<br>可以参考一下：<br><a href="https://unicode-table.com/en/blocks/phonetic-extensions/" target="_blank" rel="noopener">https://unicode-table.com/en/blocks/phonetic-extensions/</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/18/BUUCTF-EasySQL-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/18/BUUCTF-EasySQL-1/" itemprop="url">BUUCTF-EasySQL 1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-18T09:26:58+08:00">
+                2020-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WP/" itemprop="url" rel="index">
+                    <span itemprop="name">WP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="EasySQL-1"><a href="#EasySQL-1" class="headerlink" title="EasySQL 1"></a>EasySQL 1</h1><p>题目得到是SQL注入，那就直接上手，先按常规的来：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">1 返回数据</span><br><span class="line">1&apos; 没有返回数据  看来不需要&apos;</span><br><span class="line">1;  正常返回</span><br><span class="line">1; show databases;  和前面学到的堆叠一样的原理</span><br><span class="line">1; show tables;  Array ( [0] =&gt; Flag )</span><br></pre></td></tr></table></figure>
+<p>接下来就没有头绪了，看了一下WP，感觉大佬说的听不太懂</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select $_GET[&apos;query&apos;] || flag from flag</span><br></pre></td></tr></table></figure>
+<p>这是内嵌的select</p>
+<p>输入的参数都传给了query，所以只要query为1，即为真，就返回flag</p>
+<p>但是我真的很想知道这个内嵌是怎么看出来的，唉，还是太菜了</p>
+<p>最后输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*,1</span><br></pre></td></tr></table></figure>
+<p>得到flag</p>
+<p>最后这个输入进去，按照刚才的拼接，后台的代码呈现的应该是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select *,1 || flag from flag</span><br></pre></td></tr></table></figure>
+<p>大佬们还是太强了</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/18/BUUCTF-easy-tornado-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/18/BUUCTF-easy-tornado-1/" itemprop="url">BUUCTF-easy_tornado 1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-18T09:06:00+08:00">
+                2020-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WP/" itemprop="url" rel="index">
+                    <span itemprop="name">WP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="easy-tornado-1"><a href="#easy-tornado-1" class="headerlink" title="easy_tornado 1"></a>easy_tornado 1</h1><p>打开环境就看到三个链接，依次打开得到：<br>flag in /fllllllllllllag</p>
+<p>render</p>
+<p>md5(cookie_secret+md5(filename))</p>
+<p>目前看来只有第一个和第三个有用<br>flag在/fllllllllllllag目录下<br>用到了md5</p>
+<p>我觉得cookie_secret有点东西，百度了一下果然发现了题目<br><a href="https://www.cnblogs.com/liyqiang/p/7140530.html" target="_blank" rel="noopener">https://www.cnblogs.com/liyqiang/p/7140530.html</a></p>
+<p>emmmm 貌似tornado是python的一个框架，python还木有学，太尴尬了<br>只好查资料，最后得到：<br>render好像是个渲染函数之类的</p>
+<p>先随便看看：<br>尝试一下文件包含</p>
+<p><img src="/images/BUUCTF/tornado/0.png" alt="avatar"></p>
+<p>返回了错误界面，没有思路了，只好看看大佬的WP，存在模板注入；<br>Tornado可以参考这里：<br><a href="https://www.cnblogs.com/bwangel23/p/4858870.html" target="_blank" rel="noopener">https://www.cnblogs.com/bwangel23/p/4858870.html</a></p>
+<p>error改成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?msg=&#123;&#123;handler.settings&#125;&#125;  handler.settings获取环境变量</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/BUUCTF/tornado/1.png" alt="avatar"></p>
+<p>成功得到了cookie_secret<br>接下来就只需解决md5的问题了</p>
+<p>然后，尴尬的问题又来了，不会写脚本 哭了，还是python的<br>所以说，开发和安全缺一不可，只好去找大佬的脚本<br><img src="/images/BUUCTF/tornado/2.png" alt="avatar"></p>
+<p>构造payload:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file?filename=/fllllllllllllag&amp;&amp;filehash=97a05accf0b1378842a54ec11b3074cb</span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+<p>学到了学到了 看完脚本之后，我觉得还是很简单的，就是没学python不懂语法，待我去肝一肝python</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/18/BUUCTF-%E9%9A%8F%E4%BE%BF%E6%B3%A8-1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1612,7 +2079,7 @@ ISP:互联网服务提供商（移动，电信，联通）</code></pre><p><img s
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

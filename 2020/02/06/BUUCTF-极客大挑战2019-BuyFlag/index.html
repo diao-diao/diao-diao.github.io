@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="极客大挑战2019 BuyFlag打开playing  得到提示 Only Cuit’s students can buy the FLAG 先把user改了1 又根据下面的代码 123456789	~~~post money and password~~~if (isset($_POST[&amp;apos;password&amp;apos;])) &amp;#123;	$password = $_POST[&amp;apo">
+<meta name="description" content="极客大挑战2019 BuyFlag打开playing  得到提示 Only Cuit’s students can buy the FLAG 先把user改了1 又根据下面的代码 123456789	~~~post money and password~~~if (isset($_POST[&amp;apos;password&amp;apos;])) &amp;#123;	$password = $_POST[&amp;apos;password&amp;apos;];	i">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUUCTF-极客大挑战2019 BuyFlag">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;06&#x2F;BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019-BuyFlag&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="极客大挑战2019 BuyFlag打开playing  得到提示 Only Cuit’s students can buy the FLAG 先把user改了1 又根据下面的代码 123456789	~~~post money and password~~~if (isset($_POST[&amp;apos;password&amp;apos;])) &amp;#123;	$password = $_POST[&amp;apo">
+<meta property="og:description" content="极客大挑战2019 BuyFlag打开playing  得到提示 Only Cuit’s students can buy the FLAG 先把user改了1 又根据下面的代码 123456789	~~~post money and password~~~if (isset($_POST[&amp;apos;password&amp;apos;])) &amp;#123;	$password = $_POST[&amp;apos;password&amp;apos;];	i">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019BuyFlag&#x2F;0.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019BuyFlag&#x2F;1.png">
@@ -392,17 +392,17 @@
 <p>得到提示 Only Cuit’s students can buy the FLAG</p>
 <p>先把user改了1<br><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019BuyFlag/0.png" alt="avatar"></p>
 <p>又根据下面的代码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">	~~~post money and password~~~</span><br><span class="line">if (isset($_POST[&apos;password&apos;])) &#123;</span><br><span class="line">	$password = $_POST[&apos;password&apos;];</span><br><span class="line">	if (is_numeric($password)) &#123;</span><br><span class="line">		echo &quot;password can&apos;t be number&lt;/br&gt;&quot;;</span><br><span class="line">	&#125;elseif ($password == 404) &#123;</span><br><span class="line">		echo &quot;Password Right!&lt;/br&gt;&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">	~~~post money <span class="keyword">and</span> password~~~</span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($_POST[<span class="string">'password'</span>])) &#123;</span><br><span class="line">	$password = $_POST[<span class="string">'password'</span>];</span><br><span class="line">	<span class="keyword">if</span> (is_numeric($password)) &#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">"password can't be number&lt;/br&gt;"</span>;</span><br><span class="line">	&#125;<span class="keyword">elseif</span> ($password == <span class="number">404</span>) &#123;</span><br><span class="line">		<span class="keyword">echo</span> <span class="string">"Password Right!&lt;/br&gt;"</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>需要POST请求  更改请求 根据代码得知是弱口令<br>所以传参:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">password=404%20</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">password=<span class="number">404</span>%<span class="number">20</span></span><br></pre></td></tr></table></figure>
 <p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019BuyFlag/1.png" alt="avatar"></p>
 <p>又得到提示 要买flag<br>本来想用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">password=404%20&amp;money=100000000</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">password=<span class="number">404</span>%<span class="number">20</span>&amp;<span class="section">money</span>=<span class="number">100000000</span></span><br></pre></td></tr></table></figure>
 <p>但是发现超出了长度</p>
 <p>所以猜测使用了strcmp</p>
 <p>payload:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">password=404%20&amp;money[]=1</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">password=<span class="number">404</span>%<span class="number">20</span>&amp;<span class="section">money</span>[]=<span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 <p>得到flag</p>
 
@@ -528,7 +528,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -539,7 +539,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

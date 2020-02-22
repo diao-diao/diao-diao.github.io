@@ -399,13 +399,13 @@
 <p><img src="/images/BUUCTF/tornado/0.png" alt="avatar"></p>
 <p>返回了错误界面，没有思路了，只好看看大佬的WP，存在模板注入；<br>Tornado可以参考这里：<br><a href="https://www.cnblogs.com/bwangel23/p/4858870.html" target="_blank" rel="noopener">https://www.cnblogs.com/bwangel23/p/4858870.html</a></p>
 <p>error改成：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?msg=&#123;&#123;handler.settings&#125;&#125;  handler.settings获取环境变量</span><br></pre></td></tr></table></figure>
+<figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?msg=&#123;&#123;<span class="keyword">handler</span>.settings&#125;&#125;  <span class="keyword">handler</span>.settings获取环境变量</span><br></pre></td></tr></table></figure>
 
 <p><img src="/images/BUUCTF/tornado/1.png" alt="avatar"></p>
 <p>成功得到了cookie_secret<br>接下来就只需解决md5的问题了</p>
 <p>然后，尴尬的问题又来了，不会写脚本 哭了，还是python的<br>所以说，开发和安全缺一不可，只好去找大佬的脚本<br><img src="/images/BUUCTF/tornado/2.png" alt="avatar"></p>
 <p>构造payload:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file?filename=/fllllllllllllag&amp;&amp;filehash=97a05accf0b1378842a54ec11b3074cb</span><br></pre></td></tr></table></figure>
+<figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">file</span>?<span class="meta">filename</span>=/fllllllllllllag<span class="variable">&amp;&amp;filehash</span>=97a05accf0b1378842a54ec11b3074cb</span><br></pre></td></tr></table></figure>
 
 <p>得到flag</p>
 <p>学到了学到了 看完脚本之后，我觉得还是很简单的，就是没学python不懂语法，待我去肝一肝python</p>
@@ -532,7 +532,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -543,7 +543,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

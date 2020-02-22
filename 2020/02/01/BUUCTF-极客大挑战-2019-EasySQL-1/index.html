@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="极客大挑战 2019 EasySQL打开题目之后 发现就是一个索然无味的登陆界面 1234输入   密码随意1  回显1&amp;apos; 出现报错信息 得知是用单引号保护变量由于后面还接着password  所以不能使用#等注释符  不然就不会成立  所以直接使用万能密码: 1admin&amp;apos;or&amp;apos;1&amp;apos;=&amp;apos;1&amp;amp;password=admin&amp;apos;or&amp;a">
+<meta name="description" content="极客大挑战 2019 EasySQL打开题目之后 发现就是一个索然无味的登陆界面 1234输入   密码随意1  回显1&amp;apos; 出现报错信息 得知是用单引号保护变量由于后面还接着password  所以不能使用#等注释符  不然就不会成立  所以直接使用万能密码: 1admin&amp;apos;or&amp;apos;1&amp;apos;=&amp;apos;1&amp;amp;password=admin&amp;apos;or&amp;apos;1&amp;apos;=&amp;apos;1  得到flag 很基础的题  极客大挑战虽然没参加">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUUCTF-极客大挑战 2019EasySQL 1">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;01&#x2F;BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-EasySQL-1&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="极客大挑战 2019 EasySQL打开题目之后 发现就是一个索然无味的登陆界面 1234输入   密码随意1  回显1&amp;apos; 出现报错信息 得知是用单引号保护变量由于后面还接着password  所以不能使用#等注释符  不然就不会成立  所以直接使用万能密码: 1admin&amp;apos;or&amp;apos;1&amp;apos;=&amp;apos;1&amp;amp;password=admin&amp;apos;or&amp;a">
+<meta property="og:description" content="极客大挑战 2019 EasySQL打开题目之后 发现就是一个索然无味的登陆界面 1234输入   密码随意1  回显1&amp;apos; 出现报错信息 得知是用单引号保护变量由于后面还接着password  所以不能使用#等注释符  不然就不会成立  所以直接使用万能密码: 1admin&amp;apos;or&amp;apos;1&amp;apos;=&amp;apos;1&amp;amp;password=admin&amp;apos;or&amp;apos;1&amp;apos;=&amp;apos;1  得到flag 很基础的题  极客大挑战虽然没参加">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2020-02-21T06:30:35.095Z">
 <meta name="twitter:card" content="summary">
@@ -386,10 +386,10 @@
 
       
         <h1 id="极客大挑战-2019-EasySQL"><a href="#极客大挑战-2019-EasySQL" class="headerlink" title="极客大挑战 2019 EasySQL"></a>极客大挑战 2019 EasySQL</h1><p>打开题目之后 发现就是一个索然无味的登陆界面</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入   密码随意</span><br><span class="line">1  回显</span><br><span class="line">1&apos; 出现报错信息 得知是用单引号保护变量</span><br><span class="line">由于后面还接着password  所以不能使用#等注释符  不然就不会成立</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入   密码随意</span><br><span class="line"><span class="number">1</span>  回显</span><br><span class="line"><span class="number">1</span>' 出现报错信息 得知是用单引号保护变量</span><br><span class="line">由于后面还接着password  所以不能使用#等注释符  不然就不会成立</span><br></pre></td></tr></table></figure>
 
 <p>所以直接使用万能密码:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">admin&apos;or&apos;1&apos;=&apos;1&amp;password=admin&apos;or&apos;1&apos;=&apos;1</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">admin</span><span class="string">'or'</span><span class="number">1</span><span class="string">'='</span><span class="number">1</span>&amp;<span class="keyword">password</span>=<span class="keyword">admin</span><span class="string">'or'</span><span class="number">1</span><span class="string">'='</span><span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 <p>得到flag</p>
 <p>很基础的题  极客大挑战虽然没参加  但是感觉难度应该不是很高  强网杯自闭</p>
@@ -516,7 +516,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -527,7 +527,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

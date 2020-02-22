@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="lottery打开环境 看了一下题目 大概一下就是玩个游戏 只要你输入的7个数字和系统随机生成的7个数字一样 你就会获得钱  钱够了可以买flag 首先 访问 &#x2F;robots.txt 或者 &#x2F;.git&#x2F; 发现 Git 仓库可以 GitHack 拿到源码漏洞在 api.php 123456789  $money = $_SESSION[&amp;apos;money&amp;apos;];$numbers = $r">
+<meta name="description" content="lottery打开环境 看了一下题目 大概一下就是玩个游戏 只要你输入的7个数字和系统随机生成的7个数字一样 你就会获得钱  钱够了可以买flag 首先 访问 &#x2F;robots.txt 或者 &#x2F;.git&#x2F; 发现 Git 仓库可以 GitHack 拿到源码漏洞在 api.php 123456789  $money = $_SESSION[&amp;apos;money&amp;apos;];$numbers = $req[&amp;apos;number">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="攻防世界-lottery">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;21&#x2F;%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-lottery&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="lottery打开环境 看了一下题目 大概一下就是玩个游戏 只要你输入的7个数字和系统随机生成的7个数字一样 你就会获得钱  钱够了可以买flag 首先 访问 &#x2F;robots.txt 或者 &#x2F;.git&#x2F; 发现 Git 仓库可以 GitHack 拿到源码漏洞在 api.php 123456789  $money = $_SESSION[&amp;apos;money&amp;apos;];$numbers = $r">
+<meta property="og:description" content="lottery打开环境 看了一下题目 大概一下就是玩个游戏 只要你输入的7个数字和系统随机生成的7个数字一样 你就会获得钱  钱够了可以买flag 首先 访问 &#x2F;robots.txt 或者 &#x2F;.git&#x2F; 发现 Git 仓库可以 GitHack 拿到源码漏洞在 api.php 123456789  $money = $_SESSION[&amp;apos;money&amp;apos;];$numbers = $req[&amp;apos;number">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C&#x2F;lottery&#x2F;0.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C&#x2F;lottery&#x2F;1.png">
@@ -390,7 +390,7 @@
       
         <h1 id="lottery"><a href="#lottery" class="headerlink" title="lottery"></a>lottery</h1><p>打开环境 看了一下题目 大概一下就是玩个游戏 只要你输入的7个数字和系统随机生成的7个数字一样 你就会获得钱  钱够了可以买flag</p>
 <p>首先 访问 /robots.txt 或者 /.git/ 发现 Git 仓库可以 GitHack 拿到源码<br>漏洞在 api.php</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  $money = $_SESSION[&apos;money&apos;];</span><br><span class="line">$numbers = $req[&apos;numbers&apos;];</span><br><span class="line">$win_numbers = random_win_nums();</span><br><span class="line">$same_count = 0;</span><br><span class="line">for($i=0; $i&lt;7; $i++)&#123;</span><br><span class="line">    if($numbers[$i] == $win_numbers[$i])&#123;</span><br><span class="line">        $same_count++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">  <span class="symbol">$</span>money = <span class="symbol">$</span>_SESSION[<span class="string">'money'</span>];</span><br><span class="line"><span class="meta"><span class="meta-keyword">$numbers</span> = $req['numbers'];</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">$win</span>_numbers = random_win_nums();</span></span><br><span class="line"><span class="meta"><span class="meta-keyword">$same</span>_count = 0;</span></span><br><span class="line"><span class="keyword">for</span>(<span class="symbol">$</span>i=<span class="number">0</span>; <span class="symbol">$</span>i&lt;<span class="number">7</span>; <span class="symbol">$</span>i++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="symbol">$</span>numbers[<span class="symbol">$</span>i] == <span class="symbol">$</span>win_numbers[<span class="symbol">$</span>i])&#123;</span><br><span class="line">        <span class="symbol">$</span>same_count++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>没什么思路 注册一个账号 随便输入7个数字 抓包<br><img src="/images/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/lottery/0.png" alt="avatar"></p>
 <p>使用 PHP 弱类型松散比较，以”1”为例，和TRUE,1,”1”相等<br><img src="/images/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C/lottery/1.png" alt="avatar"></p>
@@ -519,7 +519,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -530,7 +530,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

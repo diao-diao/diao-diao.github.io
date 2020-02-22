@@ -388,17 +388,17 @@
         <h1 id="接-头-霸-王"><a href="#接-头-霸-王" class="headerlink" title="接 头 霸 王"></a>接 头 霸 王</h1><p>打开环境 根据题目的图片提示 应该是改header</p>
 <p>bp抓包<br>再根据You need to come from <a href="https://vidar.club/" target="_blank" rel="noopener">https://vidar.club/</a>. </p>
 <p>使用Referer</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Referer:https://vidar.club/</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Referer:</span><span class="string">https:</span><span class="comment">//vidar.club/</span></span><br></pre></td></tr></table></figure>
 
 <p>又要求本地，使用X-Forwarded-For</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X-Forwarded-For:127.0.0.1</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X-Forwarded-For:<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
 <p>又要求使用Cosmos浏览器，使用User-Agent</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User-Agent: Cosmos</span><br></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">User</span>-Agent: Cosmos</span><br></pre></td></tr></table></figure>
 
 <p>又要求POST，直接改请求</p>
 <p>得到：The flag will be updated after 2077, please wait for it patiently.</p>
 <p>这里要用到If-Unmodified-Since<br>可以参考<a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/If-Unmodified-Since" target="_blank" rel="noopener">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Headers/If-Unmodified-Since</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">If-Unmodified-Since: Tue, 22 Oct 2077 20:49:38 GMT</span><br></pre></td></tr></table></figure>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">If-Unmodified-Since: Tue, <span class="number">22</span> Oct <span class="number">2077</span> <span class="number">20</span>:<span class="number">49</span>:<span class="number">38</span> GMT</span><br></pre></td></tr></table></figure>
 
 <p>得到flag</p>
 
@@ -524,7 +524,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -535,7 +535,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

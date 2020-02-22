@@ -392,14 +392,14 @@
         <h1 id="极客大挑战2019-Http"><a href="#极客大挑战2019-Http" class="headerlink" title="极客大挑战2019 Http"></a>极客大挑战2019 Http</h1><p>打开之后 查看一下源码  查看文件Secret.php</p>
 <p>访问一下<br><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Http/0.png" alt="avatar"></p>
 <p>抓一下包<br>添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Referer: https://www.Sycsecret.com</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Referer:</span> <span class="string">https:</span><span class="comment">//www.Sycsecret.com</span></span><br></pre></td></tr></table></figure>
 
 <p>得到提示<br><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Http/1.png" alt="avatar"></p>
 <p>再添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User-Agent:Syclover</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">User-Agent</span><span class="selector-pseudo">:Syclover</span></span><br></pre></td></tr></table></figure>
 <p><img src="/images/BUUCTF/%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%982019Http/2.png" alt="avatar"></p>
 <p>要求本地访问<br>再添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X-Forwarded-For: 127.0.0.1</span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">X-Forwarded-For:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br></pre></td></tr></table></figure>
 
 <p>得到flag</p>
 
@@ -525,7 +525,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -536,7 +536,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>

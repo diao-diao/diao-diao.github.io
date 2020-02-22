@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Python3</title>
+    <title>Python3-2020/2/22-周报0</title>
     <url>/2020/02/22/Python/</url>
     <content><![CDATA[<h1 id="Python3基础语法"><a href="#Python3基础语法" class="headerlink" title="Python3基础语法"></a>Python3基础语法</h1><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><p>默认情况下，Python3源码文件以UTF-O编码，所有的字符串都是unicode字符串。</p>
 <h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><p>第一个字符必须是字母或下划线_<br>其他部分由字母，数字和下划线组成<br>大小写敏感</p>
@@ -87,7 +87,18 @@
 
 <h3 id="常用随机数函数"><a href="#常用随机数函数" class="headerlink" title="常用随机数函数"></a>常用随机数函数</h3><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">choice(seq)  从序列元素中随机挑选一个元素 比如random.choice(range(<span class="number">10</span>))，从<span class="number">0</span>到<span class="number">9</span>中随机挑选一个整数</span><br><span class="line"></span><br><span class="line">random() 随机生成一个实数，在范围[<span class="number">0</span>,<span class="number">1</span>)内</span><br><span class="line"></span><br><span class="line">randrange ([start,] stop [,step])  从指定范围内 按指定基数递增的集合中获取一个随机数 基数默认值为 <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="数学常量"><a href="#数学常量" class="headerlink" title="数学常量"></a>数学常量</h3><figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line"><span class="literal">pi</span> 数学常量<span class="literal">pi</span> 圆周率</span><br><span class="line">e  数学常量e 自然常数</span><br></pre></td></tr></table></figure>]]></content>
+<h3 id="数学常量"><a href="#数学常量" class="headerlink" title="数学常量"></a>数学常量</h3><figure class="highlight applescript"><table><tr><td class="code"><pre><span class="line"><span class="literal">pi</span> 数学常量<span class="literal">pi</span> 圆周率</span><br><span class="line">e  数学常量e 自然常数</span><br></pre></td></tr></table></figure>
+
+<h2 id="周报总结："><a href="#周报总结：" class="headerlink" title="周报总结："></a>周报总结：</h2><p> <strong>1.python语言较为简单，但是也面临着一个新的问题，由于python不需要用<code>;</code>来代表语句结束，<code>{}</code>代表代码块，而是使用TAB和空格来进行区分，所以要严格控制TAB和空格的数量，以便区分每个语句或代码块</strong></p>
+<p> <strong>2.<code>if while</code>这些复合语句，不像C或者JAVA一样有{}，需要在if [条件] 之后加<code>:</code>表示代码块的开始</strong></p>
+<p> <strong>3.<code>import</code>是导入整个模块，<code>from...import</code>是导入某个模块中的某个函数，第二种更为灵活，可以减少时间复杂度，提高效率和辨识度</strong></p>
+<p> <strong>4.输入和输出都较为简单，<code>input</code>和<code>print</code>与python2的区别就是需要加括号而不是空格</strong></p>
+<p> <strong>5.字符串可以实现多行代码但是需要用三引号括住</strong></p>
+<p> <strong>6.字符串不可更改</strong></p>
+<p> <strong>7.python对大小写敏感</strong></p>
+<p> <strong>8.反斜杠在python中需要慎用，有可能会造成转义而形成不必要的麻烦</strong></p>
+<p> <strong>9.python引入了成员运算符<code>（in 和 not in）</code> 可以更加方便地对数据进行查找</strong></p>
+]]></content>
       <categories>
         <category>日常学习</category>
         <category>Python3</category>

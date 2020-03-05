@@ -90,7 +90,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="日常学习," />
 
 
 
@@ -101,12 +101,28 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="diao-diao-UPUP">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;CTF&#x2F;page&#x2F;3&#x2F;index.html">
+<meta name="description" content="绪论计算机软硬件概念计算机系统硬件计算机的实体，如主机，外设等 软件由具有各类特殊功能的信息（程序）组成 大体分为两类：系统软件和应用软件    系统软件：用来管理整个计算机系统（语言处理程序，操作系统，服务性程序，数据库管理系统，网络软件）   应用软件：按任务需要编制成的各种程序 计算机体系结构和计算机组成计算机体系结构程序员所见到的计算机系统的属性，概念性的结构与功能特性 计算机组成实现计算">
+<meta name="keywords" content="日常学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机组成原理-绪论">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;29&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E7%BB%AA%E8%AE%BA&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
+<meta property="og:description" content="绪论计算机软硬件概念计算机系统硬件计算机的实体，如主机，外设等 软件由具有各类特殊功能的信息（程序）组成 大体分为两类：系统软件和应用软件    系统软件：用来管理整个计算机系统（语言处理程序，操作系统，服务性程序，数据库管理系统，网络软件）   应用软件：按任务需要编制成的各种程序 计算机体系结构和计算机组成计算机体系结构程序员所见到的计算机系统的属性，概念性的结构与功能特性 计算机组成实现计算">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86&#x2F;%E7%BB%AA%E8%AE%BA&#x2F;0.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86&#x2F;%E7%BB%AA%E8%AE%BA&#x2F;1.jpg">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86&#x2F;%E7%BB%AA%E8%AE%BA&#x2F;2.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86&#x2F;%E7%BB%AA%E8%AE%BA&#x2F;3.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86&#x2F;%E7%BB%AA%E8%AE%BA&#x2F;4.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86&#x2F;%E7%BB%AA%E8%AE%BA&#x2F;5.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86&#x2F;%E7%BB%AA%E8%AE%BA&#x2F;6.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86&#x2F;%E7%BB%AA%E8%AE%BA&#x2F;7.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86&#x2F;%E7%BB%AA%E8%AE%BA&#x2F;8.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86&#x2F;%E7%BB%AA%E8%AE%BA&#x2F;9.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86&#x2F;%E7%BB%AA%E8%AE%BA&#x2F;10.png">
+<meta property="og:updated_time" content="2020-03-05T03:18:29.390Z">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86&#x2F;%E7%BB%AA%E8%AE%BA&#x2F;0.jpg">
 
 
 
@@ -136,13 +152,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/CTF/page/3/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/02/29/计算机组成原理-绪论/"/>
 
 
 
 
 
-  <title>Tag: CTF | diao-diao-UPUP</title>
+  <title>计算机组成原理-绪论 | diao-diao-UPUP</title>
   
 
 
@@ -161,7 +177,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -289,310 +305,248 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>CTF<small>Tag</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/29/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E7%BB%AA%E8%AE%BA/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2020/01/26/hgame-Code-World/" itemprop="url">
-              
-                <span itemprop="name">hgame-Code World</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">计算机组成原理-绪论</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-01-26T20:50:02+08:00"
-              content="2020-01-26" >
-          01-26
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-29T14:31:16+08:00">
+                2020-02-29
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">日常学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90/" itemprop="url" rel="index">
+                    <span itemprop="name">计算机组成</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/01/26/hgame-Cosmos-%E7%9A%84%E5%8D%9A%E5%AE%A2/" itemprop="url">
-              
-                <span itemprop="name">hgame-接 头 霸 王</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-01-26T20:39:29+08:00"
-              content="2020-01-26" >
-          01-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/01/25/BUUCTF-Hack-World/" itemprop="url">
-              
-                <span itemprop="name">BUUCTF-Hack World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-01-25T10:30:22+08:00"
-              content="2020-01-25" >
-          01-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/01/25/BUUCTF-CheckIn/" itemprop="url">
-              
-                <span itemprop="name">BUUCTF-CheckIn</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-01-25T09:25:29+08:00"
-              content="2020-01-25" >
-          01-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/01/21/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-lottery/" itemprop="url">
-              
-                <span itemprop="name">攻防世界-lottery</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-01-21T10:49:51+08:00"
-              content="2020-01-21" >
-          01-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/01/21/BUUCTF-Easy-Calc/" itemprop="url">
-              
-                <span itemprop="name">BUUCTF-Easy Calc</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-01-21T10:21:08+08:00"
-              content="2020-01-21" >
-          01-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/01/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-ics-06/" itemprop="url">
-              
-                <span itemprop="name">攻防世界-ics-06</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-01-20T11:52:18+08:00"
-              content="2020-01-20" >
-          01-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/01/20/BUUCTF-%E9%AB%98%E6%98%8E%E7%9A%84%E9%BB%91%E5%AE%A2/" itemprop="url">
-              
-                <span itemprop="name">BUUCTF-高明的黑客</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-01-20T08:48:02+08:00"
-              content="2020-01-20" >
-          01-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/01/18/BUUCTF-admin/" itemprop="url">
-              
-                <span itemprop="name">BUUCTF-admin</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-01-18T09:42:22+08:00"
-              content="2020-01-18" >
-          01-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2020/01/18/BUUCTF-EasySQL-1/" itemprop="url">
-              
-                <span itemprop="name">BUUCTF-EasySQL 1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2020-01-18T09:26:58+08:00"
-              content="2020-01-18" >
-          01-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><h2 id="计算机软硬件概念"><a href="#计算机软硬件概念" class="headerlink" title="计算机软硬件概念"></a>计算机软硬件概念</h2><h3 id="计算机系统"><a href="#计算机系统" class="headerlink" title="计算机系统"></a>计算机系统</h3><h4 id="硬件"><a href="#硬件" class="headerlink" title="硬件"></a>硬件</h4><p>计算机的实体，如主机，外设等</p>
+<h4 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h4><p>由具有各类特殊功能的信息（程序）组成</p>
+<p>大体分为两类：系统软件和应用软件<br>    系统软件：用来管理整个计算机系统（语言处理程序，操作系统，服务性程序，数据库管理系统，网络软件）<br>   应用软件：按任务需要编制成的各种程序</p>
+<h2 id="计算机体系结构和计算机组成"><a href="#计算机体系结构和计算机组成" class="headerlink" title="计算机体系结构和计算机组成"></a>计算机体系结构和计算机组成</h2><h3 id="计算机体系结构"><a href="#计算机体系结构" class="headerlink" title="计算机体系结构"></a>计算机体系结构</h3><p>程序员所见到的计算机系统的属性，概念性的结构与功能特性</p>
+<h3 id="计算机组成"><a href="#计算机组成" class="headerlink" title="计算机组成"></a>计算机组成</h3><p>实现计算机体系结构所体现的属性</p>
+<h2 id="计算机的基本组成"><a href="#计算机的基本组成" class="headerlink" title="计算机的基本组成"></a>计算机的基本组成</h2><h3 id="冯诺依曼计算机"><a href="#冯诺依曼计算机" class="headerlink" title="冯诺依曼计算机"></a>冯诺依曼计算机</h3><p>第一台电子计算机于<code>1946</code>年制造的<code>ENIAC</code>，即<code>Electronic Numerical Integrator And Computer</code></p>
+<p>1.计算机由五大部分组成（运算器，存储器，控制器，输入和输出设备）<br>2.指令和数据以<code>同等地位</code>存于存储器中，可地址寻访<br>3.指令和数据用二进制表示<br>4.指令由操作码和地址码组成<br>5.存储程序<br>6.以运算器为中心</p>
+<p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%BB%AA%E8%AE%BA/0.jpg" alt="avatar"></p>
+<p>存在的问题：<br>由于以运算器为核心，工作比较繁忙，输入和输出还需要经过运算器，成为了计算机发展的瓶颈</p>
+<p>改进：<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%BB%AA%E8%AE%BA/1.jpg" alt="avatar"><br>以存储器为中心</p>
+<h3 id="现代计算机"><a href="#现代计算机" class="headerlink" title="现代计算机"></a>现代计算机</h3><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%BB%AA%E8%AE%BA/2.png" alt="avatar"></p>
+<p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%BB%AA%E8%AE%BA/3.png" alt="avatar"></p>
+<h3 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h3><h4 id="组成"><a href="#组成" class="headerlink" title="组成"></a>组成</h4><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%BB%AA%E8%AE%BA/4.png" alt="avatar"></p>
+<p>MAR：存储器地址存储器，反映存储单元的个数<br>MDR：存储器数据存储器，反映了存储字长</p>
+<p>存储体-存储单元-存储元件<br>（大楼-房间-床位）</p>
+<p>存储单元 存放一串二进制代码</p>
+<p>存储字 存储单元中二进制代码的组合</p>
+<p>存储字长 存储单元中二进制代码的位数，每一个存储单元赋予了一个地址</p>
+<p>例如：<br>设MAR=4位，MDR=8位<br>则存储单元个数位16（2^4）位，存储字长位8位</p>
+<h3 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h3><h4 id="组成-1"><a href="#组成-1" class="headerlink" title="组成"></a>组成</h4><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%BB%AA%E8%AE%BA/5.png" alt="avatar"></p>
+<h4 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h4><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>ACC</th>
+<th>MQ</th>
+<th>X</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>加法</td>
+<td>被加数(和)</td>
+<td></td>
+<td>加数</td>
+</tr>
+<tr>
+<td>减法</td>
+<td>被减数(差)</td>
+<td></td>
+<td>减数</td>
+</tr>
+<tr>
+<td>乘法</td>
+<td>乘积高位</td>
+<td>乘数，乘积低位</td>
+<td>被乘数</td>
+</tr>
+<tr>
+<td>除法</td>
+<td>被除数，余数</td>
+<td>商</td>
+<td>除数</td>
+</tr>
+</tbody></table>
+<h3 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h3><h4 id="功能-1"><a href="#功能-1" class="headerlink" title="功能"></a>功能</h4><p>解释指令，保证指令的按序执行</p>
+<h4 id="组成-2"><a href="#组成-2" class="headerlink" title="组成"></a>组成</h4><p>完成一条指令需要经过：取指令(PC)，分析指令(IR)，执行指令(CU)</p>
+<p>PC存放当前欲执行指令的地址，具有计数功能(PC)+1–&gt;PC<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%BB%AA%E8%AE%BA/6.png" alt="avatar"></p>
+<h3 id="主机"><a href="#主机" class="headerlink" title="主机"></a>主机</h3><p>主机即运算器，控制器，存储器的组合</p>
+<p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%BB%AA%E8%AE%BA/7.png" alt="avatar"><br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%BB%AA%E8%AE%BA/8.png" alt="avatar"></p>
+<h4 id="指令过程"><a href="#指令过程" class="headerlink" title="指令过程"></a>指令过程</h4><p>以取数指令为例：<br>1.PC将指令的地址传给MAR<br>2.MAR将指令的地址传给存储体<br>3.在控制器的控制下将存储体中保存的取数指令传到MDR中<br>4.MDR中的内容传给IR<br>5.IR将指令传入CU，开始执行<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%BB%AA%E8%AE%BA/9.png" alt="avatar"></p>
+<p>以存数指令为例：<br>1.先执行取指令操作<br>2.IR将CU的控制信号传给MAR<br>3.MAR将信号的地址存入到存储体中<br>4.控制器将ACC中的数据存入到MDR中<br>5.MDR再将数据传入到存储体中<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%BB%AA%E8%AE%BA/10.png" alt="avatar"></p>
+<h2 id="硬件主要技术指标"><a href="#硬件主要技术指标" class="headerlink" title="硬件主要技术指标"></a>硬件主要技术指标</h2><h3 id="机器字长"><a href="#机器字长" class="headerlink" title="机器字长"></a>机器字长</h3><p>CPU一次能处理数据的位数，与CPU中的寄存器位数有关</p>
+<h3 id="运算速度"><a href="#运算速度" class="headerlink" title="运算速度"></a>运算速度</h3><p>.主频<br>.核数，每个核支持的线程数<br>.吉普森法<br>.CPI  执行一条指令所需的时钟周期数<br>.MIPS  每秒执行百万条指令数<br>.FLOPS  每秒浮点运算次数</p>
+<h3 id="存储容量"><a href="#存储容量" class="headerlink" title="存储容量"></a>存储容量</h3><p>主存容量：<br>.存储单元个数*存储字长  如MAR 10  MDR  8容量  1K(2^10)*8位<br>.字节数  如2^13b=1KB  2^21=256KB</p>
+<p>辅存容量：<br>字节数 80G  1G=2^30b</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/" rel="tag"># 日常学习</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/24/%E5%A4%9A%E5%AA%92%E4%BD%93%E6%8A%80%E6%9C%AF-%E7%BB%AA%E8%AE%BA/" rel="next" title="多媒体技术-绪论">
+                <i class="fa fa-chevron-left"></i> 多媒体技术-绪论
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/03/01/Python3-2020-3-1-%E5%91%A8%E6%8A%A51/" rel="prev" title="Python3-2020/3/1-周报1">
+                Python3-2020/3/1-周报1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/tags/CTF/page/2/">&lt;i class=&quot;fa fa-angle-left&quot;&gt;&lt;&#x2F;i&gt;</a><a class="page-number" href="/tags/CTF/">1</a><a class="page-number" href="/tags/CTF/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/tags/CTF/page/4/">4</a><a class="extend next" rel="next" href="/tags/CTF/page/4/">&lt;i class=&quot;fa fa-angle-right&quot;&gt;&lt;&#x2F;i&gt;</a>
-  </nav>
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -600,6 +554,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -620,8 +578,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -701,6 +668,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#绪论"><span class="nav-number">1.</span> <span class="nav-text">绪论</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机软硬件概念"><span class="nav-number">1.1.</span> <span class="nav-text">计算机软硬件概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机系统"><span class="nav-number">1.1.1.</span> <span class="nav-text">计算机系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#硬件"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">硬件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#软件"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">软件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机体系结构和计算机组成"><span class="nav-number">1.2.</span> <span class="nav-text">计算机体系结构和计算机组成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机体系结构"><span class="nav-number">1.2.1.</span> <span class="nav-text">计算机体系结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#计算机组成"><span class="nav-number">1.2.2.</span> <span class="nav-text">计算机组成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机的基本组成"><span class="nav-number">1.3.</span> <span class="nav-text">计算机的基本组成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#冯诺依曼计算机"><span class="nav-number">1.3.1.</span> <span class="nav-text">冯诺依曼计算机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#现代计算机"><span class="nav-number">1.3.2.</span> <span class="nav-text">现代计算机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储器"><span class="nav-number">1.3.3.</span> <span class="nav-text">存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组成"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">组成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算器"><span class="nav-number">1.3.4.</span> <span class="nav-text">运算器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#组成-1"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#功能"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">功能</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制器"><span class="nav-number">1.3.5.</span> <span class="nav-text">控制器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#功能-1"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组成-2"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">组成</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主机"><span class="nav-number">1.3.6.</span> <span class="nav-text">主机</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#指令过程"><span class="nav-number">1.3.6.1.</span> <span class="nav-text">指令过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件主要技术指标"><span class="nav-number">1.4.</span> <span class="nav-text">硬件主要技术指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机器字长"><span class="nav-number">1.4.1.</span> <span class="nav-text">机器字长</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运算速度"><span class="nav-number">1.4.2.</span> <span class="nav-text">运算速度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存储容量"><span class="nav-number">1.4.3.</span> <span class="nav-text">存储容量</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -848,6 +831,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

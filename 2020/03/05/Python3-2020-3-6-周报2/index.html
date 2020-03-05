@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #000000; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #808080;    /*上边框颜色*/
+        border-left-color: #808080;    /*左边框颜色*/
+    }
+</style>
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CTF," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="包和模块包在python种包与普通文件夹的区别是，在包内要创建一个_init_.py文件，来标识它不是一个普通文件夹，而是一个包。 一个项目可以包含多个包，一个包可以包含多个子包，也可以包含多个模块例如： 模块在python中一个以.py结尾的python文件就是一个模块，不同包下可以有相同名称的模块，模块之间使用”包名.模块名”的方式区分。如果一个模块中引入其他模块有多种方式可以实现    描述">
+<meta name="keywords" content="CTF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python3-2020&#x2F;3&#x2F;6-周报2">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;03&#x2F;05&#x2F;Python3-2020-3-6-%E5%91%A8%E6%8A%A52&#x2F;index.html">
+<meta property="og:site_name" content="diao-diao-UPUP">
+<meta property="og:description" content="包和模块包在python种包与普通文件夹的区别是，在包内要创建一个_init_.py文件，来标识它不是一个普通文件夹，而是一个包。 一个项目可以包含多个包，一个包可以包含多个子包，也可以包含多个模块例如： 模块在python中一个以.py结尾的python文件就是一个模块，不同包下可以有相同名称的模块，模块之间使用”包名.模块名”的方式区分。如果一个模块中引入其他模块有多种方式可以实现    描述">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;python3&#x2F;0.png">
+<meta property="og:updated_time" content="2020-03-05T09:24:26.762Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;python3&#x2F;0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/03/05/Python3-2020-3-6-周报2/"/>
+
+
+
+
+
+  <title>Python3-2020/3/6-周报2 | diao-diao-UPUP</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">diao-diao-UPUP</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">我是一只web狗</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" target="_blank" rel="noopener" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="Searching..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/05/Python3-2020-3-6-%E5%91%A8%E6%8A%A52/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python3-2020/3/6-周报2</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-03-05T15:45:04+08:00">
+                2020-03-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">日常学习</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%97%A5%E5%B8%B8%E5%AD%A6%E4%B9%A0/Python3/" itemprop="url" rel="index">
+                    <span itemprop="name">Python3</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="包和模块"><a href="#包和模块" class="headerlink" title="包和模块"></a>包和模块</h1><h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p>在python种包与普通文件夹的区别是，在包内要创建一个<code>_init_.py</code>文件，来标识它不是一个普通文件夹，而是一个包。</p>
+<p>一个项目可以包含多个包，一个包可以包含多个子包，也可以包含多个模块<br>例如：<br><img src="/images/python3/0.png" alt="avatar"></p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>在python中一个以<code>.py</code>结尾的python文件就是一个模块，不同包下可以有相同名称的模块，模块之间使用”包名.模块名”的方式区分。如果一个模块中引入其他模块有多种方式可以实现</p>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>引入方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>引入单个模块</td>
+<td>import model_name</td>
+</tr>
+<tr>
+<td>引入多个模块</td>
+<td>import model_name1,model_name2</td>
+</tr>
+<tr>
+<td>引入模块中的指定函数或类</td>
+<td>from model_name import func…</td>
+</tr>
+</tbody></table>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/buss/model1.py</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">project_info</span><span class="params">()</span>:</span></span><br><span class="line">	print(<span class="string">"*"</span>*<span class="number">20</span>)<span class="comment">#打印20个*号</span></span><br><span class="line">    print(<span class="string">""</span>*<span class="number">4</span>,<span class="string">"python项目"</span>,<span class="string">""</span>*<span class="number">4</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">import</span> buss.model1.py</span><br></pre></td></tr></table></figure>
+<h2 id="init-py模块"><a href="#init-py模块" class="headerlink" title="_init_.py模块"></a>_init_.py模块</h2><p>在python中一个包中必须包含一个含默认的<code>_init_.py</code>模块。在pycharm中会自动创建一个。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## \_name_变量</span><br><span class="line">和C，JAVA等编写的程序，在运行时都是需要从一个主入口开始执行的。以面向对象的JAVA为例，在编写JAVA程序时，要在代码的主类中定义一个main函数作为程序的入口，编译器在执行时先找到main函数，从main函数开始运行</span><br><span class="line"></span><br><span class="line">python属于&lt;font color=&quot;#0000dd&quot;&gt;脚本语言&lt;/font&gt;，在运行时与其他编程语言不同，python程序没有编译过程，不需要进行编译成二进制代码再运行，而是从上到下依次执行的</span><br><span class="line"></span><br><span class="line">在python中内部定义了一个```_name_```变量，当被直接运行输出时，可以当作是```_main_</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">info</span><span class="params">()</span>:</span></span><br><span class="line">	print(<span class="string">"当前运行的_name_值是&#123;&#125;"</span>.format(_name_))</span><br><span class="line">   </span><br><span class="line">结果为：</span><br><span class="line">当前运行的_name_值是_main_</span><br></pre></td></tr></table></figure>
+
+<p>当引入了test_model模块时，并调用test_info函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> test_model</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">info</span><span class="params">()</span>:</span></span><br><span class="line">	print(<span class="string">"当前运行的_name_值是&#123;&#125;"</span>.format(_name_))</span><br><span class="line">    print(<span class="string">"---------------------"</span>)</span><br><span class="line">    info()</span><br><span class="line">    test_model.test_info()</span><br><span class="line">    </span><br><span class="line">结果为：</span><br><span class="line">当前运行的_name_值是_main_</span><br><span class="line">---------------------</span><br><span class="line">test_info正在运行，_name_值是test_model</span><br></pre></td></tr></table></figure>
+
+<p>通过这个例子可以看出当有模块被引入，且调用了其中的函数或方法是，<code>_name_</code>的值等于模块名</p>
+<p>所以在通常情况下，如果一个python源码文件既要作为模块在其他地方被引用，又要在其他地方单独运行时，就可以在源码文件中国加入<code>if_name_==&quot;_main_&quot;</code>的条件判断，也可以将这段代码作为Python源码文件的入口</p>
+<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>简单的来说，面向对象编程就是一种解决软件复用的设计和编程方法。<br>对象就是类的实例化</p>
+<h2 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h2><p>类是虚的，抽象的<br>对象是实的，就是类的实例化或被称为是具体表现</p>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>类由类名，属性，方法三部分组成</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> 方法名<span class="params">(self[,参数列表])</span>:</span></span><br><span class="line">    方法体</span><br></pre></td></tr></table></figure>
+<p>定义类时要先使用class关键字，声明这是一个类，类名要遵循标识符的规则。<br>类内部定义的函数叫做方法，当调用一个对象的方法时，对象会将自身的引用传递到调用的方法中。</p>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>创建对象的方法是：变量=类名（[参数列表]）<br>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"吃骨头"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">drink</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"喝水"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"跑"</span>)</span><br><span class="line">wangcai=Dog()</span><br><span class="line">wangcai.eat()</span><br><span class="line">wangcai.drink()</span><br><span class="line">wangcai.run()</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">吃骨头</span><br><span class="line">喝水</span><br><span class="line">跑</span><br></pre></td></tr></table></figure>
+<h2 id="init-构造方法"><a href="#init-构造方法" class="headerlink" title="_init_构造方法"></a>_init_构造方法</h2><p>构造方式的作用是在创建一个类的对象时，进行一些初始化操作。<br>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">_init_</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"正在初始化"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"吃骨头"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">drink</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"喝水"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"跑"</span>)</span><br><span class="line">wangcai=Dog()</span><br><span class="line">wangcai.eat()</span><br><span class="line">wangcai.drink()</span><br><span class="line">wangcai.run()</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">吃骨头</span><br><span class="line">喝水</span><br><span class="line">跑</span><br></pre></td></tr></table></figure>
+<p>结果显示我们并没有调用<code>_init_</code>构造方法，程序自动调用了该构造方法，打印了其中的内容<br>我们可以利用构造函数来对参数赋值：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">_init_</span><span class="params">(self,variety,gender)</span>:</span></span><br><span class="line">      print(<span class="string">"正在初始化"</span>)</span><br><span class="line">      self.variety=variety</span><br><span class="line">      self.gender=gender</span><br><span class="line">      print(<span class="string">"初始化结束"</span>)</span><br><span class="line"><span class="comment">#创建对象</span></span><br><span class="line">wangcai=Dog(<span class="string">"金毛"</span>，<span class="string">"雄性"</span>)</span><br><span class="line">print(<span class="string">"旺财的品种是&#123;&#125;"</span>.format(wangcai.variety))</span><br><span class="line">print(<span class="string">"旺财的性别是&#123;&#125;"</span>.format(wangcai.gender))</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">正在初始化</span><br><span class="line">初始化结束</span><br><span class="line">旺财的品种是金毛</span><br><span class="line">旺财的性别是雄性</span><br></pre></td></tr></table></figure>
+<p>从结果我们可以看出，_init_构造函数在对象实例化时执行。</p>
+<h2 id="访问权限"><a href="#访问权限" class="headerlink" title="访问权限"></a>访问权限</h2><p>JAVA中的访问权限有<code>default,public,private,protected</code>。分别是<code>默认的，公共的，私有的和保护的</code></p>
+<p>在python中不需要任何关键字修饰，只需要在属性或方法名前添加两个下划线<code>__</code>即为私有的访问权限，反之则是公有的<br>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">_init_</span><span class="params">(self,name)</span>:</span></span><br><span class="line">      self.name=name</span><br><span class="line">      self.__age=<span class="number">1</span><span class="comment">#私有属性</span></span><br></pre></td></tr></table></figure>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>继承是面向对象带来的好处之一，解决了代码重用的问题</p>
+<h3 id="单继承"><a href="#单继承" class="headerlink" title="单继承"></a>单继承</h3><p>所谓的单继承就是只继承一个父类<br>定义格式：<code>class Son(Father)</code></p>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"吃"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drink</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"喝"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sleep</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"睡"</span>)</span><br><span class="line">      </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">(Animal)</span>:</span><span class="comment">#继承了Animal类</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">hand</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"握手"</span>)</span><br><span class="line">      </span><br><span class="line">wangcai=Dog()</span><br><span class="line">wangcai.eat()</span><br><span class="line">wangcai.drink()</span><br><span class="line">wangcai.hand()</span><br><span class="line">wangcai.sleep()</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">吃</span><br><span class="line">喝</span><br><span class="line">握手</span><br><span class="line">睡</span><br></pre></td></tr></table></figure>
+<p>从结果可以看出Dog类中并没有定义eat,drink,sleep方法，但是由于继承了父类Animal，所以就继承了其中的所有公有方法和属性</p>
+<h3 id="super函数"><a href="#super函数" class="headerlink" title="super函数"></a>super函数</h3><p>如果在子类中想要调用父类的方法，有两种实现方法：<br>第一种:父类名.方法名(self[参数列表])<br>第二种：super().方法名</p>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">(Animal)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">hand</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"握手"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">goldenDog</span><span class="params">(Dog)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">guide</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"我能导航"</span>)</span><br><span class="line">      print(<span class="string">"导航前请与我握手"</span>)</span><br><span class="line">      Dog.hand(self)</span><br><span class="line"></span><br><span class="line">duoduo=goldenDog()</span><br><span class="line">duoduo.guide()</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">我能导航</span><br><span class="line">导航前请与我握手</span><br><span class="line">握手</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">(Animal)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">hand</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"握手"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">goldenDog</span><span class="params">(Dog)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">guide</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"我能导航"</span>)</span><br><span class="line">      print(<span class="string">"导航前请与我握手"</span>)</span><br><span class="line">      super().hand()</span><br><span class="line"></span><br><span class="line">duoduo=goldenDog()</span><br><span class="line">duoduo.guide()</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">我能导航</span><br><span class="line">导航前请与我握手</span><br><span class="line">握手</span><br></pre></td></tr></table></figure>
+
+<p>看到结果是一样的，在简单的继承下两者并无什么区别，但是在复杂的继承条件下，super()函数表现的更为灵活简单</p>
+<h3 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h3><p>重写就是在子类中定义与父类同名的方法，而其中实现的内容却不一样<br>例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"吃"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drink</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"喝"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"跑"</span>)</span><br><span class="line">      </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">(Animal)</span>:</span><span class="comment">#继承了Animal类</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"狗能摇着尾巴跑"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span><span class="params">(Animal)</span>:</span><span class="comment">#继承了Animal类</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"猫不能摇着尾巴跑"</span>)</span><br><span class="line">      </span><br><span class="line">animal=Animal()</span><br><span class="line">animal.run()</span><br><span class="line"></span><br><span class="line">dog=Dog()</span><br><span class="line">dog.run()</span><br><span class="line"></span><br><span class="line">cat=Cat()</span><br><span class="line">cat.run()</span><br><span class="line"></span><br><span class="line">结果为</span><br><span class="line">跑</span><br><span class="line">狗能摇着尾巴跑</span><br><span class="line">猫不能摇着尾巴跑</span><br></pre></td></tr></table></figure>
+<h3 id="多继承"><a href="#多继承" class="headerlink" title="多继承"></a>多继承</h3><p>多继承其实就是一个子类继承了两个或两个以上的父类<br>定义格式：<code>class Son(Father1，Father2...)</code></p>
+<p>其余方法和定义与单继承基本一致，不多介绍</p>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>在程序运行过程中常会遇到各种异常，代码问题，网络问题，逻辑问题等，需要对这些异常进行预处理，才能保证程序的正常执行</p>
+<h2 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h2><p>格式：</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	可能产生异常的代码块</span><br><span class="line"><span class="keyword">except</span> ExceptionType <span class="keyword">as</span> err:</span><br><span class="line">	异常处理</span><br></pre></td></tr></table></figure>
+
+<p>例如：<br>打开一个不存在的文件，产生异常</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">file</span>=<span class="keyword">open</span>(<span class="string">"test.txt"</span>)</span><br><span class="line"><span class="keyword">print</span>(<span class="keyword">file</span>.<span class="keyword">read</span>())</span><br><span class="line"><span class="keyword">file</span>.<span class="keyword">close</span>()</span><br><span class="line"><span class="keyword">print</span>(<span class="string">"读取结束"</span>)</span><br><span class="line"></span><br><span class="line">结果为</span><br><span class="line">运行就会造成异常</span><br></pre></td></tr></table></figure>
+
+<p>捕获异常：</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">	<span class="keyword">file</span>=<span class="keyword">open</span>(<span class="string">"test.txt"</span>)</span><br><span class="line">	<span class="keyword">print</span>(<span class="keyword">file</span>.<span class="keyword">read</span>())</span><br><span class="line">	<span class="keyword">file</span>.<span class="keyword">close</span>()</span><br><span class="line">except FileNotFoundError <span class="keyword">as</span> <span class="keyword">err</span>:</span><br><span class="line">	<span class="keyword">print</span>(<span class="string">"读取结束,文件不存在"</span>,<span class="keyword">err</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">结果为</span><br><span class="line">读取结束,文件不存在</span><br></pre></td></tr></table></figure>
+
+<h2 id="捕获多个异常"><a href="#捕获多个异常" class="headerlink" title="捕获多个异常"></a>捕获多个异常</h2><p>格式：</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	可能产生异常的代码块</span><br><span class="line"><span class="keyword">except</span> (ExceptionType1,ExceptionType2,...) <span class="keyword">as</span> err:</span><br><span class="line">	异常处理</span><br></pre></td></tr></table></figure>
+
+<p>其余与捕获异常基本类似</p>
+<h2 id="捕获全部异常"><a href="#捕获全部异常" class="headerlink" title="捕获全部异常"></a>捕获全部异常</h2><p>格式：</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	可能产生异常的代码块</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> err_all:</span><br><span class="line">	异常处理</span><br></pre></td></tr></table></figure>
+<h2 id="异常中的finally语句"><a href="#异常中的finally语句" class="headerlink" title="异常中的finally语句"></a>异常中的finally语句</h2><p>在程序中，如果一段代码必须要执行，就是无论发生异常，都要执行的代码，需要用finally语句<br>例如：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	<span class="keyword">f</span>=<span class="keyword">open</span>(<span class="string">"test.txt"</span>)</span><br><span class="line">    <span class="keyword">print</span>(<span class="string">"打印文件内容"</span>)</span><br><span class="line">except Exception <span class="keyword">as</span> err_al<span class="variable">l:</span></span><br><span class="line">	<span class="keyword">print</span>(<span class="string">"捕获到了异常"</span>,err_all)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">	<span class="keyword">print</span>(<span class="string">"关闭连接"</span>)</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">捕获到了异常</span><br><span class="line">关闭连接</span><br></pre></td></tr></table></figure>
+<h2 id="raise抛出异常"><a href="#raise抛出异常" class="headerlink" title="raise抛出异常"></a>raise抛出异常</h2><p>如果我们想在自己写代码的过程中遇到问题也抛出异常，可以使用raise语句<br>例如：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def <span class="keyword">div</span>(<span class="keyword">a</span>,b):</span><br><span class="line">	<span class="keyword">if</span> b==<span class="number">0</span>:</span><br><span class="line">      raise ZeroDivisionError</span><br><span class="line">   <span class="keyword">else</span>:</span><br><span class="line">   		<span class="literal">return</span> <span class="keyword">a</span>/b</span><br><span class="line">        </span><br><span class="line"><span class="keyword">div</span>(<span class="number">2</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">Traceback (most recent call <span class="keyword">last</span>):</span><br><span class="line">  File <span class="string">"D:/TIM_DOWLOAD/233.py"</span>, <span class="built_in">line</span> <span class="number">7</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">div</span>(<span class="number">2</span>, <span class="number">0</span>)</span><br><span class="line">  File <span class="string">"D:/TIM_DOWLOAD/233.py"</span>, <span class="built_in">line</span> <span class="number">3</span>, <span class="keyword">in</span> <span class="keyword">div</span></span><br><span class="line">    raise ZeroDivisionError</span><br><span class="line">ZeroDivisionError</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><p>在日常开发中，我们需要将数据写入某个文件，或者将文件中的数据读取到，就需要使用文件操作</p>
+<h2 id="读写文件"><a href="#读写文件" class="headerlink" title="读写文件"></a>读写文件</h2><h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><p>python中打开文件使用内置函数<code>open</code>打开该文件<br>例如：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f=<span class="built_in">open</span>(<span class="string">"test.txt"</span>,<span class="string">"r"</span>)</span><br><span class="line"></span><br><span class="line">r的意思是只读，即<span class="built_in">read</span>的缩写</span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f=<span class="built_in">open</span>(<span class="string">"test.txt"</span>,<span class="string">"w"</span>)</span><br><span class="line">w的意思是可编辑，即<span class="built_in">write</span>的缩写</span><br></pre></td></tr></table></figure>
+<h3 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h3><p>python中写文件的方法有<code>write()</code>和<code>writelines()</code></p>
+<p>1.write():<br>使用该方法可以将字符串数据写入到文件中.<br>例如：</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f=<span class="built_in">open</span>(<span class="string">"stunames.txt"</span>,<span class="string">"w"</span>)</span><br><span class="line">f.<span class="built_in">write</span>(<span class="string">"Tome"</span>)</span><br><span class="line">f.<span class="built_in">write</span>(<span class="string">"David"</span>)</span><br><span class="line">f.<span class="built_in">write</span>(<span class="string">"Carl"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>2.writelines():<br>使用该方法只能将一个字符串写入到文件中<br>例如:</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f=open(<span class="string">"stunames.txt"</span>,<span class="string">"w"</span>,encoding=<span class="string">"utf-8"</span>)</span><br><span class="line">f.writelines([<span class="string">"张三<span class="subst">\n</span>"</span>,<span class="string">"李四<span class="subst">\n</span>"</span>,<span class="string">"王五<span class="subst">\n</span>"</span>])</span><br></pre></td></tr></table></figure>
+
+<p>3.close()<br>在使用完写文件操作后，需要使用close()方法将其关闭，避免占用空间导致资源浪费</p>
+<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f=<span class="built_in">open</span>(<span class="string">"stunames.txt"</span>,<span class="string">"w"</span>,encoding=<span class="string">"utf-8"</span>)</span><br><span class="line">f.writelines([<span class="string">"张三\n"</span>,<span class="string">"李四\n"</span>,<span class="string">"王五\n"</span>])</span><br><span class="line">f.<span class="built_in">close</span>()<span class="comment">#关闭写操作</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h3><p>python中的读文件方法有<code>read()</code>和<code>readlines()</code></p>
+<p>1.read():</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">with</span> open(<span class="string">"stunames.txt"</span>,<span class="string">"w"</span>,encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> f:</span><br><span class="line">	<span class="class"><span class="keyword">data</span>=f.read()</span></span><br><span class="line">    print(<span class="class"><span class="keyword">data</span>)</span></span><br><span class="line">    </span><br><span class="line">结果:</span><br><span class="line">张三</span><br><span class="line">李四</span><br><span class="line">王五</span><br></pre></td></tr></table></figure>
+
+<p>2.readlines()<br>该方法可以将整个文件中的内容一次全读取出来，返回一个列表</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="keyword">open</span>(<span class="string">"stunames.txt"</span>,<span class="string">"w"</span>,<span class="keyword">encoding</span>=<span class="string">"utf-8"</span>) <span class="keyword">as</span> f:</span><br><span class="line">	<span class="keyword">data</span>=f.readlines()</span><br><span class="line">    print(<span class="keyword">data</span>)</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="keyword">range</span>(<span class="number">0</span>,<span class="keyword">len</span>(<span class="keyword">lines</span>)):</span><br><span class="line">    	print(<span class="string">"第&#123;&#125;行：&#123;&#125;"</span>.format(i,<span class="keyword">lines</span>[i]))</span><br><span class="line">        </span><br><span class="line">结果为：</span><br><span class="line">[<span class="string">'张三\n'</span>,<span class="string">'李四\n'</span>,<span class="string">'王五\n'</span>]</span><br><span class="line">第<span class="number">0</span>行：张三</span><br><span class="line"></span><br><span class="line">第<span class="number">1</span>行：李四</span><br><span class="line"></span><br><span class="line">第<span class="number">2</span>行：王五</span><br></pre></td></tr></table></figure>
+<h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><p>除了打开，读和写文件，还要有删除，重命名，创建文件夹等功能</p>
+<p>1.rename(oldfile,newfile)函数<br>字面意思，就是重命名文件<br>例如：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import <span class="built_in">os</span></span><br><span class="line"><span class="built_in">os</span>.<span class="built_in">rename</span>(<span class="string">"test.txt"</span>,<span class="string">"测试.txt"</span>)</span><br></pre></td></tr></table></figure>
+<p>2.remove(path)函数<br>删除指定文件</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import <span class="built_in">os</span></span><br><span class="line"><span class="built_in">os</span>.<span class="built_in">remove</span>(<span class="string">"测试.txt"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>3.mkdir(path)函数<br>创建文件夹</p>
+<figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="built_in">os</span></span><br><span class="line"><span class="built_in">os</span>.mkdir(<span class="string">"d://testdir"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>4.getcwd函数<br>获取程序的绝对路径</p>
+<figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="built_in">os</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">os</span>.getcwd())</span><br></pre></td></tr></table></figure>
+
+<p>5.listdir(path)函数<br>获取指定路径下的文件列表</p>
+<figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="built_in">os</span></span><br><span class="line">lsdir=<span class="built_in">os</span>.listdir(<span class="string">"./"</span>)</span><br><span class="line"><span class="built_in">print</span>(lsidr)</span><br></pre></td></tr></table></figure>
+<p>6.rmdir(path)函数<br>删除指定路径下的空文件夹</p>
+<figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="built_in">os</span></span><br><span class="line"><span class="built_in">os</span>.rmdir(<span class="string">"./datas"</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>1.可以在文件头加上<code>if_name_==&quot;_main_&quot;:</code>来保证该模块的运行，不被其他模块调用</p>
+<p>2.单继承时，子类只能继承父类的非私有成员变量和非私有成员函数</p>
+<p>3.由于在开发过程中，无法完全确定会出现的异常，所以建议采用<code>except Exception as err_all</code>的方式</p>
+<p>4.在使用raise抛出异常时，无需写明异常类型，只需要写Exception即可</p>
+<p>5.在文件操作时，读文件操作时，如果是只读操作读取不存在的文件，则会报错，如果是只写操作读取不存在的文件，则会自动创建一个文件</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/" rel="next" title="计算机组成原理-系统总线">
+                <i class="fa fa-chevron-left"></i> 计算机组成原理-系统总线
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/header.jpg"
+                alt="diao-diao" />
+            
+              <p class="site-author-name" itemprop="name">diao-diao</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/diao-diao" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:302684932@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#包和模块"><span class="nav-number">1.</span> <span class="nav-text">包和模块</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#包"><span class="nav-number">1.1.</span> <span class="nav-text">包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块"><span class="nav-number">1.2.</span> <span class="nav-text">模块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#init-py模块"><span class="nav-number">1.3.</span> <span class="nav-text">_init_.py模块</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#面向对象"><span class="nav-number">2.</span> <span class="nav-text">面向对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#概念"><span class="nav-number">2.1.</span> <span class="nav-text">概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类与对象"><span class="nav-number">2.2.</span> <span class="nav-text">类与对象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类"><span class="nav-number">2.2.1.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象"><span class="nav-number">2.2.2.</span> <span class="nav-text">对象</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#init-构造方法"><span class="nav-number">2.3.</span> <span class="nav-text">_init_构造方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#访问权限"><span class="nav-number">2.4.</span> <span class="nav-text">访问权限</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承"><span class="nav-number">2.5.</span> <span class="nav-text">继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单继承"><span class="nav-number">2.5.1.</span> <span class="nav-text">单继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#super函数"><span class="nav-number">2.5.2.</span> <span class="nav-text">super函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重写"><span class="nav-number">2.5.3.</span> <span class="nav-text">重写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多继承"><span class="nav-number">2.5.4.</span> <span class="nav-text">多继承</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异常处理"><span class="nav-number">3.</span> <span class="nav-text">异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#捕获异常"><span class="nav-number">3.1.</span> <span class="nav-text">捕获异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捕获多个异常"><span class="nav-number">3.2.</span> <span class="nav-text">捕获多个异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#捕获全部异常"><span class="nav-number">3.3.</span> <span class="nav-text">捕获全部异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常中的finally语句"><span class="nav-number">3.4.</span> <span class="nav-text">异常中的finally语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#raise抛出异常"><span class="nav-number">3.5.</span> <span class="nav-text">raise抛出异常</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件操作"><span class="nav-number">4.</span> <span class="nav-text">文件操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#读写文件"><span class="nav-number">4.1.</span> <span class="nav-text">读写文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#打开文件"><span class="nav-number">4.1.1.</span> <span class="nav-text">打开文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写文件"><span class="nav-number">4.1.2.</span> <span class="nav-text">写文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读文件"><span class="nav-number">4.1.3.</span> <span class="nav-text">读文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件管理"><span class="nav-number">4.2.</span> <span class="nav-text">文件管理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">diao-diao</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+  <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+</body>
+</html>

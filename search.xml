@@ -1,6 +1,205 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python3-2020/3/6-周报2</title>
+    <url>/2020/03/05/Python3-2020-3-6-%E5%91%A8%E6%8A%A52/</url>
+    <content><![CDATA[<h1 id="包和模块"><a href="#包和模块" class="headerlink" title="包和模块"></a>包和模块</h1><h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p>在python种包与普通文件夹的区别是，在包内要创建一个<code>_init_.py</code>文件，来标识它不是一个普通文件夹，而是一个包。</p>
+<p>一个项目可以包含多个包，一个包可以包含多个子包，也可以包含多个模块<br>例如：<br><img src="/images/python3/0.png" alt="avatar"></p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><p>在python中一个以<code>.py</code>结尾的python文件就是一个模块，不同包下可以有相同名称的模块，模块之间使用”包名.模块名”的方式区分。如果一个模块中引入其他模块有多种方式可以实现</p>
+<table>
+<thead>
+<tr>
+<th>描述</th>
+<th>引入方法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>引入单个模块</td>
+<td>import model_name</td>
+</tr>
+<tr>
+<td>引入多个模块</td>
+<td>import model_name1,model_name2</td>
+</tr>
+<tr>
+<td>引入模块中的指定函数或类</td>
+<td>from model_name import func…</td>
+</tr>
+</tbody></table>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">/buss/model1.py</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">project_info</span><span class="params">()</span>:</span></span><br><span class="line">	print(<span class="string">"*"</span>*<span class="number">20</span>)<span class="comment">#打印20个*号</span></span><br><span class="line">    print(<span class="string">""</span>*<span class="number">4</span>,<span class="string">"python项目"</span>,<span class="string">""</span>*<span class="number">4</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">import</span> buss.model1.py</span><br></pre></td></tr></table></figure>
+<h2 id="init-py模块"><a href="#init-py模块" class="headerlink" title="_init_.py模块"></a>_init_.py模块</h2><p>在python中一个包中必须包含一个含默认的<code>_init_.py</code>模块。在pycharm中会自动创建一个。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">## \_name_变量</span><br><span class="line">和C，JAVA等编写的程序，在运行时都是需要从一个主入口开始执行的。以面向对象的JAVA为例，在编写JAVA程序时，要在代码的主类中定义一个main函数作为程序的入口，编译器在执行时先找到main函数，从main函数开始运行</span><br><span class="line"></span><br><span class="line">python属于&lt;font color=&quot;#0000dd&quot;&gt;脚本语言&lt;/font&gt;，在运行时与其他编程语言不同，python程序没有编译过程，不需要进行编译成二进制代码再运行，而是从上到下依次执行的</span><br><span class="line"></span><br><span class="line">在python中内部定义了一个```_name_```变量，当被直接运行输出时，可以当作是```_main_</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">info</span><span class="params">()</span>:</span></span><br><span class="line">	print(<span class="string">"当前运行的_name_值是&#123;&#125;"</span>.format(_name_))</span><br><span class="line">   </span><br><span class="line">结果为：</span><br><span class="line">当前运行的_name_值是_main_</span><br></pre></td></tr></table></figure>
+
+<p>当引入了test_model模块时，并调用test_info函数</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> test_model</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">info</span><span class="params">()</span>:</span></span><br><span class="line">	print(<span class="string">"当前运行的_name_值是&#123;&#125;"</span>.format(_name_))</span><br><span class="line">    print(<span class="string">"---------------------"</span>)</span><br><span class="line">    info()</span><br><span class="line">    test_model.test_info()</span><br><span class="line">    </span><br><span class="line">结果为：</span><br><span class="line">当前运行的_name_值是_main_</span><br><span class="line">---------------------</span><br><span class="line">test_info正在运行，_name_值是test_model</span><br></pre></td></tr></table></figure>
+
+<p>通过这个例子可以看出当有模块被引入，且调用了其中的函数或方法是，<code>_name_</code>的值等于模块名</p>
+<p>所以在通常情况下，如果一个python源码文件既要作为模块在其他地方被引用，又要在其他地方单独运行时，就可以在源码文件中国加入<code>if_name_==&quot;_main_&quot;</code>的条件判断，也可以将这段代码作为Python源码文件的入口</p>
+<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>简单的来说，面向对象编程就是一种解决软件复用的设计和编程方法。<br>对象就是类的实例化</p>
+<h2 id="类与对象"><a href="#类与对象" class="headerlink" title="类与对象"></a>类与对象</h2><p>类是虚的，抽象的<br>对象是实的，就是类的实例化或被称为是具体表现</p>
+<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><p>类由类名，属性，方法三部分组成</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> 方法名<span class="params">(self[,参数列表])</span>:</span></span><br><span class="line">    方法体</span><br></pre></td></tr></table></figure>
+<p>定义类时要先使用class关键字，声明这是一个类，类名要遵循标识符的规则。<br>类内部定义的函数叫做方法，当调用一个对象的方法时，对象会将自身的引用传递到调用的方法中。</p>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p>创建对象的方法是：变量=类名（[参数列表]）<br>例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"吃骨头"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">drink</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"喝水"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"跑"</span>)</span><br><span class="line">wangcai=Dog()</span><br><span class="line">wangcai.eat()</span><br><span class="line">wangcai.drink()</span><br><span class="line">wangcai.run()</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">吃骨头</span><br><span class="line">喝水</span><br><span class="line">跑</span><br></pre></td></tr></table></figure>
+<h2 id="init-构造方法"><a href="#init-构造方法" class="headerlink" title="_init_构造方法"></a>_init_构造方法</h2><p>构造方式的作用是在创建一个类的对象时，进行一些初始化操作。<br>例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">_init_</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"正在初始化"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"吃骨头"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">drink</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"喝水"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"跑"</span>)</span><br><span class="line">wangcai=Dog()</span><br><span class="line">wangcai.eat()</span><br><span class="line">wangcai.drink()</span><br><span class="line">wangcai.run()</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">吃骨头</span><br><span class="line">喝水</span><br><span class="line">跑</span><br></pre></td></tr></table></figure>
+<p>结果显示我们并没有调用<code>_init_</code>构造方法，程序自动调用了该构造方法，打印了其中的内容<br>我们可以利用构造函数来对参数赋值：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">_init_</span><span class="params">(self,variety,gender)</span>:</span></span><br><span class="line">      print(<span class="string">"正在初始化"</span>)</span><br><span class="line">      self.variety=variety</span><br><span class="line">      self.gender=gender</span><br><span class="line">      print(<span class="string">"初始化结束"</span>)</span><br><span class="line"><span class="comment">#创建对象</span></span><br><span class="line">wangcai=Dog(<span class="string">"金毛"</span>，<span class="string">"雄性"</span>)</span><br><span class="line">print(<span class="string">"旺财的品种是&#123;&#125;"</span>.format(wangcai.variety))</span><br><span class="line">print(<span class="string">"旺财的性别是&#123;&#125;"</span>.format(wangcai.gender))</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">正在初始化</span><br><span class="line">初始化结束</span><br><span class="line">旺财的品种是金毛</span><br><span class="line">旺财的性别是雄性</span><br></pre></td></tr></table></figure>
+<p>从结果我们可以看出，_init_构造函数在对象实例化时执行。</p>
+<h2 id="访问权限"><a href="#访问权限" class="headerlink" title="访问权限"></a>访问权限</h2><p>JAVA中的访问权限有<code>default,public,private,protected</code>。分别是<code>默认的，公共的，私有的和保护的</code></p>
+<p>在python中不需要任何关键字修饰，只需要在属性或方法名前添加两个下划线<code>__</code>即为私有的访问权限，反之则是公有的<br>例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">_init_</span><span class="params">(self,name)</span>:</span></span><br><span class="line">      self.name=name</span><br><span class="line">      self.__age=<span class="number">1</span><span class="comment">#私有属性</span></span><br></pre></td></tr></table></figure>
+<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><p>继承是面向对象带来的好处之一，解决了代码重用的问题</p>
+<h3 id="单继承"><a href="#单继承" class="headerlink" title="单继承"></a>单继承</h3><p>所谓的单继承就是只继承一个父类<br>定义格式：<code>class Son(Father)</code></p>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"吃"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drink</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"喝"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sleep</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"睡"</span>)</span><br><span class="line">      </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">(Animal)</span>:</span><span class="comment">#继承了Animal类</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">hand</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"握手"</span>)</span><br><span class="line">      </span><br><span class="line">wangcai=Dog()</span><br><span class="line">wangcai.eat()</span><br><span class="line">wangcai.drink()</span><br><span class="line">wangcai.hand()</span><br><span class="line">wangcai.sleep()</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">吃</span><br><span class="line">喝</span><br><span class="line">握手</span><br><span class="line">睡</span><br></pre></td></tr></table></figure>
+<p>从结果可以看出Dog类中并没有定义eat,drink,sleep方法，但是由于继承了父类Animal，所以就继承了其中的所有公有方法和属性</p>
+<h3 id="super函数"><a href="#super函数" class="headerlink" title="super函数"></a>super函数</h3><p>如果在子类中想要调用父类的方法，有两种实现方法：<br>第一种:父类名.方法名(self[参数列表])<br>第二种：super().方法名</p>
+<p>例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">(Animal)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">hand</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"握手"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">goldenDog</span><span class="params">(Dog)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">guide</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"我能导航"</span>)</span><br><span class="line">      print(<span class="string">"导航前请与我握手"</span>)</span><br><span class="line">      Dog.hand(self)</span><br><span class="line"></span><br><span class="line">duoduo=goldenDog()</span><br><span class="line">duoduo.guide()</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">我能导航</span><br><span class="line">导航前请与我握手</span><br><span class="line">握手</span><br></pre></td></tr></table></figure>
+
+<p>或者</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">(Animal)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">hand</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"握手"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">goldenDog</span><span class="params">(Dog)</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">guide</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"我能导航"</span>)</span><br><span class="line">      print(<span class="string">"导航前请与我握手"</span>)</span><br><span class="line">      super().hand()</span><br><span class="line"></span><br><span class="line">duoduo=goldenDog()</span><br><span class="line">duoduo.guide()</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">我能导航</span><br><span class="line">导航前请与我握手</span><br><span class="line">握手</span><br></pre></td></tr></table></figure>
+
+<p>看到结果是一样的，在简单的继承下两者并无什么区别，但是在复杂的继承条件下，super()函数表现的更为灵活简单</p>
+<h3 id="重写"><a href="#重写" class="headerlink" title="重写"></a>重写</h3><p>重写就是在子类中定义与父类同名的方法，而其中实现的内容却不一样<br>例如：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Animal</span>:</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"吃"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">drink</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"喝"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"跑"</span>)</span><br><span class="line">      </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span><span class="params">(Animal)</span>:</span><span class="comment">#继承了Animal类</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"狗能摇着尾巴跑"</span>)</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span><span class="params">(Animal)</span>:</span><span class="comment">#继承了Animal类</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">      print(<span class="string">"猫不能摇着尾巴跑"</span>)</span><br><span class="line">      </span><br><span class="line">animal=Animal()</span><br><span class="line">animal.run()</span><br><span class="line"></span><br><span class="line">dog=Dog()</span><br><span class="line">dog.run()</span><br><span class="line"></span><br><span class="line">cat=Cat()</span><br><span class="line">cat.run()</span><br><span class="line"></span><br><span class="line">结果为</span><br><span class="line">跑</span><br><span class="line">狗能摇着尾巴跑</span><br><span class="line">猫不能摇着尾巴跑</span><br></pre></td></tr></table></figure>
+<h3 id="多继承"><a href="#多继承" class="headerlink" title="多继承"></a>多继承</h3><p>多继承其实就是一个子类继承了两个或两个以上的父类<br>定义格式：<code>class Son(Father1，Father2...)</code></p>
+<p>其余方法和定义与单继承基本一致，不多介绍</p>
+<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>在程序运行过程中常会遇到各种异常，代码问题，网络问题，逻辑问题等，需要对这些异常进行预处理，才能保证程序的正常执行</p>
+<h2 id="捕获异常"><a href="#捕获异常" class="headerlink" title="捕获异常"></a>捕获异常</h2><p>格式：</p>
+<figure class="highlight delphi"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	可能产生异常的代码块</span><br><span class="line"><span class="keyword">except</span> ExceptionType <span class="keyword">as</span> err:</span><br><span class="line">	异常处理</span><br></pre></td></tr></table></figure>
+
+<p>例如：<br>打开一个不存在的文件，产生异常</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line"><span class="keyword">file</span>=<span class="keyword">open</span>(<span class="string">"test.txt"</span>)</span><br><span class="line"><span class="keyword">print</span>(<span class="keyword">file</span>.<span class="keyword">read</span>())</span><br><span class="line"><span class="keyword">file</span>.<span class="keyword">close</span>()</span><br><span class="line"><span class="keyword">print</span>(<span class="string">"读取结束"</span>)</span><br><span class="line"></span><br><span class="line">结果为</span><br><span class="line">运行就会造成异常</span><br></pre></td></tr></table></figure>
+
+<p>捕获异常：</p>
+<figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">try:</span><br><span class="line">	<span class="keyword">file</span>=<span class="keyword">open</span>(<span class="string">"test.txt"</span>)</span><br><span class="line">	<span class="keyword">print</span>(<span class="keyword">file</span>.<span class="keyword">read</span>())</span><br><span class="line">	<span class="keyword">file</span>.<span class="keyword">close</span>()</span><br><span class="line">except FileNotFoundError <span class="keyword">as</span> <span class="keyword">err</span>:</span><br><span class="line">	<span class="keyword">print</span>(<span class="string">"读取结束,文件不存在"</span>,<span class="keyword">err</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">结果为</span><br><span class="line">读取结束,文件不存在</span><br></pre></td></tr></table></figure>
+
+<h2 id="捕获多个异常"><a href="#捕获多个异常" class="headerlink" title="捕获多个异常"></a>捕获多个异常</h2><p>格式：</p>
+<figure class="highlight delphi"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	可能产生异常的代码块</span><br><span class="line"><span class="keyword">except</span> (ExceptionType1,ExceptionType2,...) <span class="keyword">as</span> err:</span><br><span class="line">	异常处理</span><br></pre></td></tr></table></figure>
+
+<p>其余与捕获异常基本类似</p>
+<h2 id="捕获全部异常"><a href="#捕获全部异常" class="headerlink" title="捕获全部异常"></a>捕获全部异常</h2><p>格式：</p>
+<figure class="highlight delphi"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	可能产生异常的代码块</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> err_all:</span><br><span class="line">	异常处理</span><br></pre></td></tr></table></figure>
+<h2 id="异常中的finally语句"><a href="#异常中的finally语句" class="headerlink" title="异常中的finally语句"></a>异常中的finally语句</h2><p>在程序中，如果一段代码必须要执行，就是无论发生异常，都要执行的代码，需要用finally语句<br>例如：</p>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">	<span class="keyword">f</span>=<span class="keyword">open</span>(<span class="string">"test.txt"</span>)</span><br><span class="line">    <span class="keyword">print</span>(<span class="string">"打印文件内容"</span>)</span><br><span class="line">except Exception <span class="keyword">as</span> err_al<span class="variable">l:</span></span><br><span class="line">	<span class="keyword">print</span>(<span class="string">"捕获到了异常"</span>,err_all)</span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">	<span class="keyword">print</span>(<span class="string">"关闭连接"</span>)</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">捕获到了异常</span><br><span class="line">关闭连接</span><br></pre></td></tr></table></figure>
+<h2 id="raise抛出异常"><a href="#raise抛出异常" class="headerlink" title="raise抛出异常"></a>raise抛出异常</h2><p>如果我们想在自己写代码的过程中遇到问题也抛出异常，可以使用raise语句<br>例如：</p>
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">def <span class="keyword">div</span>(<span class="keyword">a</span>,b):</span><br><span class="line">	<span class="keyword">if</span> b==<span class="number">0</span>:</span><br><span class="line">      raise ZeroDivisionError</span><br><span class="line">   <span class="keyword">else</span>:</span><br><span class="line">   		<span class="literal">return</span> <span class="keyword">a</span>/b</span><br><span class="line">        </span><br><span class="line"><span class="keyword">div</span>(<span class="number">2</span>,<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">结果为：</span><br><span class="line">Traceback (most recent call <span class="keyword">last</span>):</span><br><span class="line">  File <span class="string">"D:/TIM_DOWLOAD/233.py"</span>, <span class="built_in">line</span> <span class="number">7</span>, <span class="keyword">in</span> &lt;module&gt;</span><br><span class="line">    <span class="keyword">div</span>(<span class="number">2</span>, <span class="number">0</span>)</span><br><span class="line">  File <span class="string">"D:/TIM_DOWLOAD/233.py"</span>, <span class="built_in">line</span> <span class="number">3</span>, <span class="keyword">in</span> <span class="keyword">div</span></span><br><span class="line">    raise ZeroDivisionError</span><br><span class="line">ZeroDivisionError</span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><p>在日常开发中，我们需要将数据写入某个文件，或者将文件中的数据读取到，就需要使用文件操作</p>
+<h2 id="读写文件"><a href="#读写文件" class="headerlink" title="读写文件"></a>读写文件</h2><h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><p>python中打开文件使用内置函数<code>open</code>打开该文件<br>例如：</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">f=<span class="built_in">open</span>(<span class="string">"test.txt"</span>,<span class="string">"r"</span>)</span><br><span class="line"></span><br><span class="line">r的意思是只读，即<span class="built_in">read</span>的缩写</span><br></pre></td></tr></table></figure>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">f=<span class="built_in">open</span>(<span class="string">"test.txt"</span>,<span class="string">"w"</span>)</span><br><span class="line">w的意思是可编辑，即<span class="built_in">write</span>的缩写</span><br></pre></td></tr></table></figure>
+<h3 id="写文件"><a href="#写文件" class="headerlink" title="写文件"></a>写文件</h3><p>python中写文件的方法有<code>write()</code>和<code>writelines()</code></p>
+<p>1.write():<br>使用该方法可以将字符串数据写入到文件中.<br>例如：</p>
+<figure class="highlight arduino"><table><tr><td class="code"><pre><span class="line">f=<span class="built_in">open</span>(<span class="string">"stunames.txt"</span>,<span class="string">"w"</span>)</span><br><span class="line">f.<span class="built_in">write</span>(<span class="string">"Tome"</span>)</span><br><span class="line">f.<span class="built_in">write</span>(<span class="string">"David"</span>)</span><br><span class="line">f.<span class="built_in">write</span>(<span class="string">"Carl"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>2.writelines():<br>使用该方法只能将一个字符串写入到文件中<br>例如:</p>
+<figure class="highlight lsl"><table><tr><td class="code"><pre><span class="line">f=open(<span class="string">"stunames.txt"</span>,<span class="string">"w"</span>,encoding=<span class="string">"utf-8"</span>)</span><br><span class="line">f.writelines([<span class="string">"张三<span class="subst">\n</span>"</span>,<span class="string">"李四<span class="subst">\n</span>"</span>,<span class="string">"王五<span class="subst">\n</span>"</span>])</span><br></pre></td></tr></table></figure>
+
+<p>3.close()<br>在使用完写文件操作后，需要使用close()方法将其关闭，避免占用空间导致资源浪费</p>
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">f=<span class="built_in">open</span>(<span class="string">"stunames.txt"</span>,<span class="string">"w"</span>,encoding=<span class="string">"utf-8"</span>)</span><br><span class="line">f.writelines([<span class="string">"张三\n"</span>,<span class="string">"李四\n"</span>,<span class="string">"王五\n"</span>])</span><br><span class="line">f.<span class="built_in">close</span>()<span class="comment">#关闭写操作</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="读文件"><a href="#读文件" class="headerlink" title="读文件"></a>读文件</h3><p>python中的读文件方法有<code>read()</code>和<code>readlines()</code></p>
+<p>1.read():</p>
+<figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line"><span class="title">with</span> open(<span class="string">"stunames.txt"</span>,<span class="string">"w"</span>,encoding=<span class="string">"utf-8"</span>) <span class="keyword">as</span> f:</span><br><span class="line">	<span class="class"><span class="keyword">data</span>=f.read()</span></span><br><span class="line">    print(<span class="class"><span class="keyword">data</span>)</span></span><br><span class="line">    </span><br><span class="line">结果:</span><br><span class="line">张三</span><br><span class="line">李四</span><br><span class="line">王五</span><br></pre></td></tr></table></figure>
+
+<p>2.readlines()<br>该方法可以将整个文件中的内容一次全读取出来，返回一个列表</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="keyword">open</span>(<span class="string">"stunames.txt"</span>,<span class="string">"w"</span>,<span class="keyword">encoding</span>=<span class="string">"utf-8"</span>) <span class="keyword">as</span> f:</span><br><span class="line">	<span class="keyword">data</span>=f.readlines()</span><br><span class="line">    print(<span class="keyword">data</span>)</span><br><span class="line">	</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="keyword">range</span>(<span class="number">0</span>,<span class="keyword">len</span>(<span class="keyword">lines</span>)):</span><br><span class="line">    	print(<span class="string">"第&#123;&#125;行：&#123;&#125;"</span>.format(i,<span class="keyword">lines</span>[i]))</span><br><span class="line">        </span><br><span class="line">结果为：</span><br><span class="line">[<span class="string">'张三\n'</span>,<span class="string">'李四\n'</span>,<span class="string">'王五\n'</span>]</span><br><span class="line">第<span class="number">0</span>行：张三</span><br><span class="line"></span><br><span class="line">第<span class="number">1</span>行：李四</span><br><span class="line"></span><br><span class="line">第<span class="number">2</span>行：王五</span><br></pre></td></tr></table></figure>
+<h2 id="文件管理"><a href="#文件管理" class="headerlink" title="文件管理"></a>文件管理</h2><p>除了打开，读和写文件，还要有删除，重命名，创建文件夹等功能</p>
+<p>1.rename(oldfile,newfile)函数<br>字面意思，就是重命名文件<br>例如：</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">import <span class="built_in">os</span></span><br><span class="line"><span class="built_in">os</span>.<span class="built_in">rename</span>(<span class="string">"test.txt"</span>,<span class="string">"测试.txt"</span>)</span><br></pre></td></tr></table></figure>
+<p>2.remove(path)函数<br>删除指定文件</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><span class="line">import <span class="built_in">os</span></span><br><span class="line"><span class="built_in">os</span>.<span class="built_in">remove</span>(<span class="string">"测试.txt"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>3.mkdir(path)函数<br>创建文件夹</p>
+<figure class="highlight moonscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="built_in">os</span></span><br><span class="line"><span class="built_in">os</span>.mkdir(<span class="string">"d://testdir"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>4.getcwd函数<br>获取程序的绝对路径</p>
+<figure class="highlight moonscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="built_in">os</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">os</span>.getcwd())</span><br></pre></td></tr></table></figure>
+
+<p>5.listdir(path)函数<br>获取指定路径下的文件列表</p>
+<figure class="highlight moonscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="built_in">os</span></span><br><span class="line">lsdir=<span class="built_in">os</span>.listdir(<span class="string">"./"</span>)</span><br><span class="line"><span class="built_in">print</span>(lsidr)</span><br></pre></td></tr></table></figure>
+<p>6.rmdir(path)函数<br>删除指定路径下的空文件夹</p>
+<figure class="highlight moonscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="built_in">os</span></span><br><span class="line"><span class="built_in">os</span>.rmdir(<span class="string">"./datas"</span>)</span><br></pre></td></tr></table></figure>
+
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>1.可以在文件头加上<code>if_name_==&quot;_main_&quot;:</code>来保证该模块的运行，不被其他模块调用</p>
+<p>2.单继承时，子类只能继承父类的非私有成员变量和非私有成员函数</p>
+<p>3.由于在开发过程中，无法完全确定会出现的异常，所以建议采用<code>except Exception as err_all</code>的方式</p>
+<p>4.在使用raise抛出异常时，无需写明异常类型，只需要写Exception即可</p>
+<p>5.在文件操作时，读文件操作时，如果是只读操作读取不存在的文件，则会报错，如果是只写操作读取不存在的文件，则会自动创建一个文件</p>
+]]></content>
+      <categories>
+        <category>日常学习</category>
+        <category>Python3</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>计算机组成原理-系统总线</title>
+    <url>/2020/03/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86-%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/</url>
+    <content><![CDATA[<h1 id="系统总线"><a href="#系统总线" class="headerlink" title="系统总线"></a>系统总线</h1><h2 id="总线的基本概念"><a href="#总线的基本概念" class="headerlink" title="总线的基本概念"></a>总线的基本概念</h2><p>总线是连接各个部件的信息传输线，是各个部件共享的传输介质</p>
+<h3 id="传输方式"><a href="#传输方式" class="headerlink" title="传输方式"></a>传输方式</h3><p>总线上信息的传输分为串行和并行<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/0.png" alt="avatar"><br>并行一般传播距离较短，一般在计算机内部；串行传播距离长，可以在机器与机器之间传播</p>
+<h3 id="简单结构"><a href="#简单结构" class="headerlink" title="简单结构"></a>简单结构</h3><p>1.单总线结构框图<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/1.png" alt="avatar"></p>
+<p>缺点：在任何时间内，都只能一对设备运行，外部的输入和内部的输出都会导致CPU的停止运行，效率低</p>
+<p>2.面向CPU的双总线结构框图<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/2.png" alt="avatar"></p>
+<p>缺点：假如想在主存和外部设备进行传输的话，CPU的执行还是会被打断</p>
+<p>3.以存储器为中心的双总线结构框图<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/3.png" alt="avatar"></p>
+<p>缺点：当今的技术还不能完全实现该结构</p>
+<h2 id="总线的分类"><a href="#总线的分类" class="headerlink" title="总线的分类"></a>总线的分类</h2><p>1.片内总线<br><font color="#0000dd">芯片内部</font>的总线</p>
+<p>2.系统总线<br><font color="#0000dd">计算机各部件之间</font>的信息传输线<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/4.png" alt="avatar"></p>
+<p>3.通信总线<br>用于<font color="#0000dd">计算机系统之间</font>或<font color="#0000dd">计算机系统与其他系统(控制仪表，移动通信等)</font>之间的通信<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/5.png" alt="avatar"></p>
+<h2 id="总线特性及性能指标"><a href="#总线特性及性能指标" class="headerlink" title="总线特性及性能指标"></a>总线特性及性能指标</h2><h3 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h3><p>1.机械特性  <font color="#0000dd">尺寸，管脚数和排列顺序</font></p>
+<p>2.电气特性  <font color="#0000dd">传输方向，电平范围</font></p>
+<p>3.功能特性  <font color="#0000dd">每根传输线的功能（地址，数据，控制）</font></p>
+<p>4.时间特性</p>
+<h3 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h3><p>1.总线宽度  <font color="#0000dd">数据线</font>的根数</p>
+<p>2.标准传输率  <font color="#0000dd">每秒传输的最大字节数MBps</font></p>
+<p>3.时钟同步/异步  <font color="#0000dd">同步，不同步</font></p>
+<p>4.总线复用  <font color="#0000dd">地址线</font>和<font color="#0000dd">数据线</font>复用</p>
+<p>5.信号线数  地址线，数据线和控制线的<font color="#ff33cc">总和</font></p>
+<p>6.总线控制方式  突发，自动，仲裁，逻辑，计数</p>
+<p>7.其他指标 <font color="#0000dd">负载能力</font></p>
+<h2 id="总线结构"><a href="#总线结构" class="headerlink" title="总线结构"></a>总线结构</h2><h3 id="单总线结构"><a href="#单总线结构" class="headerlink" title="单总线结构"></a>单总线结构</h3><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/1.png" alt="avatar"></p>
+<h3 id="多总线结构"><a href="#多总线结构" class="headerlink" title="多总线结构"></a>多总线结构</h3><p>1.双总线结构<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/6.png" alt="avatar"><br>其中的通道是具有特殊功能的处理器，专门负责控制IO，具有自己的存储器</p>
+<p>2.三总线结构<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/7.png" alt="avatar"><br>可以有多个高速外设</p>
+<p>3.三总线结构的又一形式<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/8.png" alt="avatar"><br>解决了IO设备的扩展性问题，由于多种设备都连在了扩展总线上，所以会导致外部设备受限</p>
+<p>4.四总线结构<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/9.png" alt="avatar"><br>高速设变连在高速总线上，低速设备连在扩展总线上，让外部设备速度更快</p>
+<h3 id="总线结构举例"><a href="#总线结构举例" class="headerlink" title="总线结构举例"></a>总线结构举例</h3><p>1.传统微型机总线结构<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/10.png" alt="avatar"></p>
+<p>2.VL-BUS局部总线结构<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/11.png" alt="avatar"><br>VL-BUS总线是一条高速总线</p>
+<p>3.PCI总线结构<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/12.png" alt="avatar"><br>PCI总线也是一条高速总线，例如多媒体，高速设备等</p>
+<p>4.多层PCI总线结构<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/13.png" alt="avatar"></p>
+<h2 id="总线控制"><a href="#总线控制" class="headerlink" title="*总线控制"></a>*总线控制</h2><h3 id="判优控制"><a href="#判优控制" class="headerlink" title="判优控制"></a>判优控制</h3><h4 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h4><p>.主设备（模块）  对总线有<font color="#0000dd">控制权</font></p>
+<p>.从设备(模块)  <font color="#0000dd">响应</font>从主设备发来的总线命令</p>
+<p>总线判优控制分为<font color="#0000dd">集中式</font>和<font color="#0000dd">分布式</font><br>；集中式又分为：链式查询，计数器定时查询和独立请求方式</p>
+<h5 id="链式查询方式"><a href="#链式查询方式" class="headerlink" title="链式查询方式"></a>链式查询方式</h5><p> <img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/14.png" alt="avatar"><br>特征：<br>1.各个设备占用设备的优先级与BG这条线的查询顺序有直接关系<br>2.增删设备较为方便<br>3.进行可靠设计的时候，较为简单<br>缺点：<br>1.对电路故障特别敏感，一旦前一个设备出现电路故障，后面的设备都无法正常运行<br>2.速度较慢，一般用在简单嵌入式或微型计算机中</p>
+<h5 id="计数器定时查询方式"><a href="#计数器定时查询方式" class="headerlink" title="计数器定时查询方式"></a>计数器定时查询方式</h5><p> <img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/15.png" alt="avatar"><br>计数器在总线控制部件中</p>
+<h6 id="独立请求方式"><a href="#独立请求方式" class="headerlink" title="独立请求方式"></a>独立请求方式</h6><p> <img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/16.png" alt="avatar"><br>排队器在总线控制部件中，也可以采用计数器或混合</p>
+<h3 id="通信控制"><a href="#通信控制" class="headerlink" title="通信控制"></a>通信控制</h3><h4 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h4><p>解决通信双方<font color="#0000dd">协调配合</font>问题</p>
+<h4 id="总线传输周期"><a href="#总线传输周期" class="headerlink" title="总线传输周期"></a>总线传输周期</h4><p>申请分配阶段  <font color="#0000dd">主模块申请</font>，总线仲裁决定</p>
+<p>寻址阶段  主模块向从模块<font color="#0000dd">给出地址</font>和<font color="#0000dd">命令</font></p>
+<p>传数阶段   主模块和从模块<font color="#0000dd">交换数据</font></p>
+<p>结束阶段  主模块<font color="#0000dd">撤销有关信息</font></p>
+<h4 id="四种通信方式"><a href="#四种通信方式" class="headerlink" title="四种通信方式"></a>四种通信方式</h4><p>同步方式  由<font color="#0000dd">统一时标</font>控制数据传送</p>
+<p>异步通信  采用<font color="#0000dd">应答方式</font>，没有公共时钟标准</p>
+<p>半同步通信  <font color="#0000dd">同步，异步的结合</font></p>
+<p>分离式通信  充分<font color="#0000dd">挖掘</font>系统<font color="#0000dd">总线每个瞬间</font>的潜力</p>
+<h5 id="同步通信"><a href="#同步通信" class="headerlink" title="同步通信"></a>同步通信</h5><p>数据输入：<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/17.png" alt="avatar"></p>
+<p>数据输出：<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/18.png" alt="avatar"></p>
+<h5 id="异步通信"><a href="#异步通信" class="headerlink" title="异步通信"></a>异步通信</h5><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/19.png" alt="avatar"></p>
+<h5 id="半同步通信"><a href="#半同步通信" class="headerlink" title="半同步通信"></a>半同步通信</h5><p>同步  <font color="#0000dd">发送方</font>用系统<font color="#0000dd">时钟前沿</font>发信号；<font color="#0000dd">接收方</font>用系统<font color="#0000dd">时钟后沿</font>判断，识别</p>
+<p>异步  允许不同速度的模块和谐工作；增加一条<font color="#0000dd">“等待”响应信号</font></p>
+<p>数据输入的半同步通信时序：<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/20.png" alt="avatar"></p>
+<p>数据输入：<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/21.png" alt="avatar"></p>
+<h5 id="分离式通信"><a href="#分离式通信" class="headerlink" title="分离式通信"></a>分离式通信</h5><p>充分挖掘系统总线每个瞬间的潜力<br><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF/22.png" alt="avatar"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Python3-2020/3/1-周报1</title>
     <url>/2020/03/01/Python3-2020-3-1-%E5%91%A8%E6%8A%A51/</url>
     <content><![CDATA[<h1 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h1><p>基本形式</p>

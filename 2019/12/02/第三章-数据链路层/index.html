@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -109,13 +109,13 @@
 <meta property="og:site_name" content="diao-diao-UPUP">
 <meta property="og:description" content="第三章-数据链路层主要知识数据链路层使用的两种主要信道是： 1.点对点信道 2.广播信道  数据链路层的三个基本问题：封装成帧，透明传输和差错检测     封装成帧：在一段数据前后分别添加首部和尾部，构成一个帧，目的是让计算机知道何为开始，何为结束     透明传输：表示无论什么样的比特组合的数据，都能够按照原样没有差错地通过这个数据链路层     差错检测：只能检测出比特差错，广泛使用循环冗余检">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;CRC.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;%E5%B8%A7%E7%9A%84%E6%A0%BC%E5%BC%8F.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;%E8%87%AA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;计算机网络&#x2F;CRC.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;计算机网络&#x2F;帧的格式.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;计算机网络&#x2F;自学习算法.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;计算机网络&#x2F;数据链路层.png">
 <meta property="og:updated_time" content="2020-02-21T06:35:37.804Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C&#x2F;CRC.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;计算机网络&#x2F;CRC.png">
 
 
 
@@ -151,7 +151,7 @@
 
 
 
-  <title>第三章-数据链路层 | diao-diao-UPUP</title>
+  <title>第三章-数据链路层 | diao-diao-UPUP</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -170,7 +170,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -430,7 +430,8 @@
     例：P（x）=x^3+1=&gt;1001（4位）
     想要发送的数据：1011 1100
     实际发送的数据：1011 1100 0000 （4-1）位
-    FCS：（4-1）位</code></pre><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/CRC.png" alt="avatar"></p>
+    FCS：（4-1）位
+</code></pre><p><img src="/images/计算机网络/CRC.png" alt="avatar"></p>
 <pre><code>余数作为FCS
 
     第二种情况，是接收方接收到的数据
@@ -452,7 +453,8 @@
    2.一个用来建立，配置和测试连接的链路控制协议LCP
    3.一套网络控制协议NCP
 
-   帧的格式：</code></pre><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E5%B8%A7%E7%9A%84%E6%A0%BC%E5%BC%8F.png" alt="avatar"></p>
+   帧的格式：
+</code></pre><p><img src="/images/计算机网络/帧的格式.png" alt="avatar"></p>
 <pre><code> 字节填充：当使用异步传输时，转义符定义为0x7D
 方法：每出现一个0x7E就变为0x7D,0x5E
       每出现一个0x7D就变为0x7D,0x5D
@@ -501,11 +503,13 @@
      每个通信的主机都是独占传输媒体，无碰撞地传输数据
      对收到的帧采用存储转发的方式
 
-   交换表采用的是自学习算法：</code></pre><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%87%AA%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95.png" alt="avatar"></p>
+   交换表采用的是自学习算法：
+</code></pre><p><img src="/images/计算机网络/自学习算法.png" alt="avatar"></p>
 <pre><code>100BASE-T:在双绞线上传输100Mbit/s基带信号
 T：双绞线
 BASE：基带信号
-100：100Mbit/s</code></pre><h2 id="部分习题"><a href="#部分习题" class="headerlink" title="部分习题"></a>部分习题</h2><pre><code>*网络适配器的作用？工作在哪一层？
+100：100Mbit/s
+</code></pre><h2 id="部分习题"><a href="#部分习题" class="headerlink" title="部分习题"></a>部分习题</h2><pre><code>*网络适配器的作用？工作在哪一层？
     1.进行数据串行传输和并行传输转换 
     2.对数据进行缓存
     3.在计算机的操作系统中安装驱动程序
@@ -514,7 +518,8 @@ BASE：基带信号
 *数据链路层的三个基本问题为什么都必须加以解决？
     ⑴封装成帧就是在一段数据前后分别添加首部和尾部。接收端以便从收到的比特流中识别帧的开始与结束，帧定界是分组交换的必然要求；
     ⑵ 透明传输避免消息符号与帧定界符号相混淆；
-    ⑶差错检测防止差错的无效数据帧，浪费网络资源。</code></pre><h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p><img src="/images/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82.png" alt="avatar">    </p>
+    ⑶差错检测防止差错的无效数据帧，浪费网络资源。
+</code></pre><h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p><img src="/images/计算机网络/数据链路层.png" alt="avatar">    </p>
 
       
     </div>
@@ -638,7 +643,7 @@ BASE：基带信号
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1240,6 +1245,8 @@ BASE：基带信号
   
 
   
+  
+
 
   
 
@@ -1247,7 +1254,7 @@ BASE：基带信号
 
   
   <!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<script type="text/javascript" src="/js/src/clicklove.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

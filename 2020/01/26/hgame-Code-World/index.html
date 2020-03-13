@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -101,16 +101,17 @@
 
 
 
-<meta name="description" content="Code World打开竟然是个403 用bp抓包访问一下index.php 发现405错误https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;dd7315428462 所以更改为POST请求 提示要求通过URL计算两个数相加为10 所以直接URL： 1&#x2F;?a=1+9 但是由于URL中+会被转译为空格 使用URL编码 1&#x2F;?a=1%2b9 ![avatar](&#x2F;images&#x2F;hgame&#x2F;code">
+<meta name="description" content="Code World打开竟然是个403 用bp抓包访问一下index.php 发现405错误https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;dd7315428462 所以更改为POST请求 提示要求通过URL计算两个数相加为10 所以直接URL：1&#x2F;?a=1+9但是由于URL中+会被转译为空格 使用URL编码1&#x2F;?a=1%2b9 得到flag">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hgame-Code World">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;26&#x2F;hgame-Code-World&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="Code World打开竟然是个403 用bp抓包访问一下index.php 发现405错误https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;dd7315428462 所以更改为POST请求 提示要求通过URL计算两个数相加为10 所以直接URL： 1&#x2F;?a=1+9 但是由于URL中+会被转译为空格 使用URL编码 1&#x2F;?a=1%2b9 ![avatar](&#x2F;images&#x2F;hgame&#x2F;code">
+<meta property="og:description" content="Code World打开竟然是个403 用bp抓包访问一下index.php 发现405错误https:&#x2F;&#x2F;www.jianshu.com&#x2F;p&#x2F;dd7315428462 所以更改为POST请求 提示要求通过URL计算两个数相加为10 所以直接URL：1&#x2F;?a=1+9但是由于URL中+会被转译为空格 使用URL编码1&#x2F;?a=1%2b9 得到flag">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;hgame&#x2F;codeworld&#x2F;0.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;hgame&#x2F;codeworld&#x2F;1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;hgame&#x2F;code%20world&#x2F;2.png">
 <meta property="og:updated_time" content="2020-02-21T06:30:16.575Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;hgame&#x2F;codeworld&#x2F;0.png">
@@ -149,7 +150,7 @@
 
 
 
-  <title>hgame-Code World | diao-diao-UPUP</title>
+  <title>hgame-Code World | diao-diao-UPUP</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -168,7 +169,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -415,11 +416,7 @@
 <p>发现405错误<br><a href="https://www.jianshu.com/p/dd7315428462" target="_blank" rel="noopener">https://www.jianshu.com/p/dd7315428462</a></p>
 <p>所以更改为POST请求<br><img src="/images/hgame/codeworld/1.png" alt="avatar"></p>
 <p>提示要求通过URL计算两个数相加为10</p>
-<p>所以直接URL：</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/?a=<span class="number">1</span>+<span class="number">9</span></span><br></pre></td></tr></table></figure>
-<p>但是由于URL中+会被转译为空格 使用URL编码</p>
-<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/?a=<span class="number">1</span><span class="symbol">%</span><span class="number">2b9</span></span><br></pre></td></tr></table></figure>
-<p>![avatar](/images/hgame/code world/2.png)</p>
+<p>所以直接URL：<br><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/?a=<span class="number">1</span>+<span class="number">9</span></span><br></pre></td></tr></table></figure><br>但是由于URL中+会被转译为空格 使用URL编码<br><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/?a=<span class="number">1</span><span class="symbol">%</span><span class="number">2b9</span></span><br></pre></td></tr></table></figure><br><img src="/images/hgame/code world/2.png" alt="avatar"></p>
 <p>得到flag</p>
 
       
@@ -544,7 +541,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1146,6 +1143,8 @@
   
 
   
+  
+
 
   
 
@@ -1153,7 +1152,7 @@
 
   
   <!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<script type="text/javascript" src="/js/src/clicklove.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

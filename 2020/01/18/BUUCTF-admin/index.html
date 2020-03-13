@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -148,7 +148,7 @@
 
 
 
-  <title>BUUCTF-admin | diao-diao-UPUP</title>
+  <title>BUUCTF-admin | diao-diao-UPUP</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -167,7 +167,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -414,9 +414,7 @@
 <p>复制连接 下载一下</p>
 <p>随后打开index.php 查看代码</p>
 <p>flask之前比赛时遇到过，CNSS也遇到过，一个轻量级的python框架，这题有两种解法，一种是session  写脚本就可以直接得到 但是奈何不会写</p>
-<p>所以只好使用strlower  转小写函数去尝试注册ADMIN<br>哦豁，发现GG了，那再看看strlower的定义中有nodeprep.prepare()这个函数<br>我们先使用unicode编码的字符 ᴬ<br>用这个用户名注册</p>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ᴬ<span class="built_in">dmin</span></span><br></pre></td></tr></table></figure>
-<p>这个时候nodeprep.prepare()函数会将用户名变为Admin，随便修改一下密码，就会再次调用该函数变为admin</p>
+<p>所以只好使用strlower  转小写函数去尝试注册ADMIN<br>哦豁，发现GG了，那再看看strlower的定义中有nodeprep.prepare()这个函数<br>我们先使用unicode编码的字符 ᴬ<br>用这个用户名注册<br><figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ᴬ<span class="built_in">dmin</span></span><br></pre></td></tr></table></figure><br>这个时候nodeprep.prepare()函数会将用户名变为Admin，随便修改一下密码，就会再次调用该函数变为admin</p>
 <p>这个时候其实已经覆写了admin的密码 直接登录</p>
 <p>得到flag</p>
 <p>这里是利用了unicode的编码问题<br>可以参考一下：<br><a href="https://unicode-table.com/en/blocks/phonetic-extensions/" target="_blank" rel="noopener">https://unicode-table.com/en/blocks/phonetic-extensions/</a></p>
@@ -543,7 +541,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1145,6 +1143,8 @@
   
 
   
+  
+
 
   
 
@@ -1152,7 +1152,7 @@
 
   
   <!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<script type="text/javascript" src="/js/src/clicklove.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

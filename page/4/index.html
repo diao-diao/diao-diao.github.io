@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -142,7 +142,7 @@
 
 
 
-  <title>diao-diao-UPUP</title>
+  <title>diao-diao-UPUP</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -161,7 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left 
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
 
@@ -304,6 +304,168 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/21/BUUCTF-Easy-Calc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/01/21/BUUCTF-Easy-Calc/" itemprop="url">BUUCTF-Easy Calc</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-21T10:21:08+08:00">
+                2020-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WP/" itemprop="url" rel="index">
+                    <span itemprop="name">WP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WP/WEB/" itemprop="url" rel="index">
+                    <span itemprop="name">WEB</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          Easy Calc打开环境是个计算器，搜索一下Calc是什么
+最后发现是CSS中的一个样式，用于进行一下计算http://caibaojian.com/css3-calc.html
+尝试一下注入1234输入1 正常1’ 没有报错1'# 直接给PASS了到这里考虑不是SQL注入题
+crtl+u看一下源
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/01/21/BUUCTF-Easy-Calc/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/20/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-ics-06/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -412,10 +574,8 @@
 找到一个index.html  访问一下
 送分题？
 看了一下URL 有id=1
-打开bp 爆破一下 因为是数字 所以用python写一个字典出来
-12for m in range (10001):    print(m)
-直接爆破
-id=2
+打开bp 爆破一下 因为是数字 所以用python写一个字典出来12for m in range (10001):    print(m)直接爆破
+id=233
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -898,9 +1058,7 @@ flask之前比赛时遇到过，CNS
       
         
           
-          EasySQL 1题目得到是SQL注入，那就直接上手，先按常规的来：
-123456输入1 返回数据1' 没有返回数据  看来不需要'1;  正常返回1; show databases;  和前面学到的堆叠一样的原理1; show tables;  Array ( [0] =&gt; Flag )
-接
+          EasySQL 1题目得到是SQL注入，那就直接上手，先按常规的来：123456输入1 返回数据1' 没有返回数据  看来不需要'1;  正常返回1; show databases;  和前面学到的堆叠一样的原理1; show tables;  Array ( [0] =&gt; Flag )接下来
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1224,8 +1382,7 @@ md5(cookie_secret+md5(filename))
           
           随便注 1之前在强网杯的时候遇到这道题，当时卡了挺久的，就差最后一步 真的太可惜了
 先随便点击一下提交
-看得出是一个sql注入类型的题目
-1234567输入1 没有报错1' 出现报错，验证存在注入1’# 没有报错1' order by 1# 没有报错1' order by 3# 出现报错，证明字段有
+看得出是一个sql注入类型的题目1234567输入1 没有报错1' 出现报错，验证存在注入1’# 没有报错1' order by 1# 没有报错1' order by 3# 出现报错，证明字段有2
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1386,8 +1543,7 @@ md5(cookie_secret+md5(filename))
           
           WarmUp首先启动环境，发现滑稽图；没有什么好说的crtl+u查看源码：
 得到提示：source.php
-通过URL访问一下 得到源码：
-12345678910111213141516171819202122232425262728293031323334353637383940414243444
+通过URL访问一下 得到源码：123456789101112131415161718192021222324252627282930313233343536373839404142434445
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1763,162 +1919,6 @@ md5(cookie_secret+md5(filename))
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/19/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="diao-diao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="diao-diao-UPUP">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/19/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/" itemprop="url">快速排序</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-19T19:45:21+08:00">
-                2019-11-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1/" itemprop="url" rel="index">
-                    <span itemprop="name">算法设计</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          快速排序一、快排思想快排其实就是冒泡的改进；主要思路就是划分元素——主元。
-例如：3 5 2 7 9 0 1 4
-    ___________________
-
-    1 0 2| 3 |9 7 5 4
-
-    左子序-|主元|-右子序
-
-    1 0 2| 3 |9 7 5 4二、步骤1.
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/11/19/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1973,7 +1973,7 @@ md5(cookie_secret+md5(filename))
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2555,6 +2555,28 @@ md5(cookie_secret+md5(filename))
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
@@ -2562,7 +2584,7 @@ md5(cookie_secret+md5(filename))
 
   
   <!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<script type="text/javascript" src="/js/src/clicklove.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

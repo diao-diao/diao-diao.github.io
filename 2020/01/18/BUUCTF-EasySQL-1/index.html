@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -101,13 +101,13 @@
 
 
 
-<meta name="description" content="EasySQL 1题目得到是SQL注入，那就直接上手，先按常规的来： 123456输入1 返回数据1&amp;apos; 没有返回数据  看来不需要&amp;apos;1;  正常返回1; show databases;  和前面学到的堆叠一样的原理1; show tables;  Array ( [0] =&amp;gt; Flag ) 接下来就没有头绪了，看了一下WP，感觉大佬说的听不太懂 1select $_GET[&amp;apos;query&amp;apos;]">
+<meta name="description" content="EasySQL 1题目得到是SQL注入，那就直接上手，先按常规的来：123456输入1 返回数据1&amp;apos; 没有返回数据  看来不需要&amp;apos;1;  正常返回1; show databases;  和前面学到的堆叠一样的原理1; show tables;  Array ( [0] =&amp;gt; Flag )接下来就没有头绪了，看了一下WP，感觉大佬说的听不太懂1select $_GET[&amp;apos;query&amp;apos;] ||">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUUCTF-EasySQL 1">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;01&#x2F;18&#x2F;BUUCTF-EasySQL-1&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="EasySQL 1题目得到是SQL注入，那就直接上手，先按常规的来： 123456输入1 返回数据1&amp;apos; 没有返回数据  看来不需要&amp;apos;1;  正常返回1; show databases;  和前面学到的堆叠一样的原理1; show tables;  Array ( [0] =&amp;gt; Flag ) 接下来就没有头绪了，看了一下WP，感觉大佬说的听不太懂 1select $_GET[&amp;apos;query&amp;apos;]">
+<meta property="og:description" content="EasySQL 1题目得到是SQL注入，那就直接上手，先按常规的来：123456输入1 返回数据1&amp;apos; 没有返回数据  看来不需要&amp;apos;1;  正常返回1; show databases;  和前面学到的堆叠一样的原理1; show tables;  Array ( [0] =&amp;gt; Flag )接下来就没有头绪了，看了一下WP，感觉大佬说的听不太懂1select $_GET[&amp;apos;query&amp;apos;] ||">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2020-02-21T06:31:33.755Z">
 <meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
 
 
 
-  <title>BUUCTF-EasySQL 1 | diao-diao-UPUP</title>
+  <title>BUUCTF-EasySQL 1 | diao-diao-UPUP</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -165,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -407,19 +407,11 @@
       
 
       
-        <h1 id="EasySQL-1"><a href="#EasySQL-1" class="headerlink" title="EasySQL 1"></a>EasySQL 1</h1><p>题目得到是SQL注入，那就直接上手，先按常规的来：</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line"><span class="number">1</span> 返回数据</span><br><span class="line"><span class="number">1</span><span class="string">' 没有返回数据  看来不需要'</span></span><br><span class="line"><span class="number">1</span>;  正常返回</span><br><span class="line"><span class="number">1</span>; show databases;  和前面学到的堆叠一样的原理</span><br><span class="line"><span class="number">1</span>; show tables;  Array ( [<span class="number">0</span>] =&gt; Flag )</span><br></pre></td></tr></table></figure>
-<p>接下来就没有头绪了，看了一下WP，感觉大佬说的听不太懂</p>
-<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">select</span> $<span class="variable">_GET</span>[<span class="string">'query'</span>] || <span class="built_in">flag</span> <span class="keyword">from</span> <span class="built_in">flag</span></span><br></pre></td></tr></table></figure>
-<p>这是内嵌的select</p>
+        <h1 id="EasySQL-1"><a href="#EasySQL-1" class="headerlink" title="EasySQL 1"></a>EasySQL 1</h1><p>题目得到是SQL注入，那就直接上手，先按常规的来：<br><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入</span><br><span class="line"><span class="number">1</span> 返回数据</span><br><span class="line"><span class="number">1</span><span class="string">' 没有返回数据  看来不需要'</span></span><br><span class="line"><span class="number">1</span>;  正常返回</span><br><span class="line"><span class="number">1</span>; show databases;  和前面学到的堆叠一样的原理</span><br><span class="line"><span class="number">1</span>; show tables;  Array ( [<span class="number">0</span>] =&gt; Flag )</span><br></pre></td></tr></table></figure><br>接下来就没有头绪了，看了一下WP，感觉大佬说的听不太懂<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">select</span> $<span class="variable">_GET</span>[<span class="string">'query'</span>] || <span class="built_in">flag</span> <span class="keyword">from</span> <span class="built_in">flag</span></span><br></pre></td></tr></table></figure><br>这是内嵌的select</p>
 <p>输入的参数都传给了query，所以只要query为1，即为真，就返回flag</p>
 <p>但是我真的很想知道这个内嵌是怎么看出来的，唉，还是太菜了</p>
-<p>最后输入</p>
-<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*,<span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>得到flag</p>
-<p>最后这个输入进去，按照刚才的拼接，后台的代码呈现的应该是：</p>
-<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">select</span> *,<span class="number">1</span> || <span class="built_in">flag</span> <span class="keyword">from</span> <span class="built_in">flag</span></span><br></pre></td></tr></table></figure>
-<p>大佬们还是太强了</p>
+<p>最后输入<br><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*,<span class="number">1</span></span><br></pre></td></tr></table></figure><br>得到flag</p>
+<p>最后这个输入进去，按照刚才的拼接，后台的代码呈现的应该是：<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">select</span> *,<span class="number">1</span> || <span class="built_in">flag</span> <span class="keyword">from</span> <span class="built_in">flag</span></span><br></pre></td></tr></table></figure><br>大佬们还是太强了</p>
 
       
     </div>
@@ -543,7 +535,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1145,6 +1137,8 @@
   
 
   
+  
+
 
   
 
@@ -1152,7 +1146,7 @@
 
   
   <!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<script type="text/javascript" src="/js/src/clicklove.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -101,13 +101,13 @@
 
 
 
-<meta name="description" content="RoarCTF2019 Easy Java打开环境  根据题目提示是JAVA 点击help得到java.io.FileNotFoundException:{help.docx} 还没做过这种题  看了一下WP 知识点： 1234567891011121314WEB-INF&#x2F;web.xml泄露WEB-INF主要包含一下文件或目录:&#x2F;WEB-INF&#x2F;web.xml：Web应用程序配置文件，描述了 se">
+<meta name="description" content="RoarCTF2019 Easy Java打开环境  根据题目提示是JAVA 点击help得到java.io.FileNotFoundException:{help.docx} 还没做过这种题  看了一下WP 知识点：1234567891011121314WEB-INF&#x2F;web.xml泄露WEB-INF主要包含一下文件或目录:&#x2F;WEB-INF&#x2F;web.xml：Web应用程序配置文件，描述了 ser">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUUCTF-RoarCTF2019 Easy Java">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;03&#x2F;BUUCTF-RoarCTF2019-Easy-Java&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="RoarCTF2019 Easy Java打开环境  根据题目提示是JAVA 点击help得到java.io.FileNotFoundException:{help.docx} 还没做过这种题  看了一下WP 知识点： 1234567891011121314WEB-INF&#x2F;web.xml泄露WEB-INF主要包含一下文件或目录:&#x2F;WEB-INF&#x2F;web.xml：Web应用程序配置文件，描述了 se">
+<meta property="og:description" content="RoarCTF2019 Easy Java打开环境  根据题目提示是JAVA 点击help得到java.io.FileNotFoundException:{help.docx} 还没做过这种题  看了一下WP 知识点：1234567891011121314WEB-INF&#x2F;web.xml泄露WEB-INF主要包含一下文件或目录:&#x2F;WEB-INF&#x2F;web.xml：Web应用程序配置文件，描述了 ser">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;EasyJava&#x2F;0.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;BUUCTF&#x2F;EasyJava&#x2F;1.png">
@@ -150,7 +150,7 @@
 
 
 
-  <title>BUUCTF-RoarCTF2019 Easy Java | diao-diao-UPUP</title>
+  <title>BUUCTF-RoarCTF2019 Easy Java | diao-diao-UPUP</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -169,7 +169,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -413,16 +413,10 @@
       
         <h1 id="RoarCTF2019-Easy-Java"><a href="#RoarCTF2019-Easy-Java" class="headerlink" title="RoarCTF2019 Easy Java"></a>RoarCTF2019 Easy Java</h1><p>打开环境  根据题目提示是JAVA 点击help<br>得到java.io.FileNotFoundException:{help.docx}</p>
 <p>还没做过这种题  看了一下WP</p>
-<p>知识点：</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">WEB-INF/web.xml泄露</span><br><span class="line"></span><br><span class="line">WEB-INF主要包含一下文件或目录:</span><br><span class="line">/WEB-INF/web.xml：Web应用程序配置文件，描述了 servlet 和其他的应用组件配置及命名规则。</span><br><span class="line"></span><br><span class="line">/WEB-INF/classes/：含了站点所有用的 <span class="class"><span class="keyword">class</span> 文件，包括 <span class="title">servlet</span> <span class="title">class</span> 和非<span class="title">servlet</span> <span class="title">class</span>，他们不能包含在 .<span class="title">jar</span>文件中</span></span><br><span class="line"></span><br><span class="line">/WEB-INF/<span class="class"><span class="keyword">lib</span>/：存放<span class="title">web</span>应用需要的各种<span class="title">JAR</span>文件，放置仅在这个应用中要求使用的<span class="title">jar</span>文件,如数据库驱动<span class="title">jar</span>文件</span></span><br><span class="line"></span><br><span class="line">/WEB-INF/src/：源码目录，按照包名结构放置各个java文件。</span><br><span class="line"></span><br><span class="line">/WEB-INF/database.properties：数据库配置文件</span><br><span class="line"></span><br><span class="line">漏洞检测以及利用方法：通过找到web.xml文件，推断<span class="class"><span class="keyword">class</span>文件的路径，最后直接<span class="title">class</span>文件，在通过反编译<span class="title">class</span>文件，得到网站源码</span></span><br></pre></td></tr></table></figure>
-<p>用BP抓包  改为POST请求  得到报错<br><img src="/images/BUUCTF/EasyJava/0.png" alt="avatar"></p>
-<p>payload:</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?<span class="attribute">filename</span>=WEB-INF/web.xml</span><br></pre></td></tr></table></figure>
-<p><img src="/images/BUUCTF/EasyJava/1.png" alt="avatar"></p>
+<p>知识点：<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">WEB-INF/web.xml泄露</span><br><span class="line"></span><br><span class="line">WEB-INF主要包含一下文件或目录:</span><br><span class="line">/WEB-INF/web.xml：Web应用程序配置文件，描述了 servlet 和其他的应用组件配置及命名规则。</span><br><span class="line"></span><br><span class="line">/WEB-INF/classes/：含了站点所有用的 <span class="class"><span class="keyword">class</span> 文件，包括 <span class="title">servlet</span> <span class="title">class</span> 和非<span class="title">servlet</span> <span class="title">class</span>，他们不能包含在 .<span class="title">jar</span>文件中</span></span><br><span class="line"></span><br><span class="line">/WEB-INF/<span class="class"><span class="keyword">lib</span>/：存放<span class="title">web</span>应用需要的各种<span class="title">JAR</span>文件，放置仅在这个应用中要求使用的<span class="title">jar</span>文件,如数据库驱动<span class="title">jar</span>文件</span></span><br><span class="line"></span><br><span class="line">/WEB-INF/src/：源码目录，按照包名结构放置各个java文件。</span><br><span class="line"></span><br><span class="line">/WEB-INF/database.properties：数据库配置文件</span><br><span class="line"></span><br><span class="line">漏洞检测以及利用方法：通过找到web.xml文件，推断<span class="class"><span class="keyword">class</span>文件的路径，最后直接<span class="title">class</span>文件，在通过反编译<span class="title">class</span>文件，得到网站源码</span></span><br></pre></td></tr></table></figure><br>用BP抓包  改为POST请求  得到报错<br><img src="/images/BUUCTF/EasyJava/0.png" alt="avatar"></p>
+<p>payload:<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?<span class="attribute">filename</span>=WEB-INF/web.xml</span><br></pre></td></tr></table></figure><br><img src="/images/BUUCTF/EasyJava/1.png" alt="avatar"></p>
 <p>读取FlagController.class</p>
-<p>payload:</p>
-<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?filename=WEB-INF/classes/com/wm/ctf/<span class="module-access"><span class="module"><span class="identifier">FlagController</span>.</span></span><span class="keyword">class</span></span><br></pre></td></tr></table></figure>
-<p><img src="/images/BUUCTF/EasyJava/2.png" alt="avatar"></p>
+<p>payload:<br><figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?filename=WEB-INF/classes/com/wm/ctf/<span class="module-access"><span class="module"><span class="identifier">FlagController</span>.</span></span><span class="keyword">class</span></span><br></pre></td></tr></table></figure><br><img src="/images/BUUCTF/EasyJava/2.png" alt="avatar"></p>
 <p>得到base64  解码得到flag</p>
 
       
@@ -547,7 +541,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1149,6 +1143,8 @@
   
 
   
+  
+
 
   
 
@@ -1156,7 +1152,7 @@
 
   
   <!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<script type="text/javascript" src="/js/src/clicklove.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

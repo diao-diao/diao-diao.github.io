@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -142,7 +142,7 @@
 
 
 
-  <title>diao-diao-UPUP</title>
+  <title>diao-diao-UPUP</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -161,7 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left 
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
 
@@ -304,6 +304,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/01/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-EasySQL-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="diao-diao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="diao-diao-UPUP">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/01/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-EasySQL-1/" itemprop="url">BUUCTF-极客大挑战 2019EasySQL 1</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-01T11:13:27+08:00">
+                2020-02-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WP/" itemprop="url" rel="index">
+                    <span itemprop="name">WP</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/WP/WEB/" itemprop="url" rel="index">
+                    <span itemprop="name">WEB</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          极客大挑战 2019 EasySQL打开题目之后 发现就是一个索然无味的登陆界面
+1234输入   密码随意1  回显1' 出现报错信息 得知是用单引号保护变量由于后面还接着password  所以不能使用#等注释符  不然就不会成立
+所以直接使用万能密码:1admin'or'1'='1&amp;p
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/02/01/BUUCTF-%E6%9E%81%E5%AE%A2%E5%A4%A7%E6%8C%91%E6%88%98-2019-EasySQL-1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/01/BUUCTF-Havefun/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -409,8 +570,7 @@
         
           
           Havefun这道题做出来的时候 让我一度认为作者是在搞我
-查看源码
-12345$cat=$_GET['cat'];        echo $cat;        if($cat=='dog')&#123;            echo 'Syc&#123;cat_cat_cat_cat&#1
+查看源码12345$cat=$_GET['cat'];        echo $cat;        if($cat=='dog')&#123;            echo 'Syc&#123;cat_cat_cat_cat&#12
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -730,8 +890,7 @@
         
           
           cosmos的博客后台太艰难了 自己还是太菜了首先打开环境 hint是flag在根目录下所以尝试一下本地文件包含  但是发现Hacker get out!
-再尝试一下用伪协议去读login.php
-1http://cosmos-admin.hgame.day-day.work/index.php?a
+再尝试一下用伪协议去读login.php1http://cosmos-admin.hgame.day-day.work/index.php?ac
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1058,9 +1217,7 @@
 发现405错误https://www.jianshu.com/p/dd7315428462
 所以更改为POST请求
 提示要求通过URL计算两个数相加为10
-所以直接URL：
-1/?a=1+9
-但是由于URL中+会被转译为空
+所以直接URL：1/?a=1+9但是由于URL中+会被转译为空格 
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1221,11 +1378,8 @@
           
           接 头 霸 王打开环境 根据题目的图片提示 应该是改header
 bp抓包再根据You need to come from https://vidar.club/. 
-使用Referer
-1Referer:https://vidar.club/
-
-又要求本地，使用X-Forwarded-For
-1X
+使用Referer1Referer:https://vidar.club/
+又要求本地，使用X-Forwarded-For1X-Fo
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1384,10 +1538,7 @@ bp抓包再根据You need to come from https://vidar.club/.
       
         
           
-          Hack World打开环境 题目提示是Php 和 sql注入所以先按常规的SQL来测试一下
-12345输入1 一句骚话2 一句骚话1' bool(false)1'# SQL Injection Checked.
-尝试一下：
-1234联合注入：unin被过滤报错注入：and、or、updatexml
+          Hack World打开环境 题目提示是Php 和 sql注入所以先按常规的SQL来测试一下12345输入1 一句骚话2 一句骚话1' bool(false)1'# SQL Injection Checked.尝试一下：1234联合注入：unin被过滤报错注入：and、or、updatexml被过滤
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1549,8 +1700,7 @@ bp抓包再根据You need to come from https://vidar.club/.
           CheckIn打开环境看到是一个上传的界面 难道是一句话木马
 上传一个一句话木马 抓包 之后更改Type 发现不行 把.php改为.png后 正常通过，看来是验证了后缀名
 所以尝试在.php后加一个空格 再.png 成功上传
-通过抓包 还发现过滤掉了&lt;?, 所以我们变形为
-1&lt;scrip
+通过抓包 还发现过滤掉了&lt;?, 所以我们变形为1&lt;script
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1710,176 +1860,11 @@ bp抓包再根据You need to come from https://vidar.club/.
         
           
           lottery打开环境 看了一下题目 大概一下就是玩个游戏 只要你输入的7个数字和系统随机生成的7个数字一样 你就会获得钱  钱够了可以买flag
-首先 访问 /robots.txt 或者 /.git/ 发现 Git 仓库可以 GitHack 拿到源码漏洞在 api.php
-123456789  $
+首先 访问 /robots.txt 或者 /.git/ 发现 Git 仓库可以 GitHack 拿到源码漏洞在 api.php123456789  $m
           ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/01/21/%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-lottery/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/01/21/BUUCTF-Easy-Calc/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="diao-diao">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="diao-diao-UPUP">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/01/21/BUUCTF-Easy-Calc/" itemprop="url">BUUCTF-Easy Calc</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-01-21T10:21:08+08:00">
-                2020-01-21
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WP/" itemprop="url" rel="index">
-                    <span itemprop="name">WP</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WP/WEB/" itemprop="url" rel="index">
-                    <span itemprop="name">WEB</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Easy Calc打开环境是个计算器，搜索一下Calc是什么
-最后发现是CSS中的一个样式，用于进行一下计算http://caibaojian.com/css3-calc.html
-尝试一下注入
-1234输入1 正常1’ 没有报错1'# 直接给PASS了
-到这里考虑不是SQL注入题
-crtl+u看一
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/01/21/BUUCTF-Easy-Calc/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -1971,7 +1956,7 @@ crtl+u看一
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2553,6 +2538,28 @@ crtl+u看一
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
@@ -2560,7 +2567,7 @@ crtl+u看一
 
   
   <!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<script type="text/javascript" src="/js/src/clicklove.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

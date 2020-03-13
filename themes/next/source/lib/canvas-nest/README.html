@@ -7,7 +7,7 @@
 
 <html class="theme-next gemini use-motion" lang="en">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -145,7 +145,7 @@
 
 
 
-  <title> | diao-diao-UPUP</title>
+  <title> | diao-diao-UPUP</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -164,7 +164,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -321,20 +321,16 @@
 
 <p>Change dir to <strong>NexT</strong> directory. There must be <code>layout</code>, <code>source</code>, <code>languages</code> and other directories:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next</span><br><span class="line">$ ls</span><br><span class="line">_config.yml  crowdin.yml  docs  gulpfile.js  languages  layout  LICENSE.md  package.json  README.md  scripts  <span class="built_in">source</span></span><br></pre></td></tr></table></figure>
-
 <h2 align="center">Step 2 &rarr; Get module</h2>
 
 <p>Install module to <code>source/lib</code> directory:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-canvas-nest <span class="built_in">source</span>/lib/canvas-nest</span><br></pre></td></tr></table></figure>
-
 <h2 align="center">Step 3 &rarr; Set it up</h2>
 
 <p>Enable module in <strong>NexT</strong> <code>_config.yml</code> file:</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">canvas_nest:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">onmobile:</span> <span class="literal">true</span> <span class="comment"># display on mobile or not</span></span><br><span class="line">  <span class="attr">color:</span> <span class="string">'0,0,255'</span> <span class="comment"># RGB values, use ',' to separate</span></span><br><span class="line">  <span class="attr">opacity:</span> <span class="number">0.5</span> <span class="comment"># the opacity of line: 0~1</span></span><br><span class="line">  <span class="attr">zIndex:</span> <span class="number">-1</span> <span class="comment"># z-index property of the background</span></span><br><span class="line">  <span class="attr">count:</span> <span class="number">99</span> <span class="comment"># the number of lines</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>And, if you wants to use the CDN, then need to set:</strong></p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vendors:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line">  <span class="attr">canvas_nest:</span> <span class="string">//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@latest/canvas-nest.min.js</span></span><br><span class="line">  <span class="attr">canvas_nest_nomobile:</span> <span class="string">//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@latest/canvas-nest-nomobile.min.js</span></span><br></pre></td></tr></table></figure>
-
 <h1 align="center">Update</h1>
 
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next/<span class="built_in">source</span>/lib/canvas-nest</span><br><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
@@ -409,7 +405,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1011,6 +1007,8 @@
   
 
   
+  
+
 
   
 
@@ -1018,7 +1016,7 @@
 
   
   <!-- 页面点击小红心 -->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<script type="text/javascript" src="/js/src/clicklove.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 </body>
 </html>

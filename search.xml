@@ -1209,7 +1209,7 @@
 <p>发现405错误<br><a href="https://www.jianshu.com/p/dd7315428462" target="_blank" rel="noopener">https://www.jianshu.com/p/dd7315428462</a></p>
 <p>所以更改为POST请求<br><img src="/images/hgame/codeworld/1.png" alt="avatar"></p>
 <p>提示要求通过URL计算两个数相加为10</p>
-<p>所以直接URL：<br><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">/?a=<span class="number">1</span>+<span class="number">9</span></span><br></pre></td></tr></table></figure><br>但是由于URL中+会被转译为空格 使用URL编码<br><figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">/?a=<span class="number">1</span><span class="symbol">%</span><span class="number">2b9</span></span><br></pre></td></tr></table></figure><br><img src="/images/hgame/code world/2.png" alt="avatar"></p>
+<p>所以直接URL：<br><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">/?a=<span class="number">1</span>+<span class="number">9</span></span><br></pre></td></tr></table></figure><br>但是由于URL中+会被转译为空格 使用URL编码<br><figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line">/?a=<span class="number">1</span><span class="symbol">%</span><span class="number">2b9</span></span><br></pre></td></tr></table></figure><br><img src="/images/hgame/codeworld/2.png" alt="avatar"></p>
 <p>得到flag</p>
 ]]></content>
       <categories>

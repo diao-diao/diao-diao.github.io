@@ -1,6 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Python3-2020/3/27-周报5</title>
+    <url>/2020/03/27/Python3-2020-3-27-%E5%91%A8%E6%8A%A55/</url>
+    <content><![CDATA[<h1 id="XPath"><a href="#XPath" class="headerlink" title="XPath"></a>XPath</h1><p>之前实现了最基本的爬虫，使用正则表达式来获取页面，但是正则表达式在遇到一些复杂问题的时候就会变得繁琐，有一个地方写错了就有可能导致匹配失败，所以引入解析库来帮助获取</p>
+<p>XPath是XML路径语言，但是同时也适用于HTML文档的搜索</p>
+<h2 id="常用规则"><a href="#常用规则" class="headerlink" title="常用规则"></a>常用规则</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>表达式</th>
+<th>描述 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>nodename</td>
+<td>选取此节点的所有子节点 </td>
+</tr>
+<tr>
+<td>/</td>
+<td>从当前节点选取直接子节点</td>
+</tr>
+<tr>
+<td>//</td>
+<td>从当前节点选取子孙节点</td>
+</tr>
+<tr>
+<td>.</td>
+<td>选取当前节点</td>
+</tr>
+<tr>
+<td>..</td>
+<td>选取当前节点的父节点</td>
+</tr>
+<tr>
+<td>@</td>
+<td>选取属性</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>常用匹配规则：<br><figure class="highlight autoit"><table><tr><td class="code"><pre><span class="line">//title[<span class="symbol">@lang</span>=<span class="string">'eng'</span>]</span><br></pre></td></tr></table></figure><br>它代表选择所有名称为title,同时属性lang的值为eng的节点</p>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">from lxml import etree</span><br><span class="line"></span><br><span class="line">text='''</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">""</span><span class="attr">item-0</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link1.html"</span>&gt;</span>first item<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">""</span><span class="attr">item-1</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link2.html"</span>&gt;</span>second item<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">""</span><span class="attr">item-2</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link3.html"</span>&gt;</span>third item<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">""</span><span class="attr">item-3</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link4.html"</span>&gt;</span>fourth item<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">'''</span><br><span class="line"></span><br><span class="line">html=etree.HTML(text)</span><br><span class="line">result=etree.tostring(html)</span><br><span class="line">print(result.decode('utf-8'))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输出结果：</span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span><span class="tag">&lt;<span class="name">body</span>&gt;</span><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">""</span> <span class="attr">item-0</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link1.html"</span>&gt;</span>first item<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">""</span> <span class="attr">item-1</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link2.html"</span>&gt;</span>second item<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">""</span> <span class="attr">item-2</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link3.html"</span>&gt;</span>third item<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">""</span> <span class="attr">item-3</span>=<span class="string">""</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link4.html"</span>&gt;</span>fourth item<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">li</span>&gt;</span><span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>首先声明了一段HTML文本，调用HTML类进行初始化，这里就成功构造了一个XPath解析对象</p>
+<p>可以看到缺一个li标签的结尾，但是etree模块可以自动修正HTML文本</p>
+<p>再调用tostring()方法即可输出修正后的结果，但是结果是bytes类型，使用decode(）方法转成str类型</p>
+<p>li标签补全了，还自动添加了body html节点</p>
+<h2 id="所有节点"><a href="#所有节点" class="headerlink" title="所有节点"></a>所有节点</h2><p>我们一般会用//开头的XPath规则来选取所有符合要求的节点<br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml import etree</span><br><span class="line"></span><br><span class="line"><span class="attribute">html</span>=etree.parse('./test.html',etree.HTMLParser())</span><br><span class="line"><span class="attribute">result</span>=html.xpath('//*')</span><br><span class="line"><span class="builtin-name">print</span>(result)</span><br></pre></td></tr></table></figure><br>这里使用*代表匹配所有节点，也就是HTML文本中的所有节点都会被获取，返回结果是一个列表，每个元素是Element类型，其后跟着节点名称，如html,body,div,ul,li,a等</p>
+<p>如果只想获取li标签<br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml import etree</span><br><span class="line"></span><br><span class="line"><span class="attribute">html</span>=etree.parse('./test.html',etree.HTMLParser())</span><br><span class="line"><span class="attribute">result</span>=html.xpath('//li')</span><br><span class="line"><span class="builtin-name">print</span>(result)</span><br><span class="line"><span class="builtin-name">print</span>(result[0])</span><br></pre></td></tr></table></figure></p>
+<p>想取出某个元素，使用[number]就行</p>
+<h2 id="子节点"><a href="#子节点" class="headerlink" title="子节点"></a>子节点</h2><p>我们可以通过/或//查找元素的子节点或子孙节点<br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml import etree</span><br><span class="line"></span><br><span class="line"><span class="attribute">html</span>=etree.parse('./test.html',etree.HTMLParser())</span><br><span class="line"><span class="attribute">result</span>=html.xpath('//li/a')</span><br><span class="line"><span class="builtin-name">print</span>(result)</span><br></pre></td></tr></table></figure><br>这样就获取了li节点下的所有a子节点</p>
+<p>此处的/用于选取直接子节点，如果想要获取所有子孙节点，就可以使用//<br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml import etree</span><br><span class="line"></span><br><span class="line"><span class="attribute">html</span>=etree.parse('./test.html',etree.HTMLParser())</span><br><span class="line"><span class="attribute">result</span>=html.xpath('//li//a')</span><br><span class="line"><span class="builtin-name">print</span>(result)</span><br></pre></td></tr></table></figure><br>这样就获取了li节点下的所有a节点，输出结果一样</p>
+<p>但是如果使用<code>//li/a</code>这样的情况，如果li下没有直接的a子节点，那么救无法获取任何匹配结果</p>
+<h2 id="父节点"><a href="#父节点" class="headerlink" title="父节点"></a>父节点</h2><p>寻找父节点的方式与返回根目录的方式基本一样，使用..来返回</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml import etree</span><br><span class="line"></span><br><span class="line"><span class="attribute">html</span>=etree.parse('./test.html',etree.HTMLParser())</span><br><span class="line"><span class="attribute">result</span>=html.xpath('//a[@<span class="attribute">href</span>=<span class="string">"link4.html"</span>]/<span class="built_in">..</span>/@class<span class="string">')</span></span><br><span class="line"><span class="string">print(result)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">输出结果：</span></span><br><span class="line"><span class="string">['</span>item-1<span class="string">']</span></span><br></pre></td></tr></table></figure>
+<p>这里可以看到基本和目录方式一致，想要查找的a子节点的属性，之后跟上想要获取的父节点</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml import etree</span><br><span class="line"></span><br><span class="line"><span class="attribute">html</span>=etree.parse('./test.html',etree.HTMLParser())</span><br><span class="line"><span class="attribute">result</span>=html.xpath('//a[@<span class="attribute">href</span>=<span class="string">"link4.html"</span>]/parent::*/@class<span class="string">')</span></span><br><span class="line"><span class="string">print(result)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">输出结果：</span></span><br><span class="line"><span class="string">['</span>item-1<span class="string">']</span></span><br></pre></td></tr></table></figure>
+<p>也可以使用parent::来获取父节点</p>
+<h2 id="属性匹配"><a href="#属性匹配" class="headerlink" title="属性匹配"></a>属性匹配</h2><p>我们可以使用@符号来进行属性过滤<br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml import etree</span><br><span class="line"></span><br><span class="line"><span class="attribute">html</span>=etree.parse('./test.html',etree.HTMLParser())</span><br><span class="line"><span class="attribute">result</span>=html.xpath('//li[@<span class="attribute">class</span>=<span class="string">"item-0"</span>]<span class="string">')</span></span><br><span class="line"><span class="string">print(result)</span></span><br></pre></td></tr></table></figure></p>
+<p>这里使用了@符号限定了class的值为item-0，所以会返回class属性为item-0的所有li节点</p>
+<h2 id="文本获取"><a href="#文本获取" class="headerlink" title="文本获取"></a>文本获取</h2><p>我们可以使用text()方法来获取节点中的文本<br><figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml import etree</span><br><span class="line"></span><br><span class="line"><span class="attribute">html</span>=etree.parse('./test.html',etree.HTMLParser())</span><br><span class="line"><span class="attribute">result</span>=html.xpath('//li[@<span class="attribute">class</span>=<span class="string">"item-0/text()"</span>]<span class="string">')</span></span><br><span class="line"><span class="string">print(result)</span></span><br></pre></td></tr></table></figure></p>
+<p>这种方法不太推荐，是个错误示范，返回结果可以不会有，因为/在XPath中的意思是匹配直接子节点，如果没有直接子节点，就不会返回</p>
+<p>所以可以使用//或者先访问直接子节点a再text()</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml import etree</span><br><span class="line"></span><br><span class="line"><span class="attribute">html</span>=etree.parse('./test.html',etree.HTMLParser())</span><br><span class="line"><span class="attribute">result</span>=html.xpath('//li[@<span class="attribute">class</span>=<span class="string">"item-0//text()"</span>]<span class="string">')</span></span><br><span class="line"><span class="string">print(result)</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml import etree</span><br><span class="line"></span><br><span class="line"><span class="attribute">html</span>=etree.parse('./test.html',etree.HTMLParser())</span><br><span class="line"><span class="attribute">result</span>=html.xpath('//li[@<span class="attribute">class</span>=<span class="string">"item-0/a/text()"</span>]<span class="string">')</span></span><br><span class="line"><span class="string">print(result)</span></span><br></pre></td></tr></table></figure>
+<h2 id="属性获取"><a href="#属性获取" class="headerlink" title="属性获取"></a>属性获取</h2><p>我们知道使用text()可以获取节点内所有文本，节点属性我们可以使用@符号</p>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">from lxml import etree</span><br><span class="line"></span><br><span class="line">html=etree.parse(<span class="string">'./test.html'</span>,etree.HTMLParser())</span><br><span class="line">result=<span class="selector-tag">html</span>.xpath(<span class="string">'//li/a/@href"]'</span>)</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(result)</span></span></span><br></pre></td></tr></table></figure>
+<p>获取所有li节点下所有a节点的href属性</p>
+<h2 id="属性多值匹配"><a href="#属性多值匹配" class="headerlink" title="属性多值匹配"></a>属性多值匹配</h2><p>有时候一个属性可能有多个值<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line">text=<span class="string">'''</span></span><br><span class="line"><span class="string">&lt;li class="li li-first"&gt;&lt;a href="link.html"&gt;first item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">html=etree.HTML(text)</span><br><span class="line">result=html.xpath(<span class="string">'//li[@class="li"]/a/text()'</span>)</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure><br>这个例子中li有两个属性li和li-first，使用之前的方法就无法匹配了，这样就引入我们的contains()方法，第一个参数传入属性名称，第二个参数传入属性值</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line">text=<span class="string">'''</span></span><br><span class="line"><span class="string">&lt;li class="li li-first"&gt;&lt;a href="link.html"&gt;first item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">html=etree.HTML(text)</span><br><span class="line">result=html.xpath(<span class="string">'//li[contains(@class,"li")]/a/text()'</span>)</span><br><span class="line">print(result)</span><br><span class="line"></span><br><span class="line">输出结果：</span><br><span class="line">first item</span><br></pre></td></tr></table></figure>
+<p>这样就能取出文本内容了</p>
+<h2 id="多属性匹配"><a href="#多属性匹配" class="headerlink" title="多属性匹配"></a>多属性匹配</h2><p>还要一种情况就是多个属性确定一个节点，这个时候就需要使用and运算符来连接<br><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">from</span> lxml <span class="keyword">import</span> etree</span><br><span class="line"></span><br><span class="line">text=<span class="string">'''</span></span><br><span class="line"><span class="string">&lt;li class="li li-first" name="item"&gt;&lt;a href="link.html"&gt;first item&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">html=etree.HTML(text)</span><br><span class="line">result=html.xpath(<span class="string">'//li[contains(@class,"li") and @name="item"]/a/text()'</span>)</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure><br>这里li又增加了一个属性name。要确定就需要同时根据class和name属性来选择，一个条件是class中的li字符串，一个是name属性为item字符串</p>
+<p>除了and，XPath还有很多运算符</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>描述</th>
+<th>实例</th>
+<th>返回值 </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>or</td>
+<td>或</td>
+<td>age=19 or age=20</td>
+<td>如果age=19，则返回true。如果是age=21，则返回false</td>
+</tr>
+<tr>
+<td>and</td>
+<td>与</td>
+<td>age&gt;19 and age&lt;21</td>
+<td>如果age=20，则返回true</td>
+</tr>
+<tr>
+<td>mod</td>
+<td>计算除法的余数</td>
+<td>5 mod 2</td>
+<td>1</td>
+</tr>
+<tr>
+<td>+</td>
+<td>加法</td>
+<td>6+4</td>
+<td>10</td>
+</tr>
+<tr>
+<td>-</td>
+<td>减法</td>
+<td>6-4</td>
+<td>2</td>
+</tr>
+<tr>
+<td>*</td>
+<td>乘法</td>
+<td>6*4</td>
+<td>24</td>
+</tr>
+<tr>
+<td>div</td>
+<td>除法</td>
+<td>8 div 4</td>
+<td>2</td>
+</tr>
+<tr>
+<td>=</td>
+<td>等于</td>
+<td>age=19</td>
+<td>age=19，则返回true</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>大于小于，小于（大于）等于，不等于用法与以往相同 不多介绍</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>1.XPath中/为访问直接子节点，//为访问所有子节点</p>
+<p>2.在查询子节点的时候，虽然可以使用/，但是不推荐，应该如果没有直接子节点就不会返回内容</p>
+<p>3.在使用text()方法的时候，推荐使用//，这样可以确保查找到所有子节点，而不会导致没有直接子节点从而没有返回结果的情况</p>
+<p>4.属性匹配是中括号加属性名和值来限定某个属性，如[@href=”link1.html”]，而此处的@href指的是获取节点的某个属性，二者需要做好区分</p>
+]]></content>
+      <categories>
+        <category>日常学习</category>
+        <category>Python3</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>操作系统-绪论</title>
     <url>/2020/03/23/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-%E7%BB%AA%E8%AE%BA/</url>
     <content><![CDATA[<h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><p>操作系统是计算机系统中最重要的<font color="#0000dd">系统软件</font>，它管理整个计算机系统的<font color="#0000dd">软件资源</font>和<font color="#0000dd">硬件资源</font>，是用户与计算机硬件的<font color="#0000dd">桥梁</font>，是其他软件和程序的运行基础</p>
@@ -130,49 +279,41 @@
 <thead>
 <tr>
 <th>符号</th>
-<th>描述</th>
+<th>描述 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>.</td>
-<td>匹配除”\n”之外的任意单个字符</td>
-<td></td>
+<td>匹配除”\n”之外的任意单个字符 </td>
 </tr>
 <tr>
 <td>\d</td>
 <td>匹配0到9之间的一个数字，等价于[0-9]</td>
-<td></td>
 </tr>
 <tr>
 <td>\s</td>
 <td>匹配任意空白字符，如空格，制表符”\t”，换行”\n”等</td>
-<td></td>
 </tr>
 <tr>
 <td>\w</td>
 <td>匹配单词字符，包括字母，数字，下划线</td>
-<td></td>
 </tr>
 <tr>
 <td>\D</td>
 <td>匹配一个非数字字符，等价于[^0-9]</td>
-<td></td>
 </tr>
 <tr>
 <td>\S</td>
 <td>匹配任意非空白字符</td>
-<td></td>
 </tr>
 <tr>
 <td>\W</td>
 <td>匹配非单词字符</td>
-<td></td>
 </tr>
 <tr>
 <td>[]</td>
 <td>匹配[]中列举的字符</td>
-<td></td>
 </tr>
 </tbody>
 </table>

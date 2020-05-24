@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Python3-2020/5/23-周报11</title>
-    <url>/2020/05/23/POC-2020-5-23-%E5%91%A8%E6%8A%A511/</url>
+    <url>/2020/05/23/Python3-2020-5-23-%E5%91%A8%E6%8A%A511/</url>
     <content><![CDATA[<h1 id="POC"><a href="#POC" class="headerlink" title="POC"></a>POC</h1><p>POC测试，即Proof of Concept，是业界流行的针对客户具体应用的验证性测试，根据用户对采用系统提出的性能要求和扩展需求的指标，在选用服务器上进行真实数据的运行，对承载用户数据量和运行时间进行实际测算，并根据用户未来业务扩展的需求加大数据量以验证系统和平台的承载能力和性能变化</p>
 <p>POC是证明观点，一般是个样本</p>
 <h2 id="注入类POC"><a href="#注入类POC" class="headerlink" title="注入类POC"></a>注入类POC</h2><p>我这里用了sqli-labs这个靶场来测试POC</p>

@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>PHP-2020/7/7-学习日记</title>
-    <url>/2020/07/07/Untitled/</url>
+    <url>/2020/07/07/PHP-2020-7-7-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="超全局变量"><a href="#超全局变量" class="headerlink" title="超全局变量"></a>超全局变量</h1><p>PHP4.1.X后就启用了超全局变量，可以在脚本的任意位置运行</p>
 <p>PHP的超全局变量有:</p>
 <ul>
@@ -109,7 +109,7 @@
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"test_get.php?subject=PHP&amp;web=runoob.com"</span>&gt;</span>测试 $_GET<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>运行结果<br><figure class="highlight nginx"><table><tr><td class="code"><pre><span class="line"><span class="attribute">Study</span> PHP @ runoob.com</span><br></pre></td></tr></table></figure><br>当用户点击链接时便会输出运行结果</p>
 <p>PHP脚本的意思是，将参数subject和web发送至test_get.php中，就可以在test_get.php文件中使用$_GET变量来获取这些数据<br>test_get.php的代码<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span> </span></span><br><span class="line"><span class="php"><span class="keyword">echo</span> <span class="string">"Study "</span> . $_GET[<span class="string">'subject'</span>] . <span class="string">" @ "</span> . $_GET[<span class="string">'web'</span>];</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure></p>
-<h1 id="While循环"><a href="#While循环" class="headerlink" title="While循环"></a>While循环</h1><p>代码编写必不可少的除了判断，还有循环</p>
+<h1 id="PHP循环"><a href="#PHP循环" class="headerlink" title="PHP循环"></a>PHP循环</h1><p>代码编写必不可少的除了判断，还有循环</p>
 <p>PHP的循环基本类似于C语言</p>
 <ul>
 <li>while 只要条件成立，则循环代码块</li>
@@ -132,6 +132,13 @@
 <p>5.在编写循环语句时，要注意终止条件是否满足要求，避免出现死循环的现象</p>
 <p>6.在事先已经确定好要循环多少次时，使用for循环最佳，不确定时使用while循环配合continue和break来终止循环，foreach循环常用在遍历输出数组上</p>
 ]]></content>
+      <categories>
+        <category>日常学习</category>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
   </entry>
   <entry>
     <title>PHP-2020/7/6-学习日记</title>

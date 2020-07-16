@@ -1,6 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>PHP-2020/7/16-学习日记</title>
+    <url>/2020/07/16/PHP-2020-7-16-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="error"><a href="#error" class="headerlink" title="error"></a>error</h1><p>在PHP中，默认的错误处理很简单。一条错误消息会被发送到浏览器，这条消息带有文件名、行号以及描述错误的消息</p>
+<h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p>在创建脚本和Web应用程序时，错误处理是一个很重要的部分，如果你的代码缺少错误检测编码，那么程序就很不专业</p>
+<p>错误处理方法为</p>
+<ul>
+<li>简单的”die()”语句</li>
+<li>自定义错误和错误触发器</li>
+<li>错误报告</li>
+</ul>
+<h2 id="die-函数"><a href="#die-函数" class="headerlink" title="die()函数"></a>die()函数</h2><p>打开文本文件<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">$file=fopen(<span class="string">"welcome.txt"</span>,<span class="string">"r"</span>);</span></span><br></pre></td></tr></table></figure><br>如果文件不存在就会得到类似错误<br><figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">Warning: fopen(welcome.txt) [function.fopen]: failed to <span class="keyword">open</span> stream:</span><br><span class="line"><span class="keyword">No</span> such <span class="keyword">file</span> or directory <span class="keyword">in</span> /www/runoob/<span class="keyword">test</span>/<span class="keyword">test</span>.php <span class="keyword">on</span> <span class="keyword">line</span> 2</span><br></pre></td></tr></table></figure></p>
+<p>为了避免以上错误，访问之前检测该文件是否存在<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="keyword">if</span>(!file_exists(<span class="string">"welcome.txt"</span>))</span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">die</span>(<span class="string">"文件不存在"</span>);</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="keyword">else</span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    $file=fopen(<span class="string">"welcome.txt"</span>,<span class="string">"r"</span>);</span></span><br><span class="line"><span class="php">&#125;</span></span><br></pre></td></tr></table></figure><br>运行结果<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">文件不存在</span><br></pre></td></tr></table></figure></p>
+<h2 id="自定义错误处理器"><a href="#自定义错误处理器" class="headerlink" title="自定义错误处理器"></a>自定义错误处理器</h2><p>创建自定义的错误处理器非常多，很简单地创建一个专用函数，可以在PHP中发生错误时调用该函数</p>
+<p>该函数必须要有能力处理两个参数(error level和eroor message)，可以最多接受五个参数</p>
+<p>语法<br><figure class="highlight lisp"><table><tr><td class="code"><pre><span class="line">error_function(<span class="name">error_level</span>,error_message,</span><br><span class="line">error_file,error_line,error_context)</span><br></pre></td></tr></table></figure><br>参数 | 描述</p>
+<ul>
+<li>| -<br>error_level | 必需。为用户定义的错误规定错误报告级别。必须是一个数字。<br>error_message | 必需。为用户定义的错误规定错误信息<br>error_file | 可选。规定错误发生的文件名<br>error_line | 可选。规定错误发生的行号<br>error_context | 可选。规定一个数组，包含了当错误发生时在用的每个变量以及它们的值</li>
+</ul>
+<h2 id="错误报告级别"><a href="#错误报告级别" class="headerlink" title="错误报告级别"></a>错误报告级别</h2><p>用户自定义的错误处理程序处理的不同类型的错误</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>常量</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>E_WARNING</td>
+<td>非致命的run-time错误。不暂停脚本执行</td>
+</tr>
+<tr>
+<td>8</td>
+<td>E_NOTICE</td>
+<td>run-time通知。在脚本发现可能有错误时发生，但也可能在脚本正常运行时发生</td>
+</tr>
+<tr>
+<td>256</td>
+<td>E_USER_ERROR</td>
+<td>致命的用户生成的错误。这类似于程序员使用PHP函数trigger_error()设置的E_ERROR</td>
+</tr>
+<tr>
+<td>512</td>
+<td>E_USER_WARNING</td>
+<td>非致命的用户生成的警告。这类似于程序员使用PHP函数trigger_error()设置的E_WARNING</td>
+</tr>
+<tr>
+<td>1024</td>
+<td>E_USER_NOTICE</td>
+<td>用户生成的通知。这类似于程序员使用PHP函数trigger_error()设置的E_NOTICE</td>
+</tr>
+<tr>
+<td>4096</td>
+<td>E_RECOVERABLE_ERROR</td>
+<td>可捕获的致命错误。类似E_ERROR,但可被用户定义的处理程序捕获</td>
+</tr>
+<tr>
+<td>8191</td>
+<td>E_ALL</td>
+<td>所有错误和警告</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>现在创建一个处理错误的函数<br><figure class="highlight php"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">customError</span><span class="params">($errno, $errstr)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"&lt;b&gt;Error:&lt;/b&gt; [$errno] $errstr&lt;br&gt;"</span>;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"脚本结束"</span>;</span><br><span class="line">    <span class="keyword">die</span>();</span><br></pre></td></tr></table></figure><br>上面的代码就是一个简单的错误处理函数，当它被触发时，它会取得错误级别和错误消息。然后它会输出错误级别和消息，并终止脚本</p>
+<h2 id="设立错误处理程序"><a href="#设立错误处理程序" class="headerlink" title="设立错误处理程序"></a>设立错误处理程序</h2><p>对于所有错误来使用我们自定义的错误处理程序<br><figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">set_error_handler(<span class="string">"customError"</span>)<span class="comment">;</span></span><br></pre></td></tr></table></figure><br>set_error_handler()仅需要一个参数，可以添加第二个参数来规定错误级别</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="comment">// 错误处理函数</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">customError</span><span class="params">($errno, $errstr)</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"&lt;b&gt;Error:&lt;/b&gt; [$errno] $errstr"</span>;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">// 设置错误处理函数</span></span></span><br><span class="line"><span class="php">set_error_handler(<span class="string">"customError"</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">// 触发错误</span></span></span><br><span class="line"><span class="php"><span class="keyword">echo</span>($test);</span></span><br></pre></td></tr></table></figure>
+<h2 id="触发错误"><a href="#触发错误" class="headerlink" title="触发错误"></a>触发错误</h2><p>在脚本中用户输入数据的位置，当用户的输入无效时触发错误是很有用的，这个任务由trigger_error()函数完成</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">$test=<span class="number">2</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">if</span> ($test&gt;<span class="number">1</span>)</span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    trigger_error(<span class="string">"变量值必须小于等于 1"</span>);</span></span><br><span class="line"><span class="php">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>运行结果<br><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Notice</span>: 变量值必须小于等于 <span class="number">1</span></span><br><span class="line"><span class="keyword">in</span> /www/test/runoob.php <span class="keyword">on</span> <span class="type">line</span> <span class="number">5</span></span><br></pre></td></tr></table></figure><br>该例子是”test” 变量大于 “1”，就会发生错误</p>
+<p>还可以添加的第二个参数，您能够规定所触发的错误类型</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="comment">// 错误处理函数</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">customError</span><span class="params">($errno, $errstr)</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"&lt;b&gt;Error:&lt;/b&gt; [$errno] $errstr&lt;br&gt;"</span>;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"脚本结束"</span>;</span></span><br><span class="line"><span class="php">    <span class="keyword">die</span>();</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">// 设置错误处理函数</span></span></span><br><span class="line"><span class="php">set_error_handler(<span class="string">"customError"</span>,E_USER_WARNING);</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">// 触发错误</span></span></span><br><span class="line"><span class="php">$test=<span class="number">2</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">if</span> ($test&gt;<span class="number">1</span>)</span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    trigger_error(<span class="string">"变量值必须小于等于 1"</span>,E_USER_WARNING);</span></span><br><span class="line"><span class="php">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>运行结果<br><figure class="highlight subunit"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Error: </span>[512] 变量值必须小于等于 1</span><br><span class="line">脚本结束</span><br></pre></td></tr></table></figure></p>
+<h2 id="错误记录"><a href="#错误记录" class="headerlink" title="错误记录"></a>错误记录</h2><p>默认的情况下，根据php.ini中的error_log配置，向服务器的记录系统或文件发送错误记录。通过error_log()函数，可以向指定的文件或远程目的地发送错误记录</p>
+<h2 id="通过E-Mail发送错误消息"><a href="#通过E-Mail发送错误消息" class="headerlink" title="通过E-Mail发送错误消息"></a>通过E-Mail发送错误消息</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="comment">// 错误处理函数</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">customError</span><span class="params">($errno, $errstr)</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"&lt;b&gt;Error:&lt;/b&gt; [$errno] $errstr&lt;br&gt;"</span>;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"已通知网站管理员"</span>;</span></span><br><span class="line"><span class="php">    error_log(<span class="string">"Error: [$errno] $errstr"</span>,<span class="number">1</span>,</span></span><br><span class="line"><span class="php">    <span class="string">"someone@example.com"</span>,<span class="string">"From: webmaster@example.com"</span>);</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">// 设置错误处理函数</span></span></span><br><span class="line"><span class="php">set_error_handler(<span class="string">"customError"</span>,E_USER_WARNING);</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">// 触发错误</span></span></span><br><span class="line"><span class="php">$test=<span class="number">2</span>;</span></span><br><span class="line"><span class="php"><span class="keyword">if</span> ($test&gt;<span class="number">1</span>)</span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    trigger_error(<span class="string">"变量值必须小于等于 1"</span>,E_USER_WARNING);</span></span><br><span class="line"><span class="php">&#125;</span></span><br></pre></td></tr></table></figure>
+<p>运行结果<br><figure class="highlight subunit"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Error: </span>[512] 变量值必须小于等于 1</span><br><span class="line">已通知网站管理员</span><br></pre></td></tr></table></figure><br>接收自以上代码地邮件如下所示<br><figure class="highlight subunit"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Error: </span>[512] 变量值必须小于等于 1</span><br></pre></td></tr></table></figure><br>这个方法不适合所有的错误。常规错误应当通过使用默认的 PHP 记录系统在服务器上进行记录</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>1.直接使用die()函数来在遇到错误时终结程序运行，往往有时候是不太好的</p>
+<p>2.set_error_handler() 仅需要一个参数，可以添加第二个参数来规定错误级别</p>
+<p>3.触发错误使用trigger_error()函数来进行触发</p>
+<p>4.set_error_handler(error_handler,error_type)其中error_handler是必须的，并且要与错误处理函数名称保持一致，error_type是可选项，可以设置错误级别</p>
+<p>5.通过使用 error_log() 函数，您可以向指定的文件或远程目的地发送错误记录</p>
+]]></content>
+      <categories>
+        <category>日常学习</category>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PHP-2020/7/15-学习日记</title>
     <url>/2020/07/15/PHP-2020-7-15-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="电子邮件"><a href="#电子邮件" class="headerlink" title="电子邮件"></a>电子邮件</h1><p>PHP允许直接从脚本发送电子邮件</p>

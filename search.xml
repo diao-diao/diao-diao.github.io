@@ -1,6 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>JavaWeb-2020/9/7-学习笔记</title>
+    <url>/2020/09/07/JavaWeb-2020-9-7-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p><del>鸽了一个月，我又回来了</del></p>
+<h1 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL"></a>JSTL</h1><ol>
+<li><p>概念：JavaServer Pages Tag Library  JSP标准标签库</p>
+<ul>
+<li>是由Apache组织提供的开源的免费的jsp标签</li>
+</ul>
+</li>
+<li><p>作用：用于简化和替换jsp页面上的java代码</p>
+</li>
+<li><p>使用步骤</p>
+<ol>
+<li><p>导入jar包</p>
+</li>
+<li><p>引入标签库：taglib指令：&lt;%@ taglib %></p>
+</li>
+<li><p>使用标签</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="常用标签"><a href="#常用标签" class="headerlink" title="常用标签"></a>常用标签</h2><ol>
+<li><p>if：相当于Java代码的if语句</p>
+</li>
+<li><p>choose：相当于Java代码的switch语句</p>
+</li>
+<li><p>foreach：相当于Java代码的for语句</p>
+</li>
+</ol>
+<h3 id="if标签"><a href="#if标签" class="headerlink" title="if标签"></a>if标签</h3><ol>
+<li><p>属性：</p>
+<ul>
+<li><p>test 必须属性：接受boolean表达式</p>
+<ul>
+<li><p>如果表达式为true，则显示if标签体内容，如果为false，则不显示标签体内容</p>
+</li>
+<li><p>一般情况下，test属性会结合el表达式一起使用</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>注意：c:if标签没有else情况，想要else情况，则可以再定义一个c:if标签</p>
+</li>
+</ol>
+<figure class="highlight dust"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">import</span>=<span class="string">"java.util.ArrayList"</span> %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">import</span>=<span class="string">"java.util.List"</span> %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">contentType</span>=<span class="string">"text/html;charset=UTF-8"</span> <span class="attr">language</span>=<span class="string">"java"</span> %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">isELIgnored</span>=<span class="string">"false"</span> %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">taglib</span> <span class="attr">prefix</span>=<span class="string">"c"</span> <span class="attr">uri</span>=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>if标签<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%--</span></span></span></span><br><span class="line"></span><br><span class="line"><span class="xml">c:if标签</span></span><br><span class="line"><span class="xml">  1. 属性：</span></span><br><span class="line"><span class="xml">    · test 必须属性：接受boolean表达式</span></span><br><span class="line"><span class="xml">      · 如果表达式为true，则显示if标签体内容，如果为false，则不显示标签体内容</span></span><br><span class="line"></span><br><span class="line"><span class="xml">      ` 一般情况下，test属性会结合el表达式一起使用</span></span><br><span class="line"></span><br><span class="line"><span class="xml">   2. 注意：c:if标签没有else情况，想要else情况，则可以再定义一个c:if标签</span></span><br><span class="line"><span class="xml">--%&gt;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">"true"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        我是真...</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">%</span></span></span></span><br><span class="line"><span class="xml">        //判断request域中的一个list集合是否为空，如果不为null则显示遍历集合</span></span><br><span class="line"><span class="xml">        List list=new ArrayList<span class="tag">&lt;&gt;</span>();</span></span><br><span class="line"><span class="xml">        list.add("aaaa");</span></span><br><span class="line"><span class="xml">        request.setAttribute("list",list);</span></span><br><span class="line"></span><br><span class="line"><span class="xml">        request.setAttribute("number",3);</span></span><br><span class="line"><span class="xml">    %&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;not empty list&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        遍历集合...</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;number %2 !=0&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        $</span><span class="template-variable">&#123;number&#125;</span><span class="xml">为奇数</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;number %2 ==0&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        $</span><span class="template-variable">&#123;number&#125;</span><span class="xml">为偶数</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><img src="/img/JavaWeb/9-7学习日记/0.png" alt="avatar"></p>
+<h3 id="choose标签"><a href="#choose标签" class="headerlink" title="choose标签"></a>choose标签</h3><ul>
+<li><p>完成数字编号对应星期几案例</p>
+<ol>
+<li><p>域中存储一个数字</p>
+</li>
+<li><p>使用choose标签取出数字  相当于switch声明</p>
+</li>
+<li><p>使用when标签做数字判断  相当于case</p>
+</li>
+<li><p>otherwise标签做其他情况的声明  相当于default</p>
+</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight dust"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">contentType</span>=<span class="string">"text/html;charset=UTF-8"</span> <span class="attr">language</span>=<span class="string">"java"</span> %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">isELIgnored</span>=<span class="string">"false"</span> %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">taglib</span> <span class="attr">prefix</span>=<span class="string">"c"</span> <span class="attr">uri</span>=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>choose标签<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%--</span></span></span></span><br><span class="line"></span><br><span class="line"><span class="xml">完成数字编号对应星期几案例</span></span><br><span class="line"><span class="xml">    1. 域中存储一个数字</span></span><br><span class="line"><span class="xml">    2. 使用choose标签取出数字  相当于switch声明</span></span><br><span class="line"><span class="xml">    3. 使用when标签做数字判断  相当于case</span></span><br><span class="line"><span class="xml">    4. otherwise标签做其他情况的声明  相当于default</span></span><br><span class="line"><span class="xml">--%&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">%</span></span></span></span><br><span class="line"><span class="xml">        request.setAttribute("number",3);</span></span><br><span class="line"><span class="xml">    %&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">c:choose</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">c:when</span> <span class="attr">test</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;number==1&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>星期一<span class="tag">&lt;/<span class="name">c:when</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">c:when</span> <span class="attr">test</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;number==2&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>星期二<span class="tag">&lt;/<span class="name">c:when</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">c:when</span> <span class="attr">test</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;number==3&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>星期三<span class="tag">&lt;/<span class="name">c:when</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">c:when</span> <span class="attr">test</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;number==4&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>星期四<span class="tag">&lt;/<span class="name">c:when</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">c:when</span> <span class="attr">test</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;number==5&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>星期五<span class="tag">&lt;/<span class="name">c:when</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">c:when</span> <span class="attr">test</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;number==6&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>星期六<span class="tag">&lt;/<span class="name">c:when</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">c:when</span> <span class="attr">test</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;number==7&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>星期天<span class="tag">&lt;/<span class="name">c:when</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">c:otherwise</span>&gt;</span>数字输入有误<span class="tag">&lt;/<span class="name">c:otherwise</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">c:choose</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><img src="/img/JavaWeb/9-7学习日记/1.png" alt="avatar"></p>
+<h3 id="foreach标签"><a href="#foreach标签" class="headerlink" title="foreach标签"></a>foreach标签</h3><ul>
+<li><p>foreach相当于Java代码的for循环</p>
+<ol>
+<li><p>完成重复的操作</p>
+<ul>
+<li><p>属性：</p>
+<ul>
+<li><p>begin:开始值</p>
+</li>
+<li><p>end:结束值</p>
+</li>
+<li><p>var:临时变量</p>
+</li>
+<li><p>step:步长</p>
+</li>
+<li><p>varStatus:循环状态对象</p>
+<ul>
+<li><p>index:容器中元素的索引从0开始</p>
+</li>
+<li><p>count:循环次数从1开始</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>遍历容器</p>
+<ul>
+<li><p>属性：</p>
+<ul>
+<li><p>items:容器对象</p>
+</li>
+<li><p>var:容器中元素的临时变量</p>
+</li>
+<li><p>varStatus:循环状态对象</p>
+<ul>
+<li><p>index:容器中元素的索引从0开始</p>
+</li>
+<li><p>count:循环次数从1开始</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight dust"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">import</span>=<span class="string">"java.util.ArrayList"</span> %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">import</span>=<span class="string">"java.util.List"</span> %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">contentType</span>=<span class="string">"text/html;charset=UTF-8"</span> <span class="attr">language</span>=<span class="string">"java"</span> %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">isELIgnored</span>=<span class="string">"false"</span> %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">taglib</span> <span class="attr">prefix</span>=<span class="string">"c"</span> <span class="attr">uri</span>=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>foreach标签<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%--</span></span></span></span><br><span class="line"></span><br><span class="line"><span class="xml">foreach相当于Java代码的for循环</span></span><br><span class="line"><span class="xml">    1. 完成重复的操作</span></span><br><span class="line"><span class="xml">        for(int i=0;i<span class="tag">&lt;<span class="name">10;i++)</span></span></span><span class="template-variable">&#123;</span></span><br><span class="line"><span class="template-variable">            代码</span></span><br><span class="line"><span class="template-variable">        &#125;</span></span><br><span class="line"><span class="xml">        · 属性：</span></span><br><span class="line"><span class="xml">            begin:开始值</span></span><br><span class="line"><span class="xml">            end:结束值</span></span><br><span class="line"><span class="xml">            var:临时变量</span></span><br><span class="line"><span class="xml">            step:步长</span></span><br><span class="line"><span class="xml">            varStatus:循环状态对象</span></span><br><span class="line"><span class="xml">                index:容器中元素的索引从0开始</span></span><br><span class="line"><span class="xml">                count:循环次数从1开始</span></span><br><span class="line"><span class="xml">    2. 遍历容器</span></span><br><span class="line"><span class="xml">        List<span class="tag">&lt;<span class="name">User</span>&gt;</span> list;</span></span><br><span class="line"><span class="xml">        for(User user:list)</span><span class="template-variable">&#123;</span></span><br><span class="line"><span class="template-variable">            代码</span></span><br><span class="line"><span class="template-variable">        &#125;</span></span><br><span class="line"><span class="xml">        · 属性：</span></span><br><span class="line"><span class="xml">            items:容器对象</span></span><br><span class="line"><span class="xml">            var:容器中元素的临时变量</span></span><br><span class="line"><span class="xml">            varStatus:循环状态对象</span></span><br><span class="line"><span class="xml">                index:容器中元素的索引从0开始</span></span><br><span class="line"><span class="xml">                count:循环次数从1开始</span></span><br><span class="line"><span class="xml">--%&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">c:forEach</span> <span class="attr">begin</span>=<span class="string">"1"</span> <span class="attr">end</span>=<span class="string">"10"</span> <span class="attr">var</span>=<span class="string">"i"</span> <span class="attr">step</span>=<span class="string">"2"</span> <span class="attr">varStatus</span>=<span class="string">"s"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    $</span><span class="template-variable">&#123;i&#125;</span><span class="xml"><span class="tag">&lt;<span class="name">h3</span>&gt;</span>$</span><span class="template-variable">&#123;s.index&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">h3</span>&gt;</span> <span class="tag">&lt;<span class="name">h4</span>&gt;</span>$</span><span class="template-variable">&#123;s.count&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span> <span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">c:forEach</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">hr</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">%</span></span></span></span><br><span class="line"><span class="xml">        List list=new ArrayList();</span></span><br><span class="line"><span class="xml">        list.add("aaa");</span></span><br><span class="line"><span class="xml">        list.add("bbb");</span></span><br><span class="line"><span class="xml">        list.add("ccc");</span></span><br><span class="line"></span><br><span class="line"><span class="xml">        request.setAttribute("list",list);</span></span><br><span class="line"><span class="xml">    %&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">c:forEach</span> <span class="attr">items</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;list&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">var</span>=<span class="string">"str"</span> <span class="attr">varStatus</span>=<span class="string">"s"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        $</span><span class="template-variable">&#123;s.index&#125;</span><span class="xml"> $</span><span class="template-variable">&#123;s.count&#125;</span><span class="xml"> $</span><span class="template-variable">&#123;str&#125;</span><span class="xml"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">c:forEach</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p><img src="/img/JavaWeb/9-7学习日记/2.png" alt="avatar"></p>
+]]></content>
+      <categories>
+        <category>日常学习</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>BUUCTF-Nepnep-WEB-3</title>
     <url>/2020/09/07/BUUCTF-Nepnep-WEB-3/</url>
     <content><![CDATA[<h1 id="BJDCTF2020-The-mystery-of-ip"><a href="#BJDCTF2020-The-mystery-of-ip" class="headerlink" title="[BJDCTF2020]The mystery of ip"></a>[BJDCTF2020]The mystery of ip</h1><p>打开之后查看一下Hint,在源码里看到提示</p>

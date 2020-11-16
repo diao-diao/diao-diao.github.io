@@ -1,6 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Shiro-2020/11/16-学习笔记</title>
+    <url>/2020/11/16/Shiro-2020-11-16-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="第一个程序用户认证"><a href="#第一个程序用户认证" class="headerlink" title="第一个程序用户认证"></a>第一个程序用户认证</h1><h2 id="相关配置"><a href="#相关配置" class="headerlink" title="相关配置"></a>相关配置</h2><p>由于现在还不需要整合到SSM中，所以直接创建maven的quickstart就可以了</p>
+<p>引入相关依赖，并且调整一下Java的目录结构</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.shiro<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>shiro-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>还需要引入shiro的配置文件，配置文件后缀为<code>.ini</code>结尾的文件  shiro对名字和位置没有过于严格的要求  只需要放在当前项目下的任意位置即可  </p>
+<p>在整合了Spring boot后，是不需要这个配置文件的 只是在学习过程中使用</p>
+<p>shiro.ini<br><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="section">[users]</span></span><br><span class="line"><span class="attr">xiaochen</span>=<span class="number">123</span></span><br><span class="line"><span class="attr">zhangsan</span>=<span class="number">123456</span></span><br><span class="line"><span class="attr">lisi</span>=<span class="number">789</span></span><br></pre></td></tr></table></figure><br>[users]是写死的，后面的数据必须以键值对的方式来写</p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><ol>
+<li><p>创建安全管理器对象</p>
+</li>
+<li><p>给安全管理器设置realm</p>
+</li>
+<li><p>SecurityUtils 给全局安全工具类设置安全管理器</p>
+</li>
+<li><p>关键对象  subject 主体</p>
+</li>
+<li><p>创建令牌</p>
+</li>
+</ol>
+<p>创建一个TestAuthenticator类<br><figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line">package com.ceit;</span><br><span class="line"></span><br><span class="line">import org.apache.shiro.SecurityUtils;</span><br><span class="line">import org.apache.shiro.authc.UsernamePasswordToken;</span><br><span class="line">import org.apache.shiro.mgt.DefaultSecurityManager;</span><br><span class="line">import org.apache.shiro.mgt.SecurityManager;</span><br><span class="line">import org.apache.shiro.realm.text.IniRealm;</span><br><span class="line">import org.apache.shiro.subject.Subject;</span><br><span class="line"></span><br><span class="line">public <span class="keyword">class</span> TestAuthenticator &#123;</span><br><span class="line">    public static void main(String<span class="literal">[]</span> args) &#123;</span><br><span class="line">        <span class="comment">//1. 创建安全管理器对象</span></span><br><span class="line">        DefaultSecurityManager securityManager = <span class="keyword">new</span> <span class="constructor">DefaultSecurityManager()</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//2. 给安全管理器设置realm</span></span><br><span class="line">        securityManager.set<span class="constructor">Realm(<span class="params">new</span> IniRealm(<span class="string">"classpath:shiro.ini"</span>)</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//3. SecurityUtils 给全局安全工具类设置安全管理器</span></span><br><span class="line">        <span class="module-access"><span class="module"><span class="identifier">SecurityUtils</span>.</span></span>set<span class="constructor">SecurityManager(<span class="params">securityManager</span>)</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//4. 关键对象  subject 主体</span></span><br><span class="line">        Subject subject = <span class="module-access"><span class="module"><span class="identifier">SecurityUtils</span>.</span></span>get<span class="constructor">Subject()</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//5. 创建令牌</span></span><br><span class="line">        UsernamePasswordToken token = <span class="keyword">new</span> <span class="constructor">UsernamePasswordToken(<span class="string">"xiaochen"</span>,<span class="string">"123"</span>)</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(<span class="string">"认证状态："</span>+subject.is<span class="constructor">Authenticated()</span>);</span><br><span class="line">            subject.login(token); <span class="comment">//用户认证</span></span><br><span class="line">            <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(<span class="string">"认证状态："</span>+subject.is<span class="constructor">Authenticated()</span>);</span><br><span class="line">        &#125;catch (UnknownAccountException e)&#123;</span><br><span class="line">            e.print<span class="constructor">StackTrace()</span>;</span><br><span class="line">            <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(<span class="string">"用户名不存在"</span>);</span><br><span class="line">        &#125;catch (IncorrectCredentialsException e)&#123;</span><br><span class="line">            e.print<span class="constructor">StackTrace()</span>;</span><br><span class="line">            <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(<span class="string">"密码错误"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>这里踩了一个坑 提示了报错<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">SLF4J</span>: <span class="selector-tag">Failed</span> <span class="selector-tag">to</span> <span class="selector-tag">load</span> <span class="selector-tag">class</span> "<span class="selector-tag">org</span><span class="selector-class">.slf4j</span><span class="selector-class">.impl</span><span class="selector-class">.StaticLoggerBinder</span></span><br></pre></td></tr></table></figure><br>查了一下只需要maven引入依赖即可<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span>  </span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.slf4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>slf4j-nop<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>正常认证通过的话，是不会有异常抛出的<br>运行结果<br><figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line">认证状态：<span class="literal">false</span></span><br><span class="line">认证状态：<span class="literal">true</span></span><br></pre></td></tr></table></figure></p>
+<p>如果没有认证通过<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">org</span><span class="selector-class">.apache</span><span class="selector-class">.shiro</span><span class="selector-class">.authc</span><span class="selector-class">.UnknownAccountException</span></span><br></pre></td></tr></table></figure><br>则会直接抛出这样的异常  异常的意思就是用户名不存在</p>
+<p>如果是用户名正确而密码不正确就会抛出<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-tag">org</span><span class="selector-class">.apache</span><span class="selector-class">.shiro</span><span class="selector-class">.authc</span><span class="selector-class">.IncorrectCredentialsException</span></span><br></pre></td></tr></table></figure><br>这异常就是密码错误</p>
+]]></content>
+      <categories>
+        <category>日常学习</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Shiro-2020/11/11-学习笔记</title>
+    <url>/2020/11/11/Shiro-2020-11-11-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="Shiro"><a href="#Shiro" class="headerlink" title="Shiro"></a>Shiro</h1><ul>
+<li><p>学习目标</p>
+<ol>
+<li><p>基于url权限管理和shiro基础</p>
+</li>
+<li><p>shiro与企业web项目整合开发的方法</p>
+</li>
+</ol>
+</li>
+<li><p>权限管理</p>
+<ol>
+<li><p>用户认证</p>
+</li>
+<li><p>用户授权</p>
+</li>
+</ol>
+</li>
+<li><p>shiro基础</p>
+<ol>
+<li><p>shiro架构</p>
+</li>
+<li><p>shiro进行用户认证的方法</p>
+</li>
+<li><p>shiro进行用户授权的方法</p>
+</li>
+</ol>
+</li>
+</ul>
+<h2 id="什么是权限管理"><a href="#什么是权限管理" class="headerlink" title="什么是权限管理"></a>什么是权限管理</h2><p>只要有用户参与的系统，一般都需要有权限管理，权限管理实现对用户访问系统的控制，按照安全规则或者安全策略控制用户可以访问而且只能访问自己被授权的资源</p>
+<p>分为用户认证和授权两部分</p>
+<h3 id="用户认证"><a href="#用户认证" class="headerlink" title="用户认证"></a>用户认证</h3><h4 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h4><p>用户去访问系统，系统要验证用户身份的合法性，最常用的用户身份验证的方法：</p>
+<ol>
+<li><p>用户名密码</p>
+</li>
+<li><p>指纹打卡机</p>
+</li>
+<li><p>基于证书的验证方法…</p>
+</li>
+</ol>
+<p>系统验证用户身份合法，用户方可访问系统的资源</p>
+<h4 id="关键对象"><a href="#关键对象" class="headerlink" title="关键对象"></a>关键对象</h4><ul>
+<li><p>subject:主体 理解为用户，可能是程序，都要去访问系统的资源，系统需要对subject进行身份认证</p>
+</li>
+<li><p>principal:身份信息，通常是唯一的，一个主体还有多个身份信息，但是都有一个主身份信息(primary principal)</p>
+</li>
+<li><p>credential:凭证信息，可以是密码，证书，指纹</p>
+</li>
+</ul>
+<p>总体：主体在进行身份认证时需要提供身份信息和凭证信息</p>
+<h3 id="用户授权"><a href="#用户授权" class="headerlink" title="用户授权"></a>用户授权</h3><h4 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h4><p>简单理解为访问控制，在用户认证通过后，系统对用户访问资源进行控制，用户具有资源的访问权限方可访问</p>
+<h4 id="关键对象-1"><a href="#关键对象-1" class="headerlink" title="关键对象"></a>关键对象</h4><ul>
+<li><p>授权的过程理解为：who对what(which)进行how操作</p>
+</li>
+<li><p>who:主体即subject，subject在认证通过后系统进行访问控制</p>
+</li>
+<li><p>what(which):资源(Resource)，subject必须具备资源的访问权限方可访问该资源。资源比如：系统用户列表页面、商品修改菜单、商品id为001的商品信息</p>
+<ul>
+<li><p>资源分为资源类型和资源实例</p>
+</li>
+<li><p>系统的用户信息就是资源类型，相当于java类</p>
+</li>
+<li><p>系统中id为001的用户就是资源实例相当于new的java对象</p>
+</li>
+</ul>
+</li>
+<li><p>how:权限/许可(permission)，针对资源的权限或许可，subject具有permission，如何访问/操作需要定义permission，比如：用户添加、用户修改、商品删除</p>
+</li>
+</ul>
+<h4 id="分配权限"><a href="#分配权限" class="headerlink" title="分配权限"></a>分配权限</h4><p>用户需要分配相应的权限才可访问相应的资源。权限是对于资源的操作许可</p>
+<p>通常给用户分配资源权限需要将权限信息持久化，比如存储在关系数据库中</p>
+<h4 id="权限控制-授权核心"><a href="#权限控制-授权核心" class="headerlink" title="权限控制(授权核心)"></a>权限控制(授权核心)</h4><p>基于角色的访问控制(RBAC-Role based access control)<br>比如：<br>系统角色包括：部门经理，总经理（角色针对用户来划分）</p>
+<p>系统代码中实现：<br><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="comment">//如果该user是部门经理则可以访问if中的代码</span></span><br><span class="line"><span class="function"><span class="title">if</span><span class="params">(user.hasRole(<span class="string">'部门经理'</span>)</span></span>)&#123;</span><br><span class="line">	<span class="comment">//代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>问题：<br>角色针对人划分的，人作为用户在系统中属于活动内容，如果该角色可以访问的资源出现变更，需要修改你的代码了，比如：需求变更为部门经理和总经理都可以查看用户报表，代码改为<br><figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line">if(<span class="keyword">user</span>.hasRole(<span class="string">'部门经理'</span>)|| <span class="keyword">user</span>.hasRole(<span class="string">'总经理'</span>))&#123;</span><br><span class="line">	//代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>基于角色的访问控制是不利于系统维护的(可拓展性不强)</p>
+<p>基于资源的访问控制(RBAC-Resource based access control)<br>资源在系统中是不变的，比如资源有：类中的方法，页面中的按钮</p>
+<p>对资源的访问需要具有permission权限，代码可以写为：<br><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">if</span><span class="params">(user.hasPermission(<span class="string">'用户报表查看'</span>)</span></span>)&#123;</span><br><span class="line">	<span class="comment">//代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>这种方式可以解决用户角色变更不用修改权限控制的代码</p>
+<p>如果需要变更权限只需要在分配权限模块去操作，给部门经理或总经理增或删除权限</p>
+<p>所以建议使用基于资源的访问控制</p>
+<h2 id="权限管理解决方案"><a href="#权限管理解决方案" class="headerlink" title="权限管理解决方案"></a>权限管理解决方案</h2><h3 id="什么是粗粒度和细粒度权限"><a href="#什么是粗粒度和细粒度权限" class="headerlink" title="什么是粗粒度和细粒度权限"></a>什么是粗粒度和细粒度权限</h3><ul>
+<li><p>粗粒度：对资源类型的权限管理</p>
+<ul>
+<li><p>资源类型：菜单,url链接,用户添加页面,用户信息,类方法,页面中按钮</p>
+</li>
+<li><p>比如：超级管理员可以访问用户添加页面，用户信息等全部页面；部门管理员可以访问用户信息页面</p>
+</li>
+</ul>
+</li>
+<li><p>细粒度：对资源实例的权限管理，数据级别的权限管理</p>
+<ul>
+<li><p>资源实例：就是资源类型的具体化，比如：用户id为001的修改连接,1110班的用户信息,行政部的员工</p>
+</li>
+<li><p>部门经理只可以访问本部门的员工信息，用户只可以看到自己的菜单，大区经理只可以查看本辖区的销售订单</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何实现"><a href="#如何实现" class="headerlink" title="如何实现"></a>如何实现</h3><h4 id="粗粒度"><a href="#粗粒度" class="headerlink" title="粗粒度"></a>粗粒度</h4><p>比较容易将权限管理的代码抽取出来在系统架构级别统一处理</p>
+<p>比如：通过springmvc的拦截器实现授权</p>
+<h4 id="细粒度"><a href="#细粒度" class="headerlink" title="细粒度"></a>细粒度</h4><p>在数据级别没有共性可言，针对细粒度权限管理就是业务逻辑的一部分，如果在业务层去处理相对比较简单，如果将细粒度权限管理统一在系统架构级别去抽取，比较困难，即使抽取的功能可能也存在扩展性不强</p>
+<p>建议细粒度权限管理在业务层去控制</p>
+<p>比如：部门经理只查询本部门员工信息，在service接口提供一个部门id的参数，controller中根据当前用户的信息得到该用户属于哪个部门，调用service将部门id传入service，实现该用户只查询本部门的员工</p>
+]]></content>
+      <categories>
+        <category>日常学习</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SSM-2020/10/21-学习笔记</title>
     <url>/2020/10/21/SSM-2020-10-21-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="员工修改"><a href="#员工修改" class="headerlink" title="员工修改"></a>员工修改</h1><h2 id="更新信息"><a href="#更新信息" class="headerlink" title="更新信息"></a>更新信息</h2><p>如果将请求直接改为PUT，就会发现数据无法修改，请求体中有数据但Employee封装不上</p>

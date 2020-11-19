@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Shiro-2020/11/19-学习笔记</title>
+    <url>/2020/11/19/Shiro-2020-11-19-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="shiro中授权的概念"><a href="#shiro中授权的概念" class="headerlink" title="shiro中授权的概念"></a>shiro中授权的概念</h1><h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><p>授权，即访问控制，控制谁能访问哪些资源，主体进行身份认证后需要分配权限方可访问系统的资源，对于某些资源没有权限是无法访问的</p>
+<h2 id="关键对象"><a href="#关键对象" class="headerlink" title="关键对象"></a>关键对象</h2><p>授权可简单理解为who对what(which)进行how操作</p>
+<ul>
+<li><p>Who 即主体(subject) 主体需要访问系统中的资源</p>
+</li>
+<li><p>What 即资源(Resource) 如系统菜单，页面，按钮，类方法，系统商品信息等。资源包括资源类型和资源实例</p>
+</li>
+<li><p>How 即权限/许可(Permission) 规定了主体对资源的操作许可，权限离开资源没有意义，如用户查询权限，用户添加权限，某个类方法的调用权限</p>
+</li>
+</ul>
+<h2 id="授权流程"><a href="#授权流程" class="headerlink" title="授权流程"></a>授权流程</h2><p><img src="/img/JavaWeb/11-19学习日记/0.png" alt="avatar"></p>
+<h2 id="授权方式"><a href="#授权方式" class="headerlink" title="授权方式"></a>授权方式</h2><h3 id="基于角色的访问控制"><a href="#基于角色的访问控制" class="headerlink" title="基于角色的访问控制"></a>基于角色的访问控制</h3><ul>
+<li>RBAC基于角色的访问控制(Role-Based Access Control) 是以角色为中心进行访问控制<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">if</span><span class="params">(subject.hasRole(<span class="string">"admin"</span>)</span></span>)&#123;</span><br><span class="line">	<span class="comment">//操作什么资源</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="基于资源的访问控制"><a href="#基于资源的访问控制" class="headerlink" title="基于资源的访问控制"></a>基于资源的访问控制</h3><ul>
+<li>RBAC基于资源的访问控制(Resource-Based Access Control) 是以资源为中心进行访问控制<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">if</span><span class="params">(subject.isPermission(<span class="string">"user:find:*"</span>)</span></span>)&#123;</span><br><span class="line">	<span class="comment">//对所有用户具有查询权限</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="权限字符串"><a href="#权限字符串" class="headerlink" title="权限字符串"></a>权限字符串</h2><p>权限字符串的规则是：资源标识符：操作：资源实例标识符，意思是对哪个资源的哪个实例具有什么操作，”:”是资源/操作/实例的分割线，权限字符串也可以使用*通配符</p>
+<p>例子：</p>
+<ul>
+<li><p>用户创建权限：user:create,或user:create:*</p>
+</li>
+<li><p>用户修改实例001的权限：user:update:001</p>
+</li>
+<li><p>用户实例001的所有权限：user:*:001</p>
+</li>
+</ul>
+<h1 id="shiro中的授权实现"><a href="#shiro中的授权实现" class="headerlink" title="shiro中的授权实现"></a>shiro中的授权实现</h1><ul>
+<li>编程式:</li>
+</ul>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line">Subject subject = <span class="module-access"><span class="module"><span class="identifier">SecurityUtils</span>.</span></span>get<span class="constructor">Subject()</span>;</span><br><span class="line"><span class="keyword">if</span>(subject.has<span class="constructor">Role(<span class="string">"admin"</span>)</span>)&#123;</span><br><span class="line">	<span class="comment">//有权限</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="comment">//无权限</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注解式:</li>
+</ul>
+<figure class="highlight aspectj"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RequiresRoles</span>(<span class="string">"admin"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//有权限</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>标签式:</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">JSP/GSP 标签: 在JSP/GSP 页面通过相应的标签完成：</span><br><span class="line"><span class="tag">&lt;<span class="name">shiro:hasRole</span> <span class="attr">name</span>=<span class="string">"admin"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">!-</span> 有权限 <span class="attr">-</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">shiro:hasRole</span>&gt;</span></span><br><span class="line">注意：Thymeleaf中使用shiro需要额外集成！</span><br></pre></td></tr></table></figure>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>接着上次授权的来<br>在后面添加<br><figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line"><span class="comment">//认证用户进行授权</span></span><br><span class="line"><span class="keyword">if</span>(subject.is<span class="constructor">Authenticated()</span>)&#123;</span><br><span class="line">    <span class="comment">//基于角色权限控制</span></span><br><span class="line">    <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(subject.has<span class="constructor">Role(<span class="string">"admin"</span>)</span>);;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//基于多角色权限控制</span></span><br><span class="line">    <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(subject.has<span class="constructor">AllRoles(Arrays.<span class="params">asList</span>(<span class="string">"admin"</span>, <span class="string">"user"</span>)</span>));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//基于具有其中一个角色</span></span><br><span class="line">    boolean<span class="literal">[]</span> booleans = subject.has<span class="constructor">Roles(Arrays.<span class="params">asList</span>(<span class="string">"admin"</span>, <span class="string">"super"</span>, <span class="string">"user"</span>)</span>);</span><br><span class="line">    for(boolean aBoolean:booleans)&#123;</span><br><span class="line">        <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(aBoolean);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(<span class="string">"=========================================="</span>);</span><br><span class="line">    <span class="comment">//基于权限字符串的访问控制，资源标志符:操作:资源类型</span></span><br><span class="line">    <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(<span class="string">"权限："</span>+subject.is<span class="constructor">Permitted(<span class="string">"user:*:01"</span>)</span>);</span><br><span class="line">    <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(<span class="string">"权限："</span>+subject.is<span class="constructor">Permitted(<span class="string">"product:update"</span>)</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//分别具有哪些权限</span></span><br><span class="line">    boolean<span class="literal">[]</span> permitted = subject.is<span class="constructor">Permitted(<span class="string">"user:*:01"</span>, <span class="string">"order:*:10"</span>)</span>;</span><br><span class="line">    for(boolean b : permitted)&#123;</span><br><span class="line">        <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(b);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//同时具有哪些权限</span></span><br><span class="line">    boolean permittedAll = subject.is<span class="constructor">PermittedAll(<span class="string">"user:*:01"</span>, <span class="string">"product:*"</span>)</span>;</span><br><span class="line">    <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(permittedAll);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>在CustomerMd5Realm中添加<br><figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line">@Override</span><br><span class="line">protected AuthorizationInfo <span class="keyword">do</span><span class="constructor">GetAuthorizationInfo(PrincipalCollection <span class="params">principalCollection</span>)</span> &#123;</span><br><span class="line">    String primaryPrincipal = (String)principalCollection.get<span class="constructor">PrimaryPrincipal()</span>;</span><br><span class="line">    <span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(<span class="string">"身份信息:"</span>+primaryPrincipal);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//根据身份信息  用户名 获取当前用户的角色信息，以及权限信息  xiaochen admin user</span></span><br><span class="line">    SimpleAuthorizationInfo simpleAuthorizationInfo = <span class="keyword">new</span> <span class="constructor">SimpleAuthorizationInfo()</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将数据库中查询的角色信息赋值给权限对象</span></span><br><span class="line">    simpleAuthorizationInfo.add<span class="constructor">Role(<span class="string">"admin"</span>)</span>;</span><br><span class="line">    simpleAuthorizationInfo.add<span class="constructor">Role(<span class="string">"user"</span>)</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将数据库中查询权限信息赋值个权限对象</span></span><br><span class="line">    simpleAuthorizationInfo.add<span class="constructor">StringPermission(<span class="string">"user:*:01"</span>)</span>;</span><br><span class="line">    simpleAuthorizationInfo.add<span class="constructor">StringPermission(<span class="string">"product:create:02"</span>)</span>;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    return simpleAuthorizationInfo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>到这里shiro中的授权就完成了</p>
+]]></content>
+      <categories>
+        <category>日常学习</category>
+        <category>JavaWeb</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Shiro-2020/11/17-学习笔记</title>
     <url>/2020/11/17/Shiro-2020-11-17-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="shiro中自定义Realm的实现"><a href="#shiro中自定义Realm的实现" class="headerlink" title="shiro中自定义Realm的实现"></a>shiro中自定义Realm的实现</h1><ol>

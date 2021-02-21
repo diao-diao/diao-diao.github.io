@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Shiro-2020/12/7-学习笔记</title>
+    <title>Shiro-2020/12/7-授权数据持久化</title>
     <url>/2020/12/07/Shiro-2020-12-7-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h1><h2 id="授权方式"><a href="#授权方式" class="headerlink" title="授权方式"></a>授权方式</h2><ul>
 <li><p>编程式</p>
@@ -106,11 +106,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Shiro-2020/12/2-学习笔记</title>
+    <title>Shiro-2020/12/2-数据库+MD5+Salt认证</title>
     <url>/2020/12/02/Shiro-2020-12-2-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="SpringBoot-Shiro整合思路"><a href="#SpringBoot-Shiro整合思路" class="headerlink" title="SpringBoot+Shiro整合思路"></a>SpringBoot+Shiro整合思路</h1><h2 id="数据库-MD5-Salt认证功能"><a href="#数据库-MD5-Salt认证功能" class="headerlink" title="数据库+MD5+Salt认证功能"></a>数据库+MD5+Salt认证功能</h2><p>之前完成了用户md5+salt的用户注册流程</p>
 <p>现在就完成以下认证的功能</p>
@@ -127,11 +127,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Shiro-2020/11/30-学习笔记</title>
+    <title>Shiro-2020/11/30-SpringBoot+Shiro整合</title>
     <url>/2020/11/30/Shiro-2020-11-30-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="SpringBoot-Shiro"><a href="#SpringBoot-Shiro" class="headerlink" title="SpringBoot+Shiro"></a>SpringBoot+Shiro</h1><h2 id="整合思路"><a href="#整合思路" class="headerlink" title="整合思路"></a>整合思路</h2><p><img src="/img/JavaWeb/11-30学习日记/0.png" alt="avatar"></p>
 <h2 id="引入Shiro依赖"><a href="#引入Shiro依赖" class="headerlink" title="引入Shiro依赖"></a>引入Shiro依赖</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.shiro<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>shiro-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.shiro<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>shiro-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.7.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -179,11 +179,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Shiro-2020/11/19-学习笔记</title>
+    <title>Shiro-2020/11/19-用户授权</title>
     <url>/2020/11/19/Shiro-2020-11-19-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="shiro中授权的概念"><a href="#shiro中授权的概念" class="headerlink" title="shiro中授权的概念"></a>shiro中授权的概念</h1><h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><p>授权，即访问控制，控制谁能访问哪些资源，主体进行身份认证后需要分配权限方可访问系统的资源，对于某些资源没有权限是无法访问的</p>
 <h2 id="关键对象"><a href="#关键对象" class="headerlink" title="关键对象"></a>关键对象</h2><p>授权可简单理解为who对what(which)进行how操作</p>
@@ -234,11 +234,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Shiro-2020/11/17-学习笔记</title>
+    <title>Shiro-2020/11/17-MD5+Salt</title>
     <url>/2020/11/17/Shiro-2020-11-17-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="shiro中自定义Realm的实现"><a href="#shiro中自定义Realm的实现" class="headerlink" title="shiro中自定义Realm的实现"></a>shiro中自定义Realm的实现</h1><ol>
 <li><p>最终执行用户名比较 SimpleAccountRealm doGetAuthenticationInfo 在这个方法中完成用户名校验</p>
@@ -283,11 +283,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Shiro-2020/11/16-学习笔记</title>
+    <title>Shiro-2020/11/16-用户认证</title>
     <url>/2020/11/16/Shiro-2020-11-16-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="第一个程序用户认证"><a href="#第一个程序用户认证" class="headerlink" title="第一个程序用户认证"></a>第一个程序用户认证</h1><h2 id="相关配置"><a href="#相关配置" class="headerlink" title="相关配置"></a>相关配置</h2><p>由于现在还不需要整合到SSM中，所以直接创建maven的quickstart就可以了</p>
 <p>引入相关依赖，并且调整一下Java的目录结构</p>
@@ -317,11 +317,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Shiro-2020/11/11-学习笔记</title>
+    <title>Shiro-2020/11/11-基础概念</title>
     <url>/2020/11/11/Shiro-2020-11-11-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="Shiro"><a href="#Shiro" class="headerlink" title="Shiro"></a>Shiro</h1><ul>
 <li><p>学习目标</p>
@@ -428,11 +428,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>SSM-2020/10/21-学习笔记</title>
+    <title>SSM-2020/10/21-员工管理系统-5</title>
     <url>/2020/10/21/SSM-2020-10-21-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="员工修改"><a href="#员工修改" class="headerlink" title="员工修改"></a>员工修改</h1><h2 id="更新信息"><a href="#更新信息" class="headerlink" title="更新信息"></a>更新信息</h2><p>如果将请求直接改为PUT，就会发现数据无法修改，请求体中有数据但Employee封装不上</p>
 <p>原因：</p>
@@ -505,11 +505,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>SSM-2020/10/19-学习笔记</title>
+    <title>SSM-2020/10/19-员工管理系统-4</title>
     <url>/2020/10/19/SSM-2020-10-19-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h1><h2 id="校验"><a href="#校验" class="headerlink" title="校验"></a>校验</h2><p>之前完成了前端，合法性和重复性的检验，但是由于添加了一个自定义的ajax-va，所以还是会出现一个错误，就是ajax-va的存在导致了数据无法提交，但是将其改为success时，又可以成功提交并绕过重复性的检验，这是不期望看到的</p>
 <p>所以还需要一个后端校验以及数据库约束等</p>
@@ -556,11 +556,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>SSM-2020/10/16-学习笔记</title>
+    <title>SSM-2020/10/16-员工管理系统-3</title>
     <url>/2020/10/16/SSM-2020-10-16-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="保存"><a href="#保存" class="headerlink" title="保存"></a>保存</h1><p>URI：</p>
 <ul>
@@ -613,11 +613,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>SSM-2020/10/12-学习笔记</title>
+    <title>SSM-2020/10/12-员工管理系统-2</title>
     <url>/2020/10/12/SSM-2020-10-12-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="前端页面"><a href="#前端页面" class="headerlink" title="前端页面"></a>前端页面</h1><p>根据前面的效果图做一个前端页面<br>list.jsp:<br><figure class="highlight dust"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%--</span></span></span></span><br><span class="line"><span class="xml">    web路径：</span></span><br><span class="line"><span class="xml">        不以/开始的相对路径，找资源，以当前资源的路径为基准，经常容易出现问题</span></span><br><span class="line"><span class="xml">        以/开始的相对路径，找资源，以服务器的路径为标准（http://localhost:3306）需要加上项目名</span></span><br><span class="line"><span class="xml">            http://localhost:3306/crud</span></span><br><span class="line"><span class="xml">--%&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">contentType</span>=<span class="string">"text/html;charset=UTF-8"</span> <span class="attr">language</span>=<span class="string">"java"</span> %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">taglib</span> <span class="attr">uri</span>=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> <span class="attr">prefix</span>=<span class="string">"c"</span>%&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>员工列表<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">%</span></span></span></span><br><span class="line"><span class="xml">        pageContext.setAttribute("APP_PATH",request.getContextPath());</span></span><br><span class="line"><span class="xml">    %&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;APP_PATH&#125;</span><span class="xml"><span class="tag"><span class="string">/static/bootstrap-3.3.7-dist/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;APP_PATH&#125;</span><span class="xml"><span class="tag"><span class="string">/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;APP_PATH&#125;</span><span class="xml"><span class="tag"><span class="string">/static/js/jquery-3.5.1.min.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">%--标题--%</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-12"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>SSM-CRUD<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">%--按钮--%</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-4 col-md-offset-8"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>新增<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-danger"</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">%--显示表格数据--%</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-12"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table table-hover"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>#<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>empName<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>gender<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>email<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>deptName<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>操作<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>1<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>qwe<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>男<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>aaa@qq.com<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>deptName<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-primary btn-sm"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-pencil"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                编辑</span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-danger btn-sm"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-trash"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span> /&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                删除</span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">%--显示分页信息--%</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%--</span>            分页文字信息<span class="attr">--</span>%&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                当前记录数：XXX</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%--</span>            分页条信息<span class="attr">--</span>%&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">nav</span> <span class="attr">aria-label</span>=<span class="string">"Page navigation"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"pagination"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">aria-label</span>=<span class="string">"Previous"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                <span class="tag">&lt;<span class="name">span</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span>&amp;laquo;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>1<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>2<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>3<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>4<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>5<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">aria-label</span>=<span class="string">"Next"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                <span class="tag">&lt;<span class="name">span</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span>&amp;raquo;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>末页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure><br>这样基本的前端页面框架就出来，接下来就是填充数据就好了<br><img src="/img/JavaWeb/10-12学习日记/0.png" alt="avatar"></p>
 <h1 id="实现分页查询"><a href="#实现分页查询" class="headerlink" title="实现分页查询"></a>实现分页查询</h1><p>接下来就是将数据解析填充到对应位置<br>list.jsp<br><figure class="highlight dust"><table><tr><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%--</span></span></span></span><br><span class="line"><span class="xml">    web路径：</span></span><br><span class="line"><span class="xml">        不以/开始的相对路径，找资源，以当前资源的路径为基准，经常容易出现问题</span></span><br><span class="line"><span class="xml">        以/开始的相对路径，找资源，以服务器的路径为标准（http://localhost:3306）需要加上项目名</span></span><br><span class="line"><span class="xml">            http://localhost:3306/crud</span></span><br><span class="line"><span class="xml">--%&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">page</span> <span class="attr">contentType</span>=<span class="string">"text/html;charset=UTF-8"</span> <span class="attr">language</span>=<span class="string">"java"</span> %&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%@</span> <span class="attr">taglib</span> <span class="attr">uri</span>=<span class="string">"http://java.sun.com/jsp/jstl/core"</span> <span class="attr">prefix</span>=<span class="string">"c"</span>%&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>员工列表<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">%</span></span></span></span><br><span class="line"><span class="xml">        pageContext.setAttribute("APP_PATH",request.getContextPath());</span></span><br><span class="line"><span class="xml">    %&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;APP_PATH&#125;</span><span class="xml"><span class="tag"><span class="string">/static/bootstrap-3.3.7-dist/css/bootstrap.min.css"</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;APP_PATH&#125;</span><span class="xml"><span class="tag"><span class="string">/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;APP_PATH&#125;</span><span class="xml"><span class="tag"><span class="string">/static/js/jquery-3.5.1.min.js"</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">%--标题--%</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-12"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">h1</span>&gt;</span>SSM-CRUD<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">%--按钮--%</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-4 col-md-offset-8"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-primary"</span>&gt;</span>新增<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-danger"</span>&gt;</span>删除<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">%--显示表格数据--%</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-12"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">"table table-hover"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>#<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>empName<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>gender<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>email<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>deptName<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">th</span>&gt;</span>操作<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">c:forEach</span> <span class="attr">items</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;pageInfo.list&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">var</span>=<span class="string">"emp"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">th</span>&gt;</span>$</span><span class="template-variable">&#123;emp.empId&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">th</span>&gt;</span>$</span><span class="template-variable">&#123;emp.empName&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">th</span>&gt;</span>$</span><span class="template-variable">&#123;emp.gender=="M"?"男":"女"&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">th</span>&gt;</span>$</span><span class="template-variable">&#123;emp.email&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">th</span>&gt;</span>$</span><span class="template-variable">&#123;emp.department.deptName&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-primary btn-sm"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-pencil"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                    编辑</span></span><br><span class="line"><span class="xml">                                <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn btn-danger btn-sm"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"glyphicon glyphicon-trash"</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span> /&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                    删除</span></span><br><span class="line"><span class="xml">                                <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;/<span class="name">th</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">c:forEach</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">%--显示分页信息--%</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row"</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%--</span>            分页文字信息<span class="attr">--</span>%&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                当前记录数：$</span><span class="template-variable">&#123;pageInfo.pageNum&#125;</span><span class="xml">页，总$</span><span class="template-variable">&#123;pageInfo.pages&#125;</span><span class="xml">页,总$</span><span class="template-variable">&#123;pageInfo.total&#125;</span><span class="xml">条记录</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%--</span>            分页条信息<span class="attr">--</span>%&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-md-6"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">nav</span> <span class="attr">aria-label</span>=<span class="string">"Page navigation"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"pagination"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;APP_PATH&#125;</span><span class="xml"><span class="tag"><span class="string">/emps?pn=1"</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%--</span>                        有上一页再显示箭头，没有则不显示<span class="attr">--</span>%&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;pageInfo.hasPreviousPage&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;APP_PATH&#125;</span><span class="xml"><span class="tag"><span class="string">/emps?pn=$</span></span></span><span class="template-variable">&#123;pageInfo.pageNum-1&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">aria-label</span>=<span class="string">"Previous"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span>&amp;laquo;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%--</span>                        遍历显示页码，当前页码高亮<span class="attr">--</span>%&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">c:forEach</span> <span class="attr">items</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;pageInfo.navigatepageNums&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">var</span>=<span class="string">"pageNumb"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;pageNumb == pageInfo.pageNum&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"active"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>$</span><span class="template-variable">&#123;pageNumb&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;pageNumb != pageInfo.pageNum&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;APP_PATH&#125;</span><span class="xml"><span class="tag"><span class="string">/emps?pn=$</span></span></span><span class="template-variable">&#123;pageNumb&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>$</span><span class="template-variable">&#123;pageNumb&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;/<span class="name">c:forEach</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">%--</span>                        有下一页再显示箭头，没有则不显示<span class="attr">--</span>%&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">c:if</span> <span class="attr">test</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;pageInfo.hasNextPage&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;APP_PATH&#125;</span><span class="xml"><span class="tag"><span class="string">/emps?pn=$</span></span></span><span class="template-variable">&#123;pageInfo.pageNum+1&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">aria-label</span>=<span class="string">"Next"</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                    <span class="tag">&lt;<span class="name">span</span> <span class="attr">aria-hidden</span>=<span class="string">"true"</span>&gt;</span>&amp;raquo;<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line"><span class="xml">                                <span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line"><span class="xml">                            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;/<span class="name">c:if</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml">                        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"$</span></span></span><span class="template-variable">&#123;APP_PATH&#125;</span><span class="xml"><span class="tag"><span class="string">/emps?pn=$</span></span></span><span class="template-variable">&#123;pageInfo.pages&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span>末页<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="xml">                    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure><br>这样就实现了预览图的效果啦</p>
@@ -669,11 +669,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>SSM-2020/10/5-学习笔记</title>
+    <title>SSM-2020/10/5-员工管理系统-1</title>
     <url>/2020/10/05/SSM-2020-10-5-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="功能一：查询员工数据"><a href="#功能一：查询员工数据" class="headerlink" title="功能一：查询员工数据"></a>功能一：查询员工数据</h1><ol>
 <li><p>访问index.jsp页面</p>
@@ -703,11 +703,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>SSM-2020/9/21-学习笔记</title>
+    <title>SSM-2020/9/21-Mybatis</title>
     <url>/2020/09/21/SSM-2020-9-21-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="Mybatis运行"><a href="#Mybatis运行" class="headerlink" title="Mybatis运行"></a>Mybatis运行</h1><p>首先运行一下MyBatis生成一下mapper文件<br>建一个java文件<br>MBGTest.java<br><figure class="highlight haxe"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ceit.crud.test;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.api.MyBatisGenerator;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.config.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.config.xml.ConfigurationParser;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.exception.InvalidConfigurationException;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.exception.XMLParserException;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.internal.DefaultShellCallback;</span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MBGTest</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> void main(<span class="keyword">String</span>[] args) throws IOException, XMLParserException, InvalidConfigurationException, SQLException, InterruptedException &#123;</span><br><span class="line">        List&lt;<span class="keyword">String</span>&gt; warnings = <span class="keyword">new</span> <span class="type">ArrayList</span>&lt;<span class="keyword">String</span>&gt;();</span><br><span class="line">        boolean overwrite = <span class="literal">true</span>;</span><br><span class="line">        File configFile = <span class="keyword">new</span> <span class="type">File</span>(<span class="string">"F:\\default\\SSM\\src\\main\\resources\\generatorConfig.xml"</span>);</span><br><span class="line">        ConfigurationParser cp = <span class="keyword">new</span> <span class="type">ConfigurationParser</span>(warnings);</span><br><span class="line">        Configuration config = cp.parseConfiguration(configFile);</span><br><span class="line">        DefaultShellCallback callback = <span class="keyword">new</span> <span class="type">DefaultShellCallback</span>(overwrite);</span><br><span class="line">        MyBatisGenerator myBatisGenerator = <span class="keyword">new</span> <span class="type">MyBatisGenerator</span>(config, callback, warnings);</span><br><span class="line">        myBatisGenerator.generate(<span class="literal">null</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>注意要修改路径</p>
 <p>运行之后，mapper和dao中就会出现两个文件</p>
@@ -729,11 +729,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>SSM-2020/9/17-学习笔记</title>
+    <title>SSM-2020/9/17-环境搭建</title>
     <url>/2020/09/17/SSM-2020-9-17-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="基础环境搭建"><a href="#基础环境搭建" class="headerlink" title="基础环境搭建"></a>基础环境搭建</h1><ol>
 <li><p>创建一个maven工程</p>
@@ -776,11 +776,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>JavaWeb-2020/9/7-学习笔记</title>
+    <title>JavaWeb-2020/9/7-JSTL</title>
     <url>/2020/09/07/JavaWeb-2020-9-7-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<p><del>鸽了一个月，我又回来了</del></p>
 <h1 id="JSTL"><a href="#JSTL" class="headerlink" title="JSTL"></a>JSTL</h1><ol>
@@ -902,7 +902,7 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
@@ -1027,7 +1027,7 @@
       </tags>
   </entry>
   <entry>
-    <title>JavaWeb-2020/8/8-学习笔记</title>
+    <title>JavaWeb-2020/8/8-EL表达式</title>
     <url>/2020/08/08/JavaWeb-2020-8-8-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="EL表达式"><a href="#EL表达式" class="headerlink" title="EL表达式"></a>EL表达式</h1><ol>
 <li><p>EL（Expression Language表达式语言）</p>
@@ -1173,11 +1173,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>JavaWeb-2020/8/6-学习笔记</title>
+    <title>JavaWeb-2020/8/6-JSP</title>
     <url>/2020/08/06/JavaWeb-2020-8-6-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h1><p>之前只是简单了解了一下，现在来详细学习一下</p>
 <h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><ul>
@@ -1326,11 +1326,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/8/5-学习日记</title>
+    <title>PHP-2020/8/5-ThinkPHP-4</title>
     <url>/2020/08/05/PHP-2020-8-5-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="ThinkPHP"><a href="#ThinkPHP" class="headerlink" title="ThinkPHP"></a>ThinkPHP</h1><p><img src="/img/PHP/thinkphp/8-6/0.png" alt="avatar"></p>
 <h2 id="聚合查询"><a href="#聚合查询" class="headerlink" title="聚合查询"></a>聚合查询</h2><p>1.使用count()方法，可以求出所查询数据的数量</p>
@@ -1350,11 +1350,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>JavaWeb-2020/8/4-学习笔记</title>
+    <title>JavaWeb-2020/8/4-Session</title>
     <url>/2020/08/04/JavaWeb-2020-8-4-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="JSP"><a href="#JSP" class="headerlink" title="JSP"></a>JSP</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><ul>
 <li><p>Java Server Pages：Java服务器端页面</p>
@@ -1478,11 +1478,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/8/4-学习日记</title>
+    <title>PHP-2020/8/4-ThinkPHP-3</title>
     <url>/2020/08/04/PHP-2020-8-4-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="ThinkPHP"><a href="#ThinkPHP" class="headerlink" title="ThinkPHP"></a>ThinkPHP</h1><h2 id="查询表达式"><a href="#查询表达式" class="headerlink" title="查询表达式"></a>查询表达式</h2><ol>
 <li><p>比较查询</p>
@@ -1512,11 +1512,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>JavaWeb-2020/8/3-学习笔记</title>
+    <title>JavaWeb-2020/8/3-Cookie</title>
     <url>/2020/08/03/JavaWeb-2020-8-3-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><h2 id="细节"><a href="#细节" class="headerlink" title="细节"></a>细节</h2><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><ol>
 <li><p>一次可不可以发送多个Cookie?</p>
@@ -1643,11 +1643,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/8/3-学习日记</title>
+    <title>PHP-2020/8/3-ThinkPHP-2</title>
     <url>/2020/08/03/PHP-2020-8-3-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="ThinkPHP"><a href="#ThinkPHP" class="headerlink" title="ThinkPHP"></a>ThinkPHP</h1><h2 id="数据库与模型"><a href="#数据库与模型" class="headerlink" title="数据库与模型"></a>数据库与模型</h2><h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><ol>
 <li><p>ThinkPHP采用内置抽象层将不同的数据库操作进行封装处理</p>
@@ -1747,11 +1747,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>JavaWeb-2020/7/31-学习笔记</title>
+    <title>JavaWeb-2020/7/31-Response</title>
     <url>/2020/07/31/JavaWeb-2020-7-31-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="Response"><a href="#Response" class="headerlink" title="Response"></a>Response</h1><h2 id="输出字节数据"><a href="#输出字节数据" class="headerlink" title="输出字节数据"></a>输出字节数据</h2><ul>
 <li><p>步骤</p>
@@ -1864,11 +1864,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/31-学习日记</title>
+    <title>PHP-2020/7/31-ThinkPHP-1</title>
     <url>/2020/07/31/PHP-2020-7-31-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="ThinkPHP"><a href="#ThinkPHP" class="headerlink" title="ThinkPHP"></a>ThinkPHP</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>官方已经不提供软件包下载了，采用Composer和git方式下载和更新</p>
 <p>首先去官网下载composer，傻瓜安装之后，把你刚才添加的PHP的目录添加的系统PATH中，之后重启电脑，输入composer运行是否正常</p>
@@ -2066,11 +2066,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>JavaWeb-2020/7/30-学习笔记</title>
+    <title>JavaWeb-2020/7/30-用户登录</title>
     <url>/2020/07/30/JavaWeb-2020-7-30-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="用户登录"><a href="#用户登录" class="headerlink" title="用户登录"></a>用户登录</h1><h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><ol>
 <li><p>编写login.html登录页面，username&amp;password两个输入框</p>
@@ -2230,11 +2230,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>JavaWeb-2020/7/28-学习笔记</title>
+    <title>JavaWeb-2020/7/28-JDBC与数据库连接池</title>
     <url>/2020/07/28/JavaWeb-2020-7-28-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><h2 id="练习"><a href="#练习" class="headerlink" title="练习"></a>练习</h2><p>myguests表：</p>
 <p><img src="/img/JavaWeb/7-28学习日记/0.png" alt="avatar"></p>
@@ -2490,11 +2490,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>JavaWeb-2020/7/27-学习笔记</title>
+    <title>JavaWeb-2020/7/27-Request-2</title>
     <url>/2020/07/27/JavaWeb-2020-7-27-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h1><h2 id="获取请求参数通用方式"><a href="#获取请求参数通用方式" class="headerlink" title="获取请求参数通用方式"></a>获取请求参数通用方式</h2><ol>
 <li><figure class="highlight delphi"><table><tr><td class="code"><pre><span class="line"><span class="keyword">String</span> getParameter(<span class="keyword">String</span> <span class="keyword">name</span>)</span><br></pre></td></tr></table></figure>
@@ -2569,11 +2569,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/26-学习日记</title>
+    <title>PHP-2020/7/26-基础24</title>
     <url>/2020/07/26/PHP-2020-7-26-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="MySQL读取数据"><a href="#MySQL读取数据" class="headerlink" title="MySQL读取数据"></a>MySQL读取数据</h1><h2 id="从MySQL数据库读取数据"><a href="#从MySQL数据库读取数据" class="headerlink" title="从MySQL数据库读取数据"></a>从MySQL数据库读取数据</h2><p>使用SELECT语句用于从数据表中读取数据<br><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="built_in">column_name</span>(s) <span class="keyword">FROM</span> <span class="built_in">table_name</span></span><br></pre></td></tr></table></figure><br>可以用*来读取所有数据表中的字段<br><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="built_in">table_name</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="使用MySQLi"><a href="#使用MySQLi" class="headerlink" title="使用MySQLi"></a>使用MySQLi</h2><p>操作基本一致<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">$servername = <span class="string">"localhost"</span>;</span></span><br><span class="line"><span class="php">$username = <span class="string">"root"</span>;</span></span><br><span class="line"><span class="php">$password = <span class="string">"root"</span>;</span></span><br><span class="line"><span class="php">$dbname = <span class="string">"myDB"</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">// 创建连接</span></span></span><br><span class="line"><span class="php">$conn = <span class="keyword">new</span> mysqli($servername, $username, $password, $dbname);</span></span><br><span class="line"><span class="php"><span class="comment">// Check connection</span></span></span><br><span class="line"><span class="php"><span class="keyword">if</span> ($conn-&gt;connect_error) &#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">die</span>(<span class="string">"连接失败: "</span> . $conn-&gt;connect_error);</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="php">$sql = <span class="string">"SELECT id, firstname, lastname FROM MyGuests"</span>;</span></span><br><span class="line"><span class="php">$result = $conn-&gt;query($sql);</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="keyword">if</span> ($result-&gt;num_rows &gt; <span class="number">0</span>) &#123;</span></span><br><span class="line"><span class="php">    <span class="comment">// 输出数据</span></span></span><br><span class="line"><span class="php">    <span class="keyword">while</span>($row = $result-&gt;fetch_assoc()) &#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">echo</span> <span class="string">"id: "</span> . $row[<span class="string">"id"</span>]. <span class="string">" - Name: "</span> . $row[<span class="string">"firstname"</span>]. <span class="string">" "</span> . $row[<span class="string">"lastname"</span>]. <span class="string">"\n"</span>;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">&#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"0 结果"</span>;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php">$conn-&gt;close();</span></span><br></pre></td></tr></table></figure><br>运行结果<br><figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">id:</span> <span class="number">1</span> - <span class="string">Name:</span> John Doe</span><br><span class="line"><span class="string">id:</span> <span class="number">2</span> - <span class="string">Name:</span> John Doe</span><br><span class="line"><span class="string">id:</span> <span class="number">3</span> - <span class="string">Name:</span> Mary Moe</span><br><span class="line"><span class="string">id:</span> <span class="number">4</span> - <span class="string">Name:</span> Julie Dooley</span><br><span class="line"><span class="string">id:</span> <span class="number">5</span> - <span class="string">Name:</span> John Doe</span><br><span class="line"><span class="string">id:</span> <span class="number">6</span> - <span class="string">Name:</span> Mary Moe</span><br><span class="line"><span class="string">id:</span> <span class="number">7</span> - <span class="string">Name:</span> Julie Dooley</span><br></pre></td></tr></table></figure><br>首先，我们设置了 SQL 语句从 MyGuests数据表中读取 id, firstname 和 lastname 三个字段。之后我们使用该 SQL 语句从数据库中取出结果集并赋给复制给变量 $result。</p>
@@ -2594,11 +2594,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/25-学习日记</title>
+    <title>PHP-2020/7/25-基础23</title>
     <url>/2020/07/25/PHP-2020-7-25-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="MySQL预处理语句"><a href="#MySQL预处理语句" class="headerlink" title="MySQL预处理语句"></a>MySQL预处理语句</h1><p>预处理语句对于防止MySQL注入是非常有用的</p>
 <h2 id="预处理语句及绑定参数"><a href="#预处理语句及绑定参数" class="headerlink" title="预处理语句及绑定参数"></a>预处理语句及绑定参数</h2><p>预处理语句用于执行多个相同的SQL语句，并且执行效率更高</p>
@@ -2635,11 +2635,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/24-学习日记</title>
+    <title>PHP-2020/7/24-基础22</title>
     <url>/2020/07/24/PHP-2020-7-24-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="MySQL-插入多条数据"><a href="#MySQL-插入多条数据" class="headerlink" title="MySQL 插入多条数据"></a>MySQL 插入多条数据</h1><p>PHP MySQL中可以使用<code>mysqli_multi_query()</code>函数来执行多条SQL语句</p>
 <p>面向对象<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">$servername = <span class="string">"localhost"</span>;</span></span><br><span class="line"><span class="php">$username = <span class="string">"root"</span>;</span></span><br><span class="line"><span class="php">$password = <span class="string">"root"</span>;</span></span><br><span class="line"><span class="php">$dbname = <span class="string">"myDB"</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">// 创建链接</span></span></span><br><span class="line"><span class="php">$conn = <span class="keyword">new</span> mysqli($servername, $username, $password, $dbname);</span></span><br><span class="line"><span class="php"><span class="comment">// 检查链接</span></span></span><br><span class="line"><span class="php"><span class="keyword">if</span> ($conn-&gt;connect_error) &#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">die</span>(<span class="string">"连接失败: "</span> . $conn-&gt;connect_error);</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"></span><br><span class="line">$sql = "INSERT INTO MyGuests (firstname, lastname, email)</span><br><span class="line"><span class="php">VALUES (<span class="string">'John'</span>, <span class="string">'Doe'</span>, <span class="string">'john@example.com'</span>);<span class="string">";</span></span></span><br><span class="line">$sql .= "INSERT INTO MyGuests (firstname, lastname, email)</span><br><span class="line"><span class="php">VALUES (<span class="string">'Mary'</span>, <span class="string">'Moe'</span>, <span class="string">'mary@example.com'</span>);<span class="string">";</span></span></span><br><span class="line">$sql .= "INSERT INTO MyGuests (firstname, lastname, email)</span><br><span class="line"><span class="php">VALUES (<span class="string">'Julie'</span>, <span class="string">'Dooley'</span>, <span class="string">'julie@example.com'</span>)<span class="string">";</span></span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="keyword">if</span> ($conn-&gt;multi_query($sql) === <span class="keyword">TRUE</span>) &#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"新记录插入成功"</span>;</span></span><br><span class="line"><span class="php">&#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"Error: "</span> . $sql . <span class="string">"&lt;br&gt;"</span> . $conn-&gt;error;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="php">$conn-&gt;close();</span></span><br></pre></td></tr></table></figure><br>运行结果<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">新记录插入成功</span><br></pre></td></tr></table></figure><br><img src="/img/JavaWeb/7-24学习日记/1.jpg" alt="avatar"></p>
@@ -2662,11 +2662,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/23-学习日记</title>
+    <title>PHP-2020/7/23-基础21</title>
     <url>/2020/07/23/PHP-2020-7-23-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="MySQL插入数据"><a href="#MySQL插入数据" class="headerlink" title="MySQL插入数据"></a>MySQL插入数据</h1><p>使用INSERT INTO语句来向MySQL表添加新的记录<br><figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="title">INSERT</span></span> INTO table_name (column1, column2, column3,...)</span><br><span class="line"><span class="function"><span class="title">VALUES</span></span> (value1, value2, value3,...)</span><br></pre></td></tr></table></figure></p>
 <p>方法基本上和创建数据表一致<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">$servername = <span class="string">"localhost"</span>;</span></span><br><span class="line"><span class="php">$username = <span class="string">"root"</span>;</span></span><br><span class="line"><span class="php">$password = <span class="string">"root"</span>;</span></span><br><span class="line"><span class="php">$dbname = <span class="string">"myDB"</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="comment">// 创建连接</span></span></span><br><span class="line"><span class="php">$conn = <span class="keyword">new</span> mysqli($servername, $username, $password, $dbname);</span></span><br><span class="line"><span class="php"><span class="comment">// 检测连接</span></span></span><br><span class="line"><span class="php"><span class="keyword">if</span> ($conn-&gt;connect_error) &#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">die</span>(<span class="string">"连接失败: "</span> . $conn-&gt;connect_error);</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"></span><br><span class="line">$sql = "INSERT INTO MyGuests (firstname, lastname, email)</span><br><span class="line"><span class="php">VALUES (<span class="string">'John'</span>, <span class="string">'Doe'</span>, <span class="string">'john@example.com'</span>)<span class="string">";</span></span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="keyword">if</span> ($conn-&gt;query($sql) === <span class="keyword">TRUE</span>) &#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"新记录插入成功"</span>;</span></span><br><span class="line"><span class="php">&#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"Error: "</span> . $sql . <span class="string">"&lt;br&gt;"</span> . $conn-&gt;error;</span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="php">$conn-&gt;close();</span></span><br></pre></td></tr></table></figure><br>运行结果<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">新记录插入成功</span><br></pre></td></tr></table></figure></p>
@@ -2685,11 +2685,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>JavaWeb-2020/7/23-学习笔记</title>
+    <title>JavaWeb-2020/7/23-Request-1</title>
     <url>/2020/07/23/JavaWeb-2020-7-23-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="Request"><a href="#Request" class="headerlink" title="Request"></a>Request</h1><h2 id="Reuqest原理"><a href="#Reuqest原理" class="headerlink" title="Reuqest原理"></a>Reuqest原理</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">public void service(ServletRequest servletRequest, ServletResponse servletResponse) throws ServletException, IOException &#123;</span><br><span class="line">        System.out.println(&quot;service...&quot;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <ol>
@@ -2769,11 +2769,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/22-学习日记</title>
+    <title>PHP-2020/7/22-基础20</title>
     <url>/2020/07/22/PHP-2020-7-22-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="创建MySQL表"><a href="#创建MySQL表" class="headerlink" title="创建MySQL表"></a>创建MySQL表</h1><p>数据库中需要有表，使用create table语句在MySQL中创建表</p>
 <p>在创建表前，需要使用use databasename 来选择操作的数据库</p>
@@ -2794,11 +2794,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/21-学习日记</title>
+    <title>PHP-2020/7/21-基础19</title>
     <url>/2020/07/21/PHP-2020-7-21-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h1><p>Mysql使用create语句来创建或删除数据库</p>
 <h2 id="使用MySQLi和PDO创建MySQL数据库"><a href="#使用MySQLi和PDO创建MySQL数据库" class="headerlink" title="使用MySQLi和PDO创建MySQL数据库"></a>使用MySQLi和PDO创建MySQL数据库</h2><p>create databases语句用于在MySQL中创建数据库</p>
@@ -2824,11 +2824,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/20-学习日记</title>
+    <title>PHP-2020/7/20-基础18</title>
     <url>/2020/07/20/PHP-2020-7-20-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="PHP-MySQL"><a href="#PHP-MySQL" class="headerlink" title="PHP MySQL"></a>PHP MySQL</h1><p>通过PHP，可以连接和操作数据库</p>
 <h2 id="PHP-MySQL-1"><a href="#PHP-MySQL-1" class="headerlink" title="PHP+MySQL"></a>PHP+MySQL</h2><p>PHP与MySQL的结合是跨平台的，可以在Windows上和Unix平台上应用</p>
@@ -2853,11 +2853,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/19-学习日记</title>
+    <title>PHP-2020/7/19-基础17</title>
     <url>/2020/07/19/PHP-2020-7-19-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h1><h2 id="JSON函数"><a href="#JSON函数" class="headerlink" title="JSON函数"></a>JSON函数</h2><div class="table-container">
 <table>
@@ -2913,11 +2913,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/18-学习日记</title>
+    <title>PHP-2020/7/18-基础16</title>
     <url>/2020/07/18/PHP-2020-7-18-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="高级过滤器"><a href="#高级过滤器" class="headerlink" title="高级过滤器"></a>高级过滤器</h1><h2 id="检测一个数字是否在一个范围内"><a href="#检测一个数字是否在一个范围内" class="headerlink" title="检测一个数字是否在一个范围内"></a>检测一个数字是否在一个范围内</h2><p>使用filter_var()函数来检测一个int型的变量是否在1到200内：<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">$int = <span class="number">122</span>;</span></span><br><span class="line"><span class="php">$min = <span class="number">1</span>;</span></span><br><span class="line"><span class="php">$max = <span class="number">200</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="php"><span class="keyword">if</span> (filter_var($int, FILTER_VALIDATE_INT, <span class="keyword">array</span>(<span class="string">"options"</span> =&gt; <span class="keyword">array</span>(<span class="string">"min_range"</span>=&gt;$min, <span class="string">"max_range"</span>=&gt;$max))) === <span class="keyword">false</span>) &#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span>(<span class="string">"变量值不在合法范围内"</span>);</span></span><br><span class="line"><span class="php">&#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span>(<span class="string">"变量值在合法范围内"</span>);</span></span><br><span class="line"><span class="php">&#125;</span></span><br></pre></td></tr></table></figure><br>运行结果<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">变量值在合法范围内</span><br></pre></td></tr></table></figure><br>这个地方使用了FILTER_VALIDATE_INT，这个过滤器把值作为整数来验证</p>
 <p>还可以添加选项和标志</p>
@@ -2967,11 +2967,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/17-学习日记</title>
+    <title>PHP-2020/7/17-基础15</title>
     <url>/2020/07/17/PHP-2020-7-17-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h1><p>异常用于在指定的错误发生时改变脚本的正常流程</p>
 <h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>PHP5提供了一种新的面向对象地错误处理方法</p>
@@ -3039,11 +3039,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/16-学习日记</title>
+    <title>PHP-2020/7/16-基础14</title>
     <url>/2020/07/16/PHP-2020-7-16-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="error"><a href="#error" class="headerlink" title="error"></a>error</h1><p>在PHP中，默认的错误处理很简单。一条错误消息会被发送到浏览器，这条消息带有文件名、行号以及描述错误的消息</p>
 <h2 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h2><p>在创建脚本和Web应用程序时，错误处理是一个很重要的部分，如果你的代码缺少错误检测编码，那么程序就很不专业</p>
@@ -3133,11 +3133,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/15-学习日记</title>
+    <title>PHP-2020/7/15-基础13</title>
     <url>/2020/07/15/PHP-2020-7-15-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="电子邮件"><a href="#电子邮件" class="headerlink" title="电子邮件"></a>电子邮件</h1><p>PHP允许直接从脚本发送电子邮件</p>
 <h2 id="mail-函数"><a href="#mail-函数" class="headerlink" title="mail()函数"></a>mail()函数</h2><p>mail()函数用于从脚本中发送电子邮件</p>
@@ -3177,11 +3177,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/14-学习日记</title>
+    <title>PHP-2020/7/14-基础12</title>
     <url>/2020/07/14/PHP-2020-7-14-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="session"><a href="#session" class="headerlink" title="session"></a>session</h1><p>PHP session变量用于存储关于用户会话(session)的信息，或者更改用户会话(session)的设置。Session变量存储单一用户的信息，并且对于应用程序中的所有页面都是可用的</p>
 <h2 id="session变量"><a href="#session变量" class="headerlink" title="session变量"></a>session变量</h2><p>当在计算机上操作某个应用程序(打开，修改，关闭)。这就很想一次会话(session)。计算机知道你是谁，何时打开和关闭程序。但是当网络出现问题时，HTTP地址就无法保持状态，Web服务器就不知道你是谁和干了什么</p>
@@ -3205,11 +3205,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/13-学习日记</title>
+    <title>PHP-2020/7/13-基础11</title>
     <url>/2020/07/13/PHP-2020-7-13-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h1><p>常用于识别用户</p>
 <h2 id="Cookie是什么"><a href="#Cookie是什么" class="headerlink" title="Cookie是什么"></a>Cookie是什么</h2><p>cookie常用于识别用户。cookie是一种服务器留在用户计算机上的小文件。每当同一台计算机通过浏览器请求页面时，这台计算机将会发送cookie,通过PHP，可以创建并取回cookie的值</p>
@@ -3238,11 +3238,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/12-学习日记</title>
+    <title>PHP-2020/7/12-基础10</title>
     <url>/2020/07/12/PHP-2020-7-12-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="包含文件"><a href="#包含文件" class="headerlink" title="包含文件"></a>包含文件</h1><h2 id="include和require"><a href="#include和require" class="headerlink" title="include和require"></a>include和require</h2><p>在PHP中，可以在服务器执行PHP文件之前插入一个文件的内容</p>
 <p>include和require除了处理错误的方式不同之外，在其他方向都是相同的</p>
@@ -3275,11 +3275,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/11-学习日记</title>
+    <title>PHP-2020/7/11-基础9</title>
     <url>/2020/07/12/PHP-2020-7-11-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h1><p>一个数组中的值可以是另一个数组</p>
 <figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"><span class="comment">// 二维数组:</span></span><br><span class="line">$cars = <span class="built_in">array</span></span><br><span class="line">(</span><br><span class="line">    <span class="built_in">array</span>(<span class="string">"Volvo"</span>,<span class="number">100</span>,<span class="number">96</span>),</span><br><span class="line">    <span class="built_in">array</span>(<span class="string">"BMW"</span>,<span class="number">60</span>,<span class="number">59</span>),</span><br><span class="line">    <span class="built_in">array</span>(<span class="string">"Toyota"</span>,<span class="number">110</span>,<span class="number">100</span>)</span><br><span class="line">);</span><br><span class="line">print_r($cars);</span><br></pre></td></tr></table></figure>
@@ -3404,11 +3404,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/10-学习日记</title>
+    <title>PHP-2020/7/10-基础8</title>
     <url>/2020/07/10/PHP-2020-7-10-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h1><p>面向对象已经很熟悉了，基本上就一句话总结，类是虚指，对象是类的实例</p>
 <h2 id="对象内容"><a href="#对象内容" class="headerlink" title="对象内容"></a>对象内容</h2><ul>
@@ -3476,11 +3476,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/9-学习日记</title>
+    <title>PHP-2020/7/9-基础7</title>
     <url>/2020/07/09/PHP-2020-7-9-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h1><p>namespace在C++里见过，use namespace std;</p>
 <p>命名空间可以解决两类问题</p>
@@ -3533,11 +3533,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/8-学习日记</title>
+    <title>PHP-2020/7/8-基础6</title>
     <url>/2020/07/08/PHP-2020-7-8-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h1><h2 id="创建PHP函数"><a href="#创建PHP函数" class="headerlink" title="创建PHP函数"></a>创建PHP函数</h2><p>函数是通过调用函数来执行的</p>
 <p>语法<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php"><span class="function"><span class="keyword">function</span> <span class="title">functionName</span><span class="params">()</span></span></span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    <span class="comment">// 要执行的代码</span></span></span><br><span class="line"><span class="php">&#125;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure></p>
@@ -3591,11 +3591,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>JavaWeb-2020/7/7-学习笔记</title>
+    <title>JavaWeb-2020/7/7-Servlet</title>
     <url>/2020/07/07/JavaWeb-2020-7-7-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<p>阿西吧，上课时候没看视频，现在来还债了，两周学完JavaWeb基础，太难了</p>
 <h1 id="用IDEA创建JavaWeb项目并部署"><a href="#用IDEA创建JavaWeb项目并部署" class="headerlink" title="用IDEA创建JavaWeb项目并部署"></a>用IDEA创建JavaWeb项目并部署</h1><p>第一步先在创建好的project下创建一个新的Module，Module要注意勾选JavaWeb Application，随便命名，就命名一个HelloWorld吧<br><img src="/img/JavaWeb/7-7学习日记/0.png" alt="avatar"><br>创建好应该是上图所示的状态</p>
@@ -3651,11 +3651,11 @@
         <category>JavaWeb</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/7-学习日记</title>
+    <title>PHP-2020/7/7-基础5</title>
     <url>/2020/07/07/PHP-2020-7-7-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="超全局变量"><a href="#超全局变量" class="headerlink" title="超全局变量"></a>超全局变量</h1><p>PHP4.1.X后就启用了超全局变量，可以在脚本的任意位置运行</p>
 <p>PHP的超全局变量有:</p>
@@ -3791,11 +3791,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/7/6-学习日记</title>
+    <title>PHP-2020/7/6-基础4</title>
     <url>/2020/07/06/PHP-2020-7-6-%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h1><p>PHP中内置了PHP数组的排列函数</p>
 <ul>
@@ -3825,11 +3825,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/6/14-周报2</title>
+    <title>PHP-2020/6/14-基础3</title>
     <url>/2020/06/14/PHP-2020-6-14-%E5%91%A8%E6%8A%A52/</url>
     <content><![CDATA[<h1 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h1><p>在编写代码的时候常常需要为不同判断执行不同的动作<br><figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>语句 -条件成立时执行代码</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">if</span></span>...<span class="keyword">else</span>语句 -条件成立时执行一块代码，条件不成立时执行另一块代码</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">if</span></span>...elseif...<span class="keyword">else</span>语句 -在若干条件之一成立时执行一个代码块</span><br><span class="line"></span><br><span class="line">switch语句 -在若干条件之一成立时执行一个代码块</span><br></pre></td></tr></table></figure></p>
 <h2 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h2><p>语法和C语言类似<br><figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">if(条件)&#123;</span><br><span class="line">	代码<span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>例如<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">$t=date(<span class="string">"H"</span>);</span></span><br><span class="line"><span class="php"><span class="keyword">if</span> ($t&lt;<span class="string">"20"</span>)</span></span><br><span class="line"><span class="php">&#123;</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"Have a good day!"</span>;</span></span><br><span class="line"><span class="php">&#125;</span></span><br></pre></td></tr></table></figure><br>如果当前时间小于20，那就输出Have a good day!</p>
@@ -3869,11 +3869,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/6/7-周报1</title>
+    <title>PHP-2020/6/7-基础2</title>
     <url>/2020/06/07/PHP-2020-6-7-%E5%91%A8%E6%8A%A51/</url>
     <content><![CDATA[<h1 id="类型比较"><a href="#类型比较" class="headerlink" title="类型比较"></a>类型比较</h1><p>虽然PHP是弱类型语言，但是对于变量的比较还是有一些不同</p>
 <p>松散比较：使用<code>==</code>比较，只比较值，不比较类型</p>
@@ -4232,11 +4232,11 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>PHP-2020/6/1-周报0</title>
+    <title>PHP-2020/6/1-基础1</title>
     <url>/2020/06/02/PHP-2020-6-1-%E5%91%A8%E6%8A%A50/</url>
     <content><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>PHP全称是超文本预处理器，是一种通用开源脚本语言</p>
 <p>可以包含文本，HTML，JavaScript和PHP代码</p>
@@ -4301,7 +4301,7 @@
         <category>PHP</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
@@ -4488,7 +4488,7 @@
       </tags>
   </entry>
   <entry>
-    <title>Python3-2020/5/1-周报10</title>
+    <title>Python3-2020/5/1-验证码识别</title>
     <url>/2020/05/02/Python3-2020-5-1-%E5%91%A8%E6%8A%A510/</url>
     <content><![CDATA[<h1 id="验证码的识别"><a href="#验证码的识别" class="headerlink" title="验证码的识别"></a>验证码的识别</h1><p>随着爬虫越来越多，许多网站都采取了各种各样的反爬虫机制，其中最常见的就是使用验证码，现在随着技术的发展，验证码已经由数字演变成了字母，滑动，九宫格等各种验证码</p>
 <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>由于tesserocr库是比较老的库，目前只更新到只吃python3.7，而由于我的是python3.8经过多次尝试之后，发现还是无法使用，经过查看大量的资料，我使用了另外一个库—pytesseract</p>
@@ -4517,11 +4517,11 @@
         <category>Python3</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Python3-2020/4/26-周报9</title>
+    <title>Python3-2020/4/26-Selenuim</title>
     <url>/2020/04/26/Python3-2020-4-26-%E5%91%A8%E6%8A%A59/</url>
     <content><![CDATA[<h1 id="动态渲染页面爬取"><a href="#动态渲染页面爬取" class="headerlink" title="动态渲染页面爬取"></a>动态渲染页面爬取</h1><p>前面了解到了Ajax的分析和爬取方式，这其实也是JavaScript动态渲染页面的一种方式，通过直接分析Ajax,仍然可以借助requests或urllib来实现数据爬取</p>
 <p>但是JavaScript的动态渲染页面不止Ajax这一种，例如有些网站的分页是由JavaScript生成的，并非是原始的HTML代码，其中也并不包含Ajax</p>
@@ -4581,11 +4581,11 @@
         <category>Python3</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Python3-2020/4/18-周报8</title>
+    <title>Python3-2020/4/18-Ajax</title>
     <url>/2020/04/18/Python3-2020-4-18-%E5%91%A8%E6%8A%A58/</url>
     <content><![CDATA[<h1 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h1><h2 id="什么是Ajax"><a href="#什么是Ajax" class="headerlink" title="什么是Ajax"></a>什么是Ajax</h2><p>全称是Asynchronous JavaScript and XML,即异步的JavaScript和XML。利用了JavaScript在保证页面不被刷新，页面链接不改变的情况下与服务器交换数据并更新部分网页的技术<br><a href="https://www.w3school.com.cn/ajax/ajax_xmlhttprequest_send.asp" target="_blank" rel="noopener">https://www.w3school.com.cn/ajax/ajax_xmlhttprequest_send.asp</a></p>
 <h3 id="实例引入"><a href="#实例引入" class="headerlink" title="实例引入"></a>实例引入</h3><p>访问<a href="https://m.weibo.cn/u/2830678474" target="_blank" rel="noopener">https://m.weibo.cn/u/2830678474</a><br><img src="/img/python3/ajax0.png" alt="avatar"></p>
@@ -4616,11 +4616,11 @@
         <category>Python3</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Python3-2020/4/11-周报7</title>
+    <title>Python3-2020/4/11-pyquery</title>
     <url>/2020/04/11/Python3-2020-4-11-%E5%91%A8%E6%8A%A57/</url>
     <content><![CDATA[<h1 id="pyquery"><a href="#pyquery" class="headerlink" title="pyquery"></a>pyquery</h1><h2 id="基本CSS选择器"><a href="#基本CSS选择器" class="headerlink" title="基本CSS选择器"></a>基本CSS选择器</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">html = '''</span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span> <span class="attr">class</span>=<span class="string">"list"</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-0"</span>&gt;</span>first item<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-1"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link2.html"</span>&gt;</span>second item<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-0 active"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link3.html"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"bold"</span>&gt;</span>third item<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-1 active"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link4.html"</span>&gt;</span>fourth item<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-0"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link5.html"</span>&gt;</span>fifth item<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">'''</span><br><span class="line">from pyquery import PyQuery as pq</span><br><span class="line">doc = pq(html)</span><br><span class="line">print(doc('#container .list li'))</span><br><span class="line">print(type(doc('#container .list li')))</span><br><span class="line"></span><br><span class="line">输出结果：</span><br><span class="line"><span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-0"</span>&gt;</span>first item<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-1"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link2.html"</span>&gt;</span>second item<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-0 active"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link3.html"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"bold"</span>&gt;</span>third item<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-1 active"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link4.html"</span>&gt;</span>fourth item<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">         <span class="tag">&lt;<span class="name">li</span> <span class="attr">class</span>=<span class="string">"item-0"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"link5.html"</span>&gt;</span>fifth item<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">     </span><br><span class="line"><span class="tag">&lt;<span class="name">class</span> '<span class="attr">pyquery.pyquery.PyQuery</span>'&gt;</span></span><br></pre></td></tr></table></figure>
 <p>这里我们初始化pyquery对象之后，传入了一个CSS选择器#container.list li 它的意思是先选取id为container的节点，然后再选取其内部的class为list的节点内部的所有li节点。然后，打印输出。</p>
@@ -4671,11 +4671,11 @@
         <category>Python3</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Python3-2020/4/4-周报6</title>
+    <title>Python3-2020/4/4-bp4</title>
     <url>/2020/04/04/Python3-2020-4-4-%E5%91%A8%E6%8A%A56/</url>
     <content><![CDATA[<h1 id="Beautiful-Soup"><a href="#Beautiful-Soup" class="headerlink" title="Beautiful Soup"></a>Beautiful Soup</h1><h2 id="关联选择"><a href="#关联选择" class="headerlink" title="关联选择"></a>关联选择</h2><h3 id="兄弟节点"><a href="#兄弟节点" class="headerlink" title="兄弟节点"></a>兄弟节点</h3><p>之前说明了子节点和父节点的获取方式，如果想要获取同级的节点，请看如下例子：<br><figure class="highlight smalltalk"><table><tr><td class="code"><pre><span class="line">html = <span class="comment">""</span><span class="comment">"</span></span><br><span class="line"><span class="comment">&lt;html&gt;</span></span><br><span class="line"><span class="comment">    &lt;body&gt;</span></span><br><span class="line"><span class="comment">        &lt;p class="</span>story<span class="comment">"&gt;</span></span><br><span class="line"><span class="comment">            Once upon a time there were three little sisters; and their names were</span></span><br><span class="line"><span class="comment">            &lt;a href="</span>http://example.com/elsie<span class="comment">" class="</span>sister<span class="comment">" id="</span>link1<span class="comment">"&gt;Bob&lt;/a&gt;&lt;a href="</span>http://example.com/lacie<span class="comment">" class="</span>sister<span class="comment">" id="</span>link2<span class="comment">"&gt;Lacie&lt;/a&gt;</span></span><br><span class="line"><span class="comment">        &lt;/p&gt;</span></span><br><span class="line"><span class="comment">"</span><span class="comment">""</span></span><br><span class="line">from bs4 import <span class="type">BeautifulSoup</span></span><br><span class="line">soup = <span class="type">BeautifulSoup</span>(html, <span class="string">'lxml'</span>)</span><br><span class="line">print(<span class="string">'Next Sibling'</span>,soup.a.next_sibling)</span><br><span class="line">print(<span class="string">'prev sibling'</span>,soup.a.previous_sibling)</span><br><span class="line"></span><br><span class="line">输出结果：</span><br><span class="line"><span class="type">Next</span> <span class="type">Sibling</span> &lt;a class=<span class="comment">"sister"</span> href=<span class="comment">"http://example.com/lacie"</span> id=<span class="comment">"link2"</span>&gt;<span class="type">Lacie</span>&lt;/a&gt;</span><br><span class="line">prev sibling </span><br><span class="line">            <span class="type">Once</span> upon a time there were three little sisters; and their names were</span><br></pre></td></tr></table></figure><br>这段代码中可以看到next_sibling和previous_sibling分别获取节点的下一个和上一个兄弟元素，next_sibling返回后面的兄弟节点，previous_siblings返回前面的兄弟节点</p>
 <h3 id="提取数据"><a href="#提取数据" class="headerlink" title="提取数据"></a>提取数据</h3><p>如果想要获取比如文本，属性等，也可以用同样的方法：<br><figure class="highlight stata"><table><tr><td class="code"><pre><span class="line">html = <span class="string">""</span>"</span><br><span class="line">&lt;html&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">        &lt;p <span class="keyword">class</span>=<span class="string">"story"</span>&gt;</span><br><span class="line">            Once upon a time there were three little sisters; and their names were</span><br><span class="line">            &lt;a href=<span class="string">"http://example.com/elsie"</span> <span class="keyword">class</span>=<span class="string">"sister"</span> id=<span class="string">"link1"</span>&gt;Bob&lt;/a&gt;&lt;a href=<span class="string">"http://example.com/lacie"</span> <span class="keyword">class</span>=<span class="string">"sister"</span> id=<span class="string">"link2"</span>&gt;Lacie&lt;/a&gt;</span><br><span class="line">        &lt;/p&gt;</span><br><span class="line"><span class="string">""</span>"</span><br><span class="line">from bs4 import BeautifulSoup</span><br><span class="line">soup = BeautifulSoup(html, 'lxml')</span><br><span class="line"><span class="keyword">print</span>('Next Sibling:')</span><br><span class="line"><span class="keyword">print</span>(<span class="keyword">type</span>(soup.a.next_sibling))</span><br><span class="line"><span class="keyword">print</span>(soup.a.next_sibling)</span><br><span class="line"><span class="keyword">print</span>(soup.a.next_sibling.string)</span><br><span class="line"><span class="keyword">print</span>('Parent:')</span><br><span class="line"><span class="keyword">print</span>(<span class="keyword">type</span>(soup.a.parents))</span><br><span class="line"><span class="keyword">print</span>(<span class="keyword">list</span>(soup.a.parents)[0])</span><br><span class="line"><span class="keyword">print</span>(<span class="keyword">list</span>(soup.a.parents)[0].attrs['<span class="keyword">class</span>'])</span><br><span class="line"></span><br><span class="line">输出结果：</span><br><span class="line">Next Sibling:</span><br><span class="line">&lt;<span class="keyword">class</span> 'bs4.element.Tag'&gt;</span><br><span class="line">&lt;a <span class="keyword">class</span>=<span class="string">"sister"</span> href=<span class="string">"http://example.com/lacie"</span> id=<span class="string">"link2"</span>&gt;Lacie&lt;/a&gt;</span><br><span class="line">Lacie</span><br><span class="line">Parent:</span><br><span class="line">&lt;<span class="keyword">class</span> 'generator'&gt;</span><br><span class="line">&lt;p <span class="keyword">class</span>=<span class="string">"story"</span>&gt;</span><br><span class="line">            Once upon a time there were three little sisters; and their names were</span><br><span class="line">            &lt;a <span class="keyword">class</span>=<span class="string">"sister"</span> href=<span class="string">"http://example.com/elsie"</span> id=<span class="string">"link1"</span>&gt;Bob&lt;/a&gt;&lt;a <span class="keyword">class</span>=<span class="string">"sister"</span> href=<span class="string">"http://example.com/lacie"</span> id=<span class="string">"link2"</span>&gt;Lacie&lt;/a&gt;</span><br><span class="line">&lt;/p&gt;</span><br><span class="line">['story']</span><br></pre></td></tr></table></figure><br>调用string,attrs等获取文本和属性，如果返回多个节点，就可以转成列表后取出某个元素</p>
@@ -4714,11 +4714,11 @@
         <category>Python3</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Python3-2020/3/27-周报5</title>
+    <title>Python3-2020/3/27-XPath</title>
     <url>/2020/03/27/Python3-2020-3-27-%E5%91%A8%E6%8A%A55/</url>
     <content><![CDATA[<h1 id="XPath"><a href="#XPath" class="headerlink" title="XPath"></a>XPath</h1><p>之前实现了最基本的爬虫，使用正则表达式来获取页面，但是正则表达式在遇到一些复杂问题的时候就会变得繁琐，有一个地方写错了就有可能导致匹配失败，所以引入解析库来帮助获取</p>
 <p>XPath是XML路径语言，但是同时也适用于HTML文档的搜索</p>
@@ -4927,11 +4927,11 @@
         <category>Python3</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Python3-2020/3/22-周报4</title>
+    <title>Python3-2020/3/22-requests</title>
     <url>/2020/03/21/Python3-2020-3-22-%E5%91%A8%E6%8A%A54/</url>
     <content><![CDATA[<h1 id="正则补充"><a href="#正则补充" class="headerlink" title="正则补充"></a>正则补充</h1><p>学完urllib和正则之后，想试验一下，去抓了一下i春秋课程的标题，结果没有伪造成浏览器，被封IP地址了。。。</p>
 <p>所以只好用我们学校教务系统的登录界面来简单试验一下：</p>
@@ -4976,11 +4976,11 @@
         <category>Python3</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Python3-2020/3/13-周报3</title>
+    <title>Python3-2020/3/13-正则与urllib</title>
     <url>/2020/03/13/Python3-2020-3-13-%E5%91%A8%E6%8A%A53/</url>
     <content><![CDATA[<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><p>正则表达式常用在我们的生活中，例如检测邮箱是否合法，手机号，身份证是否正确等</p>
 <h2 id="re模块"><a href="#re模块" class="headerlink" title="re模块"></a>re模块</h2><p>在python中内置了专门处理正则表达式的re模块，有了re模块就可以在程序中使用正则表达式及其相关函数</p>
@@ -5271,11 +5271,11 @@
         <category>Python3</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Python3-2020/3/6-周报2</title>
+    <title>Python3-2020/3/6-基础3</title>
     <url>/2020/03/05/Python3-2020-3-6-%E5%91%A8%E6%8A%A52/</url>
     <content><![CDATA[<h1 id="包和模块"><a href="#包和模块" class="headerlink" title="包和模块"></a>包和模块</h1><h2 id="包"><a href="#包" class="headerlink" title="包"></a>包</h2><p>在python种包与普通文件夹的区别是，在包内要创建一个<code>_init_.py</code>文件，来标识它不是一个普通文件夹，而是一个包。</p>
 <p>一个项目可以包含多个包，一个包可以包含多个子包，也可以包含多个模块<br>例如：<br><img src="/img/python3/0.png" alt="avatar"></p>
@@ -5362,11 +5362,11 @@
         <category>Python3</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Python3-2020/3/1-周报1</title>
+    <title>Python3-2020/3/1-基础2</title>
     <url>/2020/03/01/Python3-2020-3-1-%E5%91%A8%E6%8A%A51/</url>
     <content><![CDATA[<h1 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h1><p>基本形式<br><figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> 判断条件：</span><br><span class="line">    执行语句</span><br><span class="line"><span class="keyword">else</span>：</span><br><span class="line">    执行语句</span><br></pre></td></tr></table></figure><br>if语句可以用&gt;,&lt;,==，&gt;=,&lt;=来表示其关系</p>
 <p>由于python没有switch语句，所以在遇到判断条件为多个值时，用下列形式：<br><figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> 判断条件<span class="number">1</span>:</span><br><span class="line">	执行语句<span class="number">1</span></span><br><span class="line">elif 判断条件<span class="number">2</span>:</span><br><span class="line">	执行语句<span class="number">2</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">	执行语句<span class="number">3</span></span><br></pre></td></tr></table></figure><br>在python中，如果满足条件却不做任何操作，使用<code>pass</code>直接跳过</p>
@@ -5422,11 +5422,11 @@
         <category>Python3</category>
       </categories>
       <tags>
-        <tag>CTF</tag>
+        <tag>开发</tag>
       </tags>
   </entry>
   <entry>
-    <title>Python3-2020/2/22-周报0</title>
+    <title>Python3-2020/2/22-基础1</title>
     <url>/2020/02/22/Python/</url>
     <content><![CDATA[<h1 id="Python3基础语法"><a href="#Python3基础语法" class="headerlink" title="Python3基础语法"></a>Python3基础语法</h1><h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><p>默认情况下，Python3源码文件以UTF-O编码，所有的字符串都是unicode字符串。</p>
 <h2 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h2><p>第一个字符必须是字母或下划线_<br>其他部分由字母，数字和下划线组成<br>大小写敏感</p>
